@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214162052) do
-
-  create_table "client_programs", force: :cascade do |t|
-    t.integer  "client_id",        limit: 4
-    t.integer  "programable_id",   limit: 4
-    t.string   "programable_type", limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
+ActiveRecord::Schema.define(version: 20160214222936) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -55,18 +47,21 @@ ActiveRecord::Schema.define(version: 20160214162052) do
     t.string   "currently_foreclosed", limit: 255
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "client_id",            limit: 4
   end
 
   create_table "homebuyings", force: :cascade do |t|
     t.string   "lender",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "client_id",  limit: 4
   end
 
   create_table "law_projects", force: :cascade do |t|
     t.string   "violation_type", limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "client_id",      limit: 4
   end
 
   create_table "program_employees", force: :cascade do |t|
@@ -81,12 +76,14 @@ ActiveRecord::Schema.define(version: 20160214162052) do
     t.integer  "evictions",  limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "client_id",  limit: 4
   end
 
   create_table "senior_repairs", force: :cascade do |t|
     t.string   "contractor", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "client_id",  limit: 4
   end
 
   create_table "users", force: :cascade do |t|
