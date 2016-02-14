@@ -61,6 +61,10 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    faker (1.6.1)
+      i18n (~> 0.5)
+    faker-medical (0.5.2)
+      faker
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -179,6 +183,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  faker
+  faker-medical
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (~> 0.3.10)
