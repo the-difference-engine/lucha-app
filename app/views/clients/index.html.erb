@@ -1,0 +1,21 @@
+<h1>Clients#index</h1>
+<%= form_tag "" %>
+  <div class="field">
+    <%= f.label :race %><br />
+    <%= f.select(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']])) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :home_phone %><br />
+    <%= f.text_field :home_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cell_phone %><br />
+    <%= f.text_field :cell_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :work_phone %><br />
+    <%= f.text_field :work_phone %>
+  </div>

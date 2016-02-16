@@ -1,0 +1,25 @@
+<%= form_tag "/clients/#{@product.id}", method: :patch do %>
+
+  <div class="field">
+    <%= label_tag :race %><br />
+    <%= select(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']])) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :home_phone %><br />
+    <%= text_field_tag :home_phone %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :cell_phone %><br />
+    <%= text_field_tag :cell_phone %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :work_phone %><br />
+    <%= text_field_tag :work_phone %>
+  </div>
+
+<%= submit_tag "Update!" %>
+
+<% end %>
