@@ -13,11 +13,10 @@ Rails.application.routes.draw do
   get '/clients' =>'clients#index'
   get '/clients/new' => 'clients#new'
   post '/clients/create' => 'clients#create'
-  get '/clients/:id' => 'clients#show'
-  get '/clients/:id/edit' => 'clients#edit'
-  patch '/clients/:id' => 'clients#update'
-  delete '/clients/:id' => 'clients#destroy'
-
+  # get '/clients/:id' => 'clients#show'
+  # get '/clients/:id/edit' => 'clients#edit'
+  # patch '/clients/:id' => 'clients#update'
+  # delete '/clients/:id' => 'clients#destroy'
 
 
 end
