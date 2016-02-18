@@ -4,25 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-  def authenticate_user!
-    if current_user == false || current_client == false
-	    redirect_to "/users/sign_in" 
+  def authenticate_client!
+    if current_client == false 
+	    redirect_to "/" 
 	    # unless current_user && current_user.admin
 	    flash[:warning] = "Please sign in."
-
-
     end
   end
 
   def authenticate_employee!
-  	if current_user == false
-  		redirect_to "/"
-	    flash[:warning] = "Not an employee."
-	    
-	    # if current_client
-	    # redirect_to "?"
-	    # end
-	  end
+    if current_user == false
+	    redirect_to "/"
+      flash[:warning] = "Not an employee."  
+    end
 	end
 
 end
