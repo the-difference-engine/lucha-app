@@ -1,23 +1,59 @@
-<%= form_tag "/clients/#{@product.id}", method: :patch do %>
+
+<%= form_tag "/clients/#{@client.id}", method: :patch do %>
+ 
+   <div class="field">
+    <%= label_tag :first_name %><br />
+    <%=text_field_tag :first_name %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :last_name %><br />
+    <%=text_field_tag :last_name %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :sex %><br />
+    <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']])) %>
+  </div>
 
   <div class="field">
     <%= label_tag :race %><br />
-    <%= select(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']])) %>
+    <%= select_tag(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']])) %>
   </div>
 
   <div class="field">
     <%= label_tag :home_phone %><br />
-    <%= text_field_tag :home_phone %>
+    <%=text_field_tag :home_phone %>
   </div>
 
   <div class="field">
     <%= label_tag :cell_phone %><br />
-    <%= text_field_tag :cell_phone %>
+    <%=text_field_tag :cell_phone %>
   </div>
 
   <div class="field">
     <%= label_tag :work_phone %><br />
     <%= text_field_tag :work_phone %>
+  </div>
+
+    <div class="field">
+    <%= label_tag :address %><br />
+    <%=text_field_tag :address %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :state %><br />
+    <%=text_field_tag :state %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :ward %><br />
+    <%= text_field_tag :ward %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :zip_code %><br />
+    <%= text_field_tag :zip_code %>
   </div>
 
 <%= submit_tag "Update!" %>

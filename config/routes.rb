@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :clients, :path_names => {:sign_up => "register"}
+  devise_for :clients, :path_names => {:sign_up => "register"}, controllers: { registrations: "registrations"}
   devise_for :users
 
+  root to: 'landing_pages#index'
 
 
   get '/users' =>'users#index'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   get '/clients/new' => 'clients#new'
   post '/clients/create' => 'clients#create'
   get '/clients/:id' => 'clients#show'
-  get '/clients/:id/edit' => 'clients#edit'
+  get '/clients/:id/edit' => 'clients#edit', as: :client_edit
   patch '/clients/:id' => 'clients#update'
   delete '/clients/:id' => 'clients#destroy'
 

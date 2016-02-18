@@ -1,21 +1,9 @@
 <h1>Clients#index</h1>
-<%= form_tag "" %>
-  <div class="field">
-    <%= label_tag :race %><br />
-    <%= select_tag(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']])) %>
-  </div>
 
-  <div class="field">
-    <%= label_tag :home_phone %><br />
-    <%=text_field_tag :home_phone %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :cell_phone %><br />
-    <%=text_field_tag :cell_phone %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :work_phone %><br />
-    <%= text_field_tag :work_phone %>
-  </div>
+<% if current_client %>
+Hi, please continue your application here:
+<%= link_to "Edit", "/clients/#{current_client.id}/edit" %>
+<h5><%= current_client.first_name %></h5>
+<h5><%= current_client.last_name %></h5>
+<h5><%= current_client.address %></h5>
+<% end %>

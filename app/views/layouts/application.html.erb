@@ -38,7 +38,12 @@
                 <li>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                <% if user_signed_in? %>
+                    <a href="#"><%= current_user.email %></a>
+                <% elsif client_signed_in? %>
+                    <a href="#"><%= current_client.email %></a>
+                <% end %>
+
                 </li>
                 <li>
                     <a href="#">Overview</a>
@@ -55,15 +60,22 @@
                 <li>
                     <a href="/users/sign_out">About</a>
                 </li>
-                <% if user_signed_in? %>
-								  <li>
-								  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-								  </li>
-								<% else %>
-								  <li>
-								  <%= link_to('Login', new_user_session_path)  %>  
-								  </li>
-								<% end %>
+                <% if client_signed_in? %>
+					  <li>
+						  <%= link_to('Logout', destroy_client_session_path, :method => :delete) %>        
+					  </li>
+                <% elsif user_signed_in?  %>
+                      <li>
+                          <%= link_to('Logout', destroy_client_session_path, :method => :delete) %>        
+                      </li>
+    			<% else %>
+					  <li>
+    					  <%= link_to('Employee login', new_user_session_path)  %>  
+					  </li>
+                      <li>
+                          <%= link_to('Client login', new_client_session_path)  %>  
+                      </li>
+				<% end %>
 
             </ul>
         </div>
@@ -92,10 +104,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="javascripts/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>

@@ -26,12 +26,6 @@ class User < ActiveRecord::Base
   has_many :clients, through: :senior_repairs
 
 
-  # def foreclosure_clients
-  #   clients = []
-  #   self.foreclosures.each do |f|
-  #     clients << f.client
-  #   end
-  #   clients
-  # end
+
 
 end

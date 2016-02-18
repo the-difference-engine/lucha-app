@@ -1,6 +1,9 @@
 class ClientsController < ApplicationController  
+
+  before_action :authenticate_user!
+
 	def index
-  
+    @client = current_client
   end
 
   def show
@@ -35,7 +38,7 @@ class ClientsController < ApplicationController
   end
 
   def edit
-  	
+    @client = Client.find(params[:id])
   end
 
   def update
