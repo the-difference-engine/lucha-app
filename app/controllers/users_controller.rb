@@ -12,7 +12,12 @@ class UsersController < ApplicationController
   end
 
   def create
-  	
+   @user = User.new({first: params[:name],
+            price: params[:price], 
+            description: params[:description], 
+            supplier_id: params[:supplier][:supplier_id]
+            })
+
   end
 
   def edit

@@ -31,12 +31,11 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
+                    <a href="/">
+                        LUCHA Home
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
                 </li>
                 <li>
                     <a href="#">Shortcuts</a>
@@ -45,17 +44,27 @@
                     <a href="#">Overview</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a href="/clients/register">Client Registration</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="/users/sign_up">Users Registration</a>
+                </li>
+                 <li>
+                    <a href="/clients/sign_out">Events</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="/users/sign_out">About</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+                <% if user_signed_in? %>
+								  <li>
+								  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+								  </li>
+								<% else %>
+								  <li>
+								  <%= link_to('Login', new_user_session_path)  %>  
+								  </li>
+								<% end %>
+
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
