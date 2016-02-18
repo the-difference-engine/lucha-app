@@ -1,0 +1,2 @@
+module LawProjectsHelper
+end

@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 	    redirect_to "/users/sign_in" 
 	    # unless current_user && current_user.admin
 	    flash[:warning] = "Please sign in."
+
+
     end
   end
 
@@ -16,6 +18,10 @@ class ApplicationController < ActionController::Base
   	if current_user == false
   		redirect_to "/"
 	    flash[:warning] = "Not an employee."
+	    
+	    # if current_client
+	    # redirect_to "?"
+	    # end
 	  end
 	end
 

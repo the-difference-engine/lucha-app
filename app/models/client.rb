@@ -3,14 +3,15 @@ class Client < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  # belongs_to :user
-  has_many :client_programs
+  belongs_to :user
+  belongs_to :user
+  belongs_to :user
+  belongs_to :user
+
   has_many :foreclosures
   has_many :homebuyings
   has_many :rentals
   has_many :law_projects
-  has_many :law_projects
-
-
+  has_many :home_repairs
 
 end

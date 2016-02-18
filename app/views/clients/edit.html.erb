@@ -1,59 +1,59 @@
 
-<%= form_tag "/clients/#{@client.id}", method: :patch do %>
+<%= form_tag "/clients/#{current_client}", method: :patch do %>
  
    <div class="field">
     <%= label_tag :first_name %><br />
-    <%=text_field_tag :first_name %>
+    <%=text_field_tag :first_name, current_client.first_name %>
   </div>
 
   <div class="field">
     <%= label_tag :last_name %><br />
-    <%=text_field_tag :last_name %>
+    <%=text_field_tag :last_name, current_client.last_name %>
   </div>
 
   <div class="field">
     <%= label_tag :sex %><br />
-    <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']])) %>
+    <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], current_client.sex)) %>
   </div>
 
   <div class="field">
     <%= label_tag :race %><br />
-    <%= select_tag(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']])) %>
+    <%= select_tag(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']], current_client.race)) %>
   </div>
 
   <div class="field">
     <%= label_tag :home_phone %><br />
-    <%=text_field_tag :home_phone %>
+    <%=text_field_tag :home_phone, current_client.home_phone %>
   </div>
 
   <div class="field">
     <%= label_tag :cell_phone %><br />
-    <%=text_field_tag :cell_phone %>
+    <%=text_field_tag :cell_phone, current_client.cell_phone %>
   </div>
 
   <div class="field">
     <%= label_tag :work_phone %><br />
-    <%= text_field_tag :work_phone %>
+    <%= text_field_tag :work_phone, current_client.work_phone %>
   </div>
 
     <div class="field">
     <%= label_tag :address %><br />
-    <%=text_field_tag :address %>
+    <%=text_field_tag :address, current_client.address %>
   </div>
 
   <div class="field">
     <%= label_tag :state %><br />
-    <%=text_field_tag :state %>
+    <%=text_field_tag :state, current_client.state %>
   </div>
 
   <div class="field">
     <%= label_tag :ward %><br />
-    <%= text_field_tag :ward %>
+    <%= text_field_tag :ward, current_client.ward %>
   </div>
 
   <div class="field">
     <%= label_tag :zip_code %><br />
-    <%= text_field_tag :zip_code %>
+    <%= text_field_tag :zip_code, current_client.zip_code %>
   </div>
 
 <%= submit_tag "Update!" %>
