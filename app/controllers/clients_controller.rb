@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController  
 
-  before_action :authenticate_user!
+  before_action :authenticate_client!
 
 	def index
     if user_signed_in?

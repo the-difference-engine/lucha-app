@@ -1,0 +1,9 @@
+<%= form_tag '/law_projects/create', method: :post do %>
+
+	<div>
+		<%= label_tag :violation_type %>
+		<%= text_field_tag :violation_type %>
+	</div>
+
+	<%= submit_tag "Go!" %>
+<% end %>

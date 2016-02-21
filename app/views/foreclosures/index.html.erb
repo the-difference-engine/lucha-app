@@ -1,0 +1,9 @@
+Foreclosure Client Docket:
+
+<% @foreclosure.each do |foreclosure| %>
+<h3><%= foreclosure.client.first_name %> <%= foreclosure.client.last_name %></h3>
+<ul>
+	<li><%= foreclosure.currently_foreclosed %></li>
+	<li><%= foreclosure.client.cell_phone %></li>
+</ul>
+<% end %>

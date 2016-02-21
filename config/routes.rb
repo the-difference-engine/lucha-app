@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :clients, :path_names => {:sign_up => "register"}, controllers: { registrations: "registrations"}
+  devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "registrations"}, :except => [:new_client_session, :client_session]
   devise_for :users
 
   root to: 'landing_pages#index'
-
 
   get '/users' =>'users#index'
   get '/users/new' => 'users#new'

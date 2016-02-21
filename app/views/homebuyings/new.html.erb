@@ -1,0 +1,9 @@
+<%= form_tag '/homebuyings/create', method: :post do %>
+
+	<div>
+		<%= label_tag :lender %>
+		<%= text_field_tag :lender %>
+	</div>
+
+	<%= submit_tag "Go!" %>
+<% end %>

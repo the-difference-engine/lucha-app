@@ -1,0 +1,9 @@
+<%= form_tag '/senior_repairs/create', method: :post do %>
+
+	<div>
+		<%= label_tag :contractor %>
+		<%= text_field_tag :contractor %>
+	</div>
+
+	<%= submit_tag "Go!" %>
+<% end %>

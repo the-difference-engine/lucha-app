@@ -1,0 +1,9 @@
+<%= form_tag '/rentals/create', method: :post do %>
+
+	<div>
+		<%= label_tag :evictions %>
+		<%= text_field_tag :evictions %>
+	</div>
+
+	<%= submit_tag "Go!" %>
+<% end %>

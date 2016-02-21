@@ -1,0 +1,9 @@
+<%= form_tag '/foreclosures/create', method: :post do %>
+
+	<div>
+		<%= label_tag :currently_foreclosed %>
+		<%= text_field_tag :currently_foreclosed %>
+	</div>
+
+	<%= submit_tag "Go!" %>
+<% end %>
