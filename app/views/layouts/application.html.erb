@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,9 +10,10 @@
     <meta name="author" content="">
 
     <title>LUCHA</title>
-	  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +44,7 @@
 
                 <% if user_signed_in? %>
                     <li>
-                        <a href="#"><%= current_user.email %></a>
+                        <a href="/users"><%= current_user.email %></a>
                     </li>
                     <li>
                        <%= link_to 'Foreclosures', foreclosures_path %>
@@ -65,17 +66,31 @@
                     </li>
                     <li>
                         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-                      </li>
+                    </li>
+
+
+                    <li><%= form_tag "/search", class: "navbar-form navbar-right" do %>
+                    <%= text_field_tag :search, nil, placeholder: "Search Clients" %>
+                    <%= submit_tag "Go" %>
+                    <% end %>
+                    </li>
+
+
+
 <!--Make an elsif for clients to have their own bar -->
                 <% elsif client_signed_in? %>
                     <li>
-                        <a href="#"><%= current_client.email %></a>
+                        <a href="/clients"><%= current_client.email %></a>
                     </li>
                     <li>
-                        <%= link_to 'Edit your application', client_edit_path(current_client.id) %> 
+                        <%= link_to 'Edit your personal info', client_edit_path(current_client.id) %> 
                     </li>
                     <li>
-                       <%= link_to 'Foreclosures', foreclosure_intake_path %>
+                    <% if current_client.foreclosures.blank? %>
+                        <%= link_to 'Foreclosures', foreclosure_intake_path %>
+                    <% else %>
+                        <%= link_to 'Edit Your Foreclosure App', foreclosure_edit_path(current_client.foreclosures[0].id) %>
+                    <% end %>
                     </li>
                     <li>
                         <%= link_to 'Home Buying', homebuying_intake_path %>
@@ -94,7 +109,7 @@
                       </li>
                 <% else %>
                     <li>
-                        <a href="/clients/register">Client Registration</a>
+                        <a href="/register">Client Registration</a>
                     </li>
                     <li>
                         <a href="/users/sign_up">Users Registration</a>

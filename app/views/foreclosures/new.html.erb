@@ -1,9 +1,43 @@
-<%= form_tag '/foreclosures/create', method: :post do %>
 
-	<div>
-		<%= label_tag :currently_foreclosed %>
-		<%= text_field_tag :currently_foreclosed %>
-	</div>
 
-	<%= submit_tag "Go!" %>
-<% end %>
+<form action="/foreclosures/create" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	
+	<label>Originating Lender:</label>	<input type="name" name="originating_lender" required />
+
+	<label>Original Loan Number:</label>	<input type="text" name="original_loan_number" required />
+
+	<label>Servicer</label>	<input type="name" name="servicer" required />
+
+	<label>Servicer Loan Number:</label>	<input type="text" name="originating_lender" required />
+
+	<label>Monthly Mortgage Payment:</label>	<input type="number" name="monthly_mortgage_payment" step="any" />
+
+	<label>Loan Term:</label>	<input type="number" name="loan_term"  />
+
+	<label>Originating Lender:</label>	<input type="name" name="originating_lender"  />
+
+	<label>Origination Date:</label> 
+	  <input type="date" name="origination_date"><input type="submit">
+
+	<label>Check if you have been to court:</label><input type="checkbox" name="been_to_court" value="true" />
+
+	<label>Check if you are currently seeing a lawyer:</label><input type="checkbox" name="working_with_lawyer" value="true" />
+
+	<label>Check if you Working with an agency:</label><input type="checkbox" name="working_w_agency" value="true" />
+
+	<label>If checked above, what agency:</label><input type="name" name="agency" />
+
+		<button type="submit">Click Me!</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+

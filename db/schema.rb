@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214222936) do
+ActiveRecord::Schema.define(version: 20160228205116) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -44,10 +44,22 @@ ActiveRecord::Schema.define(version: 20160214222936) do
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "foreclosures", force: :cascade do |t|
-    t.string   "currently_foreclosed", limit: 255
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "client_id",            limit: 4
+    t.string   "currently_foreclosed",     limit: 255
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
+    t.integer  "client_id",                limit: 4
+    t.string   "originating_lender",       limit: 255
+    t.string   "original_loan_number",     limit: 255
+    t.string   "servicer",                 limit: 255
+    t.string   "servicer_loan_number",     limit: 255
+    t.decimal  "monthly_mortgage_payment",             precision: 8, scale: 2
+    t.integer  "loan_term",                limit: 4
+    t.date     "origination_date"
+    t.boolean  "been_to_court"
+    t.string   "court_case_number",        limit: 255
+    t.boolean  "working_with_lawyer"
+    t.boolean  "working_w_agency"
+    t.string   "agency",                   limit: 255
   end
 
   create_table "homebuyings", force: :cascade do |t|

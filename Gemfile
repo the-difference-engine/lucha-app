@@ -6,9 +6,15 @@ gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.3.10'
 gem 'seed_dump'
+gem 'ruby_outlook'
+
+gem 'simple_form'
+gem 'state_select'
+
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
+gem 'd3_rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -29,9 +35,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'oauth2', '~> 1.1'
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'prawn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

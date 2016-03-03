@@ -1,9 +1,35 @@
-Foreclosure Client Docket:
 
-<% @foreclosure.each do |foreclosure| %>
-<h3><%= foreclosure.client.first_name %> <%= foreclosure.client.last_name %></h3>
-<ul>
-	<li><%= foreclosure.currently_foreclosed %></li>
-	<li><%= foreclosure.client.cell_phone %></li>
-</ul>
+<table class="table table-hover">
+ <thead>
+   <tr>
+     <th>ID</th>
+     <th>Name</th>
+     <th>Home Phone</th>
+     <th>Address</th>
+     <th>Delinquient?</th>
+     <th>View</th> 
+   </tr>
+ </thead>
+<% @foreclosures.each do |foreclosure| %>
+ <tbody>
+   <tr>
+     <td><%= foreclosure.client.id %></td>
+     <td><%= foreclosure.client.full_name.titleize %></td>
+     <td><%= foreclosure.client.home_phone %></td>
+     <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td>
+     <td><%= foreclosure.currently_foreclosed %></td>
+     <td>
+       <%= link_to "View", client_path(foreclosure.client.id), class: "btn btn-default" %>
+     </td>
+   </tr>
+ </tbody>
 <% end %>
+</table>
+
+
+
+<p>
+  Download:
+  <%= link_to "CSV", foreclosures_path(format: "csv") %> |
+  <%= link_to "Excel", foreclosures_path(format: "xls") %>
+</p>

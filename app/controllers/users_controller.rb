@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-  	@user = current_user
+  	@user = User.find(params[:id])
   end
 
   def update
@@ -54,6 +54,11 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+    @client = Client.where("first_name LIKE ? OR last_name LIKE ? OR address LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    render :index
   end
 
   def destroy

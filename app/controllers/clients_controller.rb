@@ -1,13 +1,15 @@
 class ClientsController < ApplicationController  
-
-  before_action :authenticate_client!
+  before_action :authenticate_current_client!, :only => [:show, :edit, :update, :destroy]
 
 	def index
+    @employee = User.all
+
     if user_signed_in?
-      @client = Client.all
+      @clients = Client.all
     elsif client_signed_in?
       @client = current_client
     end
+    @client
   end
 
   def show
@@ -67,21 +69,24 @@ class ClientsController < ApplicationController
         redirect_to "/clients"
       else
         render :create
+      end
     end
   end
 
   def edit
-    if user_signed_in?
-      @client = Client.find(params[:id])
-    elsif client_signed_in?
-      @client = current_client.id
+    @client = Client.find(params[:id])
+    if client_signed_in?
+      @client = current_client
     end
   end
 
+
   def update
-   
-    @client = current_client
-    if @client.update({first_name: params[:first_name],
+    @client = Client.find(params[:id])
+    if user_signed_in?
+      @client = Client.find(params[:id])
+
+      @client.update({first_name: params[:first_name],
       last_name: params[:last_name],
       race: params[:race],
       sex: params[:sex], 
@@ -93,16 +98,35 @@ class ClientsController < ApplicationController
       city: params[:city], 
       zip_code: params[:zip_code]
         })
+      flash[:success] = "You're info is updated."
+      redirect_to "/clients/#{@client.id}"
 
-    flash[:success] = "You're info is updated."
-    redirect_to "/clients/#{@client.id}"
-    else
-      render :edit
+
+    elsif client_signed_in?
+      @client = current_client
+      if @client.update({first_name: params[:first_name],
+        last_name: params[:last_name],
+        race: params[:race],
+        sex: params[:sex], 
+        home_phone: params[:home_phone], 
+        work_phone: params[:work_phone], 
+        cell_phone: params[:cell_phone], 
+        address: params[:address], 
+        state: params[:state], 
+        city: params[:city], 
+        zip_code: params[:zip_code]
+          })
+
+      flash[:success] = "You're info is updated."
+      redirect_to "/clients/#{@client.id}/status"
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
   end
 
-end
+
 end
