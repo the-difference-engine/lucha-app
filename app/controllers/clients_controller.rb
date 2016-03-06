@@ -47,7 +47,7 @@ class ClientsController < ApplicationController
           flash[:success] = "The account has been created"
           redirect_to "/clients/#{@client.id}"
         else
-          render :create
+          render :show
         end
   
     elsif client_signed_in?
@@ -66,7 +66,7 @@ class ClientsController < ApplicationController
         })
       if @client.save
         flash[:success] = "You're account has been created"
-        redirect_to "/clients"
+        redirect_to :show
       else
         render :create
       end

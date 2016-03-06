@@ -13,7 +13,22 @@
 		<div class = "field">
 			<%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
  		</div>
-
+ 		<% if !@client.foreclosures.blank? %>
+ 			<%= hidden_field_tag :programable_id, @client.foreclosures[0].id %>
+ 			<%= hidden_field_tag :programable_type, value: "Foreclosure" %>
+		<% elsif !@client.homebuyings.blank? %>
+ 			<%= hidden_field_tag :programable_id, @client.homebuyings[0].id %>
+ 			<%= hidden_field_tag :programable_type, value: "Homebuying" %> 			
+		<% elsif !@client.rentals.blank? %>
+ 			<%= hidden_field_tag :programable_id, @client.rentals[0].id %>
+ 			<%= hidden_field_tag :programable_type, value: "Rental" %>
+		<% elsif !@client.senior_repairs.blank? %>
+ 			<%= hidden_field_tag :programable_id, @client.senior_repairs[0].id %>
+ 			<%= hidden_field_tag :programable_type, value: "SeniorRepairs" %>
+		<% elsif !@client.law_projects.blank? %>
+ 			<%= hidden_field_tag :programable_id, @client.law_projects[0].id %>
+ 			<%= hidden_field_tag :programable_type, value: "LawProjects" %>
+		<% end %>
  		<%= submit_tag "Assign" %>
 
 	<% end %>
