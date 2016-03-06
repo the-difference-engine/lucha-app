@@ -15,19 +15,19 @@
  		</div>
  		<% if !@client.foreclosures.blank? %>
  			<%= hidden_field_tag :programable_id, @client.foreclosures[0].id %>
- 			<%= hidden_field_tag :programable_type, value: "Foreclosure" %>
+ 			<%= hidden_field_tag :programable_type, "Foreclosure" %>
 		<% elsif !@client.homebuyings.blank? %>
  			<%= hidden_field_tag :programable_id, @client.homebuyings[0].id %>
- 			<%= hidden_field_tag :programable_type, value: "Homebuying" %> 			
+ 			<%= hidden_field_tag :programable_type, "Homebuying" %> 			
 		<% elsif !@client.rentals.blank? %>
  			<%= hidden_field_tag :programable_id, @client.rentals[0].id %>
- 			<%= hidden_field_tag :programable_type, value: "Rental" %>
+ 			<%= hidden_field_tag :programable_type, "Rental" %>
 		<% elsif !@client.senior_repairs.blank? %>
  			<%= hidden_field_tag :programable_id, @client.senior_repairs[0].id %>
- 			<%= hidden_field_tag :programable_type, value: "SeniorRepairs" %>
+ 			<%= hidden_field_tag :programable_type, "SeniorRepairs" %>
 		<% elsif !@client.law_projects.blank? %>
  			<%= hidden_field_tag :programable_id, @client.law_projects[0].id %>
- 			<%= hidden_field_tag :programable_type, value: "LawProjects" %>
+ 			<%= hidden_field_tag :programable_type, "LawProjects" %>
 		<% end %>
  		<%= submit_tag "Assign" %>
 

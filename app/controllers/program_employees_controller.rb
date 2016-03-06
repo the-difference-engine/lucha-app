@@ -8,11 +8,11 @@ class ProgramEmployeesController < ApplicationController
 		@case = ProgramEmployee.new({
 			user_id: params[:program_employee][:user_id],
 			programable_id: params[:programable_id],
-			programable_type: params[:programable_type][:value]
+			programable_type: params[:programable_type]
 			})
     if @case.save
 		  flash[:success] = "Employee Assigned"
-			redirect_to "/"		
+			redirect_to "/foreclosures"		
 		else
 		  render :clients
 		end

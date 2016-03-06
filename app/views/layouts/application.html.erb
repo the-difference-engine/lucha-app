@@ -80,7 +80,7 @@
 <!--Make an elsif for clients to have their own bar -->
                 <% elsif client_signed_in? %>
                     <li>
-                        <a href="/clients"><%= current_client.email %></a>
+                    <%=link_to 'Status', client_status_path(current_client.id) %>
                     </li>
                     <li>
                         <%= link_to 'Edit your personal info', client_edit_path(current_client.id) %> 

@@ -10,5 +10,14 @@ class Foreclosure < ActiveRecord::Base
 	    end
 		end
 	end
+
+	# def foreclosure_check
+	# 	if self.blank?
+			
+	# end
+
+	# def foreclosure_counselor
+	# 	if foreclosure.
+	# end
 	
 end
