@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      email: params[:email],
       home_phone: params[:home_phone], 
       work_phone: params[:work_phone], 
       cell_phone: params[:cell_phone]
@@ -43,7 +42,6 @@ class UsersController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      email: params[:email],
       home_phone: params[:home_phone], 
       work_phone: params[:work_phone], 
       cell_phone: params[:cell_phone]

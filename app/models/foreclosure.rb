@@ -11,13 +11,11 @@ class Foreclosure < ActiveRecord::Base
 		end
 	end
 
-	# def foreclosure_check
-	# 	if self.blank?
-			
-	# end
-
-	# def foreclosure_counselor
-	# 	if foreclosure.
-	# end
+	def foreclosure_counselor
+		if program_employees[0].user.blank?
+		else 
+			program_employees[0].user
+		end
+	end
 	
 end

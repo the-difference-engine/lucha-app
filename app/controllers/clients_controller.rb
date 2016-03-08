@@ -33,7 +33,6 @@ class ClientsController < ApplicationController
       password: params[:password],
       race: params[:race],
       sex: params[:sex], 
-      email: params[:email],
       home_phone: params[:home_phone], 
       work_phone: params[:work_phone], 
       cell_phone: params[:cell_phone], 

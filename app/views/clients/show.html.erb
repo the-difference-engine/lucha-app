@@ -15,13 +15,13 @@
  		</div>
  		<% if !@client.foreclosures.blank? %>
  			<%= hidden_field_tag :programable_id, @client.foreclosures[0].id %>
- 			<%= hidden_field_tag :programable_type, "Foreclosure" %>
+ 			<%= hidden_field_tag :programable_type, "Foreclosures" %>
 		<% elsif !@client.homebuyings.blank? %>
  			<%= hidden_field_tag :programable_id, @client.homebuyings[0].id %>
- 			<%= hidden_field_tag :programable_type, "Homebuying" %> 			
+ 			<%= hidden_field_tag :programable_type, "Homebuyings" %> 			
 		<% elsif !@client.rentals.blank? %>
  			<%= hidden_field_tag :programable_id, @client.rentals[0].id %>
- 			<%= hidden_field_tag :programable_type, "Rental" %>
+ 			<%= hidden_field_tag :programable_type, "Rentals" %>
 		<% elsif !@client.senior_repairs.blank? %>
  			<%= hidden_field_tag :programable_id, @client.senior_repairs[0].id %>
  			<%= hidden_field_tag :programable_type, "SeniorRepairs" %>

@@ -29,4 +29,37 @@ class User < ActiveRecord::Base
   end
 
 
+  def client_list
+
+    clients = []
+    
+    foreclosures.each do |foreclosure| 
+      if foreclosure.client.id
+      clients << foreclosure.client 
+    end 
+
+    homebuyings.each do |homebuying| 
+      clients << homebuying.client 
+    end 
+
+    homebuyings.each do |homebuying| 
+      clients << foreclosure.client 
+    end 
+
+    foreclosures.each do |foreclosure| 
+      clients << foreclosure.client 
+    end 
+
+    foreclosures.each do |foreclosure| 
+      clients << foreclosure.client 
+    end 
+
+    foreclosures.each do |foreclosure| 
+      clients << foreclosure.client 
+    end 
+  end
+
+  # def cases
+  # end
+
 end

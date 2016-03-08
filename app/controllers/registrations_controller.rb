@@ -5,4 +5,8 @@ class RegistrationsController < Devise::RegistrationsController
     client_edit_path(client)
   end
 
+  def after_new_session_path_for(client)
+  	client_status_path(client)
+  end
+
 end

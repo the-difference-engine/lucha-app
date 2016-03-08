@@ -1,5 +1,5 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe ForeclosuresController, type: :controller do
+# RSpec.describe ForeclosuresController, type: :controller do
 
-end
+# end

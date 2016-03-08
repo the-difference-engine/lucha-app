@@ -1,5 +1,5 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe AuthController, type: :controller do
+# RSpec.describe AuthController, type: :controller do
 
-end
+# end
