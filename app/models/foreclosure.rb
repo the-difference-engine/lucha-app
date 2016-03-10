@@ -13,9 +13,15 @@ class Foreclosure < ActiveRecord::Base
 
 	def foreclosure_counselor
 		if program_employees[0].user.blank?
+			"Not yet assigned."
 		else 
 			program_employees[0].user
 		end
+	end
+
+	def column_count
+
+		
 	end
 	
 end

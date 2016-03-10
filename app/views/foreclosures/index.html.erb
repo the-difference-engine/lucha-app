@@ -6,7 +6,6 @@
      <th>Name</th>
      <th>Home Phone</th>
      <th>Address</th>
-     <th>Delinquient?</th>
      <th>View</th> 
    </tr>
  </thead>
@@ -17,7 +16,6 @@
      <td><%= foreclosure.client.full_name.titleize %></td>
      <td><%= foreclosure.client.home_phone %></td>
      <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td>
-     <td><%= foreclosure.currently_foreclosed %></td>
      <td>
        <%= link_to "View", client_path(foreclosure.client.id), class: "btn btn-default" %>
      </td>

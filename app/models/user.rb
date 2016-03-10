@@ -30,14 +30,13 @@ class User < ActiveRecord::Base
 
 
   def client_list
-
     clients = []
-    
     foreclosures.each do |foreclosure| 
       if foreclosure.client.id
       clients << foreclosure.client 
-    end 
-
+      end 
+    end
+    
     homebuyings.each do |homebuying| 
       clients << homebuying.client 
     end 

@@ -42,7 +42,9 @@ class ClientsController < ApplicationController
       zip_code: params[:zip_code],
       ward: params[:ward]
         })
+
         if @client.save
+
           flash[:success] = "The account has been created"
           redirect_to "/clients/#{@client.id}"
         else
@@ -63,7 +65,9 @@ class ClientsController < ApplicationController
       city: params[:city], 
       zip_code: params[:zip_code]
         })
+
       if @client.save
+
         flash[:success] = "You're account has been created"
         redirect_to :show
       else
@@ -79,6 +83,13 @@ class ClientsController < ApplicationController
     end
   end
 
+  # def application_program_types
+  #   program_array = []
+  #   client_applications.each do |program|
+  #     ProgramEmployees.create(programable_id: program.id, programable_type: program.class)
+  #   end
+  #   program_array
+  # end
 
   def update
     @client = Client.find(params[:id])

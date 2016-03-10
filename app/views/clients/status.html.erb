@@ -1,6 +1,7 @@
 <h1>Hi <%= current_client.full_name %></h1>
 
 <% if !current_client.foreclosures.blank? %>
+	<%if !current_client.foreclosures[0].program_employees[0].blank? %>
 	<h3>Your counselor is <%=current_client.foreclosures[0].program_employees[0].user.full_name%>
 	<ul>
 		<li>Phone: <%=current_client.foreclosures[0].program_employees[0].user.work_phone%></li>
@@ -12,8 +13,9 @@
 		    70%
 		</div>
 		</div>
-
-
+		<% else %>
+		<h3>Welcome</h3>
+		<% end %>
 
 	</ul>
 

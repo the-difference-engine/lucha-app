@@ -11,7 +11,9 @@ RSpec.describe User, type: :model do
 	end
 
 	describe '#cases' do
-		it 'should return an array of clients currently assigned to the User'
+		it 'should return an array of clients currently assigned to the User' do
+		end
+	end
 
 
 

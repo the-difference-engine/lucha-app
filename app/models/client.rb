@@ -9,26 +9,10 @@ class Client < ActiveRecord::Base
   has_many :homebuyings
   has_many :rentals
   has_many :law_projects
-  has_many :home_repairs
+  has_many :senior_repairs
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
-  end
-
-  def client_program_type
-    if !foreclosures.blank?
-      "Foreclosures"
-    elsif !homebuyings.blank?
-      "Homebuyings"
-    elsif !rentals.blank?
-      "Rentals"
-    elsif !senior_repairs.blank?
-      "SeniorRepairs"
-    elsif !law_projects.blank?
-      "LawProjects"
-    else
-      "No applications yet"
-    end
   end
 
   def column_count
@@ -48,7 +32,34 @@ class Client < ActiveRecord::Base
     end
     # Subtracting 4 from the number of filled_columns as those columns are created automatically by Devise and has not client input
     filled_count - 4
+  end
 
+  def client_applications
+    program_types = [foreclosures, homebuyings, rentals, senior_repairs, law_projects]
+    client_enrolled_programs = []
+    program_types.each do |program, programable_type|
+      if !program.blank?
+        client_enrolled_programs << program
+      end
+    end
+    client_enrolled_programs
+  end
+
+  # def application_program_types
+  #   program_array = []
+  #   client_applications.each do |program|
+  #     ProgramEmployees.create(programable_id: program.id, programable_type: program.class)
+  #   end
+  #   program_array
+  # end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |client|
+        csv << client.attributes.values_at(*column_names)
+      end
+    end
   end
 
 end

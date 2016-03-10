@@ -8,6 +8,8 @@ class ForeclosuresController < ApplicationController
 	    format.csv { send_data @foreclosures.to_csv }
 	    format.xls  { send_data @foreclosures.to_csv(col_sep: "\t") }
 	  end
+
+
 	end
 
 	def new
@@ -39,9 +41,11 @@ class ForeclosuresController < ApplicationController
 				agency: params[:agency]
 	     })
 
+
 	    if @foreclosure.save
-	    flash[:success] = "You've completed the foreclosure application"
-	    redirect_to "/clients/#{@foreclosure.client_id}/status"
+	    	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
+		    flash[:success] = "You've completed the foreclosure application"
+		    redirect_to "/clients/#{@foreclosure.client_id}/status"
 	    else
 	      render :create
 	    end
@@ -62,12 +66,10 @@ class ForeclosuresController < ApplicationController
 				working_w_agency: params[:working_w_agency], 
 				agency: params[:agency]
 	    	})
-	    @program = Program_employee.new({
-	    	user_id: params[:user_id], programable_id: params[:programable_id], programable_type: params[:programable_type]
-	    	})
 	    if @foreclosure.save && @program.save
-	    flash[:success] = "You've completed the foreclosure application"
-	    redirect_to "/clients/#{@foreclosure.client_id}"
+	    	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
+		    flash[:success] = "You've completed the foreclosure application"
+		    redirect_to "/clients/#{@foreclosure.client_id}"
 	    else
 	      render :create
 	    end

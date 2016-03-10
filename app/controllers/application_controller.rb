@@ -41,4 +41,9 @@ class ApplicationController < ActionController::Base
     end
 	end
 
+  def after_sign_in_path_for(client)
+    request.env['omniauth.origin'] || stored_location_for(resource) || client_status_path(client)
+  end
+
+
 end
