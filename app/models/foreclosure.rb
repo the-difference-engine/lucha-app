@@ -11,7 +11,7 @@ class Foreclosure < ActiveRecord::Base
 		end
 	end
 
-	def foreclosure_counselor
+	def counselor?
 		if program_employees[0].user.blank?
 			"Not yet assigned."
 		else 
@@ -20,8 +20,15 @@ class Foreclosure < ActiveRecord::Base
 	end
 
 	def column_count
-
-		
-	end
+		# Similar to model method in client.rb
+    filled_count = 0
+    attributes.each do |k, v|
+      if v != nil
+        filled_count+=1
+      end
+    end
+    filled_count - 3
+    # Subtracting 2 from the filled_count variable to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
+  end
 	
 end

@@ -30,8 +30,9 @@ class Client < ActiveRecord::Base
         filled_count+=1
       end
     end
-    # Subtracting 4 from the number of filled_columns as those columns are created automatically by Devise and has not client input
     filled_count - 4
+    # Subtracting 4 from the number of filled_columns as those columns are created automatically by Devise and has no client input
+
   end
 
   def client_applications

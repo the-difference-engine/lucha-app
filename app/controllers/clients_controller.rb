@@ -6,8 +6,6 @@ class ClientsController < ApplicationController
 
     if user_signed_in?
       @clients = Client.all
-    elsif client_signed_in?
-      @client = current_client
     end
     @client
   end
