@@ -67,7 +67,9 @@ class ForeclosuresController < ApplicationController
 				agency: params[:agency]
 	    	})
 	    if @foreclosure.save && @program.save
+	    	if ProgramEmployee.where(programable_id: 17).blank?
 	    	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
+		    end
 		    flash[:success] = "You've completed the foreclosure application"
 		    redirect_to "/clients/#{@foreclosure.client_id}"
 	    else
