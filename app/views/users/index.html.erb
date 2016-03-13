@@ -7,3 +7,8 @@
 	<li>Cell Phone:<%= client.cell_phone %></li>
 </ul>
 <% end %>
+
+
+<%= link_to "CSV", clients_path(format: "csv") %> |
+<%= link_to "Excel", clients_path(format: "xls") %>
+

@@ -55,10 +55,16 @@ class Client < ActiveRecord::Base
   # end
 
   def self.to_csv(options = {})
+    # Eventually, I need a way to make this class dynamic, as a way for me to be able to check what kinds of applications there are. I can use the model method I created called Client_applications, but there has to be some way for the csv method to know. It will be easy enough being able to print out all of the methods there are, but then I have ugly empty columns in my CSV file.
+
     CSV.generate(options) do |csv|
-      csv << column_names
+      csv << column_names + Foreclosure.column_names
       all.each do |client|
-        csv << client.attributes.values_at(*column_names)
+      values = client.attributes.values
+        if client.foreclosures[0]
+          values += client.foreclosures[0].attributes.values
+        end
+      csv.add_row values
       end
     end
   end

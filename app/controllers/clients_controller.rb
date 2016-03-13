@@ -3,11 +3,13 @@ class ClientsController < ApplicationController
 
 	def index
     @employee = User.all
-
-    if user_signed_in?
-      @clients = Client.all
+    @clients = Client.all
+    @foreclosures = Foreclosure.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @clients.to_csv }
+      format.xls  { send_data @clients.to_csv(col_sep: "\t") }
     end
-    @client
   end
 
   def show

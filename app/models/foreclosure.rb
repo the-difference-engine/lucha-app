@@ -4,7 +4,7 @@ class Foreclosure < ActiveRecord::Base
 
 	def self.to_csv(options = {})
 	  CSV.generate(options) do |csv|
-	    csv << column_names
+	    csv << column_names-"encrypted_password"
 	    all.each do |foreclosure|
 	      csv << foreclosure.client.attributes.values_at(*column_names)
 	    end
@@ -28,7 +28,7 @@ class Foreclosure < ActiveRecord::Base
       end
     end
     filled_count - 3
-    # Subtracting 2 from the filled_count variable to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
+    # Subtracting 3 from the filled_count variable to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
   end
 	
 end
