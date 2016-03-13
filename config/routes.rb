@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "registrations"}, :except => [:new_client_session, :client_session]
   devise_for :users
 
@@ -21,6 +22,13 @@ Rails.application.routes.draw do
   get '/clients/:id/edit' => 'clients#edit', as: :client_edit
   patch '/clients/:id' => 'clients#update', as: :client_update
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
+
+  get '/budgets' => 'budgets#index'
+  get '/budgets/new' => 'budgets#new'
+  post '/budgets/create' => 'budgets#create'
+  get '/budgets/:id/edit' => 'budgets#edit'
+  patch '/budgets/:id' => 'budgets#update'
+  delete '/budgets/:id' => 'budgets#destroy'
 
   get '/case_load' => 'program_employees#index', as: :cases
   post '/case_load' => 'program_employees#create', as: :case_assign

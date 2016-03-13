@@ -8,8 +8,6 @@ class ForeclosuresController < ApplicationController
 	    format.csv { send_data @foreclosures.to_csv }
 	    format.xls  { send_data @foreclosures.to_csv(col_sep: "\t") }
 	  end
-
-
 	end
 
 	def new

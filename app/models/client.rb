@@ -10,6 +10,7 @@ class Client < ActiveRecord::Base
   has_many :rentals
   has_many :law_projects
   has_many :senior_repairs
+  has_one :budget
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"

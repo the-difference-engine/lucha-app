@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   has_many :clients, through: :law_projects
   has_many :clients, through: :senior_repairs
 
+  has_many :budgets, through: :clients
+
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
   end
