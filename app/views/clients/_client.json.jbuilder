@@ -31,4 +31,4 @@
 	json.authorization_and_waiver client.authorization_and_waiver
 	json.privacy_policy_authorization client.privacy_policy_authorization
 
-
+	

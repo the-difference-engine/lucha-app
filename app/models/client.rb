@@ -5,11 +5,11 @@ class Client < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :user
 
-  has_many :foreclosures
-  has_many :homebuyings
-  has_many :rentals
-  has_many :law_projects
-  has_many :senior_repairs
+  has_one :foreclosure
+  has_one :homebuyings
+  has_one :rentals
+  has_one :law_projects
+  has_one :senior_repairs
   has_one :budget
 
   def full_name
