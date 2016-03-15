@@ -1,0 +1,34 @@
+	json.id client.id
+	json.full_name client.full_name
+	json.first_name client.first_name
+	json.last_name client.last_name
+	json.email client.email
+	json.password client.password
+	json.race client.race
+	json.sex client.sex
+	json.home_phone client.home_phone
+	json.work_phone client.work_phone
+	json.cell_phone client.cell_phone
+	json.address client.address
+	json.state client.state
+	json.city client.city
+	json.zip_code client.zip_code
+	json.ward client.ward
+	json.zip_code client.zip_code
+	json.ssn client.ssn
+	json.preferred_contact_method client.preferred_contact_method
+	json.preferred_language client.preferred_language
+	json.dob client.dob
+	json.head_of_household client.head_of_household
+	json.num_in_household client.num_in_household
+	json.num_of_dependants client.num_of_dependants
+	json.education_level client.education_level
+	json.disability client.disability
+	json.union_member client.union_member
+	json.military_service_member client.military_service_member
+	json.volunteer_interest client.volunteer_interest
+	json.estimated_household_income client.estimated_household_income
+	json.authorization_and_waiver client.authorization_and_waiver
+	json.privacy_policy_authorization client.privacy_policy_authorization
+
+
