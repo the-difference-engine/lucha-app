@@ -10,7 +10,20 @@ class HomebuyingsController < ApplicationController
 
 	def create
     if client_signed_in?
-	    @homebuying = Homebuying.new({lender: params[:lender], client_id: current_client.id })
+	    @homebuying = Homebuying.new({lender: params[:lender], client_id: current_client.id,
+	    	
+
+
+
+
+
+
+
+
+
+
+
+	    	})
 	    if @homebuying.save
 	    flash[:success] = "You've completed the homebuying application"
 	    redirect_to "/clients/#{@homebuying.client_id}"

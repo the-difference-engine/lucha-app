@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313205141) do
+ActiveRecord::Schema.define(version: 20160315233610) do
 
   create_table "budgets", force: :cascade do |t|
     t.decimal  "gross_wages",                          precision: 8, scale: 2
@@ -146,10 +146,22 @@ ActiveRecord::Schema.define(version: 20160313205141) do
   end
 
   create_table "law_projects", force: :cascade do |t|
-    t.string   "violation_type", limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "client_id",      limit: 4
+    t.string   "violation_type",        limit: 255
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "client_id",             limit: 4
+    t.boolean  "current_evicted",                   default: false
+    t.boolean  "community_group",                   default: false
+    t.boolean  "tech_assistance",                   default: false
+    t.boolean  "frclsr_prevention",                 default: false
+    t.boolean  "low_income_family",                 default: false
+    t.boolean  "displacement",                      default: false
+    t.boolean  "substandard_housing",               default: false
+    t.boolean  "disabilities",                      default: false
+    t.boolean  "lucha_tenant",                      default: false
+    t.boolean  "law_project_chargable",             default: false
+    t.string   "other",                 limit: 255
+    t.string   "census_tract",          limit: 255
   end
 
   create_table "program_employees", force: :cascade do |t|
@@ -161,10 +173,50 @@ ActiveRecord::Schema.define(version: 20160313205141) do
   end
 
   create_table "rentals", force: :cascade do |t|
-    t.integer  "evictions",  limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "client_id",  limit: 4
+    t.integer  "evictions",               limit: 4
+    t.datetime "created_at",                                                                    null: false
+    t.datetime "updated_at",                                                                    null: false
+    t.integer  "client_id",               limit: 4
+    t.integer  "waitlist_num",            limit: 4
+    t.boolean  "studio",                                                        default: false
+    t.boolean  "two_bed",                                                       default: false
+    t.boolean  "three_bed",                                                     default: false
+    t.boolean  "wheelchair_accessible"
+    t.boolean  "car_owner",                                                     default: false
+    t.boolean  "pet_owner",                                                     default: false
+    t.string   "kind_of_pet",             limit: 255
+    t.string   "hear_of_property",        limit: 255
+    t.text     "reasons_for_application", limit: 65535
+    t.string   "landlord_name",           limit: 255
+    t.string   "landlord_address",        limit: 255
+    t.string   "landlord_phone",          limit: 255
+    t.string   "occupancy_at_apartment",  limit: 255
+    t.decimal  "monthly_rent",                          precision: 6, scale: 2
+    t.decimal  "fuel_electric",                         precision: 6, scale: 2
+    t.string   "pre_landlord_name",       limit: 255
+    t.string   "pre_landlord_address",    limit: 255
+    t.string   "pre_landlord_phone",      limit: 255
+    t.decimal  "pre_rent",                              precision: 6, scale: 2
+    t.decimal  "pre_fuel_electric",                     precision: 6, scale: 2
+    t.text     "reason_for_move",         limit: 65535
+    t.string   "housing_situation",       limit: 255
+    t.string   "employer_name",           limit: 255
+    t.string   "employer_address",        limit: 255
+    t.string   "employer_city",           limit: 255
+    t.string   "employer_state",          limit: 255
+    t.string   "employer_phone",          limit: 255
+    t.string   "position",                limit: 255
+    t.integer  "length_employed",         limit: 4
+    t.string   "personal_reference_name", limit: 255
+    t.string   "per_ref_address",         limit: 255
+    t.string   "per_ref_street",          limit: 255
+    t.string   "per_ref_state",           limit: 255
+    t.string   "per_ref_phone",           limit: 255
+    t.string   "per_ref_relationship",    limit: 255
+    t.text     "displaced",               limit: 65535
+    t.text     "homeless",                limit: 65535
+    t.boolean  "over_fifty_percent",                                            default: false
+    t.boolean  "agree_to_fee",                                                  default: false
   end
 
   create_table "senior_repairs", force: :cascade do |t|
