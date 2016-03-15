@@ -23,7 +23,7 @@ RSpec.describe Client, type: :model do
 		it 'should return the number of columns which are interactable to the client that are not nil' do
 			client = Client.create(email: "Shoobop@aol.com" , password: "password", first_name: "Bob", last_name: "Whatever")
 			client.filled_columns
-		expect(client.filled_columns).to eq(4)
+		expect(client.filled_columns).to eq(9)
 		end
 	end
 
@@ -37,6 +37,9 @@ RSpec.describe Client, type: :model do
 		end
 	end
 
-
+	describe '#counselors?' do
+		it 'should return an array of users that are currently assigned to the clients applications' do
+		end
+	end
 
 end

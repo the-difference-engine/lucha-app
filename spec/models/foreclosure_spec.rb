@@ -15,7 +15,7 @@ RSpec.describe Foreclosure, type: :model do
 	describe '#column_count' do
 		it 'should return the number of columns in the model' do
 			foreclosure = Foreclosure.create(originating_lender: "Bank of America")
-			expect(foreclosure.column_count).to eq(12)
+			expect(foreclosure.column_count).to eq(Foreclosure.columns.size - 3)
 		end
 	end
 
@@ -23,7 +23,6 @@ RSpec.describe Foreclosure, type: :model do
 		it 'should return the number of columns not blank' do
 			foreclosure = Foreclosure.create(originating_lender: "Bank of America")
 		expect(foreclosure.filled_columns).to eq(1)
-
 		end
 	end
 
