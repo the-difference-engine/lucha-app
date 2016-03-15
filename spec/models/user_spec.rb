@@ -4,9 +4,9 @@ RSpec.describe User, type: :model do
 
 	describe '#full_name' do
 		it 'should return the number of columns in the model' do
-			client = Client.create(email: "Shoobop@aol.com" , password: "password", first_name: "Bob", last_name: "Whatever")
-			client.column_count
-		expect(client.column_count).to eq(21)	
+			user = User.create(email: "Shoobop@aol.com" , password: "password", first_name: "Bob", last_name: "Whatever")
+			user.full_name
+		expect(user.full_name).to eq("Bob Whatever")	
 		end
 	end
 

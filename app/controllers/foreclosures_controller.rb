@@ -83,7 +83,7 @@ class ForeclosuresController < ApplicationController
 
 	def update
 		@foreclosure = Foreclosure.where(client_id: current_client.id)[0]
-		if @foreclosure.update({client_id: current_client.id,
+		if @foreclosure.update({
 	    	currently_foreclosed: params[:currently_foreclosed],
 				originating_lender: params[:originating_lender],
 				original_loan_number: params[:original_loan_number],

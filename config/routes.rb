@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/budgets' => 'budgets#index'
   get '/budgets/new' => 'budgets#new'
   post '/budgets/create' => 'budgets#create'
+  get '/budgets/:id' => 'budgets#show'
   get '/budgets/:id/edit' => 'budgets#edit'
   patch '/budgets/:id' => 'budgets#update'
   delete '/budgets/:id' => 'budgets#destroy'
