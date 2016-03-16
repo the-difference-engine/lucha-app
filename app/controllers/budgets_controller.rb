@@ -53,7 +53,8 @@ class BudgetsController < ApplicationController
         medical_expenses: params[:medical_expenses],        
         rent: params[:rent],        
         rental_insurance: params[:rental_insurance], 
-        total_monthly_debt: params[:total_monthly_debt], gross_monthly_income: params[:gross_monthly_income],        
+        total_monthly_debt: params[:total_monthly_debt], 
+        gross_monthly_income: params[:gross_monthly_income],        
         debt_divided_by_income: params[:debt_divided_by_income]       
        })
 
