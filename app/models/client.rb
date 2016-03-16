@@ -1,15 +1,23 @@
 class Client < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-   devise :database_authenticatable, :registerable,
+  validates :full_name, :password, :email, presence: true
+
+
+  # validates :email, confirmation: true
+  # <%= text_field :person, :email %>
+  # <%= text_field :person, :email_confirmation %>
+  # Need to add a confirmation view in the html
+
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :user
 
   has_one :foreclosure
-  has_one :homebuyings
-  has_one :rentals
-  has_one :law_projects
-  has_one :senior_repairs
+  has_one :homebuying
+  has_one :rental
+  has_one :law_project
+  has_one :senior_repair
   has_one :budget
 
   def full_name
@@ -37,9 +45,9 @@ class Client < ActiveRecord::Base
   end
 
   def client_applications
-    program_types = [foreclosures, homebuyings, rentals, senior_repairs, law_projects]
+    program_types = [foreclosure, homebuying, rental, senior_repair, law_project]
     client_enrolled_programs = []
-    program_types.each do |program, programable_type|
+    program_types.each do |program|
       if !program.blank?
         client_enrolled_programs << program
       end
@@ -47,13 +55,6 @@ class Client < ActiveRecord::Base
     client_enrolled_programs
   end
 
-  # def application_program_types
-  #   program_array = []
-  #   client_applications.each do |program|
-  #     ProgramEmployees.create(programable_id: program.id, programable_type: program.class)
-  #   end
-  #   program_array
-  # end
 
   def self.to_csv(options = {})
     # Eventually, I need a way to make this class dynamic, as a way for me to be able to check what kinds of applications there are. I can use the model method I created called Client_applications, but there has to be some way for the csv method to know. It will be easy enough being able to print out all of the methods there are, but then I have ugly empty columns in my CSV file.
@@ -68,5 +69,35 @@ class Client < ActiveRecord::Base
       end
     end
   end
+
+  def counselors
+    # program_types = [foreclosure.program_employees[0], homebuying.program_employees[0], rental.program_employees[0], senior_repair.program_employees[0], law_project.program_employees[0]]
+    counselor_array = []
+    # client_enrolled_programs = []
+
+    # program_types.each do |program|
+    #   if program != nil
+    #     if !program.blank?
+    #       client_enrolled_programs << program
+    #     end
+    #   end
+    # end
+    applied_programs = client_applications 
+    # counter = 0
+    # applied_programs.length.times do  
+    #   if !client_applications[counter].program_employees[0].blank?
+    #     counselor_array << client_applications[counter].program_employees[0].user
+    #     counter 
+    #   end
+    # end
+
+    applied_programs.each do |program|
+      unless program.program_employees[0].blank?
+        counselor_array << program.program_employees[0].user
+      end
+    end
+    counselor_array
+  end
+
 
 end

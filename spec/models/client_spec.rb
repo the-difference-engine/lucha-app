@@ -37,8 +37,18 @@ RSpec.describe Client, type: :model do
 		end
 	end
 
-	describe '#counselors?' do
+	describe '#counselors' do
 		it 'should return an array of users that are currently assigned to the clients applications' do
+			client = Client.create(email: "Shoobop@aol.com" , password: "password", first_name: "Bob", last_name: "Whatever")
+			foreclosure = Foreclosure.create(originating_lender: "Whomever it may be", client_id: client.id)
+			homebuying = Homebuying.create(lender: "BOA", client_id: client.id)
+			rental = Rental.create(evictions: 4, client_id: client.id)
+			employee = User.create(email:"schmuckers@decoy.org", password: "password", first_name: "Prawn", last_name: "Schmucker")
+			second_employee = User.create(email:"Boberino@decoy.org", password: "password", first_name: "Bob", last_name: "Robertino")
+
+			ProgramEmployee.create(user_id: employee.id, programable_id: foreclosure.id, programable_type: "Foreclosure")
+			ProgramEmployee.create(user_id: second_employee.id, programable_id: rental.id, programable_type: "Rental")
+			expect(client.counselors.length).to eq(2)
 		end
 	end
 
