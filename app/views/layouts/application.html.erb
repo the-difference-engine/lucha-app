@@ -1,161 +1,141 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 
-    <title>LUCHA</title>
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
+    <title>LUCHA CMS</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-41480445-1', 'purecss.io');
+        ga('send', 'pageview');
+    </script>
 
 </head>
-
 <body>
 
-    <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="/">
-                       HAWWW LUCHA Home
-                    </a>
-                </li>
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
 
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="/">LUCHA</a>
 
-
-
-<!-- Make a nav bar for users-->
+            <ul class="pure-menu-list">
 
                 <% if user_signed_in? %>
-                    <li>
-                        <a href="/users"><%= current_user.email %></a>
+
+                    <li class="pure-menu-item">
+                       <%= link_to 'Foreclosures', foreclosures_path, :class =>"pure-menu-link" %>
                     </li>
-                    <li>
-                       <%= link_to 'Foreclosures', foreclosures_path %>
+                    <li class="pure-menu-item">
+                        <%= link_to 'Home Buying', homebuyings_path, :class =>"pure-menu-link" %>
                     </li>
-                    <li>
-                        <%= link_to 'Home Buying', homebuyings_path %>
+                    <li class="pure-menu-item">
+                        <%= link_to 'Law Projects', law_projects_path, :class =>"pure-menu-link" %>
                     </li>
-                    <li>
-                        <%= link_to 'Law Projects', law_projects_path %>
+                    <li class="pure-menu-item">
+                        <%= link_to 'Rentals', rentals_path, :class =>"pure-menu-link" %>
                     </li>
-                    <li>
-                        <%= link_to 'Rentals', rentals_path %>
+                    <li class="pure-menu-item">
+                        <%= link_to 'Senior Repairs', senior_repairs_path, :class =>"pure-menu-link" %>
                     </li>
-                    <li>
-                        <%= link_to 'Senior Repairs', senior_repairs_path %>
+                    <li class="pure-menu-item">
+                        <%= link_to 'Clients', clients_path, :class =>"pure-menu-link" %>
                     </li>
-                    <li>
-                        <%= link_to 'Clients', clients_path %>
-                    </li>
-                    <li>
-                        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+                    <li class="pure-menu-item">
+                        <%= link_to('Logout', destroy_user_session_path, :class =>"pure-menu-link", :method => :delete) %>        
                     </li>
 
-
-                    <li><%= form_tag "/search", class: "navbar-form navbar-right" do %>
+                    <li class="pure-menu-item"><%= form_tag "/search", class: "navbar-form navbar-right" do %>
                     <%= text_field_tag :search, nil, placeholder: "Search Clients" %>
                     <%= submit_tag "Go" %>
                     <% end %>
                     </li>
 
 
-
-<!--Make an elsif for clients to have their own bar -->
                 <% elsif client_signed_in? %>
                     <li>
-                    <%=link_to 'Status', client_status_path(current_client.id) %>
+                    <%=link_to 'Status', client_status_path(current_client.id), :class =>"pure-menu-link" %>
                     </li>
                     <li>
-                        <%= link_to 'Edit your personal info', client_edit_path(current_client.id) %> 
+                        <%= link_to 'Edit your personal info', client_edit_path(current_client.id), :class =>"pure-menu-link" %> 
                     </li>
                     <li>
-                    <% if current_client.foreclosures.blank? %>
-                        <%= link_to 'Foreclosures', foreclosure_intake_path %>
+                    <% if current_client.foreclosure.blank? %>
+                        <%= link_to 'Foreclosures', foreclosure_intake_path, :class =>"pure-menu-link" %>
                     <% else %>
-                        <%= link_to 'Edit Your Foreclosure App', foreclosure_edit_path(current_client.foreclosures[0].id) %>
+                        <%= link_to 'Edit Foreclosure', foreclosure_edit_path(current_client.foreclosures[0].id), :class =>"pure-menu-link" %>
                     <% end %>
                     </li>
                     <li>
-                        <%= link_to 'Home Buying', homebuying_intake_path %>
+                        <%= link_to 'Home Buying', homebuying_intake_path, :class =>"pure-menu-link" %>
                     </li>
                     <li>
-                        <%= link_to 'Law Projects', law_project_intake_path %>
+                        <%= link_to 'Law Projects', law_project_intake_path, :class =>"pure-menu-link" %>
                     </li>
                     <li>
-                        <%= link_to 'Rentals', rental_intake_path %>
+                        <%= link_to 'Rentals', rental_intake_path, :class =>"pure-menu-link" %>
                     </li>
                     <li>
-                        <%= link_to 'Senior Repairs', senior_repair_intake_path %>
+                        <%= link_to 'Senior Repairs', senior_repair_intake_path, :class =>"pure-menu-link" %>
                     </li>
-                      <li>
-                          <%= link_to('Logout', destroy_client_session_path, :method => :delete) %>        
-                      </li>
+                    <li>
+                        <%= link_to('Logout', destroy_client_session_path, :class =>"pure-menu-link", :method => :delete) %>        
+                    </li>
+
+
                 <% else %>
-                    <li>
-                        <a href="/register">Client Registration</a>
+                    <li class="pure-menu-item">
+                        <a href="/register" class="pure-menu-link">Client Registration</a>
                     </li>
-                    <li>
-                        <a href="/users/sign_up">Users Registration</a>
+                    <li class="pure-menu-item">
+                        <a href="/users/sign_up" class="pure-menu-link">Users Registration</a>
                     </li>
-    				<li>
-					  <%= link_to('Employee login', new_user_session_path)  %>  
-    				</li>
-                    <li>
-                      <%= link_to('Client login', new_client_session_path)  %>  
+                    <li class="pure-menu-item">
+                      <%= link_to('Employee login', new_user_session_path, :class =>"pure-menu-link") %>  
                     </li>
-				<% end %>
+                    <li class="pure-menu-item">
+                      <%= link_to('Client login', new_client_session_path, :class =>"pure-menu-link") %>  
+                    </li>
+                <% end %>
+
+
 
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-										
-                                        <% flash.each do |name, message| %>
-                                            <div class="alert alert-<%= name == "alrert" || name == "notice" ? "warning" : name %> alert-dismissible" role="alert">  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <p> <%= message %> </p> </div>
-                                        <% end %>
-
-
-											<%= yield %>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+
+    <div id="main">
+        <div class="content">
+            <% flash.each do |name, message| %>
+            <div class="alert alert-<%= name == "alrert" || name == "notice" ? "warning" : name %> alert-dismissible" role="alert">  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <p> <%= message %> </p> </div>
+            <% end %>
+
+            <%= yield %>
+
+        </div>
+    </div>
+
+</div>
+
 
 </body>
-
 </html>
