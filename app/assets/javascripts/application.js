@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+//= require angular-animate
 //= require bootstrap-sprockets
 //= require bootstrap.min
+//= require app
 //= require_tree .
