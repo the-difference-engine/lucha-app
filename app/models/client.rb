@@ -13,12 +13,12 @@ class Client < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :user
 
-  has_one :foreclosure
-  has_one :homebuying
-  has_one :rental
-  has_one :law_project
-  has_one :senior_repair
-  has_one :budget
+  has_one :foreclosure, dependent: :destroy
+  has_one :homebuying, dependent: :destroy
+  has_one :rental, dependent: :destroy
+  has_one :law_project, dependent: :destroy
+  has_one :senior_repair, dependent: :destroy
+  has_one :budget, dependent: :destroy
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
