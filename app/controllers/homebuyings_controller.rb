@@ -12,7 +12,7 @@ class HomebuyingsController < ApplicationController
 
 	def create
 	  @homebuying = Homebuying.new(
-	  	client_id: params[:id]
+	  	client_id: params[:id],
 	  	lender: params[:lender], 
 	  	hear_of_workshop: params[:hear_of_workshop],
 			contact_for_appointment: params[:contact_for_appointment],

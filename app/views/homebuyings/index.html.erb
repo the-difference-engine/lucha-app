@@ -1,1 +1,27 @@
-index.html.erb
+<div ng-app="app">
+<link rel="stylesheet" type="text/css" href="animate.css">
+
+{{1+1}}
+	<div ng-controller="homebuyingsCtrl" ng-init="setup()">
+		<div>
+			<h1>clients</h1>
+			First Name: <input ng-model="newFirstName"><br>
+			Last Name: <input ng-model="newLastName"><br>
+			Email: <input ng-model="newEmail">
+			<button  ng-click="addNewClient(newFirstName, newLastName, newEmail)">Add Client</button>
+			<br>
+			<h3> Search by name: <input ng-model='firstNameFilter'></h3>
+			<h3> Search by email: <input ng-model='emailFilter'></h3>
+			<br><br>
+			<button ng-click="sortBy('name')">Sort by Name</button>
+			<button ng-click="sortBy('email')">Sort by Email</button>
+
+				<div  ng-repeat="client in clients | filter: {email: emailFilter, 'first_name': firstNameFilter, 'last_name': lastNameFilter} | orderBy:sortByAttribute:descending" ng-click="toggle=!toggle"> 
+				<h2>{{ client.full_name }}</h2> 
+				<div ng-hide="toggle"  ><p>{{ client.phone_number }}<br>
+				{{ client.email }}
+				</p></div>
+				</div>
+		</div>
+	</div>
+</div>

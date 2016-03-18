@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  validates :full_name, :password, :email, presence: true
+  validates :first_name, :last_name, :password, :email, presence: true
 
 
   # validates :email, confirmation: true
@@ -20,9 +20,9 @@ class Client < ActiveRecord::Base
   has_one :senior_repair, dependent: :destroy
   has_one :budget, dependent: :destroy
 
-  def full_name
-    "#{first_name.titleize} #{last_name.titleize}"
-  end
+  # def full_name
+  #   "#{first_name.titleize} #{last_name.titleize}"
+  # end
 
   def column_count
     attributes.length - 4

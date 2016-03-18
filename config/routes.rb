@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
 
+  get '/case_load' => 'program_employees#index', as: :cases
+  post '/case_load' => 'program_employees#create', as: :case_assign
+
   get '/clients' =>'clients#index', as: :clients
   get '/clients/new' => 'clients#new'
   post '/clients/create' => 'clients#create'
@@ -30,9 +33,6 @@ Rails.application.routes.draw do
   get '/budgets/:id/edit' => 'budgets#edit'
   patch '/budgets/:id' => 'budgets#update'
   delete '/budgets/:id' => 'budgets#destroy'
-
-  get '/case_load' => 'program_employees#index', as: :cases
-  post '/case_load' => 'program_employees#create', as: :case_assign
 
   get '/foreclosures' =>'foreclosures#index', as: :foreclosures
   get '/foreclosures/new' => 'foreclosures#new', as: :foreclosure_intake

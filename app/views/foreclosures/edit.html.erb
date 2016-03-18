@@ -3,7 +3,7 @@
 
 <%= form_tag foreclosure_update_path, method: :patch do %>
 
-   <div class="field">
+  <div class="field">
     <%= label_tag :originating_lender %><br />
     <%=text_field_tag :originating_lender, @foreclosure.originating_lender %>
   </div>

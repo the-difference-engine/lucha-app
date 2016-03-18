@@ -1,6 +1,8 @@
 class ForeclosuresController < ApplicationController
 	skip_before_action :authenticate_client!
 	
+
+
 	def index
     @foreclosures = Foreclosure.all	
     respond_to do |format|
@@ -21,9 +23,9 @@ class ForeclosuresController < ApplicationController
 
 
 	def create
-			@client = Client.find_by(params[:id])
+    if client_signed_in?
 	    @foreclosure = Foreclosure.new({ 
-	    	client_id: params[:id],
+	    	client_id: current_client.id,
 	    	currently_foreclosed: params[:currently_foreclosed],
 				originating_lender: params[:originating_lender],
 				original_loan_number: params[:original_loan_number],
@@ -43,42 +45,42 @@ class ForeclosuresController < ApplicationController
 	    if @foreclosure.save
 	    	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
 		    flash[:success] = "You've completed the foreclosure application"
-		    redirect_to "/clients/#{@foreclosure.client.id}/status"
+		    redirect_to "/clients/#{@foreclosure.client_id}/status"
 	    else
-	      render :show
+	      render :create
 	    end
 
-	  # elsif user_signed_in?
-	  #   @foreclosure = Foreclosure.new({client_id: paramms[:client_id], 
-	  #   	currently_foreclosed: params[:currently_foreclosed],
-			# 	originating_lender: params[:originating_lender],
-			# 	original_loan_number: params[:original_loan_number],
-			# 	servicer: params[:servicer], 
-			# 	servicer_loan_number: params[:servicer_loan_number],
-			# 	monthly_mortgage_payment: params[:monthly_mortgage_payment],
-			# 	loan_term: params[:loan_term], 
-			# 	origination_date: params[:origination_date], 
-			# 	been_to_court: params[:been_to_court], 
-			# 	court_case_number: params[:court_case_number] , 
-			# 	working_with_lawyer: params[:working_with_lawyer],
-			# 	working_w_agency: params[:working_w_agency], 
-			# 	agency: params[:agency]
-	  #   	})
-	  #   if @foreclosure.save && @program.save
-	  #   	if ProgramEmployee.where(programable_id: 17).blank?
-	  #   	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
-		 #    end
-		 #    flash[:success] = "You've completed the foreclosure application"
-		 #    redirect_to "/clients/#{@foreclosure.client_id}"
-	  #   else
-	  #     render :create
-	  #   end
-	  # end
+	  elsif user_signed_in?
+	    @foreclosure = Foreclosure.new({client_id: paramms[:id], 
+	    	currently_foreclosed: params[:currently_foreclosed],
+				originating_lender: params[:originating_lender],
+				original_loan_number: params[:original_loan_number],
+				servicer: params[:servicer], 
+				servicer_loan_number: params[:servicer_loan_number],
+				monthly_mortgage_payment: params[:monthly_mortgage_payment],
+				loan_term: params[:loan_term], 
+				origination_date: params[:origination_date], 
+				been_to_court: params[:been_to_court], 
+				court_case_number: params[:court_case_number] , 
+				working_with_lawyer: params[:working_with_lawyer],
+				working_w_agency: params[:working_w_agency], 
+				agency: params[:agency]
+	    	})
+	    if @foreclosure.save && @program.save
+	    	if ProgramEmployee.where(programable_id: 17).blank?
+	    	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
+		    end
+		    flash[:success] = "You've completed the foreclosure application"
+		    redirect_to "/clients/#{@foreclosure.client_id}"
+	    else
+	      render :create
+	    end
+	  end
   end
 	
 
 	def edit
-    @foreclosure = Foreclosure.where(client_id: params[:id])
+    @foreclosure = Foreclosure.where(client_id: current_client.id)[0]
 	end
 
 	def update
@@ -99,7 +101,7 @@ class ForeclosuresController < ApplicationController
 				agency: params[:agency]
         })
 			flash[:success] = "Foreclosure application submitted."
-			redirect_to '/clients/#{foreclosure.client.id}'
+			redirect_to '/clients/#{@foreclosure.client_id}'
 		else
 			render :edit
 		end
@@ -108,5 +110,12 @@ class ForeclosuresController < ApplicationController
 	def show
 		@foreclosure = Foreclosure.where(client_id: params[:id])
 	end
+
+
+
+
+
+
+
 
 end

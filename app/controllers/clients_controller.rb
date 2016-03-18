@@ -6,11 +6,12 @@ class ClientsController < ApplicationController
     @clients = Client.all
     @foreclosures = Foreclosure.all
     
-    # respond_to do |format|
-    #   format.html
-    #   format.csv { send_data @clients.to_csv }
-    #   format.xls  { send_data @clients.to_csv(col_sep: "\t") }
-    # end
+    respond_to do |format|
+      format.json
+      format.html
+      format.csv { send_data @clients.to_csv }
+      format.xls  { send_data @clients.to_csv(col_sep: "\t") }
+    end
   end
 
   def show
@@ -65,7 +66,7 @@ class ClientsController < ApplicationController
           flash[:success] = "The account has been created"
           redirect_to "/clients/#{@client.id}"
         else
-          render :show
+          render :create
         end
   
     elsif client_signed_in?
@@ -127,7 +128,6 @@ class ClientsController < ApplicationController
   # end
 
   def update
-    @client = Client.find(params[:id])
     if user_signed_in?
       @client = Client.find(params[:id])
 

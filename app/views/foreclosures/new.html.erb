@@ -2,6 +2,8 @@
 
 <form action="/foreclosures/create" method="post">
 	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+	<input type="client_id" value="<%= params[:id] %>" type="hidden" >
 	
 	<label>Originating Lender:</label>	<input type="name" name="originating_lender" required />
 
@@ -28,7 +30,7 @@
 
 	<label>If checked above, what agency:</label><input type="name" name="agency" />
 
-		<button type="submit">Click Me!</button>
+	<button type="submit">Click Me!</button>
 
 </form>
 

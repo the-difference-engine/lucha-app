@@ -1,0 +1,1 @@
+json.partial! @client, partial: 'client', as: :client
