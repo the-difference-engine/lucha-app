@@ -1,4 +1,7 @@
 class LawProjectsController < ApplicationController
+	skip_before_action :authenticate_client!
+
+
 	def index
     @law_project = LawProject.where(client_id: params[:id])	
 	end

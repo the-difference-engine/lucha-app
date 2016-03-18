@@ -79,9 +79,9 @@
                     </li>
                     <li>
                     <% if current_client.foreclosure.blank? %>
-                        <%= link_to 'Foreclosures', foreclosure_intake_path, :class =>"pure-menu-link" %>
+                        <%= link_to 'Foreclosures', foreclosure_intake_path(current_client.id), :class =>"pure-menu-link" %>
                     <% else %>
-                        <%= link_to 'Edit Foreclosure', foreclosure_edit_path(current_client.foreclosures[0].id), :class =>"pure-menu-link" %>
+                        <%= link_to 'Edit Foreclosure', foreclosure_edit_path(current_client.foreclosure.id), :class =>"pure-menu-link" %>
                     <% end %>
                     </li>
                     <li>

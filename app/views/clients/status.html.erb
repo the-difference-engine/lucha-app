@@ -1,35 +1,19 @@
 <h1>Hi <%= current_client.full_name %></h1>
-
-<% if !current_client.foreclosures.blank? %>
-	<%if !current_client.foreclosures[0].program_employees[0].blank? %>
-	<h3>Your counselor is <%=current_client.foreclosures[0].program_employees[0].user.full_name%>
-	<ul>
-		<li>Phone: <%=current_client.foreclosures[0].program_employees[0].user.work_phone%></li>
-		<li>Email: <%=current_client.foreclosures[0].program_employees[0].user.email%></li>
+<% if !current_client.counselors.blank? %>
+	<% current_client.counselors.each do |counselor| %>
+		<ul>
+			<li><%= counselor.full_name %></li>
+			<li><%= counselor.work_phone %></li>
+			<li><%= counselor.email %></li>
+		</ul>
+		<br>
+		<% end %>
+		<% else %>
+	<p>When you have a chance, please make sure to fill out an application in the navigation bar next to you so we can get you started.</p>
+<% end %>
 
 		<div class="progress">
-		  <div class="progress-bar" role="progressbar" aria-valuenow="70"
-		  aria-valuemin="0" aria-valuemax="<%= current_client %>" style="width:70%">
-		    70%
+		  <div class="progress-bar" role="progressbar" aria-valuenow="<%= 30 %>"
+		  aria-valuemin="0" aria-valuemax="<%= 40  %>">
+			</div>
 		</div>
-		</div>
-		<% else %>
-		<h3>Welcome</h3>
-		<% end %>
-
-	</ul>
-
-<% elsif !current_client.homebuyings.blank? %>
-	<h3>Your counselor is <%=current_client.homebuyings[0].program_employees[0].user.full_name%>
-
-<% elsif !current_client.rentals.blank? %>
-	<h3>Your counselor is <%=current_client.rentals[0].program_employees[0].user.full_name%>
-
-<% elsif !current_client.senior_repairs.blank? %>
-	<h3>Your counselor is <%=current_client.senior_repairs[0].program_employees[0].user.full_name%>
-
-<% elsif !current_client.law_projects.blank? %>
-	<h3>Your counselor is <%=current_client.law_projects[0].program_employees[0].user.full_name%>
-<% else %>
-	Register for any one of our servies using the navigation bar. Should you need any help, feel free to contact intake@lucha.org.
-<% end %>

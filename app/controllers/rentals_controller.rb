@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
-
+	skip_before_action :authenticate_client!
+	
 	def index
     @rental = Rental.where(client_id: params[:id])	
 	end

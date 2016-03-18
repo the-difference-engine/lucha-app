@@ -92,7 +92,80 @@
 	json.working_w_agency client.foreclosure.working_w_agency unless client.foreclosure.blank?
 	json.agency client.foreclosure.agency unless client.foreclosure.blank?
 
-	
+	json.client_id client.homebuying.client_id unless client.homebuying.blank?
+	json.lender client.homebuying.lender unless client.homebuying.blank?
+	json.hear_of_workshop client.homebuying.hear_of_workshop unless client.homebuying.blank?
+	json.contact_for_appointment client.homebuying.contact_for_appointment unless client.homebuying.blank?
+	json.real_estate_contract client.homebuying.real_estate_contract unless client.homebuying.blank?
+	json.realtor_name client.homebuying.realtor_name unless client.homebuying.blank?
+	json.realtor_phone client.homebuying.realtor_phone unless client.homebuying.blank?
+	json.property_address client.homebuying.property_address unless client.homebuying.blank?
+	json.property_state client.homebuying.property_state unless client.homebuying.blank?
+	json.property_city client.homebuying.property_city unless client.homebuying.blank?
+	json.loan_officer_name client.homebuying.loan_officer_name unless client.homebuying.blank?
+	json.loan_officer_email client.homebuying.loan_officer_email unless client.homebuying.blank?
+	json.loan_officer_phone client.homebuying.loan_officer_phone unless client.homebuying.blank?
+	json.payment_assistance_program client.homebuying.payment_assistance_program unless client.homebuying.blank?
+	json.approx_closing_date client.homebuying.approx_closing_date unless client.homebuying.blank?
+
+	json.violation_type client.law_project.violation_type unless client.law_project.blank?
+	json.client_id client.law_project.client_id unless client.law_project.blank?
+	json.current_evicted client.law_project.current_evicted unless client.law_project.blank?
+	json.community_group client.law_project.community_group unless client.law_project.blank?
+	json.tech_assistance client.law_project.tech_assistance unless client.law_project.blank?
+	json.frclsr_prevention client.law_project.frclsr_prevention unless client.law_project.blank?
+	json.low_income_family client.law_project.low_income_family unless client.law_project.blank?
+	json.displacement client.law_project.displacement unless client.law_project.blank?
+	json.substandard_housing client.law_project.substandard_housing unless client.law_project.blank?
+	json.disabilities client.law_project.disabilities unless client.law_project.blank?
+	json.lucha_tenant client.law_project.lucha_tenant unless client.law_project.blank?
+	json.law_project_chargable client.law_project.law_project_chargable unless client.law_project.blank?
+	json.other client.law_project.other unless client.law_project.blank?
+	json.census_tract client.law_project.census_tract unless client.law_project.blank?
+
+
+	json.evictions client.rental.evictions unless client.rental.blank?
+	json.client_id client.rental.client_id unless client.rental.blank?
+	json.waitlist_num client.rental.waitlist_num unless client.rental.blank?
+	json.studio client.rental.studio unless client.rental.blank?
+	json.two_bed client.rental.two_bed unless client.rental.blank?
+	json.three_bed client.rental.three_bed unless client.rental.blank?
+	json.wheelchair_accessible client.rental.wheelchair_accessible unless client.rental.blank?
+	json.car_owner client.rental.car_owner unless client.rental.blank?
+	json.pet_owner client.rental.pet_owner unless client.rental.blank?
+	json.kind_of_pet client.rental.kind_of_pet unless client.rental.blank?
+	json.hear_of_property client.rental.hear_of_property unless client.rental.blank?
+	json.reasons_for_application client.rental.reasons_for_application unless client.rental.blank?
+	json.landlord_name client.rental.landlord_name unless client.rental.blank?
+	json.landlord_address client.rental.landlord_address unless client.rental.blank?
+	json.landlord_phone client.rental.landlord_phone unless client.rental.blank?
+	json.occupancy_at_apartment client.rental.occupancy_at_apartment unless client.rental.blank?
+	json.monthly_rent client.rental.monthly_rent unless client.rental.blank?
+	json.fuel_electric client.rental.fuel_electric unless client.rental.blank?
+	json.pre_landlord_name client.rental.pre_landlord_name unless client.rental.blank?
+	json.pre_landlord_address client.rental.pre_landlord_address unless client.rental.blank?
+	json.pre_landlord_phone client.rental.pre_landlord_phone unless client.rental.blank?
+	json.pre_rent client.rental.pre_rent unless client.rental.blank?
+	json.pre_fuel_electric client.rental.pre_fuel_electric unless client.rental.blank?
+	json.reason_for_move client.rental.reason_for_move unless client.rental.blank?
+	json.housing_situation client.rental.housing_situation unless client.rental.blank?
+	json.employer_name client.rental.employer_name unless client.rental.blank?
+	json.employer_address client.rental.employer_address unless client.rental.blank?
+	json.employer_city client.rental.employer_city unless client.rental.blank?
+	json.employer_state client.rental.employer_state unless client.rental.blank?
+	json.employer_phone client.rental.employer_phone unless client.rental.blank?
+	json.position client.rental.position unless client.rental.blank?
+	json.length_employed client.rental.length_employed unless client.rental.blank?
+	json.personal_reference_name client.rental.personal_reference_name unless client.rental.blank?
+	json.per_ref_address client.rental.per_ref_address unless client.rental.blank?
+	json.per_ref_street client.rental.per_ref_street unless client.rental.blank?
+	json.per_ref_state client.rental.per_ref_state unless client.rental.blank?
+	json.per_ref_phone client.rental.per_ref_phone unless client.rental.blank?
+	json.per_ref_relationship client.rental.per_ref_relationship unless client.rental.blank?
+	json.displaced client.rental.displaced unless client.rental.blank?
+	json.homeless client.rental.homeless unless client.rental.blank?
+	json.over_fifty_percent client.rental.over_fifty_percent unless client.rental.blank?
+	json.agree_to_fee client.rental.agree_to_fee unless client.rental.blank?
 
 
 
