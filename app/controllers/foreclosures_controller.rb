@@ -21,6 +21,7 @@ class ForeclosuresController < ApplicationController
 
 
 	def create
+			@client = Client.find_by(params[:id])
 	    @foreclosure = Foreclosure.new({ 
 	    	client_id: params[:id],
 	    	currently_foreclosed: params[:currently_foreclosed],
@@ -42,9 +43,9 @@ class ForeclosuresController < ApplicationController
 	    if @foreclosure.save
 	    	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
 		    flash[:success] = "You've completed the foreclosure application"
-		    redirect_to "/clients/#{@foreclosure.client_id}/status"
+		    redirect_to "/clients/#{@foreclosure.client.id}/status"
 	    else
-	      render :create
+	      render :show
 	    end
 
 	  # elsif user_signed_in?
@@ -98,7 +99,7 @@ class ForeclosuresController < ApplicationController
 				agency: params[:agency]
         })
 			flash[:success] = "Foreclosure application submitted."
-			redirect_to '/clients/#{@foreclosure.client_id}'
+			redirect_to '/clients/#{foreclosure.client.id}'
 		else
 			render :edit
 		end

@@ -15,7 +15,7 @@ class LawProjectsController < ApplicationController
     # if client_signed_in?
 	    @law_project = LawProject.new({
 	    	client_id: params[:id],
-	     violation_type: params[:violation_type], 
+	    	violation_type: params[:violation_type], 
 				current_evicted: params[:current_evicted],
 				community_group: params[:community_group],
 				tech_assistance: params[:tech_assistance],
