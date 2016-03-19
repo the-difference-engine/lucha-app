@@ -1,63 +1,146 @@
 
 <h1>Please fill in the rest of the information below</h1>
 
-<%= form_tag client_update_path, method: :patch do %>
+<%= form_tag client_update_path, :class => "form-horizontal", role: "form", method: :patch do %>
 
-   <div class="field">
-    <%= label_tag :first_name %><br />
-    <%=text_field_tag :first_name, @client.first_name %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :first_name %><br />
+      <%=text_field_tag :first_name, @client.first_name %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :last_name %><br />
-    <%=text_field_tag :last_name, @client.last_name %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :last_name %><br />
+      <%=text_field_tag :last_name, @client.last_name %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :sex %><br />
-    <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :home_phone %><br />
+      <%=text_field_tag :home_phone, @client.home_phone %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :race %><br />
-    <%= select_tag(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']], @client.race)) %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :cell_phone %><br />
+      <%= text_field_tag :cell_phone, @client.cell_phone %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :home_phone %><br />
-    <%=text_field_tag :home_phone, @client.home_phone %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :work_phone %><br />
+      <%= text_field_tag :work_phone, @client.work_phone %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :cell_phone %><br />
-    <%=text_field_tag :cell_phone, @client.cell_phone %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :address %><br />
+      <%= text_field_tag :address, @client.address %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :work_phone %><br />
-    <%= text_field_tag :work_phone, @client.work_phone %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :state %><br />
+      <%= text_field_tag :state, @client.state %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :address %><br />
-    <%=text_field_tag :address, @client.address %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :ward %><br />
+      <%= text_field_tag :ward, @client.ward %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :state %><br />
-    <%=text_field_tag :state, @client.state %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :zip_code %><br />
+      <%= text_field_tag :zip_code, @client.zip_code %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :ward %><br />
-    <%= text_field_tag :ward, @client.ward %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :sex %><br />
+      <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
+    </div>
 
-  <div class="field">
-    <%= label_tag :zip_code %><br />
-    <%= text_field_tag :zip_code, @client.zip_code %>
-  </div>
+    <div class="form-group">
+      <%= label_tag :race %><br />
+      <%= select_tag(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']], @client.race)) %>
+    </div>
 
-<%= submit_tag "Update!" %>
+    <div class="form-group">
+      <%= label_tag :ssn %> <br>
+      <%= text_field_tag :ssn, @client.ssn %>
+    </div>
 
-<% end %>
+    <div class="form-group">
+      <%= label_tag :preferred_contact_method %> <br>
+      <%= text_field_tag :preferred_contact_method, @client.preferred_contact_method %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :preferred_language %> <br>
+      <%= text_field_tag :preferred_language, @client.preferred_language %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :marital_status %> <br>
+      <%= text_field_tag :marital_status, @client.marital_status %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :dob %> <br>
+      <%= text_field_tag :dob, @client.dob %>
+    </div>
+
+    <div class="form-group">
+      <div class="checkbox-inline">
+        <%= label_tag :head_of_household do %>
+        <%= check_box_tag :head_of_household, @client.head_of_household %>
+        Are you the head of the household?
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :num_in_household, "How many people live in the household?" %> <br>
+      <%= number_field_tag :num_in_household, @client.num_in_household %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :num_of_dependants %> <br>
+      <%= number_field_tag :num_of_dependants, @client.num_of_dependants %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :education_level %> <br>
+      <%= select_tag :education_level, options_for_select(education, @client.education_level) %>
+    </div>
+<!-- 
+    <div class="form-group">
+      <%= label_tag :estimated_household_income %> <br>
+      <%= number_field_tag :estimated_household_income, @client.estimated_household_income %>
+    </div>
+ -->
+    <div class="form-group">
+      <%= label_tag do %> 
+      Check if any of the below apply to you:
+      <br>
+          <div class="checkbox-inline">
+          <%= check_box_tag :disability, @client.disability %>
+          Disabled <br>
+
+          <%= check_box_tag :military_service_member, @client.military_service_member %>
+          A current or former military service member<br>
+
+          <%= check_box_tag :union_member, @client.union_member %>
+          A member of any union
+          </div>
+      <% end %>
+    </div>
+
+
+    <div class="form-group">
+      <div class="checkbox-inline">
+        <%= label_tag :volunteer_interest do %> <br>
+          <%= check_box_tag :volunteer_interest, @client.volunteer_interest %>
+          I would like to volunteer.
+        <% end %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Update!", :class => 'btn btn-large btn-primary' %>
+    </div>
+
+    <% end %>

@@ -1,47 +1,79 @@
-<h2>Sign up</h2>
+<h2>Welcome</h2>
+<h4>Please fill in the following in order to create </h4>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-horizontal", role: "form"}) do |f| %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
   <%= devise_error_messages! %>
   <div class="form-group">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %><br>
     <%= f.text_field :first_name, autofocus: true %>
   </div>
 
   <div class="form-group">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
 
   <div class="form-group">
-    <%= f.label :home_phone %><br />
+    <%= f.label :home_phone %><br>
     <%=f.text_field :home_phone %>
   </div>
 
   <div class="form-group">
-    <%= f.label :cell_phone %><br />
+    <%= f.label :cell_phone %><br>
     <%=f.text_field :cell_phone %>
   </div>
 
   <div class="form-group">
-    <%= f.label :address %><br />
+    <%= f.label :address %><br>
     <%= f.text_field :address %>
   </div>
 
   <div class="form-group">
-    <%= f.label :state %><br />
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :state %><br>
     <%= f.select(:state, options_for_select(us_states, "IL")) %>
   </div>
 
   <div class="form-group">
-    <%= f.label :ward %><br />
+    <%= f.label :ward %><br>
     <%= f.text_field :ward %>
   </div>
 
   <div class="form-group">
-    <%= f.label :zip_code %><br />
+    <%= f.label :zip_code %><br>
     <%= f.text_field :zip_code %>
   </div>
 
+  <hr>
+
+  <div class="form-group">
+    <div class="checkbox-inline" %>
+      <%= f.label :authorization_and_waiver do %>
+        <%= f.check_box :authorization_and_waiver %>
+        I authorize LUCHA and it's staff to use my information for the purposes of counseling. 
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="checkbox-inline">
+      <%= f.label :privacy_policy_authorization do %>
+        <%= f.check_box :privacy_policy_authorization%>
+        I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set.  
+      <% end %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="form-group">
+  <h4>The following information will be your login information, make sure to keep this safe with you.</h4>
+  </div>
 
   <div class="form-group">
     <%= f.label :email %><br />
@@ -61,10 +93,17 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Sign up", :class => 'btn btn-default' %>
+
+  <div class="form-group">
+    <%= f.submit "Sign up", :class => 'btn btn-large btn-primary' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<h5>Already have an account? <%= render "devise/shared/links" %></h5>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315233610) do
+ActiveRecord::Schema.define(version: 20160319200433) do
 
   create_table "budgets", force: :cascade do |t|
     t.decimal  "gross_wages",                          precision: 8, scale: 2
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20160315233610) do
     t.boolean  "working_with_lawyer"
     t.boolean  "working_w_agency"
     t.string   "agency",                   limit: 255
+    t.string   "reason_for_default",       limit: 255
   end
 
   create_table "homebuyings", force: :cascade do |t|

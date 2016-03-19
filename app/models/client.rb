@@ -1,7 +1,9 @@
 class Client < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  validates :first_name, :last_name, :password, :email, presence: true
+  validates :first_name, :last_name, :password, :email, :authorization_and_waiver, :privacy_policy_authorization, presence: true
+  validates :privacy_policy_authorization, inclusion: [true, false]
+  validates :authorization_and_waiver, inclusion: [true, false]
 
 
   # validates :email, confirmation: true
@@ -20,9 +22,9 @@ class Client < ActiveRecord::Base
   has_one :senior_repair, dependent: :destroy
   has_one :budget, dependent: :destroy
 
-  # def full_name
-  #   "#{first_name.titleize} #{last_name.titleize}"
-  # end
+  def full_name
+    "#{first_name.titleize} #{last_name.titleize}"
+  end
 
   def column_count
     attributes.length - 4
@@ -75,26 +77,8 @@ class Client < ActiveRecord::Base
   end
 
   def counselors
-    # program_types = [foreclosure.program_employees[0], homebuying.program_employees[0], rental.program_employees[0], senior_repair.program_employees[0], law_project.program_employees[0]]
     counselor_array = []
-    # client_enrolled_programs = []
-
-    # program_types.each do |program|
-    #   if program != nil
-    #     if !program.blank?
-    #       client_enrolled_programs << program
-    #     end
-    #   end
-    # end
     applied_programs = client_applications 
-    # counter = 0
-    # applied_programs.length.times do  
-    #   if !client_applications[counter].program_employees[0].blank?
-    #     counselor_array << client_applications[counter].program_employees[0].user
-    #     counter 
-    #   end
-    # end
-
     applied_programs.each do |program|
       unless program.program_employees[0].blank?
         counselor_array << program.program_employees[0].user
