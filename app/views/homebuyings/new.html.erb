@@ -1,9 +1,6 @@
-<%= form_tag '/homebuyings/create', method: :post do %>
 
-	<div>
-		<%= label_tag :lender %>
-		<%= text_field_tag :lender %>
-	</div>
+<h1>Homebuying Application</h1>
 
-	<%= submit_tag "Go!" %>
+<%= form_tag homebuying_create_path, :class => "form-horizontal", role: "form", method: :post do %>
+		<%= render partial: "homebuying"  %>	
 <% end %>

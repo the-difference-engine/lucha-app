@@ -4,23 +4,36 @@ class Client < ActiveRecord::Base
   validates :first_name, :last_name, :email, :authorization_and_waiver, :privacy_policy_authorization, presence: true
   validates :privacy_policy_authorization, inclusion: [true, false]
   validates :authorization_and_waiver, inclusion: [true, false]
+  validates_uniqueness_of :email
+  validates_uniqueness_of :ssn
+  validates_associated :homebuying
 
-
+  # validates_presence_of :homebuying
+  # validates_presence_of :foreclosure
+  # validates_presence_of :law_project
+  # validates_presence_of :budget
+  # validates_presence_of :rental
+# ____
   # validates :email, confirmation: true
   # <%= text_field :person, :email %>
   # <%= text_field :person, :email_confirmation %>
   # Need to add a confirmation view in the html
+# ____
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :user
 
   has_one :foreclosure, dependent: :destroy
-  has_one :homebuying, dependent: :destroy
+  has_one :homebuying, :inverse_of => :client, dependent: :destroy
   has_one :rental, dependent: :destroy
   has_one :law_project, dependent: :destroy
   has_one :senior_repair, dependent: :destroy
   has_one :budget, dependent: :destroy
+
+
+  accepts_nested_attributes_for :homebuying, allow_destroy: true
+
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
@@ -83,6 +96,11 @@ class Client < ActiveRecord::Base
       unless program.program_employees[0].blank?
         counselor_array << program.program_employees[0].user
       end
+    end
+    if counselor_array.all? &:blank?
+      counselor_array == nil
+    else
+      counselor_array
     end
     counselor_array
   end

@@ -1,5 +1,5 @@
 <h1>Hi <%= current_client.full_name %></h1>
-<% if !current_client.counselors.blank? %>
+<% if current_client.counselors.all?&:blank? %>
 	<% current_client.counselors.each do |counselor| %>
 		<ul>
 			<li><%= counselor.full_name %></li>

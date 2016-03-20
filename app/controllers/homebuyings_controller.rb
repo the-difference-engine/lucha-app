@@ -6,42 +6,55 @@ class HomebuyingsController < ApplicationController
 	end
 
 	def new
-		@homebuying = Homebuying.new
+		@homebuying = Homebuying.new	
 	end
 
 
 	def create
+		if current_client
+			@id = current_client.id
+		elsif current_user
+			@id = Client.find(params[:id]).id
+		end
+		p @id
+			
 	  @homebuying = Homebuying.new(
-	  	client_id: params[:id],
-	  	lender: params[:lender], 
-	  	hear_of_workshop: params[:hear_of_workshop],
-			contact_for_appointment: params[:contact_for_appointment],
-			real_estate_contract: params[:real_estate_contract],
-			realtor_name: params[:realtor_name],
-			realtor_phone: params[:realtor_phone],
-			property_address: params[:property_address],
-			property_state: params[:property_state],
-			property_city: params[:property_city],
-			loan_officer_name: params[:loan_officer_name],
-			loan_officer_email: params[:loan_officer_email],
-			loan_officer_phone: params[:loan_officer_phone],
-			payment_assistance_program: params[:payment_assistance_program],
-			approx_closing_date: params[:approx_closing_date]
+	  	{client_id: @id,
+	  		  	lender: params[:lender], 
+	  		  	hear_of_workshop: params[:hear_of_workshop],
+	  				contact_for_appointment: params[:contact_for_appointment],
+	  				real_estate_contract: params[:real_estate_contract],
+	  				realtor_name: params[:realtor_name],
+	  				realtor_phone: params[:realtor_phone],
+	  				property_address: params[:property_address],
+	  				property_state: params[:property_state],
+	  				property_city: params[:property_city],
+	  				loan_officer_name: params[:loan_officer_name],
+	  				loan_officer_email: params[:loan_officer_email],
+	  				loan_officer_phone: params[:loan_officer_phone],
+	  				payment_assistance_program: params[:payment_assistance_program],
+	  				approx_closing_date: params[:approx_closing_date]}
 	  	)
+	  
+	  p @homebuying
+    
     if @homebuying.save
+    	ProgramEmployee.create({programable_id: @homebuying.id, programable_type: "Homebuying"})
+
 	    flash[:success] = "You've completed the homebuying application"
-	    redirect_to "/clients/#{@homebuying.client_id}"
+	    redirect_to "/clients/#{@homebuying.client_id}/status"
     else
-      render :create
+      render :new
     end
   end
 	
 
 	def edit
-    @homebuying = Homebuying.where(client_id: homebuying.client.id)
+		@client = current_client
 	end
 
 	def update
+		@client = current_client
 		@homebuying = Homebuying.where(client_id: homebuying.client.id)
 		if @homebuying.update(
 	    	lender: params[:lender], 

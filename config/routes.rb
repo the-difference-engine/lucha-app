@@ -27,12 +27,12 @@ Rails.application.routes.draw do
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
 
   get '/budgets' => 'budgets#index'
-  get '/budgets/new' => 'budgets#new'
-  post '/budgets/create' => 'budgets#create'
-  get '/budgets/:id' => 'budgets#show'
-  get '/budgets/:id/edit' => 'budgets#edit'
-  patch '/budgets/:id' => 'budgets#update'
-  delete '/budgets/:id' => 'budgets#destroy'
+  get '/budgets/new' => 'budgets#new', as: :new_budget
+  post '/budgets/create' => 'budgets#create', as: :budget_create
+  get '/budgets/:id' => 'budgets#show', as: :budget
+  get '/budgets/:id/edit' => 'budgets#edit', as: :edit_budget
+  patch '/budgets/:id' => 'budgets#update', as: :update_budget
+  delete '/budgets/:id' => 'budgets#destroy', as: :budget_delete
 
   get '/foreclosures' =>'foreclosures#index', as: :foreclosures
   get '/foreclosures/new' => 'foreclosures#new', as: :foreclosure_intake

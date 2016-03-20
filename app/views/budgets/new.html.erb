@@ -1,2 +1,7 @@
-<h1>Budgets#new</h1>
-<p>Find me in app/views/budgets/new.html.erb</p>
+<h1>Your budget</h1>
+<p>Fill this out as best you can.</p>
+
+<%= form_tag budget_create_path, :class => "form-horizontal", role: "form", method: :post do %>
+	<%= render partial: "budget" %>
+
+<% end %>
