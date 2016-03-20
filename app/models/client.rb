@@ -8,11 +8,6 @@ class Client < ActiveRecord::Base
   validates_uniqueness_of :ssn
   validates_associated :homebuying
 
-  # validates_presence_of :homebuying
-  # validates_presence_of :foreclosure
-  # validates_presence_of :law_project
-  # validates_presence_of :budget
-  # validates_presence_of :rental
 # ____
   # validates :email, confirmation: true
   # <%= text_field :person, :email %>
@@ -31,8 +26,6 @@ class Client < ActiveRecord::Base
   has_one :senior_repair, dependent: :destroy
   has_one :budget, dependent: :destroy
 
-
-  accepts_nested_attributes_for :homebuying, allow_destroy: true
 
 
   def full_name

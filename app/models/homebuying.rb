@@ -4,6 +4,6 @@ class Homebuying < ActiveRecord::Base
 
 
 	has_many :program_employees, as: :programable
-	belongs_to :client, inverse_of: :homebuying
+	belongs_to :client
 
 end

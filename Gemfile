@@ -10,6 +10,7 @@ gem 'ruby_outlook'
 
 gem 'simple_form'
 gem 'state_select'
+gem 'best_in_place', '~> 3.0.1'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
