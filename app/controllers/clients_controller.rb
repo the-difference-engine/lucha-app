@@ -82,7 +82,6 @@ class ClientsController < ApplicationController
       address: params[:address], 
       state: params[:state], 
       city: params[:city], 
-      zip_code: params[:zip_code],
       ward: params[:ward],
       zip_code: params[:zip_code],
       ssn: params[:ssn],
@@ -113,7 +112,7 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    @client = Client.find(params[:id])
+    @client = Client.find(params[:id].to_i)
     if client_signed_in?
       @client = current_client
     end
@@ -129,7 +128,7 @@ class ClientsController < ApplicationController
 
   def update
     if user_signed_in?
-      @client = Client.find(params[:id])
+      @client = Client.find(params[:id].to_i)
 
       @client.update({first_name: params[:first_name],
       last_name: params[:last_name],
@@ -145,7 +144,6 @@ class ClientsController < ApplicationController
       city: params[:city], 
       zip_code: params[:zip_code],
       ward: params[:ward],
-      zip_code: params[:zip_code],
       ssn: params[:ssn],
       preferred_contact_method: params[:preferred_contact_method],
       preferred_language: params[:preferred_language],
@@ -162,15 +160,15 @@ class ClientsController < ApplicationController
       authorization_and_waiver: params[:authorization_and_waiver],
       privacy_policy_authorization: params[:privacy_policy_authorization]
         })
-      flash[:success] = "You're info is updated."
+      flash[:success] = "Client data updated."
       redirect_to "/clients/#{@client.id}"
 
 
     elsif client_signed_in?
       @client = current_client
-      if @client.update({first_name: params[:first_name],
+      if @client.update(first_name: params[:first_name],
       last_name: params[:last_name],
-      email: params[:email],
+      email: @client.email,
       password: params[:password],
       race: params[:race],
       sex: params[:sex], 
@@ -180,31 +178,33 @@ class ClientsController < ApplicationController
       address: params[:address], 
       state: params[:state], 
       city: params[:city], 
-      zip_code: params[:zip_code],
       ward: params[:ward],
       zip_code: params[:zip_code],
       ssn: params[:ssn],
       preferred_contact_method: params[:preferred_contact_method],
       preferred_language: params[:preferred_language],
       dob: params[:dob],
-      head_of_household: params[:head_of_household],
+      head_of_household: params[:head_of_household]["checked"],
       num_in_household: params[:num_in_household],
       num_of_dependants: params[:num_of_dependants],
       education_level: params[:education_level],
-      disability: params[:disability],
-      union_member: params[:union_member],
-      military_service_member: params[:military_service_member],
-      volunteer_interest: params[:volunteer_interest],
+      disability: params[:disability]["checked"],
+      union_member: params[:union_member]["checked"],
+      military_service_member: params[:military_service_member]["checked"],
+      volunteer_interest: params[:volunteer_interest]["checked"],
       estimated_household_income: params[:estimated_household_income],
-      authorization_and_waiver: params[:authorization_and_waiver],
-      privacy_policy_authorization: params[:privacy_policy_authorization]
-          })
+      authorization_and_waiver: @client.authorization_and_waiver,
+      privacy_policy_authorization: @client.privacy_policy_authorization
+          )
+
+      p "*" * 40
 
       flash[:success] = "You're info is updated."
       redirect_to "/clients/#{@client.id}/status"
       else
         render :edit
       end
+
     end
   end
 

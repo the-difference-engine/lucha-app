@@ -1,3 +1,16 @@
+<% if @client.errors.any? %>
+  <div id="error_explanation">
+    <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
+ 
+    <ul>
+    <% @client.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 
 <h1>Please fill in the rest of the information below</h1>
 
@@ -80,13 +93,13 @@
 
     <div class="form-group">
       <%= label_tag :dob %> <br>
-      <%= text_field_tag :dob, @client.dob %>
+      <%= date_field_tag :dob, @client.dob %>
     </div>
 
     <div class="form-group">
       <div class="checkbox-inline">
         <%= label_tag :head_of_household do %>
-        <%= check_box_tag :head_of_household, @client.head_of_household %>
+        <%= check_box :head_of_household, "checked", {}, @client.head_of_household %>
         Are you the head of the household?
         <% end %>
       </div>
@@ -106,34 +119,42 @@
       <%= label_tag :education_level %> <br>
       <%= select_tag :education_level, options_for_select(education, @client.education_level) %>
     </div>
-<!-- 
+
     <div class="form-group">
       <%= label_tag :estimated_household_income %> <br>
-      <%= number_field_tag :estimated_household_income, @client.estimated_household_income %>
+      <%= select_tag :estimated_household_income, options_for_select(income_range, @client.education_level) %>
     </div>
- -->
+
     <div class="form-group">
-      <%= label_tag do %> 
       Check if any of the below apply to you:
       <br>
+        <div class="checkbox-inline">
+          <%= label_tag :disability do %> 
+            <%= check_box :disability, "checked", {}, @client.disability %>
+            Disabled 
+          <% end %>
+        </div>
+        <br>
+        <div class="checkbox-inline">
+          <%= label_tag :military_service_member do %> 
+            <%= check_box :military_service_member, "checked", {}, @client.military_service_member %>
+            A current or former military service member
+          <% end %>
+        </div>
+          <br>
           <div class="checkbox-inline">
-          <%= check_box_tag :disability, @client.disability %>
-          Disabled <br>
-
-          <%= check_box_tag :military_service_member, @client.military_service_member %>
-          A current or former military service member<br>
-
-          <%= check_box_tag :union_member, @client.union_member %>
-          A member of any union
+            <%= label_tag :military_service_member do %> 
+              <%= check_box :union_member, "checked" %>
+              A member of any union
+            <% end %>
           </div>
-      <% end %>
     </div>
 
 
     <div class="form-group">
       <div class="checkbox-inline">
         <%= label_tag :volunteer_interest do %> <br>
-          <%= check_box_tag :volunteer_interest, @client.volunteer_interest %>
+          <%= check_box :volunteer_interest, "checked" %>
           I would like to volunteer.
         <% end %>
       </div>

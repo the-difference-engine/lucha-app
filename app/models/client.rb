@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  validates :first_name, :last_name, :password, :email, :authorization_and_waiver, :privacy_policy_authorization, presence: true
+  validates :first_name, :last_name, :email, :authorization_and_waiver, :privacy_policy_authorization, presence: true
   validates :privacy_policy_authorization, inclusion: [true, false]
   validates :authorization_and_waiver, inclusion: [true, false]
 
