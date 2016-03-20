@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/clients/:id' => 'clients#show', as: :client
   get '/clients/:id/status' => 'clients#status', as: :client_status
   get '/clients/:id/edit' => 'clients#edit', as: :client_edit
-  patch '/clients/:id' => 'clients#update', as: :client_update
+  put '/clients/:id' => 'clients#update', as: :client_update
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
 
   get '/budgets' => 'budgets#index'
