@@ -6,8 +6,8 @@
 	<h4>Cell Phone: <%= @client.cell_phone %></h4>
 
 	<h3>Demographics:</h3>
-	<h4>Race: <%= @client.race %></h4>
-	<h4>Sex: <%= @client.sex %></h4>
+	<h4>Race: <%= best_in_place @client, :race%></h4>
+	<h4>Sex: <%= best_in_place @client, :sex %></h4>
 
 	<%= form_tag case_assign_path, method: :post do %>
 		<div class = "field">
@@ -35,4 +35,8 @@
 
 <% elsif client_signed_in? %>
 	<h1>Hi <%= current_client.full_name %></h1>
+	<h4>Name: <%= best_in_place @client, :first_name %></h4>
+	<h4>Race: <%= best_in_place @client, :race%></h4>
+	<h4>Sex: <%= best_in_place @client, :sex %></h4>
+
 <% end %>
