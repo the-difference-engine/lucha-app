@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require best_in_place
 //= require angular
 //= require angular-animate
 //= require bootstrap-sprockets
 //= require bootstrap.min
+//= require best_in_place
 //= require app
 //= require_tree .
