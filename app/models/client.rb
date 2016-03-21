@@ -6,8 +6,10 @@ class Client < ActiveRecord::Base
   validates :authorization_and_waiver, inclusion: [true, false]
   validates_uniqueness_of :email
   validates_uniqueness_of :ssn
+
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates_associated :homebuying
+  
+  validates_associated :budget
 
 # ____
   # validates :email, confirmation: true
@@ -21,13 +23,13 @@ class Client < ActiveRecord::Base
   belongs_to :user
 
   has_one :foreclosure, dependent: :destroy
-  has_one :homebuying, :inverse_of => :client, dependent: :destroy
+  has_one :homebuying, dependent: :destroy
   has_one :rental, dependent: :destroy
   has_one :law_project, dependent: :destroy
   has_one :senior_repair, dependent: :destroy
-  has_one :budget, :inverse_of => :client, dependent: :destroy
+  has_one :budget, dependent: :destroy
 
-
+  before_create :build_budget
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
@@ -97,6 +99,12 @@ class Client < ActiveRecord::Base
       counselor_array
     end
     counselor_array
+  end
+
+  private
+
+  def build_budget
+    budget || true
   end
 
 

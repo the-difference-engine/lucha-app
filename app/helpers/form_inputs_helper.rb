@@ -3,9 +3,7 @@ module FormInputsHelper
 # Helper for Client update and create forms
 
 	def education
-		# Helper for education_level attribute in Client model
 		[
-
 			["No High School Diploma", "No High School Diploma"],
 			["High School Diploma", "High School Diploma"],
 			["GED", "GED"],
@@ -15,10 +13,8 @@ module FormInputsHelper
 			["Bachelor's Degree", "Bachelor's Degree"],
 			["Master's Degree", "Master's Degree"],
 			["Doctoral Degree", "Doctoral Degree"]
-
 		]
 	end
-
 
 	def pref_language
 		[['English', 'English'], ['Spanish', 'Spanish'], ['Polish', 'Polish']]
@@ -52,6 +48,10 @@ module FormInputsHelper
 			["$60,001—$65,000", "$60,001—$65,000"],
 			["$65,000+", "$65,000+"]
 		]
+	end
+
+	def racial_options
+		[['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']]
 	end
 
 # Helper for Foreclosure update and create forms
@@ -100,10 +100,6 @@ module FormInputsHelper
 			["City Lots for City Living", "City Lots for City Living"],
 			["Other", "Other"]
 		]
-	end
-
-	def racial_options
-		[['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']]
 	end
 
 
