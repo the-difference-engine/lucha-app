@@ -19,6 +19,18 @@ module FormInputsHelper
 		]
 	end
 
+
+	def pref_language
+		[['English', 'English'], ['Spanish', 'Spanish'], ['Polish', 'Polish']]
+	end
+
+	def pref_contact
+		[['Home Phone', 'Home Phone'], 
+		['Cell Phone', 'Cell Phone'], 
+		['Email', 'Email']]
+		
+	end
+
 	def income_range
 		# This helper was originally intended for the estimated_household_income model for the Client model. However, I changed that attribute to be a decimal for the purposes of reporting and data collection.
 		# The client may want to change back to a range instead of an decimal, in which case, use this helper
@@ -89,5 +101,10 @@ module FormInputsHelper
 			["Other", "Other"]
 		]
 	end
+
+	def racial_options
+		[['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']]
+	end
+
 
 end

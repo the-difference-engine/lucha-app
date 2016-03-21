@@ -67,7 +67,7 @@
 
     <div class="form-group">
       <%= label_tag :race %><br />
-      <%= select_tag(:race, options_for_select([['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']], @client.race)) %>
+      <%= select_tag(:race, options_for_select( raical_options, @client.race)) %>
     </div>
 
     <div class="form-group">

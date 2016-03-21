@@ -40,10 +40,31 @@
 	<h4>Email: <%= best_in_place @client, :email %></h4>
 	<h4>Race: <%= best_in_place @client, :race %></h4>
 	<h4>Sex: <%= best_in_place @client, :sex %></h4>
+  <h4>Date of Birth: <%= best_in_place @client, :dob, :as => :date %></h4>
+  <h4>Social Security Number <%= best_in_place @client, :ssn %></h4>
 	<h4>Home Phone: <%= best_in_place @client, :home_phone %></h4>
 	<h4>Cell Phone: <%= best_in_place @client, :cell_phone %></h4>
 	<h4>Work Phone: <%= best_in_place @client, :work_phone %></h4>
 	<h4>Address: <%= best_in_place @client, :address %></h4>
-	<h4>City: <%= best_in_place @client, :city %>, State: <%= best_in_place @client, :state %></h4>
+	<h4>City: <%= best_in_place @client, :city %>, State: <%= best_in_place @client, :state, :as => :select, :class=>"best_in_place", :collection => us_states %></h4>
+  <h4>Zip Code: <%= best_in_place @client, :zip_code %>, Ward: <%= best_in_place @client, :ward %></h4>
+  <h4>Preferred Contact Method: <%= best_in_place @client, :preferred_contact_method %></h4>
+  <h4>Preferred Language: <%= best_in_place @client, :preferred_language, :as => :select, :class=>"best_in_place", :collection => income_range %></h4>
+  <h4>Number in Household: <%= best_in_place @client, :num_in_household %></h4>
+  <h4>    <%= best_in_place @client, :num_of_dependants %></h4>
+  <h4>    <%= best_in_place @client, :education_level %></h4>
+  <h4>    <%= best_in_place @client, :disability %></h4>
+  <h4>    <%= best_in_place @client, :union_member %></h4>
+  <h4>    <%= best_in_place @client, :military_service_member %></h4>
+  <h4>    <%= best_in_place @client, :head_of_household %></h4>
+  <h4>    <%= best_in_place @client, :volunteer_interest %></h4>
+     , :estimated_household_income
+
+
+
+
+
+
+
 
 <% end %>

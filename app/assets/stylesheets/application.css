@@ -13,6 +13,7 @@
  *= require landingpages
  *= require font-awesome
  *= require landingpages
+ *= require jquery-ui
  *= require_tree .
  *= require_self
  */

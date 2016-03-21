@@ -6,6 +6,7 @@ class Client < ActiveRecord::Base
   validates :authorization_and_waiver, inclusion: [true, false]
   validates_uniqueness_of :email
   validates_uniqueness_of :ssn
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates_associated :homebuying
 
 # ____
