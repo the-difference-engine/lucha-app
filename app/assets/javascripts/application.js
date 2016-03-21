@@ -22,3 +22,4 @@
 //= require best_in_place.jquery-ui
 //= require app
 //= require_tree .
+

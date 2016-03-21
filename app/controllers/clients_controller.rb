@@ -26,7 +26,6 @@ class ClientsController < ApplicationController
 
   def new
   	@client = Client.new
-    @client.create_homebuying
   end
 
   def create
@@ -44,6 +43,7 @@ class ClientsController < ApplicationController
     #     end
   
     # elsif client_signed_in?
+    
     @client = Client.new({
       first_name: params[:first_name], 
       last_name: params[:last_name],
@@ -97,18 +97,17 @@ class ClientsController < ApplicationController
   def update
 
     if user_signed_in?
-      @client = Client.find(params[:id]).id
+      @client = Client.find(params[:id])
     elsif client_signed_in?
       @client = current_client
     end
 
     # This works with the Best_in_Place gem. Updates the object using an HTTP PUT call.
-
-    p @client
-
-    # @client = current_client
+    @client.update_attributes(client_params)
+    respond_with @client
 
 
+    # This is how I handled the updating before the Best_in_Place gem
     # @client.update({
     # first_name: params[:first_name],
     # last_name: params[:last_name],
@@ -141,8 +140,7 @@ class ClientsController < ApplicationController
     # privacy_policy_authorization: params[:privacy_policy_authorization]
     #   })
     
-    @client.update_attributes(client_params)
-    respond_with @client
+
 
 
     # if user_signed_in?

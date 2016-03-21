@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   post '/budgets/create' => 'budgets#create', as: :budget_create
   get '/budgets/:id' => 'budgets#show', as: :budget
   get '/budgets/:id/edit' => 'budgets#edit', as: :edit_budget
-  patch '/budgets/:id' => 'budgets#update', as: :update_budget
+  put '/budgets/:id' => 'budgets#update', as: :update_budget
   delete '/budgets/:id' => 'budgets#destroy', as: :budget_delete
 
   get '/foreclosures' =>'foreclosures#index', as: :foreclosures
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   post '/foreclosures/create' => 'foreclosures#create', as: :foreclosure_create
   get '/foreclosures/:id' => 'foreclosures#show', as: :foreclosure_case
   get '/foreclosures/:id/edit' => 'foreclosures#edit', as: :foreclosure_edit
-  patch '/foreclosures/:id' => 'foreclosures#update', as: :foreclosure_update
+  put '/foreclosures/:id' => 'foreclosures#update', as: :foreclosure_update
   delete '/foreclosures/:id' => 'foreclosures#destroy', as: :foreclosure_delete
 
 
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   post '/homebuyings/create' => 'homebuyings#create', as: :homebuying_create
   get '/homebuyings/:id' => 'homebuyings#show', as: :homebuying_case
   get '/homebuyings/:id/edit' => 'homebuyings#edit', as: :homebuying_edit
-  patch '/homebuyings/:id' => 'homebuyings#update', as: :homebuying_update
+  put '/homebuyings/:id' => 'homebuyings#update', as: :homebuying_update
   delete '/homebuyings/:id' => 'homebuyings#destroy', as: :homebuying_delete
 
 
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   post '/law_projects/create' => 'law_projects#create', as: :law_project_create
   get '/law_projects/:id' => 'law_projects#show', as: :law_project_case
   get '/law_projects/:id/edit' => 'law_projects#edit', as: :law_project_edit
-  patch '/law_projects/:id' => 'law_projects#update', as: :law_project_update
+  put '/law_projects/:id' => 'law_projects#update', as: :law_project_update
   delete '/law_projects/:id' => 'law_projects#destroy', as: :law_project_delete
 
 
@@ -66,7 +66,7 @@ Rails.application.routes.draw do
   post '/rentals/create' => 'rentals#create', as: :rental_create
   get '/rentals/:id' => 'rentals#show', as: :rental_show
   get '/rentals/:id/edit' => 'rentals#edit', as: :rental_edit
-  patch '/rentals/:id' => 'rentals#update', as: :rental_update
+  put '/rentals/:id' => 'rentals#update', as: :rental_update
   delete '/rentals/:id' => 'rentals#destroy', as: :rental_delete
 
   get '/senior_repairs' =>'senior_repairs#index', as: :senior_repairs
@@ -74,7 +74,7 @@ Rails.application.routes.draw do
   post '/senior_repairs/create' => 'senior_repairs#create', as: :senior_repair_create
   get '/senior_repairs/:id' => 'senior_repairs#show', as: :senior_repair_show
   get '/senior_repairs/:id/edit' => 'senior_repairs#edit', as: :senior_repair_edit
-  patch '/senior_repairs/:id' => 'senior_repairs#update', as: :senior_repair_update
+  put '/senior_repairs/:id' => 'senior_repairs#update', as: :senior_repair_update
   delete '/senior_repairs/:id' => 'senior_repairs#destroy', as: :senior_repair_delete
 
 end

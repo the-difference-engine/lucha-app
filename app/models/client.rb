@@ -25,7 +25,7 @@ class Client < ActiveRecord::Base
   has_one :rental, dependent: :destroy
   has_one :law_project, dependent: :destroy
   has_one :senior_repair, dependent: :destroy
-  has_one :budget, dependent: :destroy
+  has_one :budget, :inverse_of => :client, dependent: :destroy
 
 
 
