@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/foreclosures' =>'foreclosures#index', as: :foreclosures
   get '/foreclosures/new' => 'foreclosures#new', as: :foreclosure_intake
   post '/foreclosures/create' => 'foreclosures#create', as: :foreclosure_create
-  get '/foreclosures/:id' => 'foreclosures#show', as: :foreclosure_case
+  get '/foreclosures/:id' => 'foreclosures#show', as: :foreclosure
   get '/foreclosures/:id/edit' => 'foreclosures#edit', as: :foreclosure_edit
   put '/foreclosures/:id' => 'foreclosures#update', as: :foreclosure_update
   delete '/foreclosures/:id' => 'foreclosures#destroy', as: :foreclosure_delete

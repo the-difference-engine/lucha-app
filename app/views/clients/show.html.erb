@@ -34,9 +34,9 @@
 	<% end %>
 
 <% elsif client_signed_in? %>
-	<h1>Hi <%= current_client.full_name %>
-	<h4>First Name: </h4><%= best_in_place @client, :first_name %>
-	<h4>Last Name: </h4><%= best_in_place @client, :last_name%>
+	<h1>Hi <%= @client.full_name %>
+	<h4>First Name: </h4><%= best_in_place @client, :first_name, :class => 'highlight_on_success' %>
+	<h4>Last Name: </h4><%= best_in_place @client, :last_name, :class => 'bounce_on_success' %>
 	<h4>Email: </h4><%= best_in_place @client, :email %>
 	<h4>Race: </h4><%= best_in_place @client, :race %>
 	<h4>Sex: </h4><%= best_in_place @client, :sex %>
@@ -46,7 +46,8 @@
 	<h4>Cell Phone: </h4><%= best_in_place @client, :cell_phone %>
 	<h4>Work Phone: </h4><%= best_in_place @client, :work_phone %>
 	<h4>Address: </h4><%= best_in_place @client, :address %>
-	<h4>City: </h4><%= best_in_place @client, :city %>, State: <%= best_in_place @client, :state, :as => :select, :class=>"best_in_place", :collection => us_states %>
+	<h4>City: </h4><%= best_in_place @client, :city %> 
+	State: <%= best_in_place @client, :state, :as => :select, :class=>"best_in_place", :collection => us_states %>
   <h4>Zip Code: </h4><%= best_in_place @client, :zip_code %>, Ward: </h4><%= best_in_place @client, :ward %>
   <h4>Preferred Contact Method: </h4><%= best_in_place @client, :preferred_contact_method, :as => :select, :class=>"best_in_place", :collection => pref_contact %>
   <h4>Preferred Language: </h4><%= best_in_place @client, :preferred_language, :as => :select, :class=>"best_in_place", :collection => pref_language %>

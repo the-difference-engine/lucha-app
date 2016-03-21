@@ -56,6 +56,18 @@ module FormInputsHelper
 
 # Helper for Foreclosure update and create forms
 
+	def foreclosure_status
+		[
+		["I am not yet behind on my mortgage but close to it", "I am not yet behind on my mortgage but close to it"],
+		["Have not yet gone through the process, but am behind on payment", "Have not yet gone through the process, but am behind on payment"],
+		["I am over three months behind", "I am over three months behind"],
+		["I am over three months behind and have received a court summons", "I am over three months behind and have received a court summons"],
+		]
+		
+	end
+
+
+
 	def cause_for_default
 		# Helper for reason_for_default attribute in Foreclosure model
 		[

@@ -14,6 +14,7 @@ class ClientsController < ApplicationController
       format.csv { send_data @clients.to_csv }
       format.xls  { send_data @clients.to_csv(col_sep: "\t") }
     end
+
   end
 
   def show
@@ -22,6 +23,7 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
+    
   end
 
   def new

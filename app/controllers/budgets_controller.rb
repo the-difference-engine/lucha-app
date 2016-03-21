@@ -7,8 +7,12 @@ class BudgetsController < ApplicationController
   end
 
   def show
-    @client = current_client
-    @budget = @client.budget #.find(params[:id])
+    if current_client
+        @client = current_client
+    elsif current_user
+        @client = @client.budget
+    end
+        @budget = @client.budget #.find(params[:id])
   end
 
 
@@ -17,7 +21,7 @@ class BudgetsController < ApplicationController
   end
 
   def create
-    # This creation method is not really necessary. Most clients will have a budget created when they sign up. If you think it would be better to have a client manually create a budget, you can look in the client model and comment out before_create: build_budget.
+    # This creation method is not really necessary. Most clients will have a budget created when they sign up. If you think it would be better to have a client manually create a budget, you can look in the client model and comment out before_create: make_budget.
 
     if current_client
         @id = current_client.id
@@ -76,7 +80,13 @@ class BudgetsController < ApplicationController
   end
 
   def edit
-    @budget = Budget.find_by(client_id: current_client.id)
+    # @budget = Budget.find_by(client_id: current_client.id)
+    if current_client
+        @client = current_client
+    elsif current_user
+        @client = @client.budget
+    end
+        @budget = @client.budget
   end
 
   def update
@@ -179,7 +189,10 @@ class BudgetsController < ApplicationController
         :rent,
         :rental_insurance,
         :total_monthly_debt,
-        :debt_divided_by_income
+        :debt_divided_by_income,
+        :gross_monthly_income,
+        :clothing,
+        :auto_insurance,
         )
   end
 end

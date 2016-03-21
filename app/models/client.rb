@@ -9,7 +9,7 @@ class Client < ActiveRecord::Base
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   
-  validates_associated :budget
+  # validates_associated :budget
 
 # ____
   # validates :email, confirmation: true
@@ -29,7 +29,7 @@ class Client < ActiveRecord::Base
   has_one :senior_repair, dependent: :destroy
   has_one :budget, dependent: :destroy
 
-  before_create :build_budget
+  before_create :make_budget
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
@@ -103,8 +103,8 @@ class Client < ActiveRecord::Base
 
   private
 
-  def build_budget
-    budget || true
+  def make_budget
+    build_budget || true
   end
 
 
