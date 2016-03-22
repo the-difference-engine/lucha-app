@@ -91,6 +91,19 @@ module FormInputsHelper
 
 # Helper for Homebuying update and create forms
 
+	def learned_from
+		[
+			["A Friend", "A Friend"],
+			["Referred by my loan officer", "Referred by my loan officer"],
+			["Referred by my realtor", "Referred by my realtor"],
+			["Saw an ad in Hoy", "Saw an ad in Hoy"],
+			["Facebook", "Facebook"],
+			["Email blast", "Email blast"],
+		]
+
+		
+	end
+
 	def loan_type
 		[
 			["Fixed", "Fixed"],

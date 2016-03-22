@@ -1,41 +1,83 @@
+<% if @foreclosure.errors.any? %>
+  <div id="error_explanation">
+    <h5><%= pluralize(@foreclosure.errors.count, "error") %> prohibited this application from being saved:</h5>
+    <ul>
+    <% @foreclosure.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 
-<form action="/foreclosures/create" method="post">
-	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<h2>Foreclosure Application:</h2>
+<p>You've taken the first step. Once this application is submitted, you will be contacted by one of LUCHA's counselors for further guidance.</p>
 
-	<input type="client_id" value="<%= params[:id] %>" type="hidden" >
-	
-	<label>Originating Lender:</label>	<input type="name" name="originating_lender" required />
+<%= form_tag foreclosure_create_path, :class => "form-horizontal", role: "form", method: :post do %>
+	<div class="form-group">
+    <%= label_tag :currently_foreclosed %><br />
+    <%= select_tag(:currently_foreclosed, options_for_select(foreclosure_status, @foreclosure.currently_foreclosed)) %>
+  </div>
 
-	<label>Original Loan Number:</label>	<input type="text" name="original_loan_number" required />
+  <div class="form-group">
+    <%= label_tag :originating_lender %><br />
+    <%= text_field_tag :originating_lender, @foreclosure.originating_lender %>
+  </div>
 
-	<label>Servicer</label>	<input type="name" name="servicer" required />
+  <div class="form-group">
+    <%= label_tag :original_loan_number %><br />
+    <%=text_field_tag :original_loan_number, @foreclosure.original_loan_number %>
+  </div>
 
-	<label>Servicer Loan Number:</label>	<input type="text" name="originating_lender" required />
+  <div class="form-group">
+    <%= label_tag :servicer %><br />
+    <%= text_field_tag :servicer, @foreclosure.servicer %>
+  </div>
 
-	<label>Monthly Mortgage Payment:</label>	<input type="number" name="monthly_mortgage_payment" step="any" />
+  <div class="form-group">
+    <%= label_tag :servicer_loan_number %><br />
+    <%= text_field_tag :servicer_loan_number, @foreclosure.servicer_loan_number %>
+  </div>
 
-	<label>Loan Term:</label>	<input type="number" name="loan_term"  />
+  <div class="form-group">
+    <%= label_tag :monthly_mortgage_payment %><br />
+    <%= number_field_tag :monthly_mortgage_payment, @foreclosure.monthly_mortgage_payment %>
+  </div>
 
-	<label>Originating Lender:</label>	<input type="name" name="originating_lender"  />
+  <div class="form-group">
+    <%= label_tag :loan_term %><br />
+    <%= text_field_tag :loan_term, @foreclosure.loan_term %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :origination_date %><br />
+    <%= date_field_tag :origination_date, @foreclosure.origination_date %>
+  </div>
 
-	<label>Origination Date:</label> 
-	  <input type="date" name="origination_date"><input type="submit">
+  <div class="form-group">
+    <%= label_tag :been_to_court %><br />
+    <%= select_tag(:been_to_court, options_for_select([["No", false], ["Yes", true]], @foreclosure.been_to_court)) %>
+  </div>
 
-	<label>Check if you have been to court:</label><input type="checkbox" name="been_to_court" value="true" />
+  <div class="form-group">
+    <%= label_tag :court_case_number %><br />
+    <%= text_field_tag :court_case_number, @foreclosure.court_case_number %>
+  </div>
 
-	<label>Check if you are currently seeing a lawyer:</label><input type="checkbox" name="working_with_lawyer" value="true" />
+  <div class="form-group">
+    <%= label_tag :working_with_lawyer %><br />
+    <%= select_tag(:working_with_lawyer, options_for_select([["No", false],["Yes", true]], @foreclosure.working_with_lawyer)) %>
+  </div>
 
-	<label>Check if you Working with an agency:</label><input type="checkbox" name="working_w_agency" value="true" />
+  <div class="form-group">
+    <%= label_tag :working_w_agency %><br />
+    <%= select_tag(:working_w_agency, options_for_select([["No", false],["Yes", true]], @foreclosure.working_w_agency)) %>
+  </div>
 
-	<label>If checked above, what agency:</label><input type="name" name="agency" />
+	<div class="actions">
+	  <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
+	</div>	
 
-	<button type="submit">Click Me!</button>
-
-</form>
-
-
-
+<% end %>
 
 
 

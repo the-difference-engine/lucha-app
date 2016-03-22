@@ -1,15 +1,22 @@
 
 		<div class="form-group"> 
 			<%= label_tag :hear_of_workshop %>
+			<%= select_tag(:hear_of_workshop, options_for_select(loan_type, @homebuying.hear_of_workshop)) %>
+		</div>
+
+		<div class="form-group"> 
+			<%= label_tag :lender %>
 			<%= text_field_tag :lender %>
 		</div>
 
 		<div class="form-group"> 
-			<%= label_tag :contact_for_appointment %>
+	    <%= label_tag :contact_for_appointment %><br />
+			<%= select_tag(:contact_for_appointment, options_for_select([["No", false],["Yes", true]], @homebuying.contact_for_appointment)) %>
 		</div>
 
 		<div class="form-group"> 
 			<%= label_tag :real_estate_contract %>
+			<%= select_tag(:real_estate_contract, options_for_select([["No", false],["Yes", true]], @homebuying.real_estate_contract)) %>
 		</div>
 
 		<div class="form-group"> 
@@ -34,7 +41,7 @@
 
 		<div class="form-group"> 
 			<%= label_tag :property_city %>
-			<%= text_field_tag :property_city, :placeholder => "Chicago" %>
+			<%= text_field_tag :property_city %>
 		</div>
 
 
@@ -60,7 +67,7 @@
 
 		<div class="form-group"> 
 			<%= label_tag :payment_assistance_program %>
-			<%= select_tag(:payment_assistance_program, options_for_select(down_payment_assistance_program, '')) %>
+			<%= select_tag(:payment_assistance_program, options_for_select(down_payment_assistance_program, @homebuying.payment_assistance_program)) %>
 		</div>
 
 		<div class="form-group">  
@@ -69,5 +76,5 @@
 	 	</div>
 
     <div class="actions">
-      <%= submit_tag "Update!", :class => 'btn btn-large btn-primary' %>
+      <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
     </div>	

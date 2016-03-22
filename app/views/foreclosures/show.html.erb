@@ -41,16 +41,11 @@
 	</tr>
 	<tr>
 		<td>Are you working with a lawyer?</td>		
-		<td><%= best_in_place @foreclosure, :working_with_lawyer, as: :checkbox, collection: {false: "No", true: "Yes"}%></td>
+		<td><%= best_in_place @foreclosure, :working_with_lawyer, as: :select, collection: {false: "No", true: "Yes"} %></td>
 	</tr>	
 	<tr>
 		<td>Are you working with another HUD approved agency?</td>		
-		<td><%= best_in_place @foreclosure, :working_w_agency, as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-	</tr>
-	
-	<tr>
-		<td>If so, what agency are you working with?</td>		
-		<td><%= best_in_place @foreclosure, :agency %></td>
+		<td><%= best_in_place @foreclosure, :working_w_agency, as: :select, collection: {false: "No", true: "Yes"} %></td>
 	</tr>
 
 	<tr>
