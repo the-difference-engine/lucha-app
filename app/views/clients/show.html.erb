@@ -34,7 +34,14 @@
 	<% end %>
 
 <% elsif client_signed_in? %>
-	<h1>Hi <%= @client.full_name %></h1>
-	<%= render "client_show" %>
+
+	<h1>Hi <%= @client.full_name %>!</h1>
+	<p>Below is the info we have on file for you. You can edit this form by clicking on the "-" or the info. All info is automatically saved. </p>
+	<div id="show-profile">
+
+	<%= render "client_demo" %>
+	<%= render "client_address" %>
+	<%= render "client_contact" %>
+	<%= render "client_household" %>
 <% end %>
 

@@ -1,0 +1,35 @@
+	<table class="table table-hover">	
+		<thead>
+			<th colspan="2"><h3>Household Information:</h3></th>
+		</thead>
+		<tbody>
+			<tr>
+			  <td>Preferred Language: </td>
+			  <td><%= best_in_place @client, :preferred_language, :as => :select, :class=>"best_in_place", :collection => pref_language, tabindex: "18"%></td>
+			</tr><tr>
+			  <td>Number in Household: </td>
+			  <td><%= best_in_place @client, :num_in_household, :as => :select, :class=>"best_in_place", :collection => num_in_house, tabindex: "19"%></td>
+			</tr><tr>
+			  <td>Number of Dependents: </td>
+			  <td><%= best_in_place @client, :num_of_dependants, :as => :select, :class=>"best_in_place", :collection => num_in_house, tabindex: "20"%></td>
+			</tr><tr>
+			  <td>Education Level: </td>
+			  <td><%= best_in_place @client, :education_level, :as => :select, :class=>"best_in_place", :collection => education, tabindex: "21"%></td>
+			</tr><tr>
+			  <td>Estimated Household Income: </td>
+			  <td><%= best_in_place @client, :estimated_household_income, :as => :select, :class=>"best_in_place", :collection => income_range, tabindex: "22"%></td>
+			</tr><tr>
+			  <td>Do you or anyone in your household have a disability? </td>
+			  <td><%= best_in_place @client, :disability, :as => :select, collection: {false: "No", true: "Yes"}, tabindex: "23" %></td>
+			</tr><tr>
+			  <td>Are you a union member? </td>
+			  <td><%= best_in_place @client, :union_member, :as => :select, collection: {false: "No", true: "Yes"}, tabindex: "24" %></td>
+			</tr><tr>
+			  <td>Are you a current or former military service member? </td>
+			  <td><%= best_in_place @client, :military_service_member, :as => :select, collection: {false: "No", true: "Yes"}, tabindex: "25" %></td>
+			</tr><tr>
+			  <td>Would you like to volunteer with LUCHA? </td>
+			  <td><%= best_in_place @client, :volunteer_interest, :as => :select, collection: {false: "No", true: "Yes"}, tabindex: "26"%></td>
+			</tr>
+	  </tbody>
+	</table>

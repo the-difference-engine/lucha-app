@@ -10,10 +10,13 @@
   </div>
 <% end %>
 
+<div class="progress" role="progressbar">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" id="bar"></div>
+</div>
 
 <h1>Please fill in the rest of the information below</h1>
 
-<%= form_tag client_update_path, :class => "form-navbar-form navbar-left", role: "form", method: :patch do %>
+<%= form_tag client_update_path, :class => "form-navbar-form navbar-left", role: "form", method: :put do %>
 
     <div class="form-group">
       <%= label_tag :first_name %><br />
@@ -163,4 +166,4 @@
       <%= submit_tag "Update!", :class => 'btn btn-large btn-primary' %>
     </div>
 
-    <% end %>
+<% end %>

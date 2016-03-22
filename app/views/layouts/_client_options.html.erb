@@ -19,7 +19,7 @@
   </li>
 
   <li>
-	  <%  if current_client.foreclosure.blank? %>
+	  <%  if current_client.homebuying.blank? %>
 	      <%= link_to 'Homebuying Application', homebuying_intake_path(current_client.id), :class =>"pure-menu-link" %>
 	  <% else %>
 	  		<%= link_to 'View Homebuying App', homebuying_path(current_client.homebuying.id), :class =>"pure-menu-link"  %>

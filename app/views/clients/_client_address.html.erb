@@ -1,0 +1,26 @@
+
+
+	<table class="table table-hover">	
+		<thead>
+			<th colspan="2"><h3>Address:</h3></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Address: </td>
+				<td><%= best_in_place @client, :address, tabindex: "13" %></td>
+			</tr><tr>
+				<td>City: </td>
+				<td><%= best_in_place @client, :city, :place_holder => "Chicago", tabindex: "14" %> </td>
+			</tr><tr>
+				<td>State: </td>
+				<td><%= best_in_place @client, :state, :as => :select, :class=>"best_in_place", :collection => us_states, :place_holder => "IL", tabindex: "15" %></td>
+			</tr><tr>
+			  <td>Zip Code: </td>
+			  <td><%= best_in_place @client, :zip_code, :place_holder => "xxxxx-xxxx", tabindex: "16" %></td>
+			</tr><tr>
+			  <td>Ward: </td>
+			  <td><%= best_in_place @client, :ward, tabindex: "17" %></td>
+			</tr>
+	  </tbody>
+	</table>
+
