@@ -49,5 +49,9 @@ class ApplicationController < ActionController::Base
     request.env['omniauth.origin'] || stored_location_for(resource) || employee_index_path
   end
 
+  # def authenticate_client_application
+  #   if current_client.foreclosure.
+  # end
+
 
 end

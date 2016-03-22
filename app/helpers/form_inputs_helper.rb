@@ -51,7 +51,11 @@ module FormInputsHelper
 	end
 
 	def racial_options
-		[['White', 'white'], ['Hispanic', 'Hispanic'], ['African-American', 'African-American'], ['Asian', 'Asian']]
+		[['White', 'White'], ['Hispanic/Latino', 'Hispanic/Latino'], ['African-American', 'African-American'], ['Asian', 'Asian']]
+	end
+
+	def num_in_house
+		[[1,1],[2,2], [3,3], [4,4], [5,5], [6,6], [7,7], [8,8], [9,9]]
 	end
 
 # Helper for Foreclosure update and create forms

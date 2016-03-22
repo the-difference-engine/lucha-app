@@ -2,177 +2,21 @@
 <h1>Your Monthly Budget</h1>
 <p>Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them.</p>
 
-
-<table class="table table-hover">
-	<tr>
-		<th colspan="2">Monthly Income</th>
-	</tr>
-	<tr>
-		<td>Gross Wages:</td>
-		<td><%= best_in_place @budget, :gross_wages, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Self-Employment Income:</td>
-		<td><%= best_in_place @budget, :self_employment_income, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Overtime:</td>
-		<td><%= best_in_place @budget, :overtime, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Unemployment Check:</td>
-		<td><%= best_in_place @budget, :unemployment, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Tips, Commision, or Bonuses:</td>
-		<td><%= best_in_place @budget, :tips_commisions_bonus, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Non-Taxable Social Secruity:</td>
-		<td><%= best_in_place @budget, :nontaxable_social_security, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Taxable Social Secruity:</td>
-		<td><%= best_in_place @budget, :taxable_social_security, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Income from Renters:</td>
-		<td><%= best_in_place @budget, :rental_income, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Other:</td>
-		<td><%= best_in_place @budget, :other_income, :display_with => :number_to_currency %></td>
-	</tr>
-</table>
+<%= render "budget_income" %>
 
 <br><hr><br>
 
 <h3>Now tell us a bit about your assets</h3>
 <p>This is wealth that you have accumulated throughout your life.</p>
-<table class="table table-hover">
-	<tr>
-		<th colspan="2">Assets</th>
-	</tr>
-	<tr>
-		<td>Primary Checking:</td>
-		<td><%= best_in_place @budget, :primary_checking, :display_with => :number_to_currency %></td>	
-	</tr>
-	<tr>
-		<td>Secondary Checking:</td>
-		<td><%= best_in_place @budget, :secondary_checking, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Savings/Money Market:</td>
-		<td><%= best_in_place @budget, :savings_money_market, :display_with => :number_to_currency %></td>	
-	</tr>
-	<tr>
-		<td>Stocks or Bonds:</td>
-		<td><%= best_in_place @budget, :stocks_or_bonds, :display_with => :number_to_currency %></td>	
-	</tr>
-	<tr>
-		<td>401K:</td>
-		<td><%= best_in_place @budget, :four_zero_one_k, :display_with => :number_to_currency %></td>	
-	</tr>
-	<tr>
-		<td>Home Equity:</td>
-		<td><%= best_in_place @budget, :home_equity, :display_with => :number_to_currency %></td>	
-	</tr>
-	<tr>
-		<td>Value of Other Properties:</td>
-		<td><%= best_in_place @budget, :other_property, :display_with => :number_to_currency %></td>	
-	</tr>
-	<tr>
-		<td>Car Value:</td>
-		<td><%= best_in_place @budget, :car, :display_with => :number_to_currency %></td>	
-	</tr>
-	<tr>
-		<td>Other Assets:</td>
-		<td><%= best_in_place @budget, :other_assets, :display_with => :number_to_currency %></td>	
-	</tr>
-</table>
+
+<%= render "budget_assets" %>
 
 <br><hr><br>
 
 <h3>Debts</h3>
 <p>Please keep in mind, these are <strong>monthly</strong> debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month.</p>
-<table class="table table-hover">
-	<tr>
-		<th colspan="2" text-align: center >Monthly Debts Payments</th>
-	</tr>
-	<tr>
-		<td>Principal and Interest:</td>
-		<td><%= best_in_place @budget, :principal_and_interest, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Property Taxes:</td>
-		<td><%= best_in_place @budget, :prop_tax, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Association Fees:</td>
-		<td><%= best_in_place @budget, :assoc_fees, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Junior Mortgage:</td>
-		<td><%= best_in_place @budget, :junior_mortgage, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Minimum Monthly Credit Card Payments</td>
-		<td><%= best_in_place @budget, :min_credit_card_payment, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Student Loan</td>
-		<td><%= best_in_place @budget, :student_loan, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Gas</td>
-		<td><%= best_in_place @budget, :gas, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Electricity</td>
-		<td><%= best_in_place @budget, :electricity, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Water</td>
-		<td><%= best_in_place @budget, :water, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Phone</td>
-		<td><%= best_in_place @budget, :phone, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Other Utilities</td>
-		<td><%= best_in_place @budget, :other_utilities, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Food/Groceries</td>
-		<td><%= best_in_place @budget, :food, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Gas and car maintenance</td>
-		<td><%= best_in_place @budget, :gas_car_maintenance, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Child Care</td>
-		<td><%= best_in_place @budget, :child_care, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>Medical Expenses</td>
-		<td><%= best_in_place @budget, :medical_expenses, :display_with => :number_to_currency %></td>
-	</tr>
 
-	<tr>
-	<th colspan="2">Only if you are a renter, please fill out the below</th>
-	</tr>
-	<tr>
-		<td>placehold</td>
-		<td><%= best_in_place @budget, :rent, :display_with => :number_to_currency %></td>
-	</tr>
-	<tr>
-		<td>placehold</td>
-		<td><%= best_in_place @budget, :rental_insurance, :display_with => :number_to_currency %></td>
-	</tr>
-</table>
-
+<%= render "budget_debts" %>
 
 <br><hr><br>
 
@@ -184,14 +28,14 @@
 	</tr>
 	<tr>
 		<td>Total Monthly Debt:</td>
-		<td><%= best_in_place @budget, :total_monthly_debt, :display_with => :number_to_currency %></td>
+		<td><%= best_in_place @budget, :total_monthly_debt, :display_with => :number_to_currency, tabindex: "35" %></td>
 	</tr>
 	<tr>
 		<td>Gross Monthly Income:</td>
-		<td><%= best_in_place @budget, :gross_monthly_income, :display_with => :number_to_currency %></td>
+		<td><%= best_in_place @budget, :gross_monthly_income, :display_with => :number_to_currency, tabindex: "36" %></td>
 	</tr>
 	<tr>
 		<td>Debt to Income Ration:</td>
-		<td><%= best_in_place @budget, :debt_divided_by_income, :display_with => :number_to_currency %></td>
+		<td><%= best_in_place @budget, :debt_divided_by_income, :display_with => :number_to_currency, tabindex: "37" %></td>
 	</tr>
 </table>

@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController  
-  before_action :authenticate_current_client!, :only => [:show, :edit, :update, :destroy]
+  before_action :authenticate_current_client!, :only => [:index, :show, :edit, :update, :destroy]
   respond_to :html, :json
 
 
@@ -23,7 +23,7 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
-    
+    @client
   end
 
   def new

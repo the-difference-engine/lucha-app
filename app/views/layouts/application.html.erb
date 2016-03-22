@@ -41,40 +41,14 @@
 
                 <% if user_signed_in? %>
 
-                    <li class="pure-menu-item">
-                       <%= link_to 'Foreclosures', foreclosures_path, :class =>"pure-menu-link" %>
-                    </li>
-                    <li class="pure-menu-item">
-                        <%= link_to 'Home Buying', homebuyings_path, :class =>"pure-menu-link" %>
-                    </li>
-                    <li class="pure-menu-item">
-                        <%= link_to 'Law Projects', law_projects_path, :class =>"pure-menu-link" %>
-                    </li>
-                    <li class="pure-menu-item">
-                        <%= link_to 'Rentals', rentals_path, :class =>"pure-menu-link" %>
-                    </li>
-                    <li class="pure-menu-item">
-                        <%= link_to 'Senior Repairs', senior_repairs_path, :class =>"pure-menu-link" %>
-                    </li>
-                    <li class="pure-menu-item">
-                        <%= link_to 'Clients', clients_path, :class =>"pure-menu-link" %>
-                    </li>
-                    <li class="pure-menu-item">
-                        <%= link_to('Logout', destroy_user_session_path, :class =>"pure-menu-link", :method => :delete) %>        
-                    </li>
-
-                    <li class="pure-menu-item"><%= form_tag "/search", class: "navbar-form navbar-right" do %>
-                    <%= text_field_tag :search, nil, placeholder: "Search Clients" %>
-                    <%= submit_tag "Go" %>
-
-
-                    <% end %>
-                    </li>
-
+                    <%= render "layouts/user_option" %>
 
                 <% elsif client_signed_in? %>
+
                     <%= render "layouts/client_options" %>
+
                 <% else %>
+
                     <li class="pure-menu-item">
                         <a href="/register" class="pure-menu-link">Client Registration</a>
                     </li>
@@ -87,6 +61,7 @@
                     <li class="pure-menu-item">
                       <%= link_to('Client login', new_client_session_path, :class =>"pure-menu-link") %>  
                     </li>
+                    
                 <% end %>
 
 

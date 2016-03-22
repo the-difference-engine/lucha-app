@@ -1,0 +1,42 @@
+<table class="table table-hover">
+	<tr>
+		<th colspan="2">Monthly Income</th>
+	</tr>
+	<% counter = 0 %>
+	<tr>
+		<td>Gross Wages:</td>
+		<td><%= best_in_place @budget, :gross_wages, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Self-Employment Income:</td>
+		<td><%= best_in_place @budget, :self_employment_income, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Overtime:</td>
+		<td><%= best_in_place @budget, :overtime, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Unemployment Check:</td>
+		<td><%= best_in_place @budget, :unemployment, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Tips, Commision, or Bonuses:</td>
+		<td><%= best_in_place @budget, :tips_commisions_bonus, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Non-Taxable Social Secruity:</td>
+		<td><%= best_in_place @budget, :nontaxable_social_security, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Taxable Social Secruity:</td>
+		<td><%= best_in_place @budget, :taxable_social_security, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Income from Renters:</td>
+		<td><%= best_in_place @budget, :rental_income, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+	<tr>
+		<td>Other:</td>
+		<td><%= best_in_place @budget, :other_income, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+	</tr>
+</table>

@@ -19,6 +19,25 @@
  *= require_self
  */
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #fff;
+}
+
+ h1 {
+ 	font-weight: 300;
+ }
+
+.table {
+    width: 73%;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
 th {
     text-align: center;
 }

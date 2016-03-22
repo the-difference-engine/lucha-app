@@ -96,7 +96,7 @@ appears on the left side of the page.
     background: #255425;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
+    white-space: normal;
 }
     /*
     All anchors inside the menu should be styled like this.
@@ -121,7 +121,7 @@ appears on the left side of the page.
     */
     #menu .pure-menu ul,
     #menu .pure-menu .menu-item-divided {
-        border-top: 5px solid #fff;
+        border-top: 5px solid #255425;
     }
         /*
         Change color of the anchor links on hover/focus.
@@ -145,17 +145,18 @@ appears on the left side of the page.
             color: #fff;
         }
  
-    #menu .pure-menu-filled{
+/*    #menu .pure-menu-filled{
         background: #000;
         color: #255425;
     }
-    /*
+*/    /*
     This styles the menu heading.
     */
     #menu .pure-menu-heading {
-        font-size: 110%;
+        font-size: 100%;
         color: #fff;
         margin: 0;
+        white-space: normal;
     }
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/

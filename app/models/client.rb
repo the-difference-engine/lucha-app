@@ -6,6 +6,8 @@ class Client < ActiveRecord::Base
   validates :authorization_and_waiver, inclusion: [true, false]
   validates_uniqueness_of :email
   validates_uniqueness_of :ssn
+  # validates_numericality_of :num_in_household
+  # validates_numericality_of :num_of_dependants
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   
@@ -70,6 +72,14 @@ class Client < ActiveRecord::Base
     client_enrolled_programs
   end
 
+
+  def client_types
+    type = []
+    client_applications.each do |program|
+      type << program.class.name
+    end
+    type
+  end
 
   def self.to_csv(options = {})
     # Eventually, I need a way to make this class dynamic, as a way for me to be able to check what kinds of applications there are. I can use the model method I created called Client_applications, but there has to be some way for the csv method to know. It will be easy enough being able to print out all of the methods there are, but then I have ugly empty columns in my CSV file.
