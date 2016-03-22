@@ -4,11 +4,11 @@ class ForeclosuresController < ApplicationController
 
 	def index
     @foreclosures = Foreclosure.all	
-    respond_to do |format|
-	    format.html
-	    format.csv { send_data @foreclosures.to_csv }
-	    format.xls  { send_data @foreclosures.to_csv(col_sep: "\t") }
-	  end
+   #  respond_to do |format|
+	  #   format.html
+	  #   format.csv { send_data @foreclosures.to_csv }
+	  #   format.xls  { send_data @foreclosures.to_csv(col_sep: "\t") }
+	  # end
 	end
 
 	def new
@@ -25,7 +25,7 @@ class ForeclosuresController < ApplicationController
 		if client_signed_in?
 			@id = current_client.id
 		elsif user_signed_in?
-			@id = Foreclosure.where(client_id: params[:id])[0].id
+			@id = Foreclosure.find(client_id: params[:id])[0].id
 		end
 	  @foreclosure = Foreclosure.new({ 
     	client_id: @id,

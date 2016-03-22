@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   get '/homebuyings' =>'homebuyings#index', as: :homebuyings
   get '/homebuyings/new' => 'homebuyings#new', as: :homebuying_intake
   post '/homebuyings/create' => 'homebuyings#create', as: :homebuying_create
-  get '/homebuyings/:id' => 'homebuyings#show', as: :homebuying_case
+  get '/homebuyings/:id' => 'homebuyings#show', as: :homebuying
   get '/homebuyings/:id/edit' => 'homebuyings#edit', as: :homebuying_edit
   put '/homebuyings/:id' => 'homebuyings#update', as: :homebuying_update
   delete '/homebuyings/:id' => 'homebuyings#destroy', as: :homebuying_delete

@@ -10,7 +10,7 @@ class BudgetsController < ApplicationController
     if current_client
         @client = current_client
     elsif current_user
-        @client = @client.budget
+        @client = Budget.find(params[:id]).client
     end
         @budget = @client.budget #.find(params[:id])
   end
@@ -23,14 +23,13 @@ class BudgetsController < ApplicationController
   def create
     # This creation method is not really necessary. Most clients will have a budget created when they sign up. If you think it would be better to have a client manually create a budget, you can look in the client model and comment out before_create: make_budget.
 
-    if current_client
-        @id = current_client.id
-    elsif current_user
-        @id = Client.find(params[:id]).id
-    end
+    # if current_client
+    #     @id = current_client.id
+    # elsif current_user
+    #     @id = Client.find(params[:id]).id
+    # end
 
     @budget = Budget.new({ 
-        client_id: @id,
         gross_wages: params[:gross_wages],
         self_employment_income: params[:self_employment_income],
         overtime: params[:overtime],
