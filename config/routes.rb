@@ -52,30 +52,30 @@ Rails.application.routes.draw do
   delete '/homebuyings/:id' => 'homebuyings#destroy', as: :homebuying_delete
 
 
-  get '/law_projects' =>'law_projects#index', as: :law_projects
-  get '/law_projects/new' => 'law_projects#new', as: :law_project_intake
-  post '/law_projects/create' => 'law_projects#create', as: :law_project_create
-  get '/law_projects/:id' => 'law_projects#show', as: :law_project_case
-  get '/law_projects/:id/edit' => 'law_projects#edit', as: :law_project_edit
-  put '/law_projects/:id' => 'law_projects#update', as: :law_project_update
-  delete '/law_projects/:id' => 'law_projects#destroy', as: :law_project_delete
+  # get '/law_projects' =>'law_projects#index', as: :law_projects
+  # get '/law_projects/new' => 'law_projects#new', as: :law_project_intake
+  # post '/law_projects/create' => 'law_projects#create', as: :law_project_create
+  # get '/law_projects/:id' => 'law_projects#show', as: :law_project_case
+  # get '/law_projects/:id/edit' => 'law_projects#edit', as: :law_project_edit
+  # put '/law_projects/:id' => 'law_projects#update', as: :law_project_update
+  # delete '/law_projects/:id' => 'law_projects#destroy', as: :law_project_delete
 
 
   get '/rentals' =>'rentals#index', as: :rentals
   get '/rentals/new' => 'rentals#new', as: :rental_intake
   post '/rentals/create' => 'rentals#create', as: :rental_create
-  get '/rentals/:id' => 'rentals#show', as: :rental_show
+  get '/rentals/:id' => 'rentals#show', as: :rental
   get '/rentals/:id/edit' => 'rentals#edit', as: :rental_edit
   put '/rentals/:id' => 'rentals#update', as: :rental_update
   delete '/rentals/:id' => 'rentals#destroy', as: :rental_delete
 
-  get '/senior_repairs' =>'senior_repairs#index', as: :senior_repairs
-  get '/senior_repairs/new' => 'senior_repairs#new', as: :senior_repair_intake
-  post '/senior_repairs/create' => 'senior_repairs#create', as: :senior_repair_create
-  get '/senior_repairs/:id' => 'senior_repairs#show', as: :senior_repair_show
-  get '/senior_repairs/:id/edit' => 'senior_repairs#edit', as: :senior_repair_edit
-  put '/senior_repairs/:id' => 'senior_repairs#update', as: :senior_repair_update
-  delete '/senior_repairs/:id' => 'senior_repairs#destroy', as: :senior_repair_delete
+  # get '/senior_repairs' =>'senior_repairs#index', as: :senior_repairs
+  # get '/senior_repairs/new' => 'senior_repairs#new', as: :senior_repair_intake
+  # post '/senior_repairs/create' => 'senior_repairs#create', as: :senior_repair_create
+  # get '/senior_repairs/:id' => 'senior_repairs#show', as: :senior_repair_show
+  # get '/senior_repairs/:id/edit' => 'senior_repairs#edit', as: :senior_repair_edit
+  # put '/senior_repairs/:id' => 'senior_repairs#update', as: :senior_repair_update
+  # delete '/senior_repairs/:id' => 'senior_repairs#destroy', as: :senior_repair_delete
 
 end
 

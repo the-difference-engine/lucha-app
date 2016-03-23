@@ -1,0 +1,60 @@
+<table class="table table-hover">	
+	<thead>
+		<th colspan="2"><h3>Rental Application:</h3></th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Interested in a studio? </td>
+			<td><%= best_in_place @rental, :studio, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes" } %></td>
+		</tr><tr>
+			<td>Interested in a 2 bedroom? </td>
+			<td><%= best_in_place @rental, :two_bed, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes" } %></td>
+		</tr><tr>
+			<td>Interested in a 3 bedroom? </td>
+			<td><%= best_in_place @rental, :three_bed, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes" } %></td>
+		</tr><tr>
+			<td>Do you need a wheelchair accessible unit? </td>
+			<td><%= best_in_place @rental, :wheelchair_accessible, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes" } %></td>
+		</tr><tr>
+				<td>Do you own a car? </td>
+				<td><%= best_in_place @rental, :car_owner, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes" } %></td>
+		</tr><tr>
+				<td>Do you own a pet? </td>
+				<td><%= best_in_place @rental, :pet_owner, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes" } %></td>
+		</tr><tr>
+				<td>Do you own a pet? </td>
+				<td><%= best_in_place @rental, :pet_owner, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes" } %></td>
+		</tr><tr>
+				<td>How did you hear about the property? </td>
+				<td><%= best_in_place @rental, :hear_of_property %></td>
+		</tr><tr>
+		</tr><tr>
+				<td>What is your reason for applying to LUCHA? </td>
+				<td><%= best_in_place @rental, :reason_for_move, :as => :textarea %></td>
+		</tr><tr>
+		</tr><tr>
+				<td>What is your current housing situation? </td>
+				<td><%= best_in_place @rental, :housing_situation %></td>
+		</tr><tr>
+				</tr><tr>
+				<td>Current employer's name: </td>
+				<td><%= best_in_place @rental, :employer_name %></td>
+		</tr><tr>
+		</tr><tr>
+				<td>Current employer's address: </td>
+				<td><%= best_in_place @rental, :employer_address %></td>
+		</tr><tr>
+		</tr><tr>
+				<td>Current employer's city: </td>
+				<td><%= best_in_place @rental, :employer_city, :place_holder => "ex. Chicago" %></td>
+		</tr><tr>
+				<td>Current employer's address: </td>
+				<td><%= best_in_place @rental, :employer_state %></td>
+		</tr><tr>
+				<td>Current employer's phone: </td>
+				<td><%= best_in_place @rental, :employer_phone, :place_holder => "___-___-____" %></td>
+		</tr><tr>
+				<td>Do you agree to a fee of $25 for a background check?</td>
+				<td><%= best_in_place @rental, :agree_to_fee, :as => :select, :class=>"best_in_place", :collection => {false: "No", true: "Yes"} %></td>
+	</tbody>
+</table>

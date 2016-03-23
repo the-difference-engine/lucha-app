@@ -17,7 +17,7 @@ class HomebuyingsController < ApplicationController
 		elsif current_user
 			@id = Client.find(params[:id]).id
 		end
-		p @id
+		@id
 			
 	  @homebuying = Homebuying.new(
 	  	{client_id: @id,

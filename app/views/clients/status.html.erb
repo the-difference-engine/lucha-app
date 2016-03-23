@@ -70,6 +70,9 @@
 	<%= render "homebuyings/homebuying_show" unless @client.homebuying.blank? %>
 </div>
 
+<div id="clientrental">
+  <%= render "rentals/rental" unless @client.rental.blank? %>
+</div>
 
 
 
@@ -146,6 +149,12 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('body').on('click', ".homebuying", function(){
         $("#clienthomebuying").slideToggle();
+    });
+});
+
+$(document).ready(function(){
+    $('body').on('click', ".rental", function(){
+        $("#clientrental").slideToggle();
     });
 });
 

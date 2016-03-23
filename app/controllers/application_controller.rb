@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def authenticate_client!
     if current_client
       redirect_to client_path(current_client.id)
-      flash[:notice] = "Can't go there"
+      # flash[:notice] = "Can't go there"
 
     end
   end

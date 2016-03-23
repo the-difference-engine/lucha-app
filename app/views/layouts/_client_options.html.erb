@@ -25,20 +25,11 @@
 	  		<%= link_to 'View Homebuying App', homebuying_path(current_client.homebuying.id), :class =>"pure-menu-link"  %>
 		<% end %>
   </li>
-
-  <li>
-  <%  if current_client.law_project.blank? %>
-	      <%= link_to 'Law Project', law_project_intake_path(current_client.id), :class =>"pure-menu-link" %>
-	  <% else %>
-	  		<%= link_to 'Law Project', law_project_path(current_client.lawproject.id), :class =>"pure-menu-link"  %>
-		<% end %>
-  </li>
-
   <li>
 		<%  if current_client.rental.blank? %>
 	      <%= link_to 'Rental Application', rental_intake_path(current_client.id), :class =>"pure-menu-link" %>
 	  <% else %>
-	  		<%= link_to 'Rental Application', rental_show_path(current_client.rental.id), :class =>"pure-menu-link"  %>
+	  		<%= link_to 'Rental Application', rental_path(current_client.rental.id), :class =>"pure-menu-link"  %>
 		<% end %>
   </li>
 

@@ -1,15 +1,11 @@
 
 <% if !@client.foreclosure.blank? %>
 	<button class="btn btn-default-lg"><a class="foreclosure">Foreclosure Application</a></button>
-<% elsif !@client.homebuying.blank? %>
-	<button class="btn btn-default-lg"><a class="homebuying">Homebuying Application</a></button>
-<% elsif !@client.rental.blank? %>
-	<button class="btn btn-default-lg"><a class="rental">Rental Application</a></button>
-<% elsif !@client.law_project.blank? %>
-	<button class="btn btn-default-lg"><a class="law_project">Law Project</a></button>
-<% else %>
-
 <% end %>
-
-
+<% if !@client.homebuying.blank? %>
+	<button class="btn btn-default-lg"><a class="homebuying">Homebuying Application</a></button>
+<% end %>
+<% if !@client.rental.blank? %>
+	<button class="btn btn-default-lg"><a class="rental">Rental Application</a></button>
+<% end %>
 
