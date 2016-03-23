@@ -25,9 +25,14 @@ body {
   font-weight: 400;
   line-height: 1.42857143;
   color: #333333;
-  background-color: #fff;
+  background-color: #EFECEC;
 }
 
+.content {
+    background: #FDFDFD;
+    border-radius: 12px;
+    padding: 30px;
+  }
 
  h2 {
   font-weight: 400;
@@ -41,8 +46,63 @@ body {
     width: 73%;
     max-width: 80%;
     margin-bottom: 20px;
+    margin-left:auto; 
+    margin-right:auto;
 }
 
 th {
     text-align: center;
 }
+
+
+.btn-default-lg {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-group-wrap {
+    text-align: center;
+}
+
+.btn-group {
+    margin:center;
+    text-align: center;
+    width: inherit;
+    display: inline-block;
+}
+
+
+#clientdemoinfo {
+  display: none;
+}
+#clientaddress {
+  display: none;
+}
+#clientcontact {
+  display: none;
+}
+#clienthousehold {
+  display: none;
+}
+#budgetincome {
+  display: none;
+}
+#budgetassets {
+  display: none;
+}
+#budgetdebts {
+  display: none;
+}
+#clientforeclosure {
+  display: none;
+}
+
+#clienthomebuying {
+  display: none;
+}
+
+#clienthomebuying {
+  display: none;
+}
+

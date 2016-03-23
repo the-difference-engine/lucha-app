@@ -155,6 +155,14 @@ class ClientsController < ApplicationController
 
   end
 
+  def status
+    @client = current_client
+    @budget = @client.budget
+    @foreclosure = @client.foreclosure
+    @homebuying = @client.homebuying
+    @rental = @client.rental
+  end
+
   def destroy
   end
 
