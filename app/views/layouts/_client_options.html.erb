@@ -14,7 +14,7 @@
 	  <% if current_client.foreclosure.blank? %>
 	      <%= link_to 'Foreclosures', foreclosure_intake_path(current_client.id), :class =>"pure-menu-link" %>
 	  <% else %>
-	      <%= link_to 'View Foreclosure', foreclosure_path(current_client.foreclosure.id), :class =>"pure-menu-link" %>
+	      <%= link_to 'View Foreclosure App', foreclosure_path(current_client.foreclosure.id), :class =>"pure-menu-link" %>
 	  <% end %>
   </li>
 
@@ -29,7 +29,7 @@
 		<%  if current_client.rental.blank? %>
 	      <%= link_to 'Rental Application', rental_intake_path(current_client.id), :class =>"pure-menu-link" %>
 	  <% else %>
-	  		<%= link_to 'Rental Application', rental_path(current_client.rental.id), :class =>"pure-menu-link"  %>
+	  		<%= link_to 'View  Rental App', rental_path(current_client.rental.id), :class =>"pure-menu-link"  %>
 		<% end %>
   </li>
 
