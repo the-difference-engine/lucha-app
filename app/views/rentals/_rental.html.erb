@@ -48,8 +48,8 @@
 				<td>Current employer's city: </td>
 				<td><%= best_in_place @rental, :employer_city, :place_holder => "ex. Chicago" %></td>
 		</tr><tr>
-				<td>Current employer's address: </td>
-				<td><%= best_in_place @rental, :employer_state %></td>
+				<td>Current employer's state: </td>
+				<td><%= best_in_place @rental, :employer_state, :place_holder => "IL" %></td>
 		</tr><tr>
 				<td>Current employer's phone: </td>
 				<td><%= best_in_place @rental, :employer_phone, :place_holder => "___-___-____" %></td>

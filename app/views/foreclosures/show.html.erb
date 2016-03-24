@@ -2,3 +2,5 @@
 <h2>Foreclosure</h2>
 <p>See any information that's incorrect below? Simply click the data and change it out.</p>
 <%= render "foreclosure" %>
+
+<%= link_to "Delete this application.", "/foreclosures/#{@foreclosure.id}", method: :delete, data:{confirm: "Are you sure you want to delete this foreclosure application?"} %>

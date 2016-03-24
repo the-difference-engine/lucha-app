@@ -62,12 +62,17 @@ class RentalsController < ApplicationController
 				over_fifty_percent: params[:over_fifty_percent],
 				agree_to_fee: params[:agree_to_fee]
 	    	})
-	    if @rental.save
+
+
+
+    if @rental.save
+    	ProgramEmployee.create({programable_id: @rental.id, programable_type: "Rental"})
+
 	    flash[:success] = "You've completed the rental application"
-	    redirect_to "/clients/#{@rental.client_id}"
-	    else
-	      render :create
-	    end
+	    redirect_to "/clients/#{@rental.client_id}/status"
+    else
+      render :new
+    end
 
 	  # elsif user_signed_in?
 	  #   @rental = Rental.new({evictions: params[:evictions], client_id: paramms[:client_id] })
@@ -156,6 +161,14 @@ class RentalsController < ApplicationController
 		# end
 	end
 
+
+	def destroy
+		@rental = Rental.find(params[:id])
+		@rental.destroy
+		flash[:danger] = "Rental application deleted."
+		redirect_to "/clients/#{params[:id]}/status"
+
+	end
 
   private
 

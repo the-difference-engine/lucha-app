@@ -98,6 +98,14 @@ class HomebuyingsController < ApplicationController
 		@homebuying = Homebuying.find(params[:id])
 	end
 
+	def destroy
+		
+		@homebuying = Homebuying.find(params[:id])
+		@homebuying.destroy
+		flash[:danger] = "Homebuying application deleted."
+		redirect_to "/clients/#{params[:id]}/status"
+	end
+
 	private
 
   def homebuying_params

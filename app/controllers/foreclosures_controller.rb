@@ -100,6 +100,13 @@ class ForeclosuresController < ApplicationController
 		# end
 	end
 
+	def destroy
+		@foreclosure = Foreclosure.find(params[:id])
+		@foreclosure.destroy
+		flash[:danger] = "Foreclosure application deleted."
+		redirect_to "/clients/#{params[:id]}/status"
+
+	end
 
   private
 
