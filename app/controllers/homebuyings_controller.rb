@@ -3,7 +3,7 @@ class HomebuyingsController < ApplicationController
   respond_to :html, :json
 
 	def index
-    @homebuying = Homebuying.all	
+    @homebuyings = Homebuying.all	
 	end
 
 	def new

@@ -1,27 +1,43 @@
-<div ng-app="app">
-<link rel="stylesheet" type="text/css" href="animate.css">
+<h1>Homebuying Clients</h1>
 
-{{1+1}}
-	<div ng-controller="homebuyingsCtrl" ng-init="setup()">
-		<div>
-			<h1>clients</h1>
-			First Name: <input ng-model="newFirstName"><br>
-			Last Name: <input ng-model="newLastName"><br>
-			Email: <input ng-model="newEmail">
-			<button  ng-click="addNewClient(newFirstName, newLastName, newEmail)">Add Client</button>
-			<br>
-			<h3> Search by name: <input ng-model='firstNameFilter'></h3>
-			<h3> Search by email: <input ng-model='emailFilter'></h3>
-			<br><br>
-			<button ng-click="sortBy('name')">Sort by Name</button>
-			<button ng-click="sortBy('email')">Sort by Email</button>
-
-				<div  ng-repeat="client in clients | filter: {email: emailFilter, 'first_name': firstNameFilter, 'last_name': lastNameFilter} | orderBy:sortByAttribute:descending" ng-click="toggle=!toggle"> 
-				<h2>{{ client.full_name }}</h2> 
-				<div ng-hide="toggle"  ><p>{{ client.phone_number }}<br>
-				{{ client.email }}
-				</p></div>
-				</div>
-		</div>
-	</div>
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results">
+  <thead>
+     <th >ID</th>
+     <th class="col-md-5 col-xs-5">Name</th>
+     <th class="col-md-3 col-xs-3">Home Phone</th>
+     <th class="col-md-3 col-xs-3">Address</th>
+     <th class="col-md-3 col-xs-3">Contact for Appointment</th>
+     <th class="col-md-3 col-xs-3">Realtor's Name</th>
+     <th >View</th> 
+   </tr>    
+   <tr class="warning no-result">
+      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    </tr>
+  </thead>
+<% @homebuyings.each do |homebuying| %>
+ <tbody>
+   <tr>
+     <td><%= homebuying.client.id %></td>
+     <td><%= homebuying.client.full_name.titleize %></td>
+     <td><%= homebuying.client.home_phone %></td>
+     <td><%= homebuying.client.address %>, <%= homebuying.client.city %>, <%= homebuying.client.state %></td>
+     <td><% if homebuying.contact_for_appointment== false %>
+        <%= "No" %>
+        <% else %>
+        <%= "Yes" %>
+        <% end %>
+     </td>
+     <td><%= homebuying.realtor_name %></td>
+     <td>
+       <%= link_to "View", client_path(homebuying.client.id), class: "btn btn-default" %>
+     </td>
+   </tr>
+ </tbody>
+<% end %>
+</table>
+
+
