@@ -1,0 +1,6 @@
+<h2>Rentals</h2>
+<p>This is the information we have on file, we'll get in contact to you shortly.</p>
+
+<%= render "rental" %>
+
+<%= link_to "Delete this application.", "/rentals/#{@rental.id}", method: :delete, data:{confirm: "Are you sure you want to delete this rental application?"} %>

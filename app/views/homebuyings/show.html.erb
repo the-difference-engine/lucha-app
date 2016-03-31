@@ -1,0 +1,9 @@
+<h2>Homebuying Counseling Application</h2>
+
+<p>Ready to take the plunge into homebuying? Just fill out this info and we can set you up with one of our homebuying counselors to guide you through the homebuying process.</p>
+
+<%= render "homebuying_show" %>
+
+<%= link_to "Delete this application.", "/homebuyings/#{@homebuying.id}", method: :delete, data:{confirm: "Are you sure you want to delete this homebuying application?"} %>
+
+

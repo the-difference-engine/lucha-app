@@ -75,7 +75,7 @@ The content `<div>` is where all your content goes.
 .content-subhead {
     margin: 50px 0 20px 0;
     font-weight: 300;
-    color: #888;
+    color: #FFF;
 }
 
 
@@ -96,6 +96,7 @@ appears on the left side of the page.
     background: #255425;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    white-space: normal;
 }
     /*
     All anchors inside the menu should be styled like this.
@@ -120,7 +121,7 @@ appears on the left side of the page.
     */
     #menu .pure-menu ul,
     #menu .pure-menu .menu-item-divided {
-        border-top: 1px solid #333;
+        border-top: 5px solid #255425;
     }
         /*
         Change color of the anchor links on hover/focus.
@@ -143,14 +144,19 @@ appears on the left side of the page.
         #menu .pure-menu-selected a {
             color: #fff;
         }
-
-    /*
+ 
+/*    #menu .pure-menu-filled{
+        background: #000;
+        color: #255425;
+    }
+*/    /*
     This styles the menu heading.
     */
     #menu .pure-menu-heading {
-        font-size: 110%;
+        font-size: 100%;
         color: #fff;
         margin: 0;
+        white-space: normal;
     }
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/

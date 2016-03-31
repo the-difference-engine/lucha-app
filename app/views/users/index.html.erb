@@ -1,14 +1,36 @@
 <h1>Clients</h1>
 
-<% @client.each do |client| %>
-<h3><%= link_to client.full_name, client_path(client.id) %></h3>
-<ul>
-	<li>Address: <%= client.address %></li>
-	<li>Cell Phone:<%= client.cell_phone %></li>
-</ul>
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder="What you looking for?">
+</div>
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results">
+  <thead>
+     <th >ID</th>
+     <th class="col-md-5 col-xs-5">Name</th>
+     <th class="col-md-3 col-xs-3">Home Phone</th>
+     <th class="col-md-3 col-xs-3">Address</th>
+     <th class="col-md-3 col-xs-3">Client Type</th>
+     <th >View</th> 
+   </tr>    
+   <tr class="warning no-result">
+      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    </tr>
+  </thead>
+<% @clients.each do |client| %>
+ <tbody>
+   <tr>
+     <td><%= client.id %></td>
+     <td><%= client.full_name.titleize %></td>
+     <td><%= client.home_phone %></td>
+     <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
+     <td><%= client.client_types.to_sentence %></td>
+     <td>
+       <%= link_to "View", client_path(client.id), class: "btn btn-default" %>
+     </td>
+   </tr>
+ </tbody>
 <% end %>
+</table>
 
-
-<%= link_to "CSV", clients_path(format: "csv") %> |
-<%= link_to "Excel", clients_path(format: "xls") %>
 

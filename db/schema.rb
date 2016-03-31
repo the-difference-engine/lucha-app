@@ -11,52 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319230411) do
+ActiveRecord::Schema.define(version: 20160321174009) do
 
   create_table "budgets", force: :cascade do |t|
-    t.decimal  "gross_wages",                          precision: 8, scale: 2
-    t.datetime "created_at",                                                   null: false
-    t.datetime "updated_at",                                                   null: false
-    t.decimal  "self_employment_income",               precision: 8, scale: 2
-    t.decimal  "overtime",                             precision: 8, scale: 2
-    t.decimal  "unemployment",                         precision: 8, scale: 2
-    t.decimal  "tips_commisions_bonus",                precision: 8, scale: 2
-    t.decimal  "nontaxable_social_security",           precision: 8, scale: 2
-    t.decimal  "taxable_social_security",              precision: 8, scale: 2
-    t.decimal  "rental_income",                        precision: 8, scale: 2
-    t.decimal  "other_income",                         precision: 8, scale: 2
-    t.decimal  "primary_checking",                     precision: 8, scale: 2
-    t.decimal  "secondary_checking",                   precision: 8, scale: 2
-    t.decimal  "savings_money_market",                 precision: 8, scale: 2
-    t.decimal  "stocks_or_bonds",                      precision: 8, scale: 2
-    t.decimal  "four_zero_one_k",                      precision: 8, scale: 2
-    t.decimal  "home_equity",                          precision: 8, scale: 2
-    t.decimal  "other_property",                       precision: 8, scale: 2
-    t.decimal  "car",                                  precision: 8, scale: 2
-    t.decimal  "other_assets",                         precision: 8, scale: 2
-    t.decimal  "principal_and_interest",               precision: 8, scale: 2
-    t.decimal  "prop_tax",                             precision: 8, scale: 2
-    t.decimal  "assoc_fees",                           precision: 8, scale: 2
-    t.decimal  "junior_mortgage",                      precision: 8, scale: 2
-    t.decimal  "min_credit_card_payment",              precision: 8, scale: 2
-    t.decimal  "car_payment",                          precision: 8, scale: 2
-    t.decimal  "student_loan",                         precision: 8, scale: 2
-    t.decimal  "gas",                                  precision: 8, scale: 2
-    t.decimal  "electricity",                          precision: 8, scale: 2
-    t.decimal  "water",                                precision: 8, scale: 2
-    t.decimal  "phone",                                precision: 8, scale: 2
-    t.decimal  "other_utilities",                      precision: 8, scale: 2
-    t.decimal  "food",                                 precision: 8, scale: 2
-    t.decimal  "auto_insurance",                       precision: 8, scale: 2
-    t.decimal  "gas_car_maintenance",                  precision: 8, scale: 2
-    t.decimal  "child_care",                           precision: 8, scale: 2
-    t.decimal  "medical_expenses",                     precision: 8, scale: 2
-    t.decimal  "clothing",                             precision: 8, scale: 2
-    t.decimal  "rent",                                 precision: 8, scale: 2
-    t.decimal  "rental_insurance",                     precision: 8, scale: 2
-    t.decimal  "total_monthly_debt",                   precision: 8, scale: 2
-    t.decimal  "gross_monthly_income",                 precision: 8, scale: 2
-    t.decimal  "debt_divided_by_income",               precision: 8, scale: 2
+    t.decimal  "gross_wages",                          precision: 8, scale: 2, default: 0.0, null: false
+    t.datetime "created_at",                                                                 null: false
+    t.datetime "updated_at",                                                                 null: false
+    t.decimal  "self_employment_income",               precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "overtime",                             precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "unemployment",                         precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "tips_commisions_bonus",                precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "nontaxable_social_security",           precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "taxable_social_security",              precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "rental_income",                        precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "other_income",                         precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "primary_checking",                     precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "secondary_checking",                   precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "savings_money_market",                 precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "stocks_or_bonds",                      precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "four_zero_one_k",                      precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "home_equity",                          precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "other_property",                       precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "car",                                  precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "other_assets",                         precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "principal_and_interest",               precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "prop_tax",                             precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "assoc_fees",                           precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "junior_mortgage",                      precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "min_credit_card_payment",              precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "car_payment",                          precision: 8, scale: 2, default: 0.0
+    t.decimal  "student_loan",                         precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "gas",                                  precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "electricity",                          precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "water",                                precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "phone",                                precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "other_utilities",                      precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "food",                                 precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "auto_insurance",                       precision: 8, scale: 2, default: 0.0
+    t.decimal  "gas_car_maintenance",                  precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "child_care",                           precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "medical_expenses",                     precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "clothing",                             precision: 8, scale: 2, default: 0.0
+    t.decimal  "rent",                                 precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "rental_insurance",                     precision: 8, scale: 2, default: 0.0, null: false
+    t.decimal  "total_monthly_debt",                   precision: 8, scale: 2, default: 0.0
+    t.decimal  "gross_monthly_income",                 precision: 8, scale: 2, default: 0.0
+    t.decimal  "debt_divided_by_income",               precision: 8, scale: 2, default: 0.0
     t.integer  "client_id",                  limit: 4
   end
 

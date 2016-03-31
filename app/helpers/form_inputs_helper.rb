@@ -3,9 +3,7 @@ module FormInputsHelper
 # Helper for Client update and create forms
 
 	def education
-		# Helper for education_level attribute in Client model
 		[
-
 			["No High School Diploma", "No High School Diploma"],
 			["High School Diploma", "High School Diploma"],
 			["GED", "GED"],
@@ -15,8 +13,18 @@ module FormInputsHelper
 			["Bachelor's Degree", "Bachelor's Degree"],
 			["Master's Degree", "Master's Degree"],
 			["Doctoral Degree", "Doctoral Degree"]
-
 		]
+	end
+
+	def pref_language
+		[['English', 'English'], ['Spanish', 'Spanish'], ['Polish', 'Polish']]
+	end
+
+	def pref_contact
+		[['Home Phone', 'Home Phone'], 
+		['Cell Phone', 'Cell Phone'], 
+		['Email', 'Email']]
+		
 	end
 
 	def income_range
@@ -42,7 +50,27 @@ module FormInputsHelper
 		]
 	end
 
+	def racial_options
+		[['White', 'White'], ['Hispanic/Latino', 'Hispanic/Latino'], ['African-American', 'African-American'], ['Asian', 'Asian']]
+	end
+
+	def num_in_house
+		[[1,1],[2,2], [3,3], [4,4], [5,5], [6,6], [7,7], [8,8], [9,9]]
+	end
+
 # Helper for Foreclosure update and create forms
+
+	def foreclosure_status
+		[
+		["I am not yet behind on my mortgage but close to it", "I am not yet behind on my mortgage but close to it"],
+		["Have not yet gone through the process, but am behind on payment", "Have not yet gone through the process, but am behind on payment"],
+		["I am over three months behind", "I am over three months behind"],
+		["I am over three months behind and have received a court summons", "I am over three months behind and have received a court summons"],
+		]
+		
+	end
+
+
 
 	def cause_for_default
 		# Helper for reason_for_default attribute in Foreclosure model
@@ -62,6 +90,19 @@ module FormInputsHelper
 
 
 # Helper for Homebuying update and create forms
+
+	def learned_from
+		[
+			["A Friend", "A Friend"],
+			["Referred by my loan officer", "Referred by my loan officer"],
+			["Referred by my realtor", "Referred by my realtor"],
+			["Saw an ad in Hoy", "Saw an ad in Hoy"],
+			["Facebook", "Facebook"],
+			["Email blast", "Email blast"],
+		]
+
+		
+	end
 
 	def loan_type
 		[
@@ -89,5 +130,6 @@ module FormInputsHelper
 			["Other", "Other"]
 		]
 	end
+
 
 end

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_employee!
 
   def index
-    @client = Client.all
+    @clients = Client.all
   end
 
   def show

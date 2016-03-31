@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def authenticate_client!
     if current_client
       redirect_to client_path(current_client.id)
-      flash[:notice] = "Can't go there"
+      # flash[:notice] = "Can't go there"
 
     end
   end
@@ -48,6 +48,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     request.env['omniauth.origin'] || stored_location_for(resource) || employee_index_path
   end
+
+  # def authenticate_client_application
+  #   if current_client.foreclosure.
+  # end
 
 
 end

@@ -6,7 +6,7 @@
 	<h4>Cell Phone: <%= @client.cell_phone %></h4>
 
 	<h3>Demographics:</h3>
-	<h4>Race: <%= best_in_place @client, :race%></h4>
+	<h4>Race: <%= best_in_place @client, :race, :class => 'highlight_on_success' %></h4>
 	<h4>Sex: <%= best_in_place @client, :sex %></h4>
 
 	<%= form_tag case_assign_path, method: :post do %>
@@ -34,16 +34,14 @@
 	<% end %>
 
 <% elsif client_signed_in? %>
-	<h1>Hi <%= current_client.full_name %></h1>
-	<h4>First Name: <%= best_in_place @client, :first_name %></h4>
-	<h4>Last Name: <%= best_in_place @client, :last_name%></h4>
-	<h4>Email: <%= best_in_place @client, :email %></h4>
-	<h4>Race: <%= best_in_place @client, :race %></h4>
-	<h4>Sex: <%= best_in_place @client, :sex %></h4>
-	<h4>Home Phone: <%= best_in_place @client, :home_phone %></h4>
-	<h4>Cell Phone: <%= best_in_place @client, :cell_phone %></h4>
-	<h4>Work Phone: <%= best_in_place @client, :work_phone %></h4>
-	<h4>Address: <%= best_in_place @client, :address %></h4>
-	<h4>City: <%= best_in_place @client, :city %>, State: <%= best_in_place @client, :state %></h4>
 
+	<h2>Hi <%= @client.full_name %>!</h2>
+	<p>Below is the info we have on file for you. You can edit this form by clicking on the "-" or the info. All info is automatically saved. </p>
+	<div id="show-profile">
+
+	<%= render "client_demo" %>
+	<%= render "client_address" %>
+	<%= render "client_contact" %>
+	<%= render "client_household" %>
 <% end %>
+

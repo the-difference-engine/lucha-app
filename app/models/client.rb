@@ -5,8 +5,13 @@ class Client < ActiveRecord::Base
   validates :privacy_policy_authorization, inclusion: [true, false]
   validates :authorization_and_waiver, inclusion: [true, false]
   validates_uniqueness_of :email
-  validates_uniqueness_of :ssn
-  validates_associated :homebuying
+  # validates_uniqueness_of :ssn
+  # validates_numericality_of :num_in_household
+  # validates_numericality_of :num_of_dependants
+
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  
+  # validates_associated :budget
 
 # ____
   # validates :email, confirmation: true
@@ -20,13 +25,13 @@ class Client < ActiveRecord::Base
   belongs_to :user
 
   has_one :foreclosure, dependent: :destroy
-  has_one :homebuying, :inverse_of => :client, dependent: :destroy
+  has_one :homebuying, dependent: :destroy
   has_one :rental, dependent: :destroy
   has_one :law_project, dependent: :destroy
   has_one :senior_repair, dependent: :destroy
   has_one :budget, dependent: :destroy
 
-
+  before_create :make_budget
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
@@ -68,6 +73,14 @@ class Client < ActiveRecord::Base
   end
 
 
+  def client_types
+    type = []
+    client_applications.each do |program|
+      type << program.class.name
+    end
+    type
+  end
+
   def self.to_csv(options = {})
     # Eventually, I need a way to make this class dynamic, as a way for me to be able to check what kinds of applications there are. I can use the model method I created called Client_applications, but there has to be some way for the csv method to know. It will be easy enough being able to print out all of the methods there are, but then I have ugly empty columns in my CSV file.
     CSV.generate(options) do |csv|
@@ -96,6 +109,12 @@ class Client < ActiveRecord::Base
       counselor_array
     end
     counselor_array
+  end
+
+  private
+
+  def make_budget
+    build_budget || true
   end
 
 
