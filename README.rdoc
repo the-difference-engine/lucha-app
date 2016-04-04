@@ -1,5 +1,5 @@
 == README
-
+=begin rdoc
 
 # LUCHA Client Management System
 
@@ -51,3 +51,5 @@ When a client model is created, a budget model is also created.
 Foreclosures, Homebuyings, Law Projects, and Senior Repairs. 
 
 These models serve much of the same function but have different attributes. 
+
+= end
