@@ -1,17 +1,16 @@
 == README
 
-
-=# LUCHA Client Management System
+# LUCHA Client Management System
 
 
 LUCHA is an organization based in Humboldt Park that looks to forward housing as a human right and to help its client base in three ways - to stabilize their housing situation, buy a home, or save their home.  
 
 Here is LUCHA’s Mission: 
 
-=>LUCHA (the Spanish word for “struggle”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services.
+>LUCHA (the Spanish word for “struggle”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services.
 
 
-=## The project
+## The project
 
 As it currently stands, clients that want to submit any kind of applications for homebuying/foreclosure counseling or rentals have to submit a paper application.  Once that paper application is submitted, the client would either have to call, visit, or email the person they think would work with them.
 
@@ -24,12 +23,12 @@ The employees will be able to make timestamped notes on a client’s case and se
 LUCHA also has to report their data to various grant agencies in Excel formats, so any CMS they utilize would be best to have the capacity to export information in their database to a CVS file. 
 
 
-=## Associations
+## Associations
 
-=![Associations](/images/schema.png)
+![Associations](/images/schema.png)
 
 
-=##Models currently created
+##Models currently created
 
 There are two Devise models - client and user (user is also interchangable with employee throughout this document). 
 
@@ -40,15 +39,14 @@ The client will only be able to create one application for a any given program a
 The User (employee) has a polymorphic relationship with the foreclosure, homebuying, law project and senior repairs models. 
 
 
-=## Clients
+## Clients
 
 The client model currently needs to have a few of it's validations reactivated (they were turned off for the purposes of the capstone). Some of the testing for the client model has to be updated as well. 
 
 When a client model is created, a budget model is also created. 
 
-=## Models in the middle 
+## Models in the middle 
 
 Foreclosures, Homebuyings, Law Projects, and Senior Repairs. 
 
 These models serve much of the same function but have different attributes. 
-
