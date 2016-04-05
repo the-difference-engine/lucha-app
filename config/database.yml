@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
+  password: Suitcase3!
   socket: /tmp/mysql.sock
 
 development:
@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
   database: lucha-cms_production
-  username: lucha-cms
-  password: <%= ENV['LUCHA-CMS_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5-g

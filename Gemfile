@@ -40,6 +40,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'oauth2', '~> 1.1'
 
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
+
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use Unicorn as the app server
