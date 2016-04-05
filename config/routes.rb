@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "registrations"}, :except => [:new_client_session, :client_session]
+   devise_for :clients, controllers: { registrations: "clients/registrations"}
   
 
   devise_for :users
@@ -19,14 +19,15 @@ Rails.application.routes.draw do
   get '/case_load' => 'program_employees#index', as: :cases
   post '/case_load' => 'program_employees#create', as: :case_assign
 
-  get '/clients' =>'clients#index', as: :clients
-  get '/clients/new' => 'clients#new'
-  post '/clients/create' => 'clients#create'
-  get '/clients/:id' => 'clients#show', as: :client
-  get '/clients/:id/status' => 'clients#status', as: :client_status
-  get '/clients/:id/edit' => 'clients#edit', as: :client_edit
-  put '/clients/:id' => 'clients#update', as: :client_update
-  delete '/clients/:id' => 'clients#destroy', as: :client_delete
+  namespace :clients do 
+    get '/clients' =>'clients#index', as: :clients
+    get '/clients/new' => 'clients#new'
+    post '/clients/create' => 'clients#create'
+    get '/clients/:id' => 'clients#show', as: :client
+    get '/clients/:id/status' => 'clients#status', as: :client_status
+    get '/clients/:id/edit' => 'clients#edit', as: :client_edit
+    put '/clients/:id' => 'clients#update', as: :client_update
+    delete '/clients/:id' => 'clients#destroy', as: :client_delete
 
   get '/budgets' => 'budgets#index'
   get '/budgets/new' => 'budgets#new', as: :new_budget
