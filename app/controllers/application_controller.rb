@@ -41,13 +41,13 @@ class ApplicationController < ActionController::Base
     end
 	end
 
-  def after_sign_in_path_for(client)
-    request.env['omniauth.origin'] || stored_location_for(resource) || client_status_path(client)
-  end
+  # def after_sign_in_path_for(client)
+  #   request.env['omniauth.origin'] || stored_location_for(resource) || client_status_path(client)
+  # end
 
-  def after_sign_in_path_for(user)
-    request.env['omniauth.origin'] || stored_location_for(resource) || employee_index_path
-  end
+  # def after_sign_in_path_for(user)
+  #   request.env['omniauth.origin'] || stored_location_for(resource) || employee_index_path
+  # end
 
   # def authenticate_client_application
   #   if current_client.foreclosure.
