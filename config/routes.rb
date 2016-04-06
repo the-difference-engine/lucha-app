@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-   devise_for :clients, controllers: { registrations: "clients/registrations"}
+  devise_for :clients, controllers: { registrations: "clients/registrations"}
   
 
   devise_for :users
+
 
   root to: 'landing_pages#index'
 
