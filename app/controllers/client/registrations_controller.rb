@@ -1,4 +1,4 @@
-class Clients::RegistrationsController < Devise::RegistrationsController
+class Client::RegistrationsController < Devise::RegistrationsController
 	skip_before_action :authenticate_client!
 	before_filter :configure_permitted_parameters
 

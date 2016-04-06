@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/case_load' => 'program_employees#index', as: :cases
   post '/case_load' => 'program_employees#create', as: :case_assign
 
-  namespace :clients do 
+  namespace :client do 
     get '/clients' =>'clients#index', as: :clients
     get '/clients/new' => 'clients#new'
     post '/clients/create' => 'clients#create'
