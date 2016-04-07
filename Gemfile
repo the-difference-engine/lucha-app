@@ -39,6 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 # gem 'oauth2', '~> 1.1'
+gem 'puma'
 
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
