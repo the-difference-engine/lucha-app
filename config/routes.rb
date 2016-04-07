@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :clients, controllers: { registrations: "client/registrations"}
-  
+  # devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "clients/registrations"}, :except => [:new_client_session, :client_session]
+  devise_for :clients, controllers: { registrations: "client/registrations"}, :except => [:new_client_session, :client_session]
+  devise_scope :client do
+    get 'register', to: 'client/registrations#new'
+    get 'login', to: 'devise/sessions#new'
+    delete 'logout', to: 'devise/sessions#destroy'
+  end
 
   devise_for :users
-
 
   root to: 'landing_pages#index'
 
@@ -20,16 +24,10 @@ Rails.application.routes.draw do
   get '/case_load' => 'program_employees#index', as: :cases
   post '/case_load' => 'program_employees#create', as: :case_assign
 
-  namespace :client do 
-    get '/clients' =>'clients#index', as: :clients
-    get '/clients/new' => 'clients#new'
-    post '/clients/create' => 'clients#create'
-    get '/clients/:id' => 'clients#show', as: :client
-    get '/clients/:id/status' => 'clients#status', as: :client_status
-    get '/clients/:id/edit' => 'clients#edit', as: :client_edit
-    put '/clients/:id' => 'clients#update', as: :client_update
-    delete '/clients/:id' => 'clients#destroy', as: :client_delete
-  end 
+  get '/clients' =>'clients#index', as: :clients
+  get '/clients/:id' => 'clients#show', as: :client
+  get '/clients/:id/status' => 'clients#status', as: :client_status
+  delete '/clients/:id' => 'clients#destroy', as: :client_delete
 
   get '/budgets' => 'budgets#index'
   get '/budgets/new' => 'budgets#new', as: :new_budget

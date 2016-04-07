@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
   before_action :authenticate_client!, unless: :clients_controller?
-  Devise::SessionsController.skip_before_filter :authenticate_client!
 
 
   def authenticate_user!
@@ -14,7 +13,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def authenticate_client!
+  def authenticate_client!(options={})
     if current_client
       redirect_to client_path(current_client.id)
       # flash[:notice] = "Can't go there"
