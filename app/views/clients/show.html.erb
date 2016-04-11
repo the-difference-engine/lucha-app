@@ -9,7 +9,7 @@
 	<h4>Race: <%= best_in_place @client, :race, :class => 'highlight_on_success' %></h4>
 	<h4>Sex: <%= best_in_place @client, :sex %></h4>
 
-	<%= form_tag case_assign_path, method: :post do %>
+	<%= form_tag('/case_load', method: :put) do %>
 		<div class = "field">
 			<%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
  		</div>
