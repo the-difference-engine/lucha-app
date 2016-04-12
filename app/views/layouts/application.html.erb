@@ -35,7 +35,7 @@
 
     <div id="menu">
         <div class="pure-menu">
-            <a class="pure-menu-heading" href="#">LUCHA</a>
+            <a class="pure-menu-heading" href="<%= root_path %>">LUCHA</a>
 
             <ul class="pure-menu-list">
 
@@ -72,10 +72,7 @@
 
     <div id="main">
         <div class="content">
-            <% flash.each do |name, message| %>
-            <div class="alert alert-<%= name == "alrert" || name == "notice" ? "warning" : name %> alert-dismissible" role="alert">  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <p> <%= message %> </p> </div>
-            <% end %>
+        <%= render 'layouts/alerts' %>
 
             <%= yield %>
 

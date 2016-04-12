@@ -41,9 +41,10 @@ class HomebuyingsController < ApplicationController
     if @homebuying.save
     	ProgramEmployee.create({programable_id: @homebuying.id, programable_type: "Homebuying"})
 
-	    flash[:success] = "You've completed the homebuying application"
+	    flash[:success] = ["You've completed the homebuying application"]
 	    redirect_to "/clients/#{@homebuying.client_id}/status"
     else
+      flash[:danger] = @homebuying.errors.full_messages
       render :new
     end
   end

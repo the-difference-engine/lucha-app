@@ -68,9 +68,10 @@ class RentalsController < ApplicationController
     if @rental.save
     	ProgramEmployee.create({programable_id: @rental.id, programable_type: "Rental"})
 
-	    flash[:success] = "You've completed the rental application"
+	    flash[:success] = ["You've completed the rental application"]
 	    redirect_to "/clients/#{@rental.client_id}/status"
     else
+    	flash[:danger] = @rental.errors.full_messages
       render :new
     end
 
