@@ -22,10 +22,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_current_client!
-    unless current_user || current_client.id == params[:id].to_i
-      flash[:notice] = "You may only view your own profile."
-      redirect_to client_path(current_client.id)
-    end
+    # unless current_user || current_client.id == params[:id].to_i
+    #   flash[:notice] = "You may only view your own profile."
+    #   redirect_to client_path(current_client.id)
+    # end
   end
 
   def clients_controller?
