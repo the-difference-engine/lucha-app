@@ -1,0 +1,67 @@
+<h4>Please fill in the following in order to create </h4>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="form-group">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :home_phone %><br>
+    <%=f.text_field :home_phone %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cell_phone %><br>
+    <%=f.text_field :cell_phone %>
+  </div>
+
+  <hr>
+
+  
+
+  <hr>
+
+  <div class="form-group">
+  <h4>The following information will be your login information, make sure to keep this safe with you.</h4>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+
+  <div class="form-group">
+    <%= f.submit "Sign up", :class => 'btn btn-large btn-primary' %>
+  </div>
+<% end %>
+
+<h5>Already have an account? <%= render "devise/shared/links" %></h5>

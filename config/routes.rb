@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy'
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users"}
+      devise_scope :user do
+      get 'register', to: 'users/registrations#new'
+      get 'login', to: 'users/sessions#new'
+      delete 'logout', to: 'users/sessions#destroy'
+  end
 
   root to: 'landing_pages#index'
 
