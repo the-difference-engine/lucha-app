@@ -13,151 +13,148 @@
 
 <h1>Please fill in the rest of the information below</h1>
 
-<%= form_tag client_update_path, :class => "form-navbar-form navbar-left", role: "form", method: :put do %>
+<%= form_tag "/clients/#{@client.id}", method: :put do %>
 
     <div class="form-group">
-      <%= label_tag :first_name %><br />
+      First Name <br>
       <%= text_field_tag :first_name, @client.first_name %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :last_name %><br />
+      Last Name <br>
       <%= text_field_tag :last_name, @client.last_name %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :home_phone %><br />
+      Home Phone Number <br>
       <%=text_field_tag :home_phone, @client.home_phone %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :cell_phone %><br />
+      Cell Phone <br>
       <%= text_field_tag :cell_phone, @client.cell_phone %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :work_phone %><br />
+      Work Phone <br>
       <%= text_field_tag :work_phone, @client.work_phone %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :address %><br />
+      Address <br>
       <%= text_field_tag :address, @client.address %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :state %><br />
+      City <br>
+      <%= text_field_tag :city, @client.city %>
+    </div>
+
+    <div class="form-group">
+      State <br>
       <%= text_field_tag :state, @client.state %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :ward %><br />
+      Ward <br>
       <%= text_field_tag :ward, @client.ward %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :zip_code %><br />
+      Zipcode <br>
       <%= text_field_tag :zip_code, @client.zip_code %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :sex %><br />
+      Gender <br>
       <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :race %><br />
+      Race <br>
       <%= select_tag(:race, options_for_select(racial_options, @client.race)) %>
     </div>
 
     <div class="form-group">
-      <%= label_tag "Social Security Number" %> <br>
+      Social Security Number <br>
       <%= text_field_tag :ssn, @client.ssn %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :preferred_contact_method %> <br>
+      Preferred Contact Method<br>
       <%= text_field_tag :preferred_contact_method, @client.preferred_contact_method %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :preferred_language %> <br>
+      Preferred Language <br>
       <%= text_field_tag :preferred_language, @client.preferred_language %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :marital_status %> <br>
+      Marital Status <br>
       <%= text_field_tag :marital_status, @client.marital_status %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :dob %> <br>
+      Date of Birth <br>
       <%= date_field_tag :dob, @client.dob %>
     </div>
 
     <div class="form-group">
       <div class="checkbox-inline">
-        <%= label_tag :head_of_household do %>
-        <%= check_box :head_of_household, "checked", {}, @client.head_of_household %>
+        <input id="head_of_household" name="head_of_household" type="checkbox" value="true"/>
         Are you the head of the household?
-        <% end %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= label_tag :num_in_household, "How many people live in the household?" %> <br>
+      How many people live in the household? <br>
       <%= number_field_tag :num_in_household, @client.num_in_household, {in: 1..15} %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :num_of_dependants %> <br>
+      Number of Dependants <br>
       <%= number_field_tag :num_of_dependants, @client.num_of_dependants, {in: 0..10} %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :education_level %> <br>
+      Education Level <br>
       <%= select_tag :education_level, options_for_select(education, @client.education_level) %>
     </div>
 
     <div class="form-group">
-      <%= label_tag :estimated_household_income %> <br>
+      Estimated Household Income <br>
       <%= select_tag :estimated_household_income, options_for_select(income_range, @client.estimated_household_income) %>
     </div>
 
     <div class="form-group">
-      Check if any of the below apply to you:
-      <br>
-        <div class="checkbox-inline">
-          <%= label_tag :disability do %> 
-            <%= check_box :disability, "checked", {}, @client.disability %>
-            Disabled 
-          <% end %>
-        </div>
-        <br>
-        <div class="checkbox-inline">
-          <%= label_tag :military_service_member do %> 
-            <%= check_box :military_service_member, "checked", {}, @client.military_service_member %>
-            A current or former military service member
-          <% end %>
-        </div>
-          <br>
-          <div class="checkbox-inline">
-            <%= label_tag :union_member do %> 
-              <%= check_box :union_member, "checked" %>
-              A member of any union
-            <% end %>
-          </div>
-    </div>
-
+      <div class="checkbox-inline">
+        <input id="disability" name="disability" type="checkbox" value="true"/>
+        Do you have a disability? 
+      </div>
+    </div>  
 
     <div class="form-group">
       <div class="checkbox-inline">
-        <%= label_tag :volunteer_interest do %> <br>
-          <%= check_box :volunteer_interest, "checked" %>
-          I would like to volunteer.
-        <% end %>
+        <input id="union_member" name="union_member" type="checkbox" value="true"/>
+        Are you a member of a union?
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="checkbox-inline">
+        <input id="military_service_member" name="military_service_member" type="checkbox" value="true"/>
+        A current or former military service member <br>
+      </div>
+    </div>  
+
+    <div class="form-group">
+      <div class="checkbox-inline">
+        <input id="volunteer_interest" name="volunteer_interest" type="checkbox" value="true"/>
+        Would you like to volunteer <br>
+      </div>
+    </div>
+  
 
     <div class="actions">
       <%= submit_tag "Update!", :class => 'btn btn-large btn-primary' %>
