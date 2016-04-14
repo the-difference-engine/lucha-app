@@ -1,3 +1,4 @@
+
 class ClientsController < ApplicationController
   before_action :authenticate_current_client!, :only => [:index, :show, :edit, :update, :destroy]
   respond_to :html, :json
