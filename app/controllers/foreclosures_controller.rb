@@ -25,7 +25,7 @@ class ForeclosuresController < ApplicationController
 		if client_signed_in?
 			@id = current_client.id
 		elsif user_signed_in?
-			@id = Foreclosure.find(client_id: params[:id])[0].id
+			@id = Foreclosure.where(client_id: params[:id]).first.id
 		end
 	  @foreclosure = Foreclosure.new({ 
     	client_id: @id,
@@ -45,10 +45,11 @@ class ForeclosuresController < ApplicationController
 	    })
 	  if @foreclosure.save
     	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
-	    flash[:success] = "You've completed the foreclosure application"
+	    flash[:success] = ["You've completed the foreclosure application"]
 	    redirect_to "/clients/#{@foreclosure.client_id}/status"
     else
-      render :create
+      flash[:danger] = @foreclosure.errors.full_messages
+      render :new
     end
 	end
 	

@@ -43,6 +43,7 @@ gem 'puma'
 
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
+gem 'validates_timeliness', '~> 4.0'
 
 
 gem 'dotenv-rails', :groups => [:development, :test]
