@@ -1,33 +1,35 @@
-class UsersController < ApplicationController
-  before_action :authenticate_employee!
+class UsersController < Devise::RegistrationsController
+  # before_action :authenticate_employee!, except: [:new]
 
   def index
-    @clients = Client.all
+    @user = User.all
   end
 
   def show
-    @client = Client.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
   	@user = User.new
+    render :new
   end
 
   def create
-   @user = User.new({first: params[:name],
-      first_name: params[:first_name], 
-      last_name: params[:last_name],
-      email: params[:email],
-      password: params[:password],
-      home_phone: params[:home_phone], 
-      work_phone: params[:work_phone], 
-      cell_phone: params[:cell_phone]
+   @user = User.new({
+      first_name: params[:user][:first_name], 
+      last_name: params[:user][:last_name],
+      email: params[:user][:email],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation],      
+      home_phone: params[:user][:home_phone], 
+      work_phone: params[:user][:work_phone], 
+      cell_phone: params[:user][:cell_phone]
       })
     if @user.save
       flash[:success] = "The account has been created"
-      redirect_to "/clients/#{@client.id}"
+      redirect_to "/users/#{@user.id}"
     else
-      render :create
+      render :new
     end
   end
 
@@ -52,6 +54,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
   end
 
   def search
