@@ -46,8 +46,8 @@ class ClientsController < ApplicationController
     end
 
     # This works with the Best_in_Place gem. Updates the object using an HTTP PUT call.
-    @client.update_attributes(client_params)
-    respond_with @client
+    # @client.update_attributes(client_params)
+    # respond_with @client
 
 
     # This is how I handled the updating before the Best_in_Place gem
