@@ -41,7 +41,7 @@ gem 'devise'
 # gem 'oauth2', '~> 1.1'
 gem 'puma'
 
-gem 'pg', group: :production
+gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'validates_timeliness', '~> 4.0'
 
