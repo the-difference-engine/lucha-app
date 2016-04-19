@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   post '/budgets/create' => 'budgets#create', as: :budget_create
   get '/budgets/:id' => 'budgets#show', as: :budget
   get '/budgets/:id/edit' => 'budgets#edit', as: :edit_budget
-  put '/budgets/:id' => 'budgets#update', as: :update_budget
+  patch '/budgets' => 'budgets#update', as: :update_budget
   delete '/budgets/:id' => 'budgets#destroy', as: :budget_delete
 
   get '/foreclosures' =>'foreclosures#index', as: :foreclosures

@@ -15,14 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def authenticate_client!(options={})
-    if current_client
-      # redirect_to client_path(current_client.id)
-      # flash[:notice] = "Can't go there"
-
-    end
-  end
-
   def authenticate_current_client!
     # unless current_user || current_client.id == params[:id].to_i
     #   flash[:notice] = "You may only view your own profile."

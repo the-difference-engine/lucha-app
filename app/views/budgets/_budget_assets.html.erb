@@ -1,42 +1,40 @@
 <table class="table table-hover">
 	<tr>
 		<th colspan="2"><h3>Assets</h3></th>
-	</tr>
-	<% counter = 9 %>
 	<tr>
 		<td>Primary Checking:</td>
-		<td><%= best_in_place @budget, :primary_checking, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="primary_checking"></td>
 	</tr>
 	<tr>
 		<td>Secondary Checking:</td>
-		<td><%= best_in_place @budget, :secondary_checking, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="secondary_checking"></td>
 	</tr>
 	<tr>
 		<td>Savings/Money Market:</td>
-		<td><%= best_in_place @budget, :savings_money_market, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="savings_money_market"></td>
 	</tr>
 	<tr>
 		<td>Stocks or Bonds:</td>
-		<td><%= best_in_place @budget, :stocks_or_bonds, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="stocks_or_bonds"></td>
 	</tr>
 	<tr>
 		<td>401K:</td>
-		<td><%= best_in_place @budget, :four_zero_one_k, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="four_zero_one_k"></td>
 	</tr>
 	<tr>
 		<td>Home Equity:</td>
-		<td><%= best_in_place @budget, :home_equity, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="home_equity"></td>
 	</tr>
 	<tr>
 		<td>Value of Other Properties:</td>
-		<td><%= best_in_place @budget, :other_property, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="other_property"></td>
 	</tr>
 	<tr>
 		<td>Car Value:</td>
-		<td><%= best_in_place @budget, :car, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="car"></td>
 	</tr>
 	<tr>
 		<td>Other Assets:</td>
-		<td><%= best_in_place @budget, :other_assets, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>	
+		<td><input type="text" ng-model="other_assets"></td>
 	</tr>
 </table>

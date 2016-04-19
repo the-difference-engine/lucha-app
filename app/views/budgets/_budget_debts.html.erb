@@ -5,74 +5,74 @@
 	<% counter = 18 %>
 	<tr>
 		<td>Principal and Interest:</td>
-		<td><%= best_in_place @budget, :principal_and_interest, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="principal_and_interest"></td>
 	</tr>
 	<tr>
 		<td>Property Taxes:</td>
-		<td><%= best_in_place @budget, :prop_tax, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="prop_tax"></td>
 	</tr>
 	<tr>
 		<td>Association Fees:</td>
-		<td><%= best_in_place @budget, :assoc_fees, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="assoc_fees"></td>
 	</tr>
 	<tr>
 		<td>Junior Mortgage:</td>
-		<td><%= best_in_place @budget, :junior_mortgage, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="junior_mortage"></td>
 	</tr>
 	<tr>
 		<td>Minimum Monthly Credit Card Payments</td>
-		<td><%= best_in_place @budget, :min_credit_card_payment, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="min_credit_card_payment"></td>
 	</tr>
 	<tr>
 		<td>Student Loan</td>
-		<td><%= best_in_place @budget, :student_loan, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="student_loan"></td>
 	</tr>
 	<tr>
 		<td>Gas</td>
-		<td><%= best_in_place @budget, :gas, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="gas"></td>
 	</tr>
 	<tr>
 		<td>Electricity</td>
-		<td><%= best_in_place @budget, :electricity, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="electricity"></td>
 	</tr>
 	<tr>
 		<td>Water</td>
-		<td><%= best_in_place @budget, :water, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="water"></td>
 	</tr>
 	<tr>
 		<td>Phone</td>
-		<td><%= best_in_place @budget, :phone, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="phone"></td>
 	</tr>
 	<tr>
 		<td>Other Utilities</td>
-		<td><%= best_in_place @budget, :other_utilities, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="other_utilities"></td>
 	</tr>
 	<tr>
 		<td>Food/Groceries</td>
-		<td><%= best_in_place @budget, :food, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="food"></td>
 	</tr>
 	<tr>
 		<td>Gas and car maintenance</td>
-		<td><%= best_in_place @budget, :gas_car_maintenance, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="gas_car_maintenance"></td>
 	</tr>
 	<tr>
 		<td>Child Care</td>
-		<td><%= best_in_place @budget, :child_care, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="child_care"></td>
 	</tr>
 	<tr>
 		<td>Medical Expenses</td>
-		<td><%= best_in_place @budget, :medical_expenses, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="medical_expenses"></td>
 	</tr>
 
 	<tr>
 	<th colspan="2">Only if you are a renter, please fill out the below</th>
 	</tr>
 	<tr>
-		<td>placehold</td>
-		<td><%= best_in_place @budget, :rent, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td>Rent</td>
+		<td><input type="text" ng-model="rent"></td>
 	</tr>
 	<tr>
-		<td>placehold</td>
-		<td><%= best_in_place @budget, :rental_insurance, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td>Rental insurance</td>
+		<td><input type="text" ng-model="rental_insurance"></td>
 	</tr>
 </table>
