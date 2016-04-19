@@ -2,41 +2,42 @@
 	<tr>
 		<th colspan="2"><h3>Monthly Income</h3></th>
 	</tr>
-	<% counter = 0 %>
 	<tr>
 		<td>Gross Wages:</td>
-		<td><%= best_in_place @budget, :gross_wages, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.gross_wages" value="<%= @budget.gross_wages %>"></td>
 	</tr>
 	<tr>
 		<td>Self-Employment Income:</td>
-		<td><%= best_in_place @budget, :self_employment_income, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.self_employment_income" value="<%= @budget.self_employment_income %>"></td>
 	</tr>
 	<tr>
 		<td>Overtime:</td>
-		<td><%= best_in_place @budget, :overtime, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.overtime" value="<%= @budget.overtime %>"></td>
 	</tr>
 	<tr>
 		<td>Unemployment Check:</td>
-		<td><%= best_in_place @budget, :unemployment, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.unemployment" value="<%= @budget.unemployment %>"></td>
 	</tr>
 	<tr>
 		<td>Tips, Commision, or Bonuses:</td>
-		<td><%= best_in_place @budget, :tips_commisions_bonus, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.tips_commissions_bonus" value="<%= @budget.tips_commissions_bonus %>"></td>
 	</tr>
 	<tr>
 		<td>Non-Taxable Social Secruity:</td>
-		<td><%= best_in_place @budget, :nontaxable_social_security, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.nontaxable_social_security" value="<%= @budget.nontaxable_social_security %>"></td>
 	</tr>
 	<tr>
 		<td>Taxable Social Secruity:</td>
-		<td><%= best_in_place @budget, :taxable_social_security, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.taxable_social_security" value="<%= @budget.taxable_social_security %>"></td>
 	</tr>
 	<tr>
 		<td>Income from Renters:</td>
-		<td><%= best_in_place @budget, :rental_income, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.rental_income" value="<%= @budget.rental_income %>"></td>
 	</tr>
 	<tr>
 		<td>Other:</td>
-		<td><%= best_in_place @budget, :other_income, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
+		<td><input type="text" ng-model="income.other_income" value="<%= @budget.other_income %>"></td>
 	</tr>
 </table>
+
+<button ng-click="submitIncome(income)">Update</button>
