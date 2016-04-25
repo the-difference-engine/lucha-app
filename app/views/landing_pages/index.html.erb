@@ -39,8 +39,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
+                    
+                        Language: 
+                        <%= link_to "English", locale: "en" %>|
+                        <%= link_to "Español", locale: "es" %>
+                    
                     <li>
-                        <a href="/users/login">Employee Login</a>
+                        <a href="/users/sign_in">Employee Login</a>
                     </li>
                 </ul>
             </div>
@@ -63,7 +68,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Latin United Community Housing Association</h1>
+                        <h1><%= t "splash.index.title" %></h1>
                         <h3>LUCHA Client Portal</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">

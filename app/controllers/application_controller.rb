@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
   before_action :authenticate_client!, unless: :clients_controller?
+  #before_filter :set_locale
 
 
   def authenticate_user!
@@ -13,6 +14,11 @@ class ApplicationController < ActionController::Base
     else
       redirect_to "/"
     end
+  end
+
+
+def set_locale
+    I18n.locale = params[:locale] if params[:local].present?
   end
 
   def authenticate_current_client!
