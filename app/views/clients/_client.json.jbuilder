@@ -38,7 +38,8 @@
 	json.self_employment_income client.budget.self_employment_income unless client.budget.blank?
 	json.overtime client.budget.overtime unless client.budget.blank?
 	json.unemployment client.budget.unemployment unless client.budget.blank?
-	json.tips_commisions_bonus client.budget.tips_commisions_bonus unless client.budget.blank?
+	json.tips_commis
+	sions_bonus client.budget.tips_commisions_bonus unless client.budget.blank?
 	json.nontaxable_social_security client.budget.nontaxable_social_security unless client.budget.blank?
 	json.taxable_social_security client.budget.taxable_social_security unless client.budget.blank?
 	json.rental_income client.budget.rental_income unless client.budget.blank?

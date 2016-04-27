@@ -1,46 +1,45 @@
 <div ng-app="app">
-	<div ng-controller="budgetCtrl">
-		<h2>Your Monthly Budget</h2>
-		<p>Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them.</p>
+	<div ng-controller="budgetCtrl" ng-init="init()">
+	<h2>Your Monthly Budget</h2>
+	<p>Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them.</p>
+
+		
+	<%= render "budget_income" %>
 
 
-			
-		<%= render "budget_income" %>
+	<br><hr><br>
 
-		<br><hr><br>
+	<h3>Debts</h3>
+	<p>Please keep in mind, these are <strong>monthly</strong> debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month.</p>
 
-		<h3>Now tell us a bit about your assets</h3>
-		<p>This is wealth that you have accumulated throughout your life.</p>
+	<%= render "budget_debts" %>
 
-		<%= render "budget_assets" %>
+	<br><hr><br>
 
-		<br><hr><br>
+	<h3>Your totals</h3>
+	<table class="table table-hover">
+		<tr>
+			<th colspan="2">Your total monthly debt and income</th>
+		</tr>
+		<tr>
+			<td>Gross Monthly Income:</td>
+			<td>{{ incomeBudget.gross_monthly_income || 0 }}</td>
+		</tr>
+		<tr>
+			<td>Total Monthly Debt:</td>
+			<td>{{ debtBudget.total_monthly_debt || 0 }}</td>
+		</tr>
+		<tr>
+			<td>Debt to Income Ratio:</td>
+			<td>{{ (debtBudget.total_monthly_debt / incomeBudget.gross_monthly_income).toFixed(2) || 0 }}</td>
+		</tr>
+	</table>
 
-		<h3>Debts</h3>
-		<p>Please keep in mind, these are <strong>monthly</strong> debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month.</p>
+	<br><hr><br>
 
-		<%= render "budget_debts" %>
+	<h3>Now tell us a bit about your assets</h3>
+	<p>This is wealth that you have accumulated throughout your life.</p>
 
-		<br><hr><br>
-
-
-		<h3>Your totals</h3>
-		<table class="table table-hover">
-			<tr>
-				<th colspan="2">Your total monthly debt and income</th>
-			</tr>
-			<tr>
-				<td>Total Monthly Debt:</td>
-				<td><input type="text" ng-model="total_monthly_debt"></td>
-			</tr>
-			<tr>
-				<td>Gross Monthly Income:</td>
-				<td><input type="text" ng-model="gross_monthly_income"></td>
-			</tr>
-			<tr>
-				<td>Debt to Income Ratio:</td>
-				<td><input type="text" ng-model="debt_divided_by_income"></td>
-			</tr>
-		</table>
+	<%= render "budget_assets" %>
 	</div>
 </div>
