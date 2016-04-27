@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   root to: 'landing_pages#index'
 
+  namespace :api do
+    get '/budgets/:id' => 'budgets#show'
+  end
+
   get '/users' =>'users#index', as: :employee_index
   post '/search' => 'users#search'
   get '/users/new' => 'users#new'

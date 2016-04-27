@@ -1,0 +1,1 @@
+json.set! :income, @income
