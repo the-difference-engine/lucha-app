@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>LUCHA Client Portal</title>
+    <title><%= I18n.t ".splash.sub_title" %></title>
 
     <!-- Bootstrap Core CSS -->
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -45,7 +45,12 @@
                         <%=  link_to_unless_current "Español", locale: "es" %>
                     
                     <li>
-                        <a href="/users/sign_in"><%= I18n.t "splash.user_sign_in" %></a>
+                        <% if client_signed_in? %>
+                        
+                        <% else %> 
+                            <a href="/users/sign_in"><%= I18n.t "splash.user_sign_in" %></a>
+                        <% end %>
+                        
                     </li>
                 </ul>
             </div>
