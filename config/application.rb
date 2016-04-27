@@ -17,6 +17,9 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+I18n.available_locales = [:en, :es]
+
+
 module LuchaCms
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

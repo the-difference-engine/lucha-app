@@ -7,6 +7,8 @@ gem 'rails', '4.2.4'
 gem 'mysql2', '~> 0.3.10'
 gem 'seed_dump'
 gem 'ruby_outlook'
+gem 'rails-i18n', '~> 4.0.0'
+gem 'globalize3' 
 
 gem 'simple_form'
 gem 'state_select'
