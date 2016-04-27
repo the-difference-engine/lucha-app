@@ -2,66 +2,65 @@
 	<tr>
 		<th colspan="2" text-align: center ><h3>Monthly Debt Payments</h3></th>
 	</tr>
-	<% counter = 18 %>
 	<tr>
 		<td>Principal and Interest:</td>
-		<td><input type="text" ng-model="principal_and_interest"></td>
+		<td><input type="text" ng-model="debt.principal_and_interest"></td>
 	</tr>
 	<tr>
 		<td>Property Taxes:</td>
-		<td><input type="text" ng-model="prop_tax"></td>
+		<td><input type="text" ng-model="debt.prop_tax"></td>
 	</tr>
 	<tr>
 		<td>Association Fees:</td>
-		<td><input type="text" ng-model="assoc_fees"></td>
+		<td><input type="text" ng-model="debt.assoc_fees"></td>
 	</tr>
 	<tr>
 		<td>Junior Mortgage:</td>
-		<td><input type="text" ng-model="junior_mortage"></td>
+		<td><input type="text" ng-model="debt.junior_mortgage"></td>
 	</tr>
 	<tr>
 		<td>Minimum Monthly Credit Card Payments</td>
-		<td><input type="text" ng-model="min_credit_card_payment"></td>
+		<td><input type="text" ng-model="debt.min_credit_card_payment"></td>
 	</tr>
 	<tr>
 		<td>Student Loan</td>
-		<td><input type="text" ng-model="student_loan"></td>
+		<td><input type="text" ng-model="debt.student_loan"></td>
 	</tr>
 	<tr>
 		<td>Gas</td>
-		<td><input type="text" ng-model="gas"></td>
+		<td><input type="text" ng-model="debt.gas"></td>
 	</tr>
 	<tr>
 		<td>Electricity</td>
-		<td><input type="text" ng-model="electricity"></td>
+		<td><input type="text" ng-model="debt.electricity"></td>
 	</tr>
 	<tr>
 		<td>Water</td>
-		<td><input type="text" ng-model="water"></td>
+		<td><input type="text" ng-model="debt.water"></td>
 	</tr>
 	<tr>
 		<td>Phone</td>
-		<td><input type="text" ng-model="phone"></td>
+		<td><input type="text" ng-model="debt.phone"></td>
 	</tr>
 	<tr>
 		<td>Other Utilities</td>
-		<td><input type="text" ng-model="other_utilities"></td>
+		<td><input type="text" ng-model="debt.other_utilities"></td>
 	</tr>
 	<tr>
 		<td>Food/Groceries</td>
-		<td><input type="text" ng-model="food"></td>
+		<td><input type="text" ng-model="debt.food"></td>
 	</tr>
 	<tr>
 		<td>Gas and car maintenance</td>
-		<td><input type="text" ng-model="gas_car_maintenance"></td>
+		<td><input type="text" ng-model="debt.gas_car_maintenance"></td>
 	</tr>
 	<tr>
 		<td>Child Care</td>
-		<td><input type="text" ng-model="child_care"></td>
+		<td><input type="text" ng-model="debt.child_care"></td>
 	</tr>
 	<tr>
 		<td>Medical Expenses</td>
-		<td><input type="text" ng-model="medical_expenses"></td>
+		<td><input type="text" ng-model="debt.medical_expenses"></td>
 	</tr>
 
 	<tr>
@@ -69,10 +68,12 @@
 	</tr>
 	<tr>
 		<td>Rent</td>
-		<td><input type="text" ng-model="rent"></td>
+		<td><input type="text" ng-model="debt.rent"></td>
 	</tr>
 	<tr>
 		<td>Rental insurance</td>
-		<td><input type="text" ng-model="rental_insurance"></td>
+		<td><input type="text" ng-model="debt.rental_insurance"></td>
 	</tr>
 </table>
+
+<button ng-click="submitDebt(debt)">Update</button>

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421223228) do
+<<<<<<< HEAD
+
+
+ActiveRecord::Schema.define(version: 20160421233409) do
+>>>>>>> 3f0248cccb8481df666e55979f44187cced2c98e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160421223228) do
     t.decimal  "self_employment_income",     precision: 8, scale: 2, default: 0.0
     t.decimal  "overtime",                   precision: 8, scale: 2, default: 0.0
     t.decimal  "unemployment",               precision: 8, scale: 2, default: 0.0
-    t.decimal  "tips_commisions_bonus",      precision: 8, scale: 2, default: 0.0
+    t.decimal  "tips_commissions_bonus",     precision: 8, scale: 2, default: 0.0
     t.decimal  "nontaxable_social_security", precision: 8, scale: 2, default: 0.0
     t.decimal  "taxable_social_security",    precision: 8, scale: 2, default: 0.0
     t.decimal  "rental_income",              precision: 8, scale: 2, default: 0.0
