@@ -21,5 +21,18 @@
 
 en:
   splash: 
-   index:
     title: "Latin United Community Housing Association"
+    sub_title: "LUCHA Client Portal"
+    sign_up: "sign up"
+    sign_in: "sign in"
+    mission: "LUCHA's Mission:"
+    mission_statement: "LUCHA (the Spanish word for “Fight ”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services."
+    user_sign_in: "Employee Login"
+    lucha_vision: "LUCHA's Vision"
+    lucha_vision_lead: "We aspires to build empowered, thriving communities and further access to equitable and fair housing."
+    connect: "Connect with us:"
+    home: "Home"
+    about: "About"
+    services: "Services"
+    contact: "Contact"
+    copy_right: "Copyright &copy; Lucha 2016. All Rights Reserved"

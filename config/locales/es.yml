@@ -21,5 +21,18 @@
 
 es: 
   splash: 
-   index:
-    title: "Asociación Unido de Vivienda de la Comunidad de Estados"
+    title: "Asociación Unida de Viviendas Hispánicas "
+    sub_title: "LUCHA Portal Cliente"
+    sign_up: "Apuntarse"
+    sign_in: "Entrar"
+    mission: "Misión de Lucha:"
+    mission_statement: "La misión de LUCHA es proporcionar vivienda digna y asequible, servicios de vivienda y educación para los hispanos de bajos y moderados ingresos, y demás residentes." 
+    user_sign_in: "Aceso de Empleados"
+    lucha_vision: "Visión de Lucha "
+    lucha_vision_lead: "Esto se hace mediante la capacitación de los residentes a través de la educación, la participación, promoción del desarrollo de viviendas asequibles y la adquisición de viviendas; proveyendo liderazgo y abogando por recursos."
+    connect: "Únete con Nosotros:"
+    home: "Inicio"
+    about: "Sobre"
+    services: "Servicios"
+    contact: "Contactar"
+    copy_right: "Registro Civil &copy; Lucha 2016. Reservados todos los derechos"

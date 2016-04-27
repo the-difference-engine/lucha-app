@@ -41,11 +41,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     
                         Language: 
-                        <%= link_to "English", locale: "en" %>|
-                        <%= link_to "Español", locale: "es" %>
+                        <%= link_to_unless_current "English", locale: "en" %>|
+                        <%=  link_to_unless_current "Español", locale: "es" %>
                     
                     <li>
-                        <a href="/users/sign_in">Employee Login</a>
+                        <a href="/users/sign_in"><%= I18n.t "splash.user_sign_in" %></a>
                     </li>
                 </ul>
             </div>
@@ -68,8 +68,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1><%= t "splash.index.title" %></h1>
-                        <h3>LUCHA Client Portal</h3>
+                        <h1><%= I18n.t ".splash.title" %></h1>
+                        <h3><%= I18n.t ".splash.sub_title" %></h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <% if current_client %>
@@ -80,10 +80,10 @@
                             <% else %>
 
                                 <li>
-                                    <a href="/register" class="btn btn-default btn-lg"> <span class="network-name">Sign up</span></a>
+                                    <a href="/register" class="btn btn-default btn-lg"> <span class="network-name"><%= I18n.t ".splash.sign_up" %></span></a>
                                 </li>
                                 <li>
-                                    <a href="/login" class="btn btn-default btn-lg"><span class="network-name">Sign in</span></a>
+                                    <a href="/login" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t ".splash.sign_in" %></span></a>
                                 </li>
                             <% end %>
                         </ul>
@@ -107,8 +107,8 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">LUCHA's Mission:
-                    <p class="lead">LUCHA (the Spanish word for “struggle”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services.</p>
+                    <h2 class="section-heading"><%= I18n.t ".splash.mission" %> 
+                    <p class="lead"><%= I18n.t ".splash.mission_statement" %> </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <%= image_tag "luchahistory.jpg", :class => "img-responsive" %>
@@ -129,8 +129,8 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">LUCHA's Vision:</h2>
-                    <p class="lead">We aspires to build empowered, thriving communities and further access to equitable and fair housing.
+                    <h2 class="section-heading"><%= I18n.t "splash.lucha_vision" %></h2>
+                    <p class="lead"><%=  I18n.t "splash.lucha_vision_lead" %>
                     </p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
@@ -156,7 +156,7 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <h2>Connect with us:</h2>
+                    <h2><%= I18n.t "splash.connect" %></h2>
                 </div>
                 <div class="col-lg-6">
                     <ul class="list-inline banner-social-buttons">
@@ -183,22 +183,22 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="#">Home</a>
+                            <a href="#"><%= I18n.t "splash.home" %></a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#about">About</a>
+                            <a href="#about"><%= I18n.t "splash.about" %></a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#services">Services</a>
+                            <a href="#services"><%= I18n.t "splash.services" %></a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#contact">Contact</a>
+                            <a href="#contact"><%= I18n.t "splash.contact" %></a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                    <p class="copyright text-muted small"><%= I18n.t "splash.copy_right" %></p>
                 </div>
             </div>
         </div>

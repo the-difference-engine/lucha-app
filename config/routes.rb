@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+
+
   # devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "clients/registrations"}, :except => [:new_client_session, :client_session]
   devise_for :clients, controllers: { registrations: "client/registrations"}, :except => [:new_client_session, :client_session]
   devise_scope :client do
@@ -86,6 +89,7 @@ Rails.application.routes.draw do
   # get '/senior_repairs/:id/edit' => 'senior_repairs#edit', as: :senior_repair_edit
   # put '/senior_repairs/:id' => 'senior_repairs#update', as: :senior_repair_update
   # delete '/senior_repairs/:id' => 'senior_repairs#destroy', as: :senior_repair_delete
+
 
 end
 
