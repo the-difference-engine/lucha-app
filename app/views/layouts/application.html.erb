@@ -28,58 +28,39 @@
 
 
 <div id="layout">
-    <!-- Menu toggle -->
-    <a href="#menu" id="menuLink" class="menu-link">
-        <span></span>
-    </a>
 
-    <div id="menu">
-        <div class="pure-menu">
-            <a class="pure-menu-heading" href="<%= root_path %>">LUCHA</a>
-
-            <ul class="pure-menu-list">
-
-                <% if user_signed_in? %>
-
-                    <%= render "layouts/user_option" %>
-
-                <% elsif client_signed_in? %>
-
-                    <%= render "layouts/client_options" %>
-
-                <% else %>
-
-                    <li class="pure-menu-item">
-                        <a href="/register" class="pure-menu-link">Client Registration</a>
-                    </li>
-                    <li class="pure-menu-item">
-                        <a href="/users/sign_up" class="pure-menu-link">Users Registration</a>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to('Employee login', new_user_session_path, :class =>"pure-menu-link") %>  
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to('Client login', new_client_session_path, :class =>"pure-menu-link") %>  
-                    </li>
-                    
-                <% end %>
-
-
-
-            </ul>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="sidebar-nav">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="<%= root_path %>">LUCHA</a></li>
+                        <% if user_signed_in? %>
+                            <%= render "layouts/user_option" %>
+                        <% elsif client_signed_in? %>
+                            <%= render "layouts/client_options" %>
+                        <% else %>
+                        <li><a href="/register" class="pure-menu-link">Client Registration</a></li>
+                        <li><a href="/users/sign_up" class="pure-menu-link">Users Registration</a></li>
+                        <li><%= link_to('Employee login', new_user_session_pathl) %>  </li>
+                        <li><%= link_to('Client login', new_client_session_path) %></li>
+                        <% end %>
+                    </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-10">
+            <div id="main">
+                <div class="content">
+                <%= render 'layouts/alerts' %>
+                    <%= yield %>
+                </div>
+            </div>
+           </div>
         </div>
     </div>
-
-    <div id="main">
-        <div class="content">
-        <%= render 'layouts/alerts' %>
-
-            <%= yield %>
-
-        </div>
-    </div>
-
-</div>
 
 
 </body>

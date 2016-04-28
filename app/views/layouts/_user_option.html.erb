@@ -1,15 +1,4 @@
-  <li class="pure-menu-item">
-      <%= link_to 'Your caseload', employee_index_path, :class =>"pure-menu-link" %>
-  </li>
-  <li class="pure-menu-item">
-     <%= link_to 'Foreclosures', foreclosures_path, :class =>"pure-menu-link" %>
-  </li>
-  <li class="pure-menu-item">
-      <%= link_to 'Home Buying', homebuyings_path, :class =>"pure-menu-link" %>
-  </li>
-<!--   <li class="pure-menu-item">
-      <%= link_to 'Rentals', rentals_path, :class =>"pure-menu-link" %>
-  </li>
- -->  <li class="pure-menu-item">
-      <%= link_to('Logout', destroy_user_session_path, :class =>"pure-menu-link", :method => :delete) %>        
-  </li>
+  <li class="pure-menu-item"><%= link_to 'Your caseload', employee_index_path %></li>
+  <li class="pure-menu-item"><%= link_to 'Foreclosures', foreclosures_path %></li>
+  <li class="pure-menu-item"><%= link_to 'Home Buying', homebuyings_path %></li>
+  <li class="pure-menu-item"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
