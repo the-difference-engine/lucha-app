@@ -1,39 +1,26 @@
- <li>
-  <%=link_to 'Status', client_status_path(current_client.id), :class =>"pure-menu-link" %>
-  </li>
-
-  <li>
-   <%= link_to 'Your info', client_edit_path(current_client.id), :class =>"pure-menu-link" %> 
-  </li>
-
-  <li>
-  	<%= link_to 'Your Budget', budget_path(current_client.budget.id), :class => "pure-menu-link"  %>
-  </li>
-
+  <li><%=link_to 'Status', client_status_path(current_client.id) %></li>
+  <li><%= link_to 'Your info', client_edit_path(current_client.id) %></li>
+  <li><%= link_to 'Your Budget', budget_path(current_client.budget.id) %></li>
   <li>
 	  <% if current_client.foreclosure.blank? %>
-	      <%= link_to 'Foreclosures', foreclosure_intake_path(current_client.id), :class =>"pure-menu-link" %>
+	      <%= link_to 'Foreclosures', foreclosure_intake_path(current_client.id) %>
 	  <% else %>
-	      <%= link_to 'View Foreclosure App', foreclosure_path(current_client.foreclosure.id), :class =>"pure-menu-link" %>
+	      <%= link_to 'View Foreclosure App', foreclosure_path(current_client.foreclosure.id) %>
 	  <% end %>
   </li>
-
   <li>
 	  <%  if current_client.homebuying.blank? %>
-	      <%= link_to 'Homebuying Application', homebuying_intake_path(current_client.id), :class =>"pure-menu-link" %>
+	      <%= link_to 'Homebuying Application', homebuying_intake_path(current_client.id) %>
 	  <% else %>
-	  		<%= link_to 'View Homebuying App', homebuying_path(current_client.homebuying.id), :class =>"pure-menu-link"  %>
+	  		<%= link_to 'View Homebuying App', homebuying_path(current_client.homebuying.id)  %>
 		<% end %>
   </li>
   <li>
 		<%  if current_client.rental.blank? %>
-	      <%= link_to 'Rental Application', rental_intake_path(current_client.id), :class =>"pure-menu-link" %>
+	      <%= link_to 'Rental Application', rental_intake_path(current_client.id) %>
 	  <% else %>
-	  		<%= link_to 'View  Rental App', rental_path(current_client.rental.id), :class =>"pure-menu-link"  %>
+	  		<%= link_to 'View  Rental App', rental_path(current_client.rental.id)  %>
 		<% end %>
   </li>
-
-  <li>
-    <%= link_to "sign out", "/clients/sign_out", method: :delete if client_signed_in? %>
-  </li>`
+  <li><%= link_to "Sign out", "/clients/sign_out", method: :delete if client_signed_in? %></li>`
 
