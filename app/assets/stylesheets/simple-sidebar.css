@@ -1,11 +1,7 @@
-/* make sidebar nav vertical */ 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
-    top: 0;
-    bottom: 0;
-    position: fixed;
-    font-size: 16px;
+    font-size: 14px;
   }
   .sidebar-nav .navbar ul {
     float: none;

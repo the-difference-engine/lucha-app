@@ -6,7 +6,6 @@ class Api::BudgetsController < ApplicationController
     elsif current_user
         @client = Budget.find(params[:id]).client
     end
-    @income = Budget.find_by(id: current_client.id).first(8)
   end
 
 end
