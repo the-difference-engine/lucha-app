@@ -1,3 +1,7 @@
+Language: 
+            <%= link_to_unless_current "English", locale: "en" %>|
+             <%=  link_to_unless_current "Español", locale: "es" %>
+
 <% if @client.errors.any? %>
   <div id="error_explanation">
     <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
