@@ -20,25 +20,23 @@ class BudgetsController < ApplicationController
     elsif params[:debt]
         form_params = debt_params
     elsif params[:assets]
-        form_params = asssets_params
+        form_params = asset_params
     end
 
     if budget.update(form_params)
-        budget.update({ gross_monthly_income: sum_income, total_monthly_debt: sum_debt })
-        # binding.pry
-        render json: { success: "yay! success you rock", budget: budget }.to_json
+      budget.update(gross_monthly_income: sum_income) if params[:income]
+      budget.update(total_monthly_debt: sum_debt) if params[:debt]
+      render json: { success: "yay! success you rock", budget: budget }.to_json
     else
-        render json: "failed".to_json, status: :unprocessable_entity
+      render json: "failed".to_json, status: :unprocessable_entity
     end
   end
 
   def sum_income
-    return 0 unless params[:income]
     income_params.values.map(&:to_f).inject(:+) 
   end
 
   def sum_debt
-    return 0 unless params[:debt]
     debt_params.values.map(&:to_f).inject(:+) 
   end
 
