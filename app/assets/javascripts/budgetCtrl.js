@@ -6,7 +6,8 @@
     $scope.init = function() {
       $http.get("/api/budgets/1.json").then(function(response) {
         $scope.income = response.data["income"];
-        console.log($scope.income)
+        $scope.debt = response.data["debt"];
+        $scope.assets = response.data["assets"];
       }); 
     }
 
@@ -14,8 +15,7 @@
       var monthlyIncome = { income: income }
       $http.patch("/budgets", monthlyIncome).success(function(response){
         $scope.success = response.success;
-        $scope.incomeBudget = response.budget;
-
+        $scope.income = response.budget;
       }).error(function(response) {
         $scope.error = response;
       })
@@ -25,7 +25,7 @@
       var monthlyDebt = { debt: debt }
       $http.patch("/budgets", monthlyDebt).success(function(response){
         $scope.success = response.success;
-        $scope.debtBudget = response.budget;
+        $scope.debt = response.budget;
       }).error(function(response) {
         $scope.error = response;
       })
@@ -34,12 +34,14 @@
     $scope.submitAssets = function(assets) {
       var monthlyAssets = { assets: assets }
       $http.patch("/budgets", monthlyAssets).success(function(response){
-        $scope.success = response;
+        $scope.success = response.success;
+        $scope.assets = response.budget;
       }).error(function(response) {
         $scope.error = response;
       })
     }
 
+    window.scope=$scope;
 
   });
 }());
