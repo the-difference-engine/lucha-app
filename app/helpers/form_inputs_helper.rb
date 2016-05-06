@@ -28,6 +28,14 @@ module FormInputsHelper
 		
 	end
 
+	def marital_status
+		[ ['Married', 'married'],
+			[ 'Separated', 'separated'],
+			[ 'Divorced', 'divorced'],
+			[ 'Single', 'single']
+		]
+	end
+
 	def income_range
 		# This helper was originally intended for the estimated_household_income model for the Client model. However, I changed that attribute to be a decimal for the purposes of reporting and data collection.
 		# The client may want to change back to a range instead of an decimal, in which case, use this helper

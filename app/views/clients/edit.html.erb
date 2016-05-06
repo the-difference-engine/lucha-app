@@ -1,7 +1,6 @@
 <% if @client.errors.any? %>
   <div id="error_explanation">
     <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
- 
     <ul>
     <% @client.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -10,160 +9,130 @@
   </div>
 <% end %>
 
-
 <h1>Please fill in the rest of the information below</h1>
 <div class="row">
   <div class="col-md-6">
-
     <%= form_tag "/clients/#{@client.id}", method: :put do %>
-
-        <div class="form-group">
-          First Name <br>
-          <%= text_field_tag :first_name, @client.first_name %>
-        </div>
-
-        <div class="form-group">
-          Last Name <br>
-          <%= text_field_tag :last_name, @client.last_name %>
-        </div>
-
-        <div class="form-group">
-          Home Phone Number <br>
-          <%=text_field_tag :home_phone, @client.home_phone %>
-        </div>
-
-        <div class="form-group">
-          Cell Phone <br>
-          <%= text_field_tag :cell_phone, @client.cell_phone %>
-        </div>
-
-        <div class="form-group">
-          Work Phone <br>
-          <%= text_field_tag :work_phone, @client.work_phone %>
-        </div>
-
-        <div class="form-group">
-          Address <br>
-          <%= text_field_tag :address, @client.address %>
-        </div>
-
-        <div class="form-group">
-          City <br>
-          <%= text_field_tag :city, @client.city %>
-        </div>
-
-        <div class="form-group">
-          State <br>
-          <%= text_field_tag :state, @client.state %>
-        </div>
-
-        <div class="form-group">
-          Ward <br>
-          <%= text_field_tag :ward, @client.ward %>
-        </div>
-
-        <div class="form-group">
-          Zipcode <br>
-          <%= text_field_tag :zip_code, @client.zip_code %>
-        </div>
-
-        <div class="form-group">
-          Gender <br>
-          <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
-        </div>
-
-        <div class="form-group">
-          Race <br>
-          <%= select_tag(:race, options_for_select(racial_options, @client.race)) %>
-        </div>
+      <div class="form-group">
+        First Name <br>
+        <%= text_field_tag :first_name, @client.first_name %>
       </div>
-   
-      <div class="col-md-6">
-
-        <div class="form-group">
-          Social Security Number <br>
-          <%= text_field_tag :ssn, @client.ssn %>
-        </div>
-
-        <div class="form-group">
-          Preferred Contact Method<br>
-          <%= text_field_tag :preferred_contact_method, @client.preferred_contact_method %>
-        </div>
-
-        <div class="form-group">
-          Preferred Language <br>
-          <%= text_field_tag :preferred_language, @client.preferred_language %>
-        </div>
-
-        <div class="form-group">
-          Marital Status <br>
-          <%= text_field_tag :marital_status, @client.marital_status %>
-        </div>
-
-        <div class="form-group">
-          Date of Birth <br>
-          <%= date_field_tag :dob, @client.dob %>
-        </div>
-
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="head_of_household" name="head_of_household" type="checkbox" value="true"/>
-            Are you the head of the household?
-          </div>
-        </div>
-
-        <div class="form-group">
-          How many people live in the household? <br>
-          <%= number_field_tag :num_in_household, @client.num_in_household, {in: 1..15} %>
-        </div>
-
-        <div class="form-group">
-          Number of Dependants <br>
-          <%= number_field_tag :num_of_dependants, @client.num_of_dependants, {in: 0..10} %>
-        </div>
-
-        <div class="form-group">
-          Education Level <br>
-          <%= select_tag :education_level, options_for_select(education, @client.education_level) %>
-        </div>
-
-        <div class="form-group">
-          Estimated Household Income <br>
-          <%= select_tag :estimated_household_income, options_for_select(income_range, @client.estimated_household_income) %>
-        </div>
-
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="disability" name="disability" type="checkbox" value="true"/>
-            Do you have a disability? 
-          </div>
-        </div>  
-
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="union_member" name="union_member" type="checkbox" value="true"/>
-            Are you a member of a union?
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="military_service_member" name="military_service_member" type="checkbox" value="true"/>
-            A current or former military service member <br>
-          </div>
-        </div>  
-
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="volunteer_interest" name="volunteer_interest" type="checkbox" value="true"/>
-            Would you like to volunteer <br>
-          </div>
-        </div>
-      
-        <div class="actions">
-          <%= submit_tag "Update!", :class => 'btn btn-large btn-primary' %>
-        </div>
+      <div class="form-group">
+        Last Name <br>
+        <%= text_field_tag :last_name, @client.last_name %>
+      </div>
+      <div class="form-group">
+        Home Phone Number <br>
+        <%=text_field_tag :home_phone, @client.home_phone %>
+      </div>
+      <div class="form-group">
+        Cell Phone <br>
+        <%= text_field_tag :cell_phone, @client.cell_phone %>
+      </div>
+      <div class="form-group">
+        Work Phone <br>
+        <%= text_field_tag :work_phone, @client.work_phone %>
+      </div>
+      <div class="form-group">
+        Address <br>
+        <%= text_field_tag :address, @client.address %>
+      </div>
+      <div class="form-group">
+        City <br>
+        <%= text_field_tag :city, @client.city %>
+      </div>
+      <div class="form-group">
+        State <br>
+        <%= text_field_tag :state, @client.state %>
+      </div>
+      <div class="form-group">
+        Ward <br>
+        <%= text_field_tag :ward, @client.ward %>
+      </div>
+      <div class="form-group">
+        Zipcode <br>
+        <%= text_field_tag :zip_code, @client.zip_code %>
+      </div>
+      <div class="form-group">
+        Gender <br>
+        <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
+      </div>
+      <div class="form-group">
+        Race <br>
+        <%= select_tag(:race, options_for_select(racial_options, @client.race)) %>
       </div>
     </div>
-
+ 
+    <div class="col-md-6">
+      <div class="form-group">
+        Social Security Number <br>
+        <%= text_field_tag :ssn, @client.ssn %>
+      </div>
+      <div class="form-group">
+        Preferred Contact Method<br>
+        <%= select_tag :preferred_contact_method, options_for_select(pref_contact, @client.preferred_contact_method) %>
+      </div>
+      <div class="form-group">
+        Preferred Language <br>
+        <%= select_tag :preferred_language, options_for_select(pref_language, @client.preferred_language) %>
+      </div>
+      <div class="form-group">
+        Marital Status <br>
+         <%= select_tag :martial_status, options_for_select(marital_status, @client.marital_status) %>
+      </div>
+      <div class="form-group">
+        Date of Birth <br>
+        <%= date_field_tag :dob, @client.dob %>
+      </div>
+      <div class="form-group">
+        <div class="checkbox-inline">
+          <input id="head_of_household" name="head_of_household" type="checkbox" value="true"/>
+          Are you the head of the household?
+        </div>
+      </div>
+      <div class="form-group">
+        How many people live in the household? <br>
+        <%= number_field_tag :num_in_household, @client.num_in_household, {in: 1..15} %>
+      </div>
+      <div class="form-group">
+        Number of Dependants <br>
+        <%= number_field_tag :num_of_dependants, @client.num_of_dependants, {in: 0..10} %>
+      </div>
+      <div class="form-group">
+        Education Level <br>
+        <%= select_tag :education_level, options_for_select(education, @client.education_level) %>
+      </div>
+      <div class="form-group">
+        Estimated Household Income <br>
+        <%= select_tag :estimated_household_income, options_for_select(income_range, @client.estimated_household_income) %>
+      </div>
+      <div class="form-group">
+        <div class="checkbox-inline">
+          <input id="disability" name="disability" type="checkbox" value="true"/>
+          Do you have a disability? 
+        </div>
+      </div>  
+      <div class="form-group">
+        <div class="checkbox-inline">
+          <input id="union_member" name="union_member" type="checkbox" value="true"/>
+          Are you a member of a union?
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkbox-inline">
+          <input id="military_service_member" name="military_service_member" type="checkbox" value="true"/>
+          A current or former military service member <br>
+        </div>
+      </div>  
+      <div class="form-group">
+        <div class="checkbox-inline">
+          <input id="volunteer_interest" name="volunteer_interest" type="checkbox" value="true"/>
+          Would you like to volunteer <br>
+        </div>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Update!", :class => 'btn btn-large btn-primary' %>
+      </div>
+    </div>
+  </div>
 <% end %>

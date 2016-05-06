@@ -6,6 +6,7 @@ class Api::BudgetsController < ApplicationController
     elsif current_user
         @client = Budget.find(params[:id]).client
     end
+    @budget = @client.budget
   end
 
 end
