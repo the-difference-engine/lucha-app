@@ -1,3 +1,23 @@
+.table.table-hover {
+  width: 40%;
+    max-width: 80%;
+    margin-bottom: 20px;
+    margin-left:auto; 
+    margin-right:auto;
+
+  th { text-align: center }
+  tr, td { width: 140px }
+  input { 
+    width: 50px;
+    margin-left: 5px;
+  }
+
+ 
+}
+
+
+
+
 .simple_form {
   div.input {
     margin-bottom: 10px;

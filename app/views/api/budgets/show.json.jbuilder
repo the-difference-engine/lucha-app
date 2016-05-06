@@ -44,6 +44,3 @@ json.set! :assets do
   json.set! :other_assets, @budget.other_assets
 end
 
-
-
-

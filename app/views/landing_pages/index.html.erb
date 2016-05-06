@@ -37,20 +37,15 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
                 <ul class="nav navbar-nav navbar-right">
-                    
                         Language: 
                         <%= link_to_unless_current "English", locale: "en" %>|
                         <%=  link_to_unless_current "Español", locale: "es" %>
-                    
                     <li>
                         <% if client_signed_in? %>
-                        
                         <% else %> 
                             <a href="/users/sign_in"><%= I18n.t "splash.user_sign_in" %></a>
                         <% end %>
-                        
                     </li>
                 </ul>
             </div>
@@ -78,35 +73,23 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <% if current_client %>
-                                <li>
-                                    <a href="/clients/<%= current_client.id %>/edit"class="btn btn-default btn-lg"><span class="network-name">View my profile</span></a>
-                                </li>
-
+                                <li><a href="/clients/<%= current_client.id %>/edit"class="btn btn-default btn-lg"><span class="network-name">View my profile</span></a></li>
+                                <li><a href="/clients/sign_out" data-method="delete" class="btn btn-default btn-lg"><span class="network-name">Sign Out</span></a></li>
                             <% else %>
-
-                                <li>
-                                    <a href="/register" class="btn btn-default btn-lg"> <span class="network-name"><%= I18n.t ".splash.sign_up" %></span></a>
-                                </li>
-                                <li>
-                                    <a href="/login" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t ".splash.sign_in" %></span></a>
-                                </li>
+                                <li><a href="/register" class="btn btn-default btn-lg"> <span class="network-name"><%= I18n.t ".splash.sign_up" %></span></a></li>
+                                <li><a href="/login" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t ".splash.sign_in" %></span></a></li>
                             <% end %>
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.intro-header -->
-
     <!-- Page Content -->
-
 	<a  name="services"></a>
     <div class="content-section-a">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
