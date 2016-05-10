@@ -6,30 +6,31 @@
 <span class="counter pull-right"></span>
 <table class="table table-hover table-bordered results">
   <thead>
-     <th >ID</th>
-     <th class="col-md-5 col-xs-5">Name</th>
-     <th class="col-md-3 col-xs-3">Home Phone</th>
-     <th class="col-md-3 col-xs-3">Address</th>
-     <th class="col-md-3 col-xs-3">Client Type</th>
-     <th >View</th> 
+    <th >ID</th>
+    <th class="col-md-5 col-xs-5">Name</th>
+    <th class="col-md-3 col-xs-3">Home Phone</th>
+    <th class="col-md-3 col-xs-3">Address</th>
+    <th class="col-md-3 col-xs-3">Client Type</th>
+    <th >View</th> 
    </tr>    
    <tr class="warning no-result">
       <td colspan="4"><i class="fa fa-warning"></i> No result</td>
     </tr>
   </thead>
+
 <% @clients.each do |client| %>
  <tbody>
    <tr>
-     <td><%= client.id %></td>
-     <td><%= client.full_name.titleize %></td>
-     <td><%= client.home_phone %></td>
-     <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
-     <td><%= client.client_types.to_sentence %></td>
-     <td>
-       <%= link_to "View", client_path(client.id), class: "btn btn-default" %>
-     </td>
-   </tr>
- </tbody>
+    <td><%= client.id %></td>
+    <td><%= client.full_name.titleize %></td>
+    <td><%= client.home_phone %></td>
+    <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
+    <td><%= client.client_types.to_sentence %></td>
+    <td>
+      <%= link_to "View", client_path(client.id), class: "btn btn-default" %>
+    </td>
+    </tr>
+  </tbody>
 <% end %>
 </table>
 

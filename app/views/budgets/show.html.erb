@@ -3,6 +3,7 @@
 	<h2>Your Monthly Budget</h2>
 	<p>Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them.</p>
 		<div>
+		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">
 		    <li role="presentation" class="active"><a href="#income" aria-controls="income" role="tab" data-toggle="tab">Income</a></li>
 		    <li role="presentation"><a href="#debt" aria-controls="debt" role="tab" data-toggle="tab">Debt</a></li>
@@ -13,6 +14,8 @@
 		    <div role="tabpanel" class="tab-pane active" id="income">
 		    	<%= render "budget_income" %>
 		    </div>
+		    <div role="tabpanel" class="tab-pane" id="debts">
+					<h3>Debts</h3>
 		    <div role="tabpanel" class="tab-pane" id="debt">
 		    	<h3>Debts</h3>
 					<p>Please keep in mind, these are <strong>monthly</strong> debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month.</p>
@@ -20,6 +23,24 @@
 		    </div>
 		    <div role="tabpanel" class="tab-pane" id="totals">
 					<h3>Your totals</h3>
+					<table class="table table-hover">
+						<tr>
+							<th colspan="2">Your total monthly debt and income</th>
+						</tr>
+						<tr>
+							<td>Gross Monthly Income:</td>
+							<td>{{ income.gross_monthly_income || 0 }}</td>
+						</tr>
+						<tr>
+							<td>Total Monthly Debt:</td>
+							<td>{{ debt.total_monthly_debt || 0 }}</td>
+						</tr>
+						<tr>
+							<td>Debt to Income Ratio:</td>
+							<td>{{ (debt.total_monthly_debt / income.gross_monthly_income).toFixed(2) || 0 }}</td>
+						</tr>
+					</table>
+		    </div>
 						<table class="table table-hover">
 							<tr>
 								<th colspan="2">Your total monthly debt and income</th>

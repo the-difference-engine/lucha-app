@@ -2,8 +2,70 @@
 
 <p>Ready to take the plunge into homebuying? Just fill out this info and we can set you up with one of our homebuying counselors to guide you through the homebuying process.</p>
 
-<%= render "homebuying_show" %>
 
+<table class="table table-hover">
+  <thead>
+    <th colspan="2"><h3>Homebuying Counseling  Information:</h3></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lender</td>
+      <td><%= best_in_place @homebuying, :lender, :class=>"best_in_place" %></td>      
+    </tr>
+    <tr>
+      <td>Would you Like to be contacted for an appointment</td>
+      <td><%= best_in_place @homebuying, :contact_for_appointment, :class=>"best_in_place", as: :checkbox, collection: {false: "No", true: "Yes"} %></td>     
+    </tr>
+    <tr>
+      <td>Have you signed a real estate contract yet?</td>
+      <td><%= best_in_place @homebuying, :real_estate_contract, as: :checkbox, collection: {false: "No", true: "Yes"}, :class=>"best_in_place" %></td>      
+    </tr>
+    <tr>
+      <td>What is your realtor's name?</td>
+      <td><%= best_in_place @homebuying, :realtor_name, :class=>"best_in_place" %></td>     
+    </tr>
+    <tr>
+      <td>Realtor's phone number</td>
+      <td><%= best_in_place @homebuying, :realtor_phone, :class=>"best_in_place" %></td>
+    </tr>
+    <tr>
+      <td>What is the address of the property you are looking to purchase?</td>
+      <td><%= best_in_place @homebuying, :property_address, :class=>"best_in_place" %></td>     
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><%= best_in_place @homebuying, :property_city, :class=>"best_in_place" %></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><%= best_in_place @homebuying, :property_state, :class=>"best_in_place", :as => :select, :collection => us_states %></td> 
+    </tr>
+    <tr>
+      <td>What is your loan officer's name?</td>
+      <td><%= best_in_place @homebuying, :loan_officer_name, :class=>"best_in_place" %></td>      
+    </tr>
+    <tr>
+      <td>loan officer's email</td>
+      <td><%= best_in_place @homebuying, :loan_officer_email, :class=>"best_in_place" %></td>     
+    </tr>
+    <tr>
+      <td>loan officer's phone number</td>
+      <td><%= best_in_place @homebuying, :loan_officer_phone, :display_with => :number_to_phone, :class=>"best_in_place" %></td>  
+    </tr>
+    <tr>
+      <td>What kind of payment assistance program will you be using?</td>
+      <td><%= best_in_place @homebuying, :payment_assistance_program, :as => :select, :class=>"best_in_place", :collection => down_payment_assistance_program %></td>     
+    </tr>
+    <tr>
+      <td>What is the approximate closing date? </td>
+      <td><%= best_in_place @homebuying, :approx_closing_date, :as => :date, :class=>"best_in_place" %></td>      
+    </tr>
+    <tr>
+      <td>How did you hear of the workshop</td>
+      <td><%= best_in_place @homebuying, :hear_of_workshop %></td>
+    </tr>
+  </tbody>
+</table>
 <%= link_to "Delete this application.", "/homebuyings/#{@homebuying.id}", method: :delete, data:{confirm: "Are you sure you want to delete this homebuying application?"} %>
 
 

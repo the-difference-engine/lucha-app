@@ -1,163 +1,18 @@
-<!-- <div class="jumbotron">
-  <div class="container">
-
-  <h1>Hello, world!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-  </div>
+<div id="counselor-info">
+  <% if current_client.counselors.all?&:blank? %>
+    <h3>Meet your counselor!</h3>
+  	<% current_client.counselors.each do |counselor| %>
+  		<p></p>
+  		<ul>
+  			<li><%= counselor.full_name %></li>
+  			<li><%= counselor.work_phone %></li>
+  			<li><%= counselor.email %></li>
+  		</ul>
+  		<br>
+  		<% end %>
+  	<% else %>
+  		<br><br>
+  		<h3>A counselor has not yet been assigned to you. Please allow us around 48 hours to assign someone to you.</h3>
+  		<p>If you have any questions, please shoot our intake specialist an email at: <a href="mailto:intake@lucha.org?Subject=Counseling%20Session" target="_top">Intake@lucha.org</a></p>
+  <% end %>
 </div>
- -->
-
-
-
-<h1>Hi <%= current_client.full_name %>!</h1>
-<p>Here are the files we have on your currently, click to expand the info and make sure everything is up to date.</p>
-
-
-
-<div class="btn-group" align="center">
-	<button class="btn btn-default-lg"><a class="demo">Demographics and Name</a></button>
-  <button class="btn btn-default-lg"><a class="address">Address</a></button>
-  <button class="btn btn-default-lg"><a class="contactinfo">Contact Information</a></button>
-  <button class="btn btn-default-lg"><a class="household">Household Info</a></button>
-</div>
-<br>
-<br>
-<div class="btn-group" align="center">  
-	<button class="btn btn-default-lg"><a class="income">Income</a></button>
-  <button class="btn btn-default-lg"><a class="assets">Assets</a></button>
-  <button class="btn btn-default-lg"><a class="debts">Debts</a></button>
-</div>
-
-
-<%= render "client_button_renders" %>
-
-<br><br>
-
-<div id="clientdemoinfo">
-<%= render "client_demo" %>
-</div>
-
-<div id="clientaddress">
-	<%= render "client_address" %>
-</div>
-
-<div id="clientcontact"> 
-	<%= render "client_contact" %>
-</div>
-
-<div id="clienthousehold">
-	<%= render "client_household" %>
-</div>
-
-<div id="budgetincome">
-	<%= render "budgets/budget_income" %>
-</div>
-
-<div id="budgetassets">
-	<%= render "budgets/budget_assets" %>
-</div>
-
-<div id="budgetdebts">
-	<%= render "budgets/budget_debts" %>
-</div>
-
-<div id="clientforeclosure">
-	<%= render "foreclosures/foreclosure" unless @client.foreclosure.blank? %>
-</div>
-
-<div id="clienthomebuying">
-	<%= render "homebuyings/homebuying_show" unless @client.homebuying.blank? %>
-</div>
-
-<div id="clientrental">
-  <%= render "rentals/rental" unless @client.rental.blank? %>
-</div>
-
-
-
-<% if current_client.counselors.all?&:blank? %>
-<h3>Meet your counselor!</h3>
-
-	<% current_client.counselors.each do |counselor| %>
-		<p></p>
-		<ul>
-			<li><%= counselor.full_name %></li>
-			<li><%= counselor.work_phone %></li>
-			<li><%= counselor.email %></li>
-		</ul>
-		<br>
-		<% end %>
-	<% else %>
-		<br><br>
-		<h3>A counselor has not yet been assigned to you. Please allow us around 48 hours to assign someone to you.</h3>
-		<p>If you have any questions, please shoot our intake specialist an email at: <a href="mailto:intake@lucha.org?Subject=Counseling%20Session" target="_top">Intake@lucha.org</a></p>
-
-<% end %>
-
-
-
-<script>
-$(document).ready(function(){
-    $('body').on('click', ".demo", function(){
-        $("#clientdemoinfo").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".address", function(){
-        $("#clientaddress").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".contactinfo", function(){
-        $("#clientcontact").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".household", function(){
-        $("#clienthousehold").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".income", function(){
-        $("#budgetincome").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".assets", function(){
-        $("#budgetassets").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".debts", function(){
-        $("#budgetdebts").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".foreclosure", function(){
-        $("#clientforeclosure").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".homebuying", function(){
-        $("#clienthomebuying").slideToggle();
-    });
-});
-
-$(document).ready(function(){
-    $('body').on('click', ".rental", function(){
-        $("#clientrental").slideToggle();
-    });
-});
-
-
-
-</script>
