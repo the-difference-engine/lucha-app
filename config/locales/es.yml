@@ -1,38 +1,126 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+##way to go above and beyond josh.
 
 es: 
-  splash: 
-    title: "Asociación Unida de Viviendas Hispánicas "
-    sub_title: "LUCHA Portal Cliente"
-    sign_up: "Apuntarse"
-    sign_in: "Entrar"
-    mission: "Misión de Lucha:"
-    mission_statement: "La misión de LUCHA es proporcionar vivienda digna y asequible, servicios de vivienda y educación para los hispanos de bajos y moderados ingresos, y demás residentes." 
-    user_sign_in: "Aceso de Empleados"
-    lucha_vision: "Visión de Lucha "
-    lucha_vision_lead: "Esto se hace mediante la capacitación de los residentes a través de la educación, la participación, promoción del desarrollo de viviendas asequibles y la adquisición de viviendas; proveyendo liderazgo y abogando por recursos."
-    connect: "Únete con Nosotros:"
-    home: "Inicio"
-    about: "Sobre"
-    services: "Servicios"
-    contact: "Contactar"
-    copy_right: "Registro Civil &copy; Lucha 2016. Reservados todos los derechos"
+    splash: 
+        title: "Asociación Unida de Viviendas Hispánicas "
+        sub_title: "LUCHA Portal Cliente"
+        sign_up: "Apuntarse"
+        sign_in: "Entrar"
+        mission: "Misión de Lucha:"
+        mission_statement: "La misión de LUCHA es proporcionar vivienda digna y asequible, servicios de vivienda y educación para los hispanos de bajos y moderados ingresos, y demás residentes." 
+        user_sign_in: "Aceso de Empleados"
+        lucha_vision: "Visión de Lucha "
+        lucha_vision_lead: "Esto se hace mediante la capacitación de los residentes a través de la educación, la participación, promoción del desarrollo de viviendas asequibles y la adquisición de viviendas; proveyendo liderazgo y abogando por recursos."
+        connect: "Únete con Nosotros:"
+        home: "Inicio"
+        about: "Sobre"
+        services: "Servicios"
+        contact: "Contactar"
+        copy_right: "Registro Civil &copy; Lucha 2016. Reservados todos los derechos"
+    budget_show:
+        title: "Su presupuesto mensual"
+        description: "Llene esto lo mejor que pueda. Si hay algunos cambios que le gustaría hacer, simplemente haga clic en el número y hacerlos."
+        debts: "Deudas"
+        debts_description: "Por favor, tenga en cuenta, se trata de deudas mensuales. Se le discutiendo la deuda acumulada con su consejero pronto. Si usted tiene una factura (es decir. De agua) que viene cada dos meses, por favor promedia a ir a un mes." 
+        income: "Ingreso"
+        total:  "Sus totales"
+        assets: "Bienes"
+        monthly_debt: "El total de su deuda mensual y los ingresos"
+        assets_title: "Ahora nos dicen sobre sus bienes"
+        assets_description: "Esta es la riqueza que ha acumulado a lo largo de su vida"
+        gross_monthly: "El ingreso bruto mensual:"
+        total_monthly: "La deuda total mensual:"
+        debt_to_income: "La proporción de deuda a ingreso:"
+
+    budget_income:
+        title: "Ingreso mensual."
+        gross_wages: "Salario bruto"
+        self_employment: "Ingresos por cuenta propia"
+        over_time: "Tiempo suplimentario"
+        check: "Cheque de desempleo"
+        tips: "Propinas, comisiones o bonificaciones"
+        non_tax: "La seguridad social no imponible"
+        tax_ss: "La seguridad social imponible"
+        renter_income: "Los ingresos de los inquilinos"
+        other: "Otro"
+        update: "Actualizar"
+    budget_debts: 
+        title: "Los pagos mensuales de la deuda"
+        principal: "Capital y los intereses"
+        prop_taxes: "Impuestos de propiedad"
+        asso_fee: "Gastos de la asociación"
+        jr_mort: "hipoteca de rango inferio"
+        min_month_cred_payment: "Pago mínimo mensual de tarjeta de crédito"
+        stud_loan: "préstamos estudiantiles"
+        gas: "Gas"
+        electic: "Electricidad"
+        H20: "Agua"
+        tele: "teléfono"
+        other_util: "Otros gastos"
+        food: "Comida/Comestibles"
+        gas_car: "El gas y el mantenimiento del coche"
+        child: "cuidado de los niños"
+        medical: "gastos médicos"
+        if_renter: "Sólo si usted es un inquilino, por favor llene el siguiente."
+        rent: "Seguro de alquiler"
+        rent_insurance: "Seguro de alquiler"
+        update: "Actualizar"
+    budget_assets:
+        title: "Bienes"
+        p_checking: "Cuenta bancaria primaria:"
+        s_checking: "Cuenta bancaria secundaria"
+        saving_money_mark: "Ahorro /Mercado de dinero"
+        stocks: "Acciones o bonos"
+        home_equity: "Equidad de casa"
+        value_of_prop: "valor de otras propiedades"
+        car_value: "Valor del auto"
+        other_assets: "Otros Bienes"
+        update: "Actualizar"
+    clients_edit:
+        first_name: "Nombre"
+        last_name:  "Apellido"
+        home_phone: "número de teléfono de casa"
+        cell: "Teléfono móvil"
+        work_phone: "Teléfono del trabajo"
+        address:  "Dirección"
+        city: "Ciudad"
+        state: "Estado"
+        ward: "Municipio"
+        zip: "Codigo postal"
+        gender: "Géneco"
+        race: "Raza"
+        ss: " Número de seguridad social"
+        pref_lang: "Idioma preferido"
+        marital_stat: "Estado civil"
+        dob: "Fecha de nacimiento."
+        head_of_house: "¿Eres la cabeza de la família?"
+        house_occu: "¿Cuántas personas viven en el hogar?"
+        dependants: "Número de dependientes"
+        education_level: "Nível de educación"
+        est_house_income: "Ingresos estimados del hogar"
+        disability: "¿Ud. tiene algún discapacidad?"
+        union: "¿Es usted un miembro de un sindicato?"
+        military: "¿Es usted un miembro del servicio militar actual o anterior?"
+        volunteer: "¿Le gustaría ser voluntario?"
+        update: "Actualizar" 
+    foreclosure: 
+        foreclosure: "Ejecución de una hipoteca"
+        title:  "Solicitud de ejecución de una hipoteca"
+        description: "Usted ha dado el primer paso. Una vez que se ha presentado esta solicitud, usted será contactado por uno de los consejeros de Lucha como una guía adicional."
+        currently_foreclosed: "Actualmente adjudicados"
+        originating_lender: "prestamista originario"
+        original_loan_number: "número de préstamo originario"
+        servicer: "Administrador"
+        servicer_loan_number: "número de préstamo servicio"
+        monthly_mortgage_payment: "el pago mensual de la hipoteca"
+        loan_term: "plazo del préstamo"
+        origination_date: "fecha de formalización"
+        been_to_court: "Been to Court" 
+        court_case_number: "número de caso judicial"
+        working_with_lawyer: "Working With Lawyer"
+        working_with_agency: "Working With Agency"
+        submit: "Submit"
+
+
+
+    
