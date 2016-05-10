@@ -1,7 +1,7 @@
 #way to go above and beyond josh. 
 
 en:
-  splash: 
+    splash: 
         title: "Latin United Community Housing Association"
         sub_title: "LUCHA Client Portal"
         sign_up: "sign up"
@@ -23,12 +23,15 @@ en:
         debts: "Debts"
         debts_description: "lease keep in mind, these are monthly debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month."
         total: "Your totals"
+        income: "Income"
+        assets: "Assets"
+        assets_title: "Now tell us a bit about your assets"
+        assets_description: "This is wealth that you have accumulated throughout your life."       
         monthly_debt: "Your total monthly debt and income"
         gross_monthly: "Gross Monthly Income:"
         total_monthly: "Total Monthly Debt:"
         debt_to_income: "Debt to Income Ratio:"
-        assets_title: "Now tell us a bit about your assets"
-        assets_description: "This is wealth that you have accumulated throughout your life."
+
     budget_income:
         title: "Monthly Income"
         gross_wages: "Gross Wages:"
@@ -41,6 +44,11 @@ en:
         renter_income: "Income from Renters:"
         other: "Other:"
         update: "Update"
+        gross_monthly: "Gross Monthly Income:"
+        total_monthly: "Total Monthly Debt:"
+        debt_to_income: "Debt to Income Ratio:"
+        update: "Update"
+    
     budget_debts: 
         title: "Monthly Debt Payments"
         principal: "Principal and Interest:"
@@ -101,6 +109,7 @@ en:
         volunteer: "Would you like to volunteer "
         update: "Update!"
     foreclosure:
+        foreclosure: "foreclosure: "
         title: "Foreclosure Application:"
         description: "You've taken the first step. Once this application is submitted, you will be contacted by one of LUCHA's counselors for further guidance."
         currently_foreclosed: "Currently Foreclosed"
