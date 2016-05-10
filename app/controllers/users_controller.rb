@@ -2,7 +2,7 @@ class UsersController < Devise::RegistrationsController
   # before_action :authenticate_employee!, except: [:new]
 
   def index
-    @user = User.all
+    @clients = current_user.clients 
   end
 
   def show

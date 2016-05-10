@@ -79,6 +79,7 @@ class ClientsController < ApplicationController
         redirect_to "/clients/#{@client.id}/edit"
       end
     else
+      flash[:warning] = @client.errors.full_messages
       render :edit
     end
   end

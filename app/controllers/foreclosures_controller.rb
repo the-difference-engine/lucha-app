@@ -46,7 +46,7 @@ class ForeclosuresController < ApplicationController
 	  if @foreclosure.save
     	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
 	    flash[:success] = ["You've completed the foreclosure application"]
-	    redirect_to "/clients/#{@foreclosure.client_id}/status"
+	    redirect_to "/foreclosures/#{@foreclosure.client_id}/status"
     else
       flash[:danger] = @foreclosure.errors.full_messages
       render :new
@@ -64,7 +64,6 @@ class ForeclosuresController < ApplicationController
     elsif user_signed_in?
       @forelosure = Foreclosure.find(params[:id])
     end
-    @foreclosure
 	end
 
 	def update
@@ -74,31 +73,27 @@ class ForeclosuresController < ApplicationController
       @foreclosure = Foreclosure.where(client_id: params[:id])
     end
 
-    @foreclosure.update_attributes(foreclosure_params)
-    respond_with @foreclosure
-
-
-		# @foreclosure = Foreclosure.where(client_id: current_client.id)[0]
-		# if @foreclosure.update({
-	 #    	currently_foreclosed: params[:currently_foreclosed],
-		# 		originating_lender: params[:originating_lender],
-		# 		original_loan_number: params[:original_loan_number],
-		# 		servicer: params[:servicer], 
-		# 		servicer_loan_number: params[:servicer_loan_number],
-		# 		monthly_mortgage_payment: params[:monthly_mortgage_payment],
-		# 		loan_term: params[:loan_term], 
-		# 		origination_date: params[:origination_date], 
-		# 		been_to_court: params[:been_to_court], 
-		# 		court_case_number: params[:court_case_number] , 
-		# 		working_with_lawyer: params[:working_with_lawyer],
-		# 		working_w_agency: params[:working_w_agency], 
-		# 		agency: params[:agency]
-  #       })
-		# 	flash[:success] = "Foreclosure application submitted."
-		# 	redirect_to '/clients/#{@foreclosure.client_id}'
-		# else
-		# 	render :edit
-		# end
+		@foreclosure = Foreclosure.where(client_id: current_client.id)[0]
+		if @foreclosure.update({
+	    	currently_foreclosed: params[:currently_foreclosed],
+				originating_lender: params[:originating_lender],
+				original_loan_number: params[:original_loan_number],
+				servicer: params[:servicer], 
+				servicer_loan_number: params[:servicer_loan_number],
+				monthly_mortgage_payment: params[:monthly_mortgage_payment],
+				loan_term: params[:loan_term], 
+				origination_date: params[:origination_date], 
+				been_to_court: params[:been_to_court], 
+				court_case_number: params[:court_case_number] , 
+				working_with_lawyer: params[:working_with_lawyer],
+				working_w_agency: params[:working_w_agency], 
+				agency: params[:agency]
+        })
+			flash[:success] = "Foreclosure application submitted."
+			redirect_to '/clients/#{@foreclosure.client_id}'
+		else
+			render :edit
+		end
 	end
 
 	def destroy

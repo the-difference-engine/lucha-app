@@ -1,5 +1,15 @@
-<h1>Update your foreclosure case:</h1>
+<% if @forclosure.errors.any? %>
+  <div id="error_explanation">
+    <h5><%= pluralize(@forclosure.errors.count, "error") %> prohibited this forclosure from being saved:</h5>
+    <ul>
+    <% @forclosure.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
+<h1>Update your foreclosure case:</h1>
 
 <%= form_tag foreclosure_update_path, method: :patch do %>
 

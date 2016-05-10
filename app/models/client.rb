@@ -10,12 +10,9 @@ class Client < ActiveRecord::Base
   # validates_numericality_of :num_of_dependants
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-
   validates :sex, :race, :dob, :num_in_household, :num_of_dependants, presence: true, on: :update
   
   # validates_associated :budget
-
-  
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
