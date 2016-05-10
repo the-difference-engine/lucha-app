@@ -5,7 +5,6 @@ Language:
 <% if @client.errors.any? %>
   <div id="error_explanation">
     <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
- 
     <ul>
     <% @client.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -14,12 +13,11 @@ Language:
   </div>
 <% end %>
 
-
 <h1>Please fill in the rest of the information below</h1>
 <div class="row">
   <div class="col-md-6">
-
     <%= form_tag "/clients/#{@client.id}", method: :put do %>
+
 
         <div class="form-group">
           <%= I18n.t "clients_edit.first_name"  %> <br>
@@ -166,8 +164,9 @@ Language:
       
         <div class="actions">
           <%= submit_tag I18n.t "clients_edit.update" , :class => 'btn btn-large btn-primary' %>
-        </div>
-      </div>
-    </div>
 
+        </div>
+      </div>      
+    </div>
+  </div>
 <% end %>

@@ -39,7 +39,11 @@ body {
 
  h3 {
   font-weight: 300;
+
  }
+
+
+
 
 
 
@@ -61,40 +65,3 @@ body {
     display: inline-block;
 }
 
-
-#clientdemoinfo {
-  display: none;
-}
-#clientaddress {
-  display: none;
-}
-#clientcontact {
-  display: none;
-}
-#clienthousehold {
-  display: none;
-}
-#budgetincome {
-  display: none;
-}
-#budgetassets {
-  display: none;
-}
-#budgetdebts {
-  display: none;
-}
-#clientforeclosure {
-  display: none;
-}
-
-#clienthomebuying {
-  display: none;
-}
-
-#clienthomebuying {
-  display: none;
-}
-
-#clientrental {
-  display: none;
-}

@@ -18,18 +18,18 @@ class User < ActiveRecord::Base
   # has_many :law_projects, through: :program_employees, source: :programable, source_type: "law_project"
   # has_many :senior_repairs, through: :program_employees, source: :programable, source_type: "Senior_repair"
 
-  has_many :clients, through: :foreclosures
-  has_many :clients, through: :homebuyings
-  has_many :clients, through: :rentals
-  has_many :clients, through: :law_projects
-  has_many :clients, through: :senior_repairs
+  has_many :clients 
+  # has_many :clients, through: :foreclosures
+  # has_many :clients, through: :homebuyings
+  # has_many :clients, through: :rentals
+  # has_many :clients, through: :law_projects
+  # has_many :clients, through: :senior_repairs
 
   has_many :budgets, through: :clients
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
   end
-
 
   def client_list
     clients = []

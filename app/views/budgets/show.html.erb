@@ -1,5 +1,6 @@
 <div ng-app="app">
 	<div ng-controller="budgetCtrl" ng-init="init()">
+
 	Language: 
             <%= link_to_unless_current "English", locale: "en" %>|
             <%=  link_to_unless_current "Español", locale: "es" %>
@@ -12,11 +13,12 @@
 		    <li role="presentation"><a href="#debt" aria-controls="debt" role="tab" data-toggle="tab"><%= I18n.t "budget_show.debts" %></a></li>
 		    <li role="presentation"><a href="#totals" aria-controls="totals" role="tab" data-toggle="tab"><%= I18n.t "budget_show.total" %></a></li>
 		    <li role="presentation"><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab"><%= I18n.t "budget_show.assets" %></a></li>
-		  </ul>
+
 		  <div class="tab-content">
 		    <div role="tabpanel" class="tab-pane active" id="income">
 		    	<%= render "budget_income" %>
 		    </div>
+
 		    <div role="tabpanel" class="tab-pane" id="debt">
 		    	<h3><%= I18n.t "budget_show.debts" %></h3>
 					<p><%= I18n.t "budget_show.debts_description" %> </p>
@@ -38,13 +40,12 @@
 							</tr>
 							<tr>
 								<td><%= I18n.t "budget_show.debt_to_income"  %></td>
-								<td>{{ (debt.total_monthly_debt / income.gross_monthly_income).toFixed(2) || 0 }}</td>
-							</tr>
-						</table>
-					</div>
+
 		    <div role="tabpanel" class="tab-pane" id="assets">
+
 					<h3><%= I18n.t "budget_show.assets_title" %></h3>
 					<p><%= I18n.t "budget_show.assets_description" %></p>
+
 					<%= render "budget_assets" %>
 		    </div>
 		  </div>

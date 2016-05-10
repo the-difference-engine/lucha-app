@@ -2,17 +2,6 @@ class BudgetsController < ApplicationController
   before_action :authenticate_client!
   respond_to :html, :json
 
-  def show
-    if current_client
-        @client = current_client
-    elsif current_user
-        @client = Budget.find(params[:id]).client
-    end
-    @budget = @client.budget 
-    
-  end
-
- 
   def update
     budget = current_client.budget
     if params[:income]
@@ -39,7 +28,6 @@ class BudgetsController < ApplicationController
   def sum_debt
     debt_params.values.map(&:to_f).inject(:+) 
   end
-
 
   def income_params
     params.require(:income).permit(:gross_wages, :self_employment_income, :overtime, :unemployment, :tips_commissions_bonus, :nontaxable_social_security, :taxable_social_security, :rental_income, :other_income)
