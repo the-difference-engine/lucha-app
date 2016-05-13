@@ -22,7 +22,6 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
-    @client
   end
 
   def new
