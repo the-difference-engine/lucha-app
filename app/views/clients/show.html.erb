@@ -5,11 +5,14 @@
 	<h4>Home Phone: <%= @client.home_phone %></h4>
 	<h4>Cell Phone: <%= @client.cell_phone %></h4>
 
-	<h3>Demographics:</h3>
-	<h4>Race: <%= best_in_place @client, :race, :class => 'highlight_on_success' %></h4>
-	<h4>Sex: <%= best_in_place @client, :sex %></h4>
+	
 
-	<%= form_tag('/case_load', method: :put) do %>
+	<h3>Demographics:</h3>
+	<h4>Race: <%= @client.race %>
+	<h4>Sex: <%= @client.sex %></h4>
+
+
+	<%= form_tag('/case_load', method: :post) do %>
 		<div class = "field">
 			<%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
  		</div>
@@ -32,6 +35,7 @@
  		<%= submit_tag "Assign" %>
 
 	<% end %>
+
 
 <% elsif client_signed_in? %>
 
