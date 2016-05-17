@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   delete '/users/:id' => 'users#destroy'
 
   get '/case_load' => 'program_employees#index', as: :cases
-  post '/case_load' => 'program_employees#create', as: :case_assign
+  patch '/case_load' => 'program_employees#create', as: :case_assign
 
   get '/clients' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
