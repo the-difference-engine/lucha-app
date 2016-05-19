@@ -1,9 +1,8 @@
 <table class="table table-hover">
 	<tr>
 		<th colspan="2" text-align: center ><h3><%= I18n.t "budget_debts.title" %></h3></th>
-	</tr>
+	
 	<tr>
-
 		<td><%= I18n.t "budget_debts.principal" %></td>
 		<td>$<input type="text" ng-model="debt.principal_and_interest"></td>
 	</tr>
@@ -25,10 +24,16 @@
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_debts.stud_loan" %></td>
-
+		<td>$<input type="text" ng-model="debt.student_loan"></td>
+	</tr>
+	<tr>
 		<td><%= I18n.t "budget_debts.electic" %></td>
 		<td>$<input type="text" ng-model="debt.electricity"></td>
 	</tr>
+	<tr>
+ -	<td>Gas</td>
+ -	<td>$<input type="text" ng-model="debt.gas"></td>
+ -</tr>
 	<tr>
 		<td><%= I18n.t "budget_debts.H20" %></td>
 		<td>$<input type="text" ng-model="debt.water"></td>
@@ -55,8 +60,12 @@
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_debts.medical" %></td>
+		<td>$<input type="text" ng-model="debt.medical_expenses"></td>
+	</tr>
+	<tr>
 
-		<td><%= I18n.t "budget_debts.rent" %> $<input type="text" ng-model="debt.rent"></td>
+		<td><%= I18n.t "budget_debts.rent" %> 
+		<td>$<input type="text" ng-model="debt.rent"></td></td>	
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_debts.rent_insurance" %></td>
