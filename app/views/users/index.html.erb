@@ -27,7 +27,7 @@
     <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
     <td><%= client.client_types.to_sentence %></td>
     <td>
-      <%= link_to "View", client_path(client.id), class: "btn btn-default" %>
+      <%= link_to "View", "/clients/#{client.id}" %>
     </td>
     </tr>
   </tbody>

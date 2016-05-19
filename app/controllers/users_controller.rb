@@ -1,12 +1,14 @@
 class UsersController < Devise::RegistrationsController
   # before_action :authenticate_employee!, except: [:new]
 
+
   def index
-    @clients = current_user.clients 
+    @clients = Client.all
   end
 
   def show
     @user = User.find(params[:id])
+    @clients = Client.where(user_id: current_user.id)
   end
 
   def new

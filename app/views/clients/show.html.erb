@@ -5,33 +5,38 @@
 	<h4>Home Phone: <%= @client.home_phone %></h4>
 	<h4>Cell Phone: <%= @client.cell_phone %></h4>
 
-	<h3>Demographics:</h3>
-	<h4>Race: <%= best_in_place @client, :race, :class => 'highlight_on_success' %></h4>
-	<h4>Sex: <%= best_in_place @client, :sex %></h4>
+	
 
-	<%= form_tag('/case_load', method: :put) do %>
+	<h3>Demographics:</h3>
+	<h4>Race: <%= @client.race %>
+	<h4>Sex: <%= @client.sex %></h4>
+
+
+	<%= form_tag('/case_load', method: :patch) do %>
 		<div class = "field">
 			<%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
  		</div>
- 		<% if !@client.foreclosure.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.foreclosure.id %>
- 			<%= hidden_field_tag :programable_type, "Foreclosures" %>
-		<% elsif !@client.homebuying.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.homebuying.id %>
- 			<%= hidden_field_tag :programable_type, "Homebuyings" %> 			
-		<% elsif !@client.rental.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.rental.id %>
- 			<%= hidden_field_tag :programable_type, "Rentals" %>
-		<% elsif !@client.senior_repair.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.senior_repair.id %>
- 			<%= hidden_field_tag :programable_type, "SeniorRepairs" %>
-		<% elsif !@client.law_project.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.law_project.id %>
- 			<%= hidden_field_tag :programable_type, "LawProjects" %>
-		<% end %>
+ 		<%= hidden_field_tag :client_id, @client.id %>
+ 		<%# if !@client.foreclosure.blank? %>
+ 			<%#= hidden_field_tag :programable_id, @client.foreclosure.id %>
+ 			<%#= hidden_field_tag :programable_type, "Foreclosures" %>
+		<%# elsif !@client.homebuying.blank? %>
+ 			<%#= hidden_field_tag :programable_id, @client.homebuying.id %>
+ 			<%#= hidden_field_tag :programable_type, "Homebuyings" %> 			
+		<%# elsif !@client.rental.blank? %>
+ 			<%#= hidden_field_tag :programable_id, @client.rental.id %>
+ 			<%#= hidden_field_tag :programable_type, "Rentals" %>
+		<%# elsif !@client.senior_repair.blank? %>
+ 			<%#= hidden_field_tag :programable_id, @client.senior_repair.id %>
+ 			<%#= hidden_field_tag :programable_type, "SeniorRepairs" %>
+		<%# elsif !@client.law_project.blank? %>
+ 			<%#= hidden_field_tag :programable_id, @client.law_project.id %>
+ 			<%#= hidden_field_tag :programable_type, "LawProjects" %>
+		<%# end %>
  		<%= submit_tag "Assign" %>
 
 	<% end %>
+
 
 <% elsif client_signed_in? %>
 
