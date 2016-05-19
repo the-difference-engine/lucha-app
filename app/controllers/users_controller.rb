@@ -8,6 +8,7 @@ class UsersController < Devise::RegistrationsController
 
   def show
     @user = User.find(params[:id])
+    @clients = Client.where(user_id: current_user.id)
   end
 
   def new
