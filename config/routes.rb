@@ -30,8 +30,7 @@ Rails.application.routes.draw do
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
 
-  get '/case_load' => 'program_employees#index', as: :cases
-  patch '/case_load' => 'program_employees#create', as: :case_assign
+ 
 
   get '/clients' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
@@ -39,6 +38,7 @@ Rails.application.routes.draw do
   put '/clients/:id' => 'clients#update', as: :client_update
   get '/clients/:id/status' => 'clients#status', as: :client_status
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
+  patch '/clients_assign/:id' => 'clients#assign', as: :client_assign 
 
   get '/budgets' => 'budgets#index'
   get '/budgets/new' => 'budgets#new', as: :new_budget

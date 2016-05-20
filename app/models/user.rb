@@ -60,7 +60,4 @@ class User < ActiveRecord::Base
     end 
   end
 
-  # def cases
-  # end
-
 end

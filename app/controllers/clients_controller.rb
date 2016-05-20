@@ -19,6 +19,7 @@ class ClientsController < ApplicationController
   def show
     if user_signed_in?
       @client = Client.find(params[:id])
+      
     elsif client_signed_in?
       @client = current_client
     end
@@ -92,6 +93,26 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def assign
+    @employee = User.all
+    # @foreclosure = Foreclosure.all
+    # @homebuyer = Homebuying.all
+
+    # @case = ProgramEmployee.new({
+    #   user_id: current_user.id,
+    #   programable_id: params[:programable_id],
+    #   programable_type: params[:programable_type]
+    #   })
+    @client = Client.find(params[:client_id])
+    if @client.update(user_id: current_user.id)
+      flash[:success] = "Employee Assigned"
+      redirect_to "/users/#{current_user.id}"   
+    else
+      flash[:warning] = @client.errors.full_messages
+      render :show  
+    end
   end
 
 end

@@ -15,7 +15,8 @@ class ProgramEmployeesController < ApplicationController
 		  flash[:success] = "Employee Assigned"
 			redirect_to "/users/#{current_user.id}"		
 		else
-		  render :clients
+			flash[:warning] = @client.errors.full_messages
+		  render "/users/show"	
 		end
 	end
 
