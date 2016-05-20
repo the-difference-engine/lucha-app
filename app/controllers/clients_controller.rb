@@ -19,6 +19,7 @@ class ClientsController < ApplicationController
   def show
     if user_signed_in?
       @client = Client.find(params[:id])
+      
     elsif client_signed_in?
       @client = current_client
     end
