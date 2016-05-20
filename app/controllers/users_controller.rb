@@ -3,7 +3,7 @@ class UsersController < Devise::RegistrationsController
 
 
   def index
-    @clients = Client.all
+    @clients = Client.where(user_id: nil)
   end
 
   def show

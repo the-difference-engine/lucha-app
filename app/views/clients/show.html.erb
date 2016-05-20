@@ -1,3 +1,5 @@
+<%= render "layouts/alerts" %>
+
 <% if user_signed_in? %>
 	<h1><%= @client.full_name %></h1>
 	<h3>Contact Info</h3>
@@ -12,7 +14,7 @@
 	<h4>Sex: <%= @client.sex %></h4>
 
 
-	<%= form_tag('/case_load', method: :patch) do %>
+	<%= form_tag("/clients_assign/#{@client.id}", method: :patch) do %>
 		<div class = "field">
 			<%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
  		</div>
@@ -20,7 +22,7 @@
  		<%# if !@client.foreclosure.blank? %>
  			<%#= hidden_field_tag :programable_id, @client.foreclosure.id %>
  			<%#= hidden_field_tag :programable_type, "Foreclosures" %>
-		<%# elsif !@client.homebuying.blank? %>
+		<%# elsif !@client.homebuying.blank? %>		
  			<%#= hidden_field_tag :programable_id, @client.homebuying.id %>
  			<%#= hidden_field_tag :programable_type, "Homebuyings" %> 			
 		<%# elsif !@client.rental.blank? %>

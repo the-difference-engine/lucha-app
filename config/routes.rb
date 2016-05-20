@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   put '/clients/:id' => 'clients#update', as: :client_update
   get '/clients/:id/status' => 'clients#status', as: :client_status
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
+  patch '/clients_assign/:id' => 'clients#assign', as: :client_assign 
 
   get '/budgets' => 'budgets#index'
   get '/budgets/new' => 'budgets#new', as: :new_budget
