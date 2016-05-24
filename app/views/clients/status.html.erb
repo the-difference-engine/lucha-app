@@ -1,19 +1,10 @@
 <div id="counselor-info">
-  <% if current_client.counselors.all?&:blank? %>
+  <% if @client.has_users? %>
     <h3>Meet your counselor!</h3>
-  	<% current_client.counselors.each do |counselor| %>
-  		<p></p>
-  		<ul>
-  			<li><%= counselor.full_name %></li>
-  			<li><%= counselor.work_phone %></li>
-  			<li><%= counselor.email %></li>
-  		</ul>
-  		<br>
-  		<% end %>
-  	<% else %>
-  		<br><br>
-  		<h3>A counselor has not yet been assigned to you. Please allow us around 48 hours to assign someone to you.</h3>
-  		<p>If you have any questions, please shoot our intake specialist an email at: <a href="mailto:intake@lucha.org?Subject=Counseling%20Session" target="_top">Intake@lucha.org</a></p>
+    <%= @client.user_fullname %>
+  <% else %>
+		<h3>A counselor has not yet been assigned to you. Please allow us around 48 hours to assign someone to you. ¯\_(ツ)_/¯</h3>
+		<p>If you have any questions, please shoot our intake specialist an email at: <a href="mailto:intake@lucha.org?Subject=Counseling%20Session" target="_top">Intake@lucha.org</a></p> 
   <% end %>
 </div>
 

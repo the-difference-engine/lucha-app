@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
   # validates_numericality_of :num_of_dependants
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates :sex, :race, :dob, :num_in_household, :num_of_dependants, presence: true, on: :update
+  validates :sex, :race, :ssn, :preferred_contact_method, :preferred_language, :marital_status, :dob, :education_level, :estimated_household_income, :num_in_household, :num_of_dependants, presence: true, on: :update 
   
   # validates_associated :budget
 
@@ -29,6 +29,14 @@ class Client < ActiveRecord::Base
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
+  end
+
+  def has_users?
+    !user.nil?
+  end
+
+  def user_fullname
+    "#{user.first_name.titleize} #{user.last_name.titleize}"
   end
 
   def column_count
