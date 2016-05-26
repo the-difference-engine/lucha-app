@@ -106,7 +106,7 @@ class ClientsController < ApplicationController
     #   programable_type: params[:programable_type]
     #   })
     @client = Client.find(params[:client_id])
-    if @client.update(user_id: current_user.id)
+    if @client.update(user_id: current_user.id, assign: true)
       flash[:success] = "Employee Assigned"
       redirect_to "/users/#{current_user.id}"   
     else

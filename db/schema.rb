@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510012550) do
+ActiveRecord::Schema.define(version: 20160523232017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20160510012550) do
     t.boolean  "authorization_and_waiver"
     t.boolean  "privacy_policy_authorization"
     t.integer  "user_id"
+    t.boolean  "assign"
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree

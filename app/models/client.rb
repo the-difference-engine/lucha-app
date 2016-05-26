@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
   # validates_numericality_of :num_of_dependants
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates :sex, :race, :dob, :num_in_household, :num_of_dependants, presence: true, on: :update
+  validates :sex, :race, :ssn, :preferred_contact_method, :preferred_language, :marital_status, :dob, :education_level, :estimated_household_income, :num_in_household, :num_of_dependants, presence: true, on: :update 
   
   # validates_associated :budget
 
@@ -27,8 +27,20 @@ class Client < ActiveRecord::Base
 
   before_create :make_budget
 
+  def self.incomplete_profile
+    where(user_id: nil).where.not(sex: nil, race: nil, ssn: nil, preferred_contact_method: nil, preferred_language: nil, marital_status: nil, dob: nil,  num_in_household: nil, num_of_dependants: nil, education_level: nil, estimated_household_income: nil)
+  end 
+
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
+  end
+
+  def has_user?
+    user
+  end
+
+  def user_fullname
+    "#{user.first_name.titleize} #{user.last_name.titleize}"
   end
 
   def column_count

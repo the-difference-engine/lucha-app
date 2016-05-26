@@ -3,7 +3,7 @@ class UsersController < Devise::RegistrationsController
 
 
   def index
-    @clients = Client.where(user_id: nil).where.not(sex: nil, race: nil, dob: nil, num_in_household: nil, num_of_dependants: nil)
+    @clients = Client.incomplete_profile
   end
 
   def show
