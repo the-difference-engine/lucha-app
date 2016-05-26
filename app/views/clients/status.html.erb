@@ -1,5 +1,5 @@
 <div id="counselor-info">
-  <% if @client.has_users? %>
+  <% if @client.has_user? %>
     <h3>Meet your counselor!</h3>
     <%= @client.user_fullname %>
   <% else %>
