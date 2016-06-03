@@ -1,4 +1,4 @@
-<%= render "layouts/alerts" %>
+
 
 <h1><%= @client.full_name %></h1>
 <h3>Contact Info</h3>
@@ -8,10 +8,15 @@
 
 
 
+
 <h3>Demographics:</h3>
 <h4>Race: <%= @client.race %>
 <h4>Sex: <%= @client.sex %></h4>
 
+<h3> Other:  </h3>
+<h4> </h4>
+<h4> </h4>
+<h4> </h4>
 <% if current_user.id != @client.user_id %>
   
   <%= form_tag("/clients_assign/#{@client.id}", method: :patch) do %>
