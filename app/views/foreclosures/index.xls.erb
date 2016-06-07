@@ -12,7 +12,7 @@
         <Cell><Data ss:Type="String">Address</Data></Cell>
         <Cell><Data ss:Type="String">Currently Foreclosed? </Data></Cell>
       </Row>
-    <% @foreclosures.each do |product| %>
+    <% @foreclosures.each do |foreclosure| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= foreclosure.client.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= foreclosure.client.full_name %></Data></Cell>
