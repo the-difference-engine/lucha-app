@@ -107,6 +107,11 @@ class ClientsController < ApplicationController
     #   })
     @client = Client.find(params[:client_id])
     if @client.update(user_id: current_user.id, assign: true)
+      ProgramEmployee.create(user_id: current_user.id, programable_id: @client.foreclosure.id, programable_type: "Foreclosure") if @client.foreclosure
+      ProgramEmployee.create(user_id: current_user.id, programable_id: @client.homebuying.id, programable_type: "Homebuying") if @client.homebuying
+      ProgramEmployee.create(user_id: current_user.id, programable_id: @client.rental.id, programable_type: "Rental") if @client.rental
+      ProgramEmployee.create(user_id: current_user.id, programable_id: @client.law_project.id, programable_type: "LawProject") if @client.law_project
+      ProgramEmployee.create(user_id: current_user.id, programable_id: @client.senior_repair.id, programable_type: "SeniorRepair") if @client.senior_repair
       flash[:success] = "Employee Assigned"
       redirect_to "/users/#{current_user.id}"   
     else
