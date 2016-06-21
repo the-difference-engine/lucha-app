@@ -1,13 +1,15 @@
 class ForeclosuresController < ApplicationController
-  skip_before_action :authenticate_client!
+  # skip_before_action :authenticate_client!
   respond_to :html, :json, :csv
 
   def index
-    @foreclosures = Foreclosure.all
-    respond_to do |format|
-      format.html
-      format.csv { send_data @foreclosures.to_csv }
-      format.xls { send_data @foreclosures.to_csv(col_sep: "\t") }
+    if current_user
+      @foreclosures = current_user.foreclosures
+      respond_to do |format|
+        format.html
+        format.csv { send_data @foreclosures.to_csv }
+        format.xls { send_data @foreclosures.to_csv(col_sep: "\t") }
+      end
     end
   end
 
