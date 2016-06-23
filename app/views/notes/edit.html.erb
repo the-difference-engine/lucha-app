@@ -1,0 +1,16 @@
+<h1>Edit Note</h1>
+
+<%= form_tag "/notes/#{@note.id}", method: :patch do %>
+
+  <div>
+    <%= label_tag :description %>
+    <%= text_area_tag :description, @note.description %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update" %>
+  </div>
+
+<%= link_to "Back to Client Page", "/clients/#{@note.client.id}" %>
+
+<% end %>

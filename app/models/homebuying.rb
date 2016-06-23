@@ -3,7 +3,7 @@ class Homebuying < ActiveRecord::Base
 	validates_presence_of :client
 
 
-  validates :lender, :realtor_name, :realtor_phone, :property_address, :property_city, :loan_officer_name, :loan_officer_email, :loan_officer_phone, presence: true
+  validates :lender, :realtor_name, :property_address, :property_city, :loan_officer_name, :loan_officer_email, :loan_officer_phone, presence: true
   validates :contact_for_appointment, :inclusion => {:in => [true, false]}
   validates :real_estate_contract, :inclusion => {:in => [true, false]}
   validates_date :approx_closing_date, :on_or_after => lambda { Date.current }

@@ -16,9 +16,22 @@ class ClientsController < ApplicationController
 
   end
 
+  def note_create
+    @client = params[:id]
+    @user = Note.create({
+      description: params[:description],
+      user_id: current_user.id,
+      client_id: params[:id]
+      })
+
+    flash[:success] = ['Note added.']
+    redirect_to "/clients/#{@client}"
+  end
+
   def show
     if user_signed_in?
       @client = Client.find(params[:id])
+      @client_notes = @client.notes
       
     elsif client_signed_in?
       @client = current_client
@@ -93,6 +106,13 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+    @note = Note.find_by(id: params[:id])
+    if current_user.id == @note.user_id
+      @note.destroy
+      redirect_to "/clients/#{@note.client_id}"
+    else
+      redirect_to "/clients/#{@note.client_id}"
+    end
   end
 
   def assign

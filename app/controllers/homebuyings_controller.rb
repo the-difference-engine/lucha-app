@@ -125,8 +125,6 @@ class HomebuyingsController < ApplicationController
 			:loan_officer_phone,
 			:payment_assistance_program,
 			:approx_closing_date
-			)
+		)
   end
-
-
 end

@@ -1,22 +1,32 @@
 
+<%#= render "layouts/alerts" %>
 
 <h1><%= @client.full_name %></h1>
-<h3>Contact Info</h3>
+<h3>Contact Info:</h3>
 <h4><%= @client.address.titleize %></h4>
 <h4>Home Phone: <%= @client.home_phone %></h4>
 <h4>Cell Phone: <%= @client.cell_phone %></h4>
-
-
-
-
 <h3>Demographics:</h3>
 <h4>Race: <%= @client.race %>
 <h4>Sex: <%= @client.sex %></h4>
 
-<h3> Other:  </h3>
-<h4> </h4>
-<h4> </h4>
-<h4> </h4>
+<%= form_tag "/clients/#{@client.id}", method: :post do %>
+  <div>
+    <%= label_tag :Notes %>
+    <%= text_area_tag :description %>
+  </div>
+  <div>
+    <%= submit_tag "Submit Note" %>
+  </div>
+<% end %>
+
+<h4> Counselor Notes: <% @client_notes.each do |note|%></h4>
+<h3><%= note.description %></h3>
+<h5><%= note.pretty_time %></h5>
+<%= link_to "edit", notes_edit_path(note.id) %>
+<%= button_to "delete", client_path(:id => note.id), :method => :delete %>
+<% end %>
+
 <% if current_user.id != @client.user_id %>
   
   <%= form_tag("/clients_assign/#{@client.id}", method: :patch) do %>
