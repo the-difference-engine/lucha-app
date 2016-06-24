@@ -17,6 +17,7 @@ class Client < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :user
+  has_many :notes, through: :user
 
   has_one :foreclosure, dependent: :destroy
   has_one :homebuying, dependent: :destroy
@@ -29,7 +30,7 @@ class Client < ActiveRecord::Base
 
   def self.incomplete_profile
     where(user_id: nil).where.not(sex: nil, race: nil, ssn: nil, preferred_contact_method: nil, preferred_language: nil, marital_status: nil, dob: nil,  num_in_household: nil, num_of_dependants: nil, education_level: nil, estimated_household_income: nil)
-  end 
+  end
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"

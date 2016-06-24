@@ -34,11 +34,15 @@ Rails.application.routes.draw do
 
   get '/clients' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
+  post '/clients/:id' => 'clients#note_create'
   get '/clients/:id/edit' => 'clients#edit', as: :client_edit
   put '/clients/:id' => 'clients#update', as: :client_update
   get '/clients/:id/status' => 'clients#status', as: :client_status
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
-  patch '/clients_assign/:id' => 'clients#assign', as: :client_assign 
+  patch '/clients_assign/:id' => 'clients#assign', as: :client_assign
+
+  get '/notes/:id/edit' => 'notes#edit', as: :notes_edit
+  patch '/notes/:id' => 'notes#update', as: :note_update
 
   get '/budgets' => 'budgets#index'
   get '/budgets/new' => 'budgets#new', as: :new_budget
