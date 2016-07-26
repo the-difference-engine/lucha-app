@@ -60,7 +60,8 @@ Language:
         </div>
 
         <div class="form-group">
-          <%= I18n.t "clients_edit.ward"  %> <br>
+          <%= "Ward "%>
+          <a href="https://webapps1.cityofchicago.org/ezbuy/geoWardLookup.do" target='_blank'><i>Search for your ward here</i></a> <br>
           <%= text_field_tag :ward, @client.ward %>
         </div>
 
@@ -78,13 +79,10 @@ Language:
           <%= I18n.t "clients_edit.race"  %> <br>
           <%= select_tag(:race, options_for_select(racial_options, @client.race)) %>
         </div>
-      </div>
-   
-      <div class="col-md-6">
 
         <div class="form-group">
           <%= I18n.t "clients_edit.ss"  %> <br>
-          <%= text_field_tag :ssn, @client.ssn %>
+          <%= password_field_tag :ssn, @client.ssn %>
         </div>
 
         <div class="form-group">
