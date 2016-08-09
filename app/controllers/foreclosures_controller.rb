@@ -40,7 +40,7 @@ def create
    loan_term: params[:loan_term], 
    origination_date: params[:origination_date], 
    been_to_court: params[:been_to_court], 
-   court_case_number: params[:court_case_number] , 
+   court_case_number: params[:court_case_number], 
    working_with_lawyer: params[:working_with_lawyer],
    working_w_agency: params[:working_w_agency], 
    agency: params[:agency]
@@ -48,7 +48,7 @@ def create
  if @foreclosure.save
    ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
    flash[:success] = ["You've completed the foreclosure application"]
-   redirect_to "/foreclosures/#{@foreclosure.client_id}/status"
+   redirect_to "/foreclosures/#{@foreclosure.id}"
  else
   flash[:danger] = @foreclosure.errors.full_messages
   render :new

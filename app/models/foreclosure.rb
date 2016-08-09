@@ -1,6 +1,6 @@
 class Foreclosure < ActiveRecord::Base
-	validates_uniqueness_of :client_id
-	validates_presence_of :client
+  validates_uniqueness_of :client_id
+  validates_presence_of :client
 
   validates :originating_lender, :original_loan_number, :servicer, :servicer_loan_number, :monthly_mortgage_payment, :loan_term, :court_case_number, presence: true
 
@@ -26,11 +26,11 @@ class Foreclosure < ActiveRecord::Base
 
  def column_count
   attributes.length - 3
-		# Subtracting 3 from the column count to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
+    # Subtracting 3 from the column count to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
 
-	end
+  end
 
-	def filled_columns
+  def filled_columns
     filled_count = 0
     attributes.each do |k, v|
       if v != nil
