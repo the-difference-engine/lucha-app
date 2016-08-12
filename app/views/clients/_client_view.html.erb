@@ -1,5 +1,25 @@
 <h2>Hi <%= @client.full_name %>!</h2>
 <p>Below is the info we have on file for you. You can edit this form by clicking on the "-" or the info. All info is automatically saved. </p>
 
-
-
+<h3>Contact Info:</h3>
+<h4>Home Phone: <%= @client.home_phone %></h4>
+<h4>Cell Phone: <%= @client.cell_phone %></h4>
+<h4>Work Phone: <%= @client.work_phone %></h4>
+<h4>Address: <%= @client.address %> <%= @client.city %>, <%= @client.state %> <%= @client.zip_code %></h4>
+<h4>Ward: <%= @client.ward %></h4>
+<h3>Demographics:</h3>
+<h4>Race: <%= @client.race %>
+<h4>Sex: <%= @client.sex %></h4>
+<h4>Education level: <%= @client.education_level %></h4>
+<h4>Martial status: <%= @client.marital_status %></h4>
+<h4>Date of Birth: <%= @client.dob.strftime("%m/%d/%Y") %></h4>
+<h3>Household Info:</h3>
+<h4>Head of household? <%= @client.head_of_household %></h4>
+<h4>Number in household: <%= @client.num_in_household %></h4>
+<h4>Number of dependents: <%= @client.num_of_dependants %></h4>
+<h4>Estimated household income: <%= @client.estimated_household_income %></h4>
+<br>
+<h4>Do you have a disability? <%= @client.disability %></h4>
+<h4>Are you a military service member? <%= @client.military_service_member %></h4>
+<h4>Do you want to volunteer? <%= @client.volunteer_interest %></h4>
+<h4>Are you a member of a union? <%= @client.disability %></h4>
