@@ -1,4 +1,8 @@
-<h2>Log in</h2>
+<% if request.fullpath == '/users/sign_in'%>
+  <h2>Employee Log in</h2>
+<% else %>
+  <h2>Client Log in</h2>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
