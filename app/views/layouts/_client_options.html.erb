@@ -1,6 +1,6 @@
-  <li><%= link_to 'Status', client_status_path(current_client.id) %></li>
-  <li><%= link_to 'Your info', client_path(current_client.id) %></li>
-  <li><%= link_to 'Your Budget', budget_path(current_client.budget.id) %></li>
+  <li><%= link_to 'Application Status', client_status_path(current_client.id) %></li>
+  <li><%= link_to 'Profile', client_path(current_client.id) %></li>
+  <li><%= link_to 'Budget', budget_path(current_client.budget.id) %></li>
   <li>
 	  <% if current_client.foreclosure.blank? %>
 	      <%= link_to 'Foreclosures', "/foreclosures/new" %>
