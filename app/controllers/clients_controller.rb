@@ -88,8 +88,8 @@ class ClientsController < ApplicationController
         flash[:success] = "Client info updated."
         redirect_to "/clients/#{@client.id}"
       elsif client_signed_in?
-        flash[:success] = "You're info is updated."
-        redirect_to "/clients/#{@client.id}/edit"
+        flash[:success] = "Your info is updated."
+        redirect_to "/clients/#{@client.id}"
       end
     else
       flash[:warning] = @client.errors.full_messages

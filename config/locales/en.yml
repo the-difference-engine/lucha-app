@@ -17,6 +17,9 @@ en:
       services: "Services"
       contact: "Contact"
       copy_right: "Copyright \u00A9 Lucha 2016. All Rights Reserved"
+      demographics: "LUCHA Demographics:"
+      demographics_statement: "A few notes on the diversity of our clients: 
+      The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
   budget_show:
       title: "Your Monthly Budget"  
       description: "Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them." 
