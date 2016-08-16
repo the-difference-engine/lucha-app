@@ -1,25 +1,90 @@
 <h2>Hi <%= @client.full_name %>!</h2>
-<p>Below is the info we have on file for you. You can edit this form by clicking on the "-" or the info. All info is automatically saved. </p>
+<p>Below is the info we have on file for you. You can edit this form by clicking on the "Edit Profile" button at the bottom of this page.</p>
 
-<h3>Contact Info:</h3>
-<h4>Home Phone: <%= @client.home_phone %></h4>
-<h4>Cell Phone: <%= @client.cell_phone %></h4>
-<h4>Work Phone: <%= @client.work_phone %></h4>
-<h4>Address: <%= @client.address %> <%= @client.city %>, <%= @client.state %> <%= @client.zip_code %></h4>
-<h4>Ward: <%= @client.ward %></h4>
-<h3>Demographics:</h3>
-<h4>Race: <%= @client.race %>
-<h4>Sex: <%= @client.sex %></h4>
-<h4>Education level: <%= @client.education_level %></h4>
-<h4>Martial status: <%= @client.marital_status %></h4>
-<h4>Date of Birth: <%= @client.dob.strftime("%m/%d/%Y") %></h4>
-<h3>Household Info:</h3>
-<h4>Head of household? <%= @client.head_of_household %></h4>
-<h4>Number in household: <%= @client.num_in_household %></h4>
-<h4>Number of dependents: <%= @client.num_of_dependants %></h4>
-<h4>Estimated household income: <%= @client.estimated_household_income %></h4>
+<table class="table table-hover">
+  <thead>
+    <th colspan="2"><h3>Contact Info:</h3></th>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>Home Phone:</td> <td><%= @client.home_phone %></td>
+    </tr>
+    <tr>
+      <td>Cell Phone:</td><td><%= @client.cell_phone %></td>
+    </tr>
+    <tr>
+      <td>Work Phone:</td> <td><%= @client.work_phone %></td>
+    </tr>
+    <tr>  
+      <td>Address:</td><td><%= @client.address %> <%= @client.city %>, <%= @client.state %> <%= @client.zip_code %></td>
+    </tr>
+    <tr>
+      <td>Ward:</td><td><%= @client.ward %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-hover">
+
+  <thead>
+    <th colspan="2"><h3>Demographics:</h3></th>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Race:</td><td><%= @client.race %></td>
+    </tr>
+    <tr>
+      <td>Sex:</td><td><%= @client.sex %></td>
+    </tr>
+    <tr>
+      <td>Education level:</td><td><%= @client.education_level %></td>
+    </tr>
+    <tr>
+      <td>Martial status:</td><td><%= @client.marital_status %></td>
+    </tr>
+    <tr>
+      <td>Date of Birth:</td><td><%= @client.dob.strftime("%m/%d/%Y") %></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<table class="table table-hover">
+
+  <thead>
+    <th colspan="2"><h3>Household Info:</h3></th>
+  </thead>
+
+  <tr>
+    <td>Head of household?</td><td><%= best_in_place @client, :head_of_household, as: :select, collection: {false: "No", true: "Yes"} %></td>
+  </tr>
+  <tr>
+    <td>Number in household:</td><td> <%= @client.num_in_household %></td>
+  </tr>
+  <tr>
+    <td>Number of dependents:</td><td><%= @client.num_of_dependants %></td>
+  </tr>
+  <tr>
+    <td>Estimated household income:</td><td><%= @client.estimated_household_income %></td>
+  </tr>
+  <br>
+  <tr>
+    <td>Do you have a disability?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+  </tr>
+  <tr>
+    <td>Are you a military service member?</td><td><%= best_in_place @client, :military_service_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+  </tr>
+  <tr>
+    <td>Do you want to volunteer?</td><td><%= best_in_place @client, :volunteer_interest, as: :select, collection: {false: "No", true: "Yes"} %></td>
+  </tr>
+  <tr>
+    <td>Are you a member of a union?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+  </tr>
+
+</table>
 <br>
-<h4>Do you have a disability? <%= @client.disability %></h4>
-<h4>Are you a military service member? <%= @client.military_service_member %></h4>
-<h4>Do you want to volunteer? <%= @client.volunteer_interest %></h4>
-<h4>Are you a member of a union? <%= @client.disability %></h4>
+<div>
+  <p><a href="/clients/<%= current_client.id %>/edit">Edit Profile</a></p>
+</div>
