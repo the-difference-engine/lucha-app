@@ -18,7 +18,6 @@ class Homebuying < ActiveRecord::Base
 
   validates_format_of :loan_officer_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
-	has_many :program_employees, as: :programable
 	belongs_to :client
 
 end

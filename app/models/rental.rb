@@ -16,7 +16,6 @@ class Rental < ActiveRecord::Base
     :with => /[0-9]{3}-[0-9]{3}-[0-9]{4}/,
     :message => "- Phone numbers must be in xxx-xxx-xxxx format."
 
-	has_many :program_employees, as: :programable
 	belongs_to :client
 
 end
