@@ -8,7 +8,7 @@
         $scope.income = response.data["income"];
         $scope.debt = response.data["debt"];
         $scope.assets = response.data["assets"];
-      }); 
+      });
     }
 
     $scope.submitIncome = function(income) {

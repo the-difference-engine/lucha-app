@@ -20,11 +20,11 @@ class Client < ActiveRecord::Base
   belongs_to :user
   has_many :notes
 
-  has_many :foreclosure, dependent: :destroy
-  has_many :homebuying, dependent: :destroy
-  has_many :rental, dependent: :destroy
-  has_many :law_project, dependent: :destroy
-  has_many :senior_repair, dependent: :destroy
+  has_many :foreclosures, dependent: :destroy
+  has_many :homebuyings, dependent: :destroy
+  has_many :rentals, dependent: :destroy
+  has_many :law_projects, dependent: :destroy
+  has_many :senior_repairs, dependent: :destroy
   has_one :budget, dependent: :destroy
 
   before_create :make_budget
