@@ -5,7 +5,7 @@
 	  <% if current_client.foreclosures.blank? %>
 	      <%= link_to 'Foreclosures', "/foreclosures/new" %>
 	  <% else %>
-	      <%= link_to 'View Foreclosure App', foreclosure_path(current_client.foreclosures) %>
+	      <%= link_to 'View Foreclosure App', foreclosure_path(current_client.id) %>
 	  <% end %>
   </li>
   <li>
