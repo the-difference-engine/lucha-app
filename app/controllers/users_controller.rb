@@ -2,12 +2,12 @@ class UsersController < Devise::RegistrationsController
   # before_action :authenticate_employee!, except: [:new]
 
   def index
-    @clients = Client.incomplete_profile
+    @clients = Client.all.where(:user_id, current_user.id)
   end
 
   def show
     @user = User.find(params[:id])
-    @clients = Client.where(user_id: current_user.id)
+    # @clients = Client.where(user_id: current_user.id)
   end
 
   def new
@@ -17,13 +17,13 @@ class UsersController < Devise::RegistrationsController
 
   def create
    @user = User.new({
-      first_name: params[:user][:first_name], 
+      first_name: params[:user][:first_name],
       last_name: params[:user][:last_name],
       email: params[:user][:email],
       password: params[:user][:password],
-      password_confirmation: params[:user][:password_confirmation],      
-      home_phone: params[:user][:home_phone], 
-      work_phone: params[:user][:work_phone], 
+      password_confirmation: params[:user][:password_confirmation],
+      home_phone: params[:user][:home_phone],
+      work_phone: params[:user][:work_phone],
       cell_phone: params[:user][:cell_phone]
       })
     if @user.save
@@ -41,12 +41,12 @@ class UsersController < Devise::RegistrationsController
   def update
     @user = current_user
     if @client.update({first: params[:name],
-      first_name: params[:first_name], 
+      first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      home_phone: params[:home_phone], 
-      work_phone: params[:work_phone], 
+      home_phone: params[:home_phone],
+      work_phone: params[:work_phone],
       cell_phone: params[:cell_phone]
         })
 
@@ -67,6 +67,6 @@ class UsersController < Devise::RegistrationsController
   end
 
   def destroy
-  	
+
   end
 end

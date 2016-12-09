@@ -4,7 +4,7 @@ class ForeclosuresController < ApplicationController
 
   def index
     if current_user
-      @foreclosures = current_user.foreclosures
+      @foreclosures = current_user.clients.foreclosures
       respond_to do |format|
         format.html
         format.csv { send_data @foreclosures.to_csv }
