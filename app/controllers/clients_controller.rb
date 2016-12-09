@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
     @employee = User.all
     @clients = Client.all
     @foreclosures = Foreclosure.all
-    
+
     respond_to do |format|
       format.json
       format.html
@@ -32,7 +32,7 @@ class ClientsController < ApplicationController
     if user_signed_in?
       @client = Client.find(params[:id])
       @client_notes = @client.notes
-      
+
     elsif client_signed_in?
       @client = current_client
     end
@@ -43,7 +43,7 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    @client = Client.find(params[:id].to_i)
+    @client = Client.find(params[:id])
     if client_signed_in?
       @client = current_client
     end
@@ -60,15 +60,15 @@ class ClientsController < ApplicationController
     if @client.update({
     first_name: params[:first_name],
     last_name: params[:last_name],
-    home_phone: params[:home_phone], 
+    home_phone: params[:home_phone],
     cell_phone: params[:cell_phone],
-    work_phone: params[:work_phone], 
-    address: params[:address], 
-    state: params[:state], 
-    city: params[:city], 
+    work_phone: params[:work_phone],
+    address: params[:address],
+    state: params[:state],
+    city: params[:city],
     zip_code: params[:zip_code],
-    ward: params[:ward], 
-    sex: params[:sex], 
+    ward: params[:ward],
+    sex: params[:sex],
     race: params[:race],
     ssn: params[:ssn],
     preferred_contact_method: params[:preferred_contact_method],
@@ -128,10 +128,10 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:client_id])
     if @client.update(user_id: current_user.id, assign: true)
       flash[:success] = "Employee Assigned"
-      redirect_to "/users/#{current_user.id}"   
+      redirect_to "/users/#{current_user.id}"
     else
       flash[:warning] = @client.errors.full_messages
-      render :show  
+      render :show
     end
   end
 
