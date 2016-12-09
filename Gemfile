@@ -7,7 +7,7 @@ gem 'rails', '4.2.4'
 gem 'seed_dump'
 gem 'ruby_outlook'
 gem 'rails-i18n', '~> 4.0.0'
-gem 'globalize3' 
+gem 'globalize3'
 
 gem 'simple_form'
 gem 'state_select'
@@ -60,8 +60,8 @@ gem 'rspec-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'pry-rails'
-  
+  # gem 'pry-rails'
+
 end
 
 group :development, :test do

@@ -3,11 +3,11 @@ class HomebuyingsController < ApplicationController
   respond_to :html, :json
 
 	def index
-    @homebuyings = Homebuying.all	
+    @homebuyings = Homebuying.all
 	end
 
 	def new
-		@homebuying = Homebuying.new	
+		@homebuying = Homebuying.new
 	end
 
 
@@ -18,10 +18,10 @@ class HomebuyingsController < ApplicationController
 			@id = Client.find(params[:id]).id
 		end
 		@id
-			
+
 	  @homebuying = Homebuying.new(
 	  	{client_id: @id,
-	  		  	lender: params[:lender], 
+	  		  	lender: params[:lender],
 	  		  	hear_of_workshop: params[:hear_of_workshop],
 	  				contact_for_appointment: params[:contact_for_appointment],
 	  				real_estate_contract: params[:real_estate_contract],
@@ -36,11 +36,9 @@ class HomebuyingsController < ApplicationController
 	  				payment_assistance_program: params[:payment_assistance_program],
 	  				approx_closing_date: params[:approx_closing_date]}
 	  	)
-	  
-    
-    if @homebuying.save
-    	ProgramEmployee.create({programable_id: @homebuying.id, programable_type: "Homebuying"})
 
+
+    if @homebuying.save
 	    flash[:success] = ["You've completed the homebuying application"]
 	    redirect_to "/clients/#{@homebuying.client_id}/status"
     else
@@ -48,7 +46,7 @@ class HomebuyingsController < ApplicationController
       render :new
     end
   end
-	
+
 
 	def edit
 		if client_signed_in?
@@ -56,7 +54,7 @@ class HomebuyingsController < ApplicationController
     elsif user_signed_in?
       @forelosure = Homebuying.find(params[:id])
     end
-    @homebuying	
+    @homebuying
   end
 
 	def update
@@ -73,7 +71,7 @@ class HomebuyingsController < ApplicationController
 		# @client = current_client
 		# @homebuying = Homebuying.where(client_id: homebuying.client.id)
 		# if @homebuying.update(
-	 #    	lender: params[:lender], 
+	 #    	lender: params[:lender],
 	 #    	hear_of_workshop: params[:hear_of_workshop],
 		# 		contact_for_appointment: params[:contact_for_appointment],
 		# 		real_estate_contract: params[:real_estate_contract],
@@ -100,7 +98,7 @@ class HomebuyingsController < ApplicationController
 	end
 
 	def destroy
-		
+
 		@homebuying = Homebuying.find(params[:id])
 		@homebuying.destroy
 		flash[:danger] = "Homebuying application deleted."
