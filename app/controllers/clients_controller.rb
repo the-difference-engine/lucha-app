@@ -100,9 +100,9 @@ class ClientsController < ApplicationController
   def status
     @client = current_client
     @budget = @client.budget
-    @foreclosure = @client.foreclosure
-    @homebuying = @client.homebuying
-    @rental = @client.rental
+    @foreclosure = @client.foreclosures
+    @homebuying = @client.homebuyings
+    @rental = @client.rentals
   end
 
   def destroy
