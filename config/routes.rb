@@ -21,14 +21,16 @@ Rails.application.routes.draw do
     get '/budgets/:id' => 'budgets#show'
   end
 
-  get '/users' =>'users#index', as: :employee_index
-  post '/search' => 'users#search'
-  get '/users/new' => 'users#new'
-  post '/users/create' => 'users#create'
-  get '/users/:id' => 'users#show'
-  get '/users/:id/edit' => 'users#edit'
-  patch '/users/:id' => 'users#update'
-  delete '/users/:id' => 'users#destroy'
+  # get '/users' =>'users#index', as: :employee_index
+  # post '/search' => 'users#search'
+  # get '/users/new' => 'users#new'
+  # post '/users/create' => 'users#create'
+  # get '/users/:id' => 'users#show'
+  # get '/users/:id/edit' => 'users#edit'
+  # patch '/users/:id' => 'users#update'
+  # delete '/users/:id' => 'users#destroy'
+
+  resources :users
 
 
 

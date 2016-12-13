@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user
-  end
+  # def current_user
+  # end
 
   def set_locale
     I18n.locale = params[:locale] if params[:locale].present?

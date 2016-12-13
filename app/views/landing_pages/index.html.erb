@@ -45,6 +45,9 @@
                         <% if client_signed_in? %>
                         <% else %>
                             <a href="/users/sign_in"><%= I18n.t "splash.user_sign_in" %></a>
+
+                            <li><%= link_to('Logout', destroy_user_session_path(3)) %>  </li>
+
                         <% end %>
                     </li>
                 </ul>
@@ -145,7 +148,7 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading"><%= I18n.t ".splash.demographics" %> 
+                    <h2 class="section-heading"><%= I18n.t ".splash.demographics" %>
                     <p class="lead"><%= I18n.t ".splash.demographics_statement" %> </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
