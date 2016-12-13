@@ -20,14 +20,12 @@ class User < ActiveRecord::Base
 
   has_many :clients
   has_many :notes
+
   # has_many :clients, through: :foreclosures
   # has_many :clients, through: :homebuyings
   # has_many :clients, through: :rentals
   # has_many :clients, through: :law_projects
   # has_many :clients, through: :senior_repairs
-
-  has_many :budgets, through: :clients
-
 
 
   def full_name
@@ -36,31 +34,31 @@ class User < ActiveRecord::Base
 
   def client_list
     clients = []
-    foreclosures.each do |foreclosure| 
+    foreclosures.each do |foreclosure|
       if foreclosure.client.id
-      clients << foreclosure.client 
-      end 
+      clients << foreclosure.client
+      end
     end
-    
-    homebuyings.each do |homebuying| 
-      clients << homebuying.client 
-    end 
 
-    homebuyings.each do |homebuying| 
-      clients << foreclosure.client 
-    end 
+    homebuyings.each do |homebuying|
+      clients << homebuying.client
+    end
 
-    foreclosures.each do |foreclosure| 
-      clients << foreclosure.client 
-    end 
+    homebuyings.each do |homebuying|
+      clients << foreclosure.client
+    end
 
-    foreclosures.each do |foreclosure| 
-      clients << foreclosure.client 
-    end 
+    foreclosures.each do |foreclosure|
+      clients << foreclosure.client
+    end
 
-    foreclosures.each do |foreclosure| 
-      clients << foreclosure.client 
-    end 
+    foreclosures.each do |foreclosure|
+      clients << foreclosure.client
+    end
+
+    foreclosures.each do |foreclosure|
+      clients << foreclosure.client
+    end
   end
 
 end

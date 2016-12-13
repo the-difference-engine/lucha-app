@@ -1,9 +1,9 @@
 class RentalsController < ApplicationController
 	skip_before_action :authenticate_client!
 	respond_to :html, :json
-	
+
 	def index
-    @rental = Rental.where(client_id: params[:id])	
+    @rental = Rental.where(client_id: params[:id])
 	end
 
 	def new
@@ -16,10 +16,10 @@ class RentalsController < ApplicationController
 		elsif user_signed_in?
 			@id = Rental.find(client_id: params[:id])[0].id
 		end
-	   
+
 	  @rental = Rental.new({
     	client_id: @id,
-    	evictions: params[:evictions], 
+    	evictions: params[:evictions],
 			waitlist_num: params[:waitlist_num],
 			studio: params[:studio],
 			two_bed: params[:two_bed],
@@ -63,7 +63,6 @@ class RentalsController < ApplicationController
   	})
 
     if @rental.save
-    	ProgramEmployee.create({programable_id: @rental.id, programable_type: "Rental"})
 	    flash[:success] = ["You've completed the rental application"]
 	    redirect_to "/clients/#{@rental.client_id}/status"
     else
@@ -81,7 +80,7 @@ class RentalsController < ApplicationController
 	  #   end
 	  # end
   end
-	
+
 
 	def show
 		@rental = Rental.find(params[:id])

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "clients/registrations"}, :except => [:new_client_session, :client_session]
   devise_for :clients, controllers: { registrations: "client/registrations"}, :except => [:new_client_session, :client_session]
   devise_scope :client do
@@ -21,16 +21,18 @@ Rails.application.routes.draw do
     get '/budgets/:id' => 'budgets#show'
   end
 
-  get '/users' =>'users#index', as: :employee_index
-  post '/search' => 'users#search'
-  get '/users/new' => 'users#new'
-  post '/users/create' => 'users#create'
-  get '/users/:id' => 'users#show'
-  get '/users/:id/edit' => 'users#edit'
-  patch '/users/:id' => 'users#update'
-  delete '/users/:id' => 'users#destroy'
+  # get '/users' =>'users#index', as: :employee_index
+  # post '/search' => 'users#search'
+  # get '/users/new' => 'users#new'
+  # post '/users/create' => 'users#create'
+  # get '/users/:id' => 'users#show'
+  # get '/users/:id/edit' => 'users#edit'
+  # patch '/users/:id' => 'users#update'
+  # delete '/users/:id' => 'users#destroy'
 
- 
+  resources :users
+
+
 
   get '/clients' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
