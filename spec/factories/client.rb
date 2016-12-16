@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :confirmed_client, :parent => :client do
+      after(:create) { |client| client.confirm! }
+  end
   factory :client do
     first_name "Peter"
     last_name "Pan"
@@ -8,6 +11,7 @@ FactoryGirl.define do
     authorization_and_waiver true
     privacy_policy_authorization true
     # client_id { [FactoryGirl.create(:client)]}
+
   end
   
 end

@@ -37,16 +37,17 @@ RSpec.describe BudgetsController, type: :controller do
     it "updates gross wages" do
       # budget = Budget.new
       # binding.pry
-      # client = create(:client)
-      # budget = create(:budget, client_id: client.id)
+      client = create(:client)
+      budget = create(:budget, client_id: client.id)
       
-      # form_params = {
-      #     "gross_wages"=>"15000.0"  
-      # }
+      form_params = {
+          "gross_wages"=>"15000.0"  
+      }
       patch :update
       # binding.pry
       budget = Budget.all.last
-      expect(true).to eq(false)
+      # expect(true).to eq(false)
+      expect(response).to have_http_status(:success)
     end
   end
 
