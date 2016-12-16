@@ -5,7 +5,7 @@ RSpec.describe BudgetsController, type: :controller do
   describe "GET #index" do
     before :each do
       request.env['devise.mapping'] = Devise.mappings[:user]
-      # login_with_client nil
+      login_with_client nil
     end
 
     it "returns http success" do
@@ -29,10 +29,24 @@ RSpec.describe BudgetsController, type: :controller do
     end
   end
 
-  describe "GET #update" do
-    it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
+  describe "PATCH #update" do
+    before :each do
+      # request.env['devise.mapping'] = Devise.mappings[:user]
+      login_with_client nil
+    end
+    it "updates gross wages" do
+      # budget = Budget.new
+      # binding.pry
+      # client = create(:client)
+      # budget = create(:budget, client_id: client.id)
+      
+      # form_params = {
+      #     "gross_wages"=>"15000.0"  
+      # }
+      patch :update
+      # binding.pry
+      budget = Budget.all.last
+      expect(true).to eq(false)
     end
   end
 

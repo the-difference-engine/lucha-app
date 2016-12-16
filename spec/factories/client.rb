@@ -1,0 +1,13 @@
+FactoryGirl.define do
+  factory :client do
+    first_name "Peter"
+    last_name "Pan"
+    email "peterpan@example.com"
+    password "12345678"
+    password_confirmation "12345678"
+    authorization_and_waiver true
+    privacy_policy_authorization true
+    # client_id { [FactoryGirl.create(:client)]}
+  end
+  
+end
