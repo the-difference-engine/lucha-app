@@ -1,3 +1,52 @@
+# == Schema Information
+#
+# Table name: clients
+#
+#  id                           :integer          not null, primary key
+#  email                        :string           default(""), not null
+#  encrypted_password           :string           default(""), not null
+#  reset_password_token         :string
+#  reset_password_sent_at       :datetime
+#  remember_created_at          :datetime
+#  sign_in_count                :integer          default(0), not null
+#  current_sign_in_at           :datetime
+#  last_sign_in_at              :datetime
+#  current_sign_in_ip           :string
+#  last_sign_in_ip              :string
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  first_name                   :string
+#  last_name                    :string
+#  race                         :string
+#  sex                          :string
+#  home_phone                   :string
+#  work_phone                   :string
+#  cell_phone                   :string
+#  address                      :string
+#  city                         :string
+#  state                        :string
+#  ward                         :integer
+#  zip_code                     :string
+#  ssn                          :string
+#  preferred_contact_method     :string
+#  preferred_language           :string
+#  marital_status               :string
+#  dob                          :date
+#  head_of_household            :boolean          default(FALSE), not null
+#  num_in_household             :integer
+#  num_of_dependants            :integer
+#  education_level              :string
+#  disability                   :boolean          default(FALSE), not null
+#  union_member                 :boolean          default(FALSE), not null
+#  military_service_member      :boolean          default(FALSE), not null
+#  volunteer_interest           :boolean          default(FALSE), not null
+#  estimated_household_income   :string
+#  authorization_and_waiver     :boolean
+#  privacy_policy_authorization :boolean
+#  user_id                      :integer
+#  assign                       :boolean
+#
+
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do

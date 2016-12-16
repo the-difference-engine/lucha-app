@@ -2,6 +2,9 @@ class BudgetsController < ApplicationController
   before_action :authenticate_client!
   respond_to :html, :json
 
+  def index
+  end
+
   def update
     budget = current_client.budget
     if params[:income]

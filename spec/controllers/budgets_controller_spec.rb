@@ -1,9 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe BudgetsController, type: :controller do
-
+  include Devise::TestHelpers
   describe "GET #index" do
+    before :each do
+      request.env['devise.mapping'] = Devise.mappings[:user]
+      # login_with_client nil
+    end
+
     it "returns http success" do
+      # login_with_client create( :user)
       get :index
       expect(response).to have_http_status(:success)
     end
