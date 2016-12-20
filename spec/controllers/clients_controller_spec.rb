@@ -10,6 +10,7 @@ RSpec.describe ClientsController, type: :controller do
 
   describe "POST create" do
     context "with valid attributes" do
+      
       it "creates a new client" do
         client = create(:client)
         clients = Client.all
@@ -19,24 +20,33 @@ RSpec.describe ClientsController, type: :controller do
         # }.to change(Client, :count).by(1)
       end
 
-      it "redirects to the new client" do
-        # post :create, client: FactoryGirl.attributes_for(:client)
-        # response.should redirect_to Client.last
-      end
+      # it "redirects to the new client" do
+      #   client = create(:client)
+      #   clients = Client.all
+      #   # post :create, client: FactoryGirl.attributes_for(:client)
+      #   # response.should redirect_to Client.last
+      #   expect(response).to redirect_to Client.last
+      # end
     end
 
-    # context "with invalid attributes" do
-    #   it "does not save the new client" do
-    #     expect{
-    #       post :create, client: FactoryGirl.attributes_for(:invalid_client)
-    #     }.to_not change(Client,:count)
-    #   end
+    let(:invalid_client) { create(:client, email: nil) }
 
-    #   it "re-renders the new method" do
-    #     post :create, client: FactoryGirl.attributes_for(:invalid_client)
-    #     response.should render_template :new
-    #   end
-    # end 
+    context "with invalid attributes" do
+      it "does not save the new client" do
+        # expect{
+        #   post :create, client: FactoryGirl.attributes_for(:invalid_client)
+        # }.to_not change(Client, :count)
+        client = create(:invalid_client)
+        clients = Client.all
+
+        expect(clients.length).to eq(0)
+      end
+
+      # it "re-renders the new method" do
+      #   post :create, client: FactoryGirl.attributes_for(:invalid_client)
+      #   response.should render_template :new
+      # end
+    end 
   end
 
   # describe "GET #show" do

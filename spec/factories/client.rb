@@ -11,7 +11,10 @@ FactoryGirl.define do
     authorization_and_waiver true
     privacy_policy_authorization true
     # client_id { [FactoryGirl.create(:client)]}
+  end
 
+  factory :invalid_client, :parent => :client do
+    email nil
   end
   
 end
