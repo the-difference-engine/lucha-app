@@ -51,6 +51,12 @@ require 'rails_helper'
 
 RSpec.describe Client, type: :model do
 
+describe 'validations' do
+	it 'should validate email' do
+		client = Client.new()
+		expect(client).to_not be_valid
+	end
+end
 
 	describe '#full_name' do
 		it 'should return the first and last name titleized' do

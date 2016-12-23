@@ -8,52 +8,26 @@ RSpec.describe ClientsController, type: :controller do
   #   @client = create(:client)
   # end
 
-  describe "POST create" do
-    context "with valid attributes" do
+  describe "PUT update" do
+    context "updates with valid attributes" do
       
-      it "creates a new client" do
+      it "updates an existing client" do
+        login_with_client
         client = create(:client)
-        clients = Client.all
-        expect(clients.length).to eq(1)
-        # expect{
-        #   post :create, client: FactoryGirl.attributes_for(:client)
-        # }.to change(Client, :count).by(1)
+        params = {
+          first_name: "Pete"
+        }
+        put :update, id: client.id, params
+        client = Client.last
+
+        expect(client.first_name).to eq("Pete")
       end
 
-      # it "redirects to the new client" do
-      #   client = create(:client)
-      #   clients = Client.all
-      #   # post :create, client: FactoryGirl.attributes_for(:client)
-      #   # response.should redirect_to Client.last
-      #   expect(response).to redirect_to Client.last
-      # end
-    end
-
-    let(:invalid_client) { create(:client, email: nil) }
-
-    context "with invalid attributes" do
-      it "does not save the new client" do
-        # expect{
-        #   post :create, client: FactoryGirl.attributes_for(:invalid_client)
-        # }.to_not change(Client, :count)
-        client = create(:invalid_client)
-        clients = Client.all
-
-        expect(clients.length).to eq(0)
-      end
-
-      # it "re-renders the new method" do
-      #   post :create, client: FactoryGirl.attributes_for(:invalid_client)
-      #   response.should render_template :new
-      # end
     end 
   end
 
-  # describe "GET #show" do
-  #   it "returns http success" do
-  #     get :show
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
+ 
+
+  
 
 end

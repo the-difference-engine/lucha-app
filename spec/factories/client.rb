@@ -10,11 +10,15 @@ FactoryGirl.define do
     password_confirmation "12345678"
     authorization_and_waiver true
     privacy_policy_authorization true
-    # client_id { [FactoryGirl.create(:client)]}
+    ssn "123121234"
+    preferred_contact_method "312-555-1212"
+    preferred_language "English"
+    marital_status "Single"
+    dob 19940301
+    num_in_household 3
+    num_of_dependants 1
   end
 
-  factory :invalid_client, :parent => :client do
-    email nil
-  end
+  
   
 end
