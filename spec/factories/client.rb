@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :confirmed_client, :parent => :client do
       after(:create) { |client| client.confirm! }
   end
+
   factory :client do
     first_name "Peter"
     last_name "Pan"
