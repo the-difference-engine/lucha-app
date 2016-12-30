@@ -34,7 +34,6 @@ Rails.application.routes.draw do
 
   get '/clients' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
-  post '/clients/create' => 'clients#create'
   post '/clients/:id' => 'clients#note_create'
   get '/clients/:id/edit' => 'clients#edit', as: :client_edit
   put '/clients/:id' => 'clients#update', as: :client_update

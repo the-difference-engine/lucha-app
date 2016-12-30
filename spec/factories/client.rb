@@ -18,6 +18,10 @@ FactoryGirl.define do
     dob 19940301
     num_in_household 3
     num_of_dependants 1
+
+    trait :invalid do
+      email nil
+    end
   end
 
   

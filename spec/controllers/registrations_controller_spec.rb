@@ -15,20 +15,12 @@ RSpec.describe Client::RegistrationsController, type: :controller do
         expect(clients.length).to eq(1)
       end 
     end
-  end
-
-  def client_params
-    {
-      first_name: "Peter",
-      last_name: "Parker",
-      home_phone: "312-555-1212",
-      cell_phone: "312-555-1213",
-      work_phone: "312-555-1214",
-      address: "123 Main Street",
-      state: "IL",
-      city: "Chicago",
-      zip_code: "60657",
-      ward: "19",
-    }
+    context "with invalid attributes" do    
+      it "does not create a new client" do       
+        post :create, client: FactoryGirl.attributes_for(:client, :invalid)
+        clients = Client.all
+        expect(clients.length).to eq(0)
+      end 
+    end
   end
 end
