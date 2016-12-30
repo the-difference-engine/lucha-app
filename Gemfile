@@ -1,6 +1,7 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-
+gem 'pry'
+gem 'rb-readline'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
@@ -11,7 +12,7 @@ gem 'globalize3'
 
 gem 'simple_form'
 gem 'state_select'
-
+gem 'annotate'
 gem 'best_in_place', '~> 3.0.1'
 gem 'jquery-ui-rails'
 
@@ -55,21 +56,29 @@ gem 'prawn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'rspec-rails'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'pry-rails'
+
+# group :development, :test do
+#   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+#   gem 'byebug'
   
-end
+  
+# end
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'foreman'
+  
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  
+  
 end
 
+group :development do
+  gem 'web-console', '~> 2.0'
+end

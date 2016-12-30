@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
   patch '/clients_assign/:id' => 'clients#assign', as: :client_assign
 
+  resources :clients
+
   get '/notes/:id/edit' => 'notes#edit', as: :notes_edit
   patch '/notes/:id' => 'notes#update', as: :note_update
 

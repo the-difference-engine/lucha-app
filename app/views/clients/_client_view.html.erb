@@ -45,7 +45,12 @@
       <td>Martial status:</td><td><%= @client.marital_status %></td>
     </tr>
     <tr>
-      <td>Date of Birth:</td><td><%= @client.dob.strftime("%m/%d/%Y") %></td>
+      <td>Date of Birth:</td>
+      <td>
+        <% if @client.dob %>
+          <%= @client.dob.strftime("%m/%d/%Y") %>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 
