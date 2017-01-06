@@ -18,8 +18,16 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require_relative 'support/controller_helpers'
 require 'devise'
+require 'factory_girl_rails'
 
 RSpec.configure do |config|
+  config.before(:all) do
+    FactoryGirl.reload
+  end
+  
+  config.include FactoryGirl::Syntax::Methods
+  FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+
   config.include ControllerHelpers, type: :controller
   Warden.test_mode!
   config.after do

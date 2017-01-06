@@ -62,18 +62,19 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
-    if @client.update(client_params)
-      if user_signed_in?
-        flash[:success] = [ "Client info updated." ]
+    @client.update(client_params)
+    # if @client.update(client_params)
+    #   if user_signed_in?
+    #     flash[:success] = [ "Client info updated." ]
+    #     redirect_to client_path(@client)
+    #   elsif client_signed_in?
+    #     flash[:success] = [ "Your info is updated." ]
         redirect_to client_path(@client)
-      elsif client_signed_in?
-        flash[:success] = [ "Your info is updated." ]
-        redirect_to client_path(@client)
-      end
-    else
-      flash[:warning] = @client.errors.full_messages
-      render :edit
-    end
+    #   end
+    # else
+    #   flash[:warning] = @client.errors.full_messages
+    #   render :edit
+    # end
 # TODO in the models make the true/false a default value, no need to do this or statement
   end
 
