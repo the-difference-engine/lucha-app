@@ -4,9 +4,6 @@ require 'spec_helper'
 RSpec.describe ClientsController, type: :controller do
   include Devise::TestHelpers
 
-  # before(:each) do
-    #since we have to test both current_user functionalty and current_client we can't use globals. this controller deals with two seperate users. Not good practice!
-  # end
 
   describe "POST #note_create" do
 
@@ -31,19 +28,18 @@ RSpec.describe ClientsController, type: :controller do
 
   describe "PATCH update" do
     # This is done by joy/nate
+    before(:each) do
+      # since we have to test both current_user functionalty and current_client we can't use globals. this controller deals with two seperate users. Not good practice!
+      @client = FactoryGirl.create(:client)
+      sign_in @client
+    end
     context "valid attributes" do
       it "locates the requested @client" do
-        client = FactoryGirl.create(:client)
-
-        sign_in client
-        p client
-        patch :update, id: client.id, client: attributes_for(:client)
-        expect(assigns(:client)).to eq(client)
+        patch :update, id: @client.id, client: attributes_for(:client)
+        expect(assigns(:client)).to eq(@client)
       end
 
       it "updates an existing client" do
-        client = FactoryGirl.create(:client)
-        sign_in client
         params = {
           first_name: "Test",
           last_name: "Name",
@@ -65,7 +61,7 @@ RSpec.describe ClientsController, type: :controller do
           num_of_dependants: 1
         }
 
-        patch :update, id: client.id, client: params
+        patch :update, id: @client.id, client: params
         updated_client = Client.find_by(email: "peterpan@example.com")
 
         expect(updated_client.first_name).to eq("Test")
