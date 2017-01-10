@@ -5,8 +5,8 @@ class ForeclosuresController < ApplicationController
   def index
     if current_user
 
-      @foreclosures = current_user.foreclosures
 
+      @foreclosures = current_user.clients.last.foreclosures
 
       respond_to do |format|
         format.html

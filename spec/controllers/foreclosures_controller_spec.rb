@@ -8,6 +8,11 @@ RSpec.describe ForeclosuresController, type: :controller do
   describe "GET/index" do
 
     it "renders the :index template" do
+      #test for current user
+      #test for user.forclosure
+      login_user
+
+      client = create(:client)
 
       get :index
       expect(response).to render_template :index
