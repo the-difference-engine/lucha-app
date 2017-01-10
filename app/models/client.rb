@@ -59,8 +59,8 @@ class Client < ActiveRecord::Base
   # validates_numericality_of :num_of_dependants
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates :sex, :race, :ssn, :preferred_contact_method, :preferred_language, :marital_status, :dob, :education_level, :estimated_household_income, :num_in_household, :num_of_dependants, presence: true, on: :update 
-  
+  validates :sex, :race, :ssn, :preferred_contact_method, :preferred_language, :marital_status, :dob, :education_level, :estimated_household_income, :num_in_household, :num_of_dependants, presence: true, on: :update
+
   # validates_associated :budget
 
   devise :database_authenticatable, :registerable,
@@ -113,8 +113,8 @@ class Client < ActiveRecord::Base
   end
 
   def total_application_progress
-    
-    
+
+
   end
 
   def client_applications
@@ -153,7 +153,7 @@ class Client < ActiveRecord::Base
 
   def counselors
     counselor_array = []
-    applied_programs = client_applications 
+    applied_programs = client_applications
     applied_programs.each do |program|
       unless program.program_employees[0].blank?
         counselor_array << program.program_employees[0].user
