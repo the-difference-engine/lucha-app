@@ -23,7 +23,4 @@ FactoryGirl.define do
       email nil
     end
   end
-
-  
-  
 end
