@@ -40,10 +40,10 @@ RSpec.describe ClientsController, type: :controller do
         patch :update, id: client.id, client: attributes_for(:client)
         expect(assigns(:client)).to eq(client)
       end
-    end
 
       it "updates an existing client" do
-        # login_client
+        client = FactoryGirl.create(:client)
+        sign_in client
         params = {
           first_name: "Test",
           last_name: "Name",
@@ -65,20 +65,21 @@ RSpec.describe ClientsController, type: :controller do
           num_of_dependants: 1
         }
 
-        put :update, id: subject.current_client.id, client: params
-        client = Client.last
+        patch :update, id: client.id, client: params
+        updated_client = Client.find_by(email: "peterpan@example.com")
 
-        expect(client.first_name).to eq("Test")
-        # expect(client.last_name).to eq("Name")
-        # expect(response).to redirect_to client
+        expect(updated_client.first_name).to eq("Test")
+        # expect(updated_client.last_name).to eq("Name")
+        # expect(response).to redirect_to updated_client
         # expect(subject.request.flash[:success].first).to eq("Your info is updated.")
       end
+    end
   end
 
   describe "GET #destroy" do
-    it "deletes a note" do
+    xit "deletes a note" do
       login_user
-      client = create(:client,
+      updated_client = create(:client,
                       user_id: subject.current_user.id)
       note = create(:note,
                     user_id: subject.current_user.id,
