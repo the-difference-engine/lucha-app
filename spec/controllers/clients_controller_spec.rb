@@ -8,10 +8,13 @@ RSpec.describe ClientsController, type: :controller do
     #since we have to test both current_user functionalty and current_client we can't use globals. this controller deals with two seperate users. Not good practice!
   # end
 
+# testing note create action
   describe "POST #note_create" do
 
     it "creates a new note for the client" do
+
       login_user
+
       client = create(:client)
       params = {
         description: "Test description",
@@ -19,6 +22,7 @@ RSpec.describe ClientsController, type: :controller do
       }
 
       post :note_create, id: client.id, note: params
+
       note = Note.last
 
       expect(Note.all.size).to eq(1)
@@ -26,17 +30,16 @@ RSpec.describe ClientsController, type: :controller do
       expect(response).to redirect_to client
       expect(subject.request.flash[:success].first).to eq("Note added.")
     end
-
   end
 
   describe "PATCH update" do
 
-    
+
 
     context "valid attributes" do
       it "locates the requested @client" do
         client = FactoryGirl.create(:client)
-         
+
         sign_in client
         p client
         patch :update, id: client.id, client: attributes_for(:client)
@@ -74,7 +77,7 @@ RSpec.describe ClientsController, type: :controller do
       #   # expect(client.last_name).to eq("Name")
       #   # expect(response).to redirect_to client
       #   # expect(subject.request.flash[:success].first).to eq("Your info is updated.")
-      # end   
+      # end
   end
 
   describe "GET #destroy" do
