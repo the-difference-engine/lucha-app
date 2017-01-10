@@ -7,7 +7,7 @@ RSpec.describe ClientsController, type: :controller do
 
   describe "POST #note_create" do
 
-    it "creates a new note for the client" do
+    xit "creates a new note for the client" do
       login_user
       client = create(:client)
       params = {
@@ -29,7 +29,6 @@ RSpec.describe ClientsController, type: :controller do
   describe "PATCH update" do
     # This is done by joy/nate
     before(:each) do
-      # since we have to test both current_user functionalty and current_client we can't use globals. this controller deals with two seperate users. Not good practice!
       @client = FactoryGirl.create(:client)
       sign_in @client
     end
@@ -89,13 +88,15 @@ RSpec.describe ClientsController, type: :controller do
   end
 
   describe "GET #assign" do
-## this test is not done, I am not sure how you want this user experence to work, once you figure it out you can update the method and then test it.
-    xit "Assigns a client to a user" do
-      login_user
-      client = create(:client)
-
-      patch :assign, id: client.id
-      expect(response).to redirect_to( user_path(subject.current_user.id) )
+    before(:each) do
+      @client = FactoryGirl.create(:client)
+      sign_in @client
+    end
+    # this test is not done, I am not sure how you want this user experence to work, once you figure it out you can update the method and then test it.
+    it "Assigns a client to a user" do
+      # we want to assign a client id to a user
+      # patch :assign, id: @client.id
+      expect(response).to redirect_to(user_path(subject.current_user.id) )
       expect(subject.request.flash[:success].first).to eq("Employee Assigned")
     end
   end
