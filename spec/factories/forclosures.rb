@@ -1,21 +1,19 @@
 FactoryGirl.define do
   factory :forclosure do
-    # t.string   "currently_foreclosed"
-    # t.datetime "created_at",                                       null: false
-    # t.datetime "updated_at",                                       null: false
-    # t.integer  "client_id"
-    # t.string   "originating_lender"
-    # t.string   "original_loan_number"
-    # t.string   "servicer"
-    # t.string   "servicer_loan_number"
-    # t.decimal  "monthly_mortgage_payment", precision: 8, scale: 2
-    # t.integer  "loan_term"
-    # t.date     "origination_date"
-    # t.boolean  "been_to_court"
-    # t.string   "court_case_number"
-    # t.boolean  "working_with_lawyer"
-    # t.boolean  "working_w_agency"
-    # t.string   "agency"
-    # t.string   "reason_for_default"
+    currently_foreclosed "stuff"
+    cliend_id 3
+    originating_lender "bob"
+    original_loan_number "3276"
+    servicer "verizon"
+    ervicer_loan_number "3765"
+    monthly_mortgage_payment 345.51
+    loan_term 3
+    origination_date 20140931
+    been_to_court true
+    court_case_number "921"
+    working_with_lawyer true
+    working_w_agency true
+    agency "the best agency"
+    reason_for_default "scumbag"
   end
 end
