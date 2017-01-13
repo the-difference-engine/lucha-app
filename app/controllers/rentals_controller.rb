@@ -2,9 +2,10 @@ class RentalsController < ApplicationController
 	skip_before_action :authenticate_client!
 	respond_to :html, :json
 	
-	def index
-    @rental = Rental.where(client_id: params[:id])	
-	end
+	# XXX Not Used; Rentals is a has_one relationship; Client will never have many rentals 
+	# def index
+ #    @rentals = Rental.where(client_id: current_client.id)	
+	# end
 
 	def new
 		@rental = Rental.new
@@ -63,7 +64,7 @@ class RentalsController < ApplicationController
   	})
 
     if @rental.save
-    	ProgramEmployee.create({programable_id: @rental.id, programable_type: "Rental"})
+    	# ProgramEmployee.create({programable_id: @rental.id, programable_type: "Rental"})
 	    flash[:success] = ["You've completed the rental application"]
 	    redirect_to "/clients/#{@rental.client_id}/status"
     else

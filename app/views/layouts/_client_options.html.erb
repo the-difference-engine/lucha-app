@@ -10,7 +10,7 @@
   </li>
   <li>
 	  <%  if current_client.homebuying.blank? %>
-	      <%= link_to 'Homebuying Application', homebuying_intake_path(current_client.id) %>
+	      <%= link_to 'Homebuying Application', homebuying_intake_path %>
 	  <% else %>
 	  		<%= link_to 'View Homebuying App', homebuying_path(current_client.homebuying.id)  %>
 		<% end %>
