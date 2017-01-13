@@ -89,15 +89,16 @@ RSpec.describe ClientsController, type: :controller do
 
   describe "GET #assign" do
     before(:each) do
+      @user = FactoryGirl.create(:user)
       @client = FactoryGirl.create(:client)
-      sign_in @client
+      sign_in @user
     end
     # this test is not done, I am not sure how you want this user experence to work, once you figure it out you can update the method and then test it.
     it "Assigns a client to a user" do
-      # we want to assign a client id to a user
-      # patch :assign, id: @client.id
-      expect(response).to redirect_to(user_path(subject.current_user.id) )
-      expect(subject.request.flash[:success].first).to eq("Employee Assigned")
+      # we want to assign a user id to a client user_id
+      patch :assign, id: 1, client_id: 1
+      expect(subject.request.flash[:success]).to eq("Employee Assigned")
+      expect(response).to redirect_to("/users/#{@user.id}")
     end
   end
 
