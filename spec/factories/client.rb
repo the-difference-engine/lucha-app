@@ -4,6 +4,7 @@ FactoryGirl.define do
   end
 
   factory :client do
+    id 1
     first_name "Peter"
     last_name "Pan"
     sequence(:email){ |n| "peterpan#{n}@example.com" }
@@ -18,9 +19,17 @@ FactoryGirl.define do
     dob 19940301
     num_in_household 3
     num_of_dependants 1
+    sex "Male"
+    race "Hispanic/Latino"
+    education_level "GED"
+    estimated_household_income "$15,000 or Less"
+
 
     trait :invalid do
       email nil
     end
   end
+
+
+
 end
