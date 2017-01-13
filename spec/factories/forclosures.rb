@@ -14,6 +14,6 @@ FactoryGirl.define do
     working_with_lawyer true
     working_w_agency true
     agency "the best agency"
-    reason_for_default "scumbag"
+    reason_for_default "never lucky"
   end
 end

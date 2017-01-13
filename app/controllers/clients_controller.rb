@@ -46,7 +46,7 @@ class ClientsController < ApplicationController
   	@client = Client.new
   end
 
-  
+
 
   def edit
     @client = Client.find(params[:id].to_i)
@@ -118,10 +118,10 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:client_id])
     if @client.update(user_id: current_user.id, assign: true)
       flash[:success] = "Employee Assigned"
-      redirect_to "/users/#{current_user.id}"   
+      redirect_to "/users/#{current_user.id}"
     else
       flash[:warning] = @client.errors.full_messages
-      render :show  
+      render :show
     end
     client = Client.find(params[:id])
   end
