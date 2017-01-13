@@ -2,19 +2,27 @@ class BudgetsController < ApplicationController
   before_action :authenticate_client!
   respond_to :html, :json
 
-  def update
-    budget = current_client.budget
-    if params[:income]
-        form_params = income_params
-    elsif params[:debt]
-        form_params = debt_params
-    elsif params[:assets]
-        form_params = asset_params
-    end
+  def index
+  end
 
-    if budget.update(form_params)
-      budget.update(gross_monthly_income: sum_income) if params[:income]
-      budget.update(total_monthly_debt: sum_debt) if params[:debt]
+  def update
+    
+    binding.pry
+    budget = current_client.budget
+    # if params[:income]
+    #     form_params = income_params
+    # elsif params[:debt]
+    #     form_params = debt_params
+    # elsif params[:assets]
+    #     form_params = asset_params
+    # end
+
+    # if budget.update(form_params)
+    #   budget.update(gross_monthly_income: sum_income) if params[:income]
+    #   budget.update(total_monthly_debt: sum_debt) if params[:debt]
+    #   render json: { success: "yay! success you rock", budget: budget }.to_json
+    if budget.update(gross_wages: params[:gross_wages])
+
       render json: { success: "yay! success you rock", budget: budget }.to_json
     else
       render json: "failed".to_json, status: :unprocessable_entity

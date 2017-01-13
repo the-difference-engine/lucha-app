@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: foreclosures
+#
+#  id                       :integer          not null, primary key
+#  currently_foreclosed     :string
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  client_id                :integer
+#  originating_lender       :string
+#  original_loan_number     :string
+#  servicer                 :string
+#  servicer_loan_number     :string
+#  monthly_mortgage_payment :decimal(8, 2)
+#  loan_term                :integer
+#  origination_date         :date
+#  been_to_court            :boolean
+#  court_case_number        :string
+#  working_with_lawyer      :boolean
+#  working_w_agency         :boolean
+#  agency                   :string
+#  reason_for_default       :string
+#
+
 class Foreclosure < ActiveRecord::Base
   validates_uniqueness_of :client_id
   validates_presence_of :client
