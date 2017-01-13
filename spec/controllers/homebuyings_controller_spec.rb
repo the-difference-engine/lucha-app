@@ -19,6 +19,17 @@ RSpec.describe HomebuyingsController, type: :controller do
       get :index
       expect(response).to render_template :index
 		end
-
 	end
+
+    describe "new #GET" do
+      it "assigns a homebuying instance" do
+        get :new
+        expect(assigns(:homebuying)).to be_a_new(Homebuying)
+      end
+
+      it "renders new template" do
+        get :new
+        expect(response).to render_template :new
+      end
+    end
 end
