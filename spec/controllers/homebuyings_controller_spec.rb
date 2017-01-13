@@ -7,4 +7,5 @@ RSpec.describe HomebuyingsController, type: :controller do
 			client = create(:client)
 			p create(:homebuying, client_id: client.id)
 		end
+
 end
