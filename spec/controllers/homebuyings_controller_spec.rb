@@ -36,7 +36,7 @@ RSpec.describe HomebuyingsController, type: :controller do
     end
   end
 
-  describe "create #GET" do
+  describe "create #POST" do
     describe "properly assigns id based on users status" do
       before :each do
         @some_client = create(:client)
