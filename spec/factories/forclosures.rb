@@ -1,14 +1,14 @@
 FactoryGirl.define do
-  factory :forclosure do
+  factory :foreclosure do
     currently_foreclosed "stuff"
-    cliend_id 3
+    client
     originating_lender "bob"
     original_loan_number "3276"
     servicer "verizon"
-    ervicer_loan_number "3765"
+    servicer_loan_number "3765"
     monthly_mortgage_payment 345.51
     loan_term 3
-    origination_date 20140931
+    origination_date "11/09/2007"
     been_to_court true
     court_case_number "921"
     working_with_lawyer true

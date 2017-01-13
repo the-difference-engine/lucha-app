@@ -6,7 +6,8 @@ FactoryGirl.define do
   factory :client do
     first_name "Peter"
     last_name "Pan"
-    email "peterpan@example.com"
+    user
+    sequence(:email){ |n| "peterpan#{n}@example.com"}
     password "12345678"
     password_confirmation "12345678"
     authorization_and_waiver true

@@ -1,30 +1,26 @@
 class ForeclosuresController < ApplicationController
-  # skip_before_action :authenticate_client!
+  before_action :authenticate_user!, only: [:index]
+
   respond_to :html, :json, :csv
 
   def index
-    if current_user
-
-
-      @foreclosures = current_user.clients.last.foreclosures
+      @foreclosures = Foreclosure.all
 
       respond_to do |format|
         format.html
-        format.csv { send_data @foreclosures.to_csv }
-        format.xls { send_data @foreclosures.to_csv(col_sep: "\t") }
+        format.csv { send_data @foreclosures.to_csv } #untested
+        format.xls { send_data @foreclosures.to_csv(col_sep: "\t") } #untested
       end
-
-    end
   end
 
- def new
-  @foreclosure = Foreclosure.new
-end
+  def new
+    @foreclosure = Foreclosure.new
+  end
 
-def search
-  @client = Client.where("first_name LIKE ? OR last_name LIKE ? OR address LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-  render :index
-end
+  def search
+    @client = Client.where("first_name LIKE ? OR last_name LIKE ? OR address LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    render :index
+  end
 
 
 def create

@@ -7,11 +7,7 @@ class ApplicationController < ActionController::Base
 
 
   def authenticate_user!
-    if current_user 
-      redirect_to employee_index_path
-    elsif current_client
-      redirect_to client_edit_path
-    else
+    if !current_user
       redirect_to "/"
     end
   end
@@ -30,14 +26,14 @@ class ApplicationController < ActionController::Base
   end
 
   def clients_controller?
-    self.class == ClientsController    
+    self.class == ClientsController
   end
-    
+
 
   def authenticate_employee!
     # unless current_user
-    #   redirect_to new_user_session_path 
-    #   flash[:warning] = "Not an employee."  
+    #   redirect_to new_user_session_path
+    #   flash[:warning] = "Not an employee."
     # end
 	end
 

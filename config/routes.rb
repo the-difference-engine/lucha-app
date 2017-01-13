@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "clients/registrations"}, :except => [:new_client_session, :client_session]
   devise_for :clients, controllers: { registrations: "client/registrations"}, :except => [:new_client_session, :client_session]
   devise_scope :client do
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
 
- 
+
 
   get '/clients' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
@@ -41,8 +41,6 @@ Rails.application.routes.draw do
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
   patch '/clients_assign/:id' => 'clients#assign', as: :client_assign
 
-  # redundant routes
-  # resources :clients
 
   get '/notes/:id/edit' => 'notes#edit', as: :notes_edit
   patch '/notes/:id' => 'notes#update', as: :note_update
