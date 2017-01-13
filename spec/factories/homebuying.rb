@@ -16,7 +16,6 @@ FactoryGirl.define do
     loan_officer_phone "123-456-7890"
     payment_assistance_program "liheap"
     approx_closing_date Date.current + 1
-
   end
 
 end
