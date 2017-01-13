@@ -1,7 +1,8 @@
 FactoryGirl.define do
+
   factory :homebuying do
     lender "bunk_mortgage"
-    client_id 1
+    client
     hear_of_workshop "internet"
     contact_for_appointment [true, false].sample
     real_estate_contract [true, false].sample
@@ -14,7 +15,7 @@ FactoryGirl.define do
     loan_officer_email "John@email.com"
     loan_officer_phone "123-456-7890"
     payment_assistance_program "liheap"
-    approx_closing_date Date.current
+    approx_closing_date Date.current + 1
 
   end
 
