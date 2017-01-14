@@ -47,7 +47,7 @@ class HomebuyingsController < ApplicationController
     if client_signed_in?
       @homebuying = current_client.homebuying
     elsif user_signed_in?
-      @forelosure = Homebuying.find(params[:id])
+      @foreclosure = Homebuying.find(params[:id])
     end
     @homebuying
   end

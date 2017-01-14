@@ -117,4 +117,29 @@ RSpec.describe HomebuyingsController, type: :controller do
       end
     end
   end
+
+  describe "edit #GET" do
+    context "client signed in" do
+      it "assigns a homebuying to @homebuying" do
+        some_client = create(:client)
+        some_homebuying = create(:homebuying, client_id: some_client.id)
+        sign_in some_client
+        get :edit, id: some_homebuying
+        expect(assigns(:homebuying)).to eq(some_client.homebuying)
+      end
+    end
+    context "user signed in" do
+      it "assigns a homebuying to @foreclosure" do
+        some_user = create(:user)
+        some_homebuying = create(:homebuying)
+        sign_in some_user
+        get :edit, id: some_homebuying
+        expect(assigns(:foreclosure)).to eq(some_homebuying)
+      end
+    end
+    it "renders the #edit template" do
+      get :edit, id: create(:homebuying)
+      expect(response).to render_template :edit
+    end
+  end
 end
