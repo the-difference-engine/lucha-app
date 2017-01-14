@@ -44,16 +44,14 @@ class HomebuyingsController < ApplicationController
 
 
   def edit
-    if client_signed_in?
+    if current_client
       @homebuying = current_client.homebuying
-    elsif user_signed_in?
+    elsif current_user
       @foreclosure = Homebuying.find(params[:id])
     end
-    @homebuying
   end
 
   def update
-
     if current_client
       @homebuying = current_client.homebuying
     elsif current_user

@@ -142,4 +142,19 @@ RSpec.describe HomebuyingsController, type: :controller do
       expect(response).to render_template :edit
     end
   end
+
+  describe "show #GET" do
+    before :each do
+      @this_homebuying = create(:homebuying)
+    end
+    it "assigns a homebuying instance" do
+      get :show, id: @this_homebuying
+      expect(assigns(:homebuying)).to eq(@this_homebuying)
+    end
+
+    it "renders new template" do
+      get :show, id: @this_homebuying
+      expect(response).to render_template :show
+    end
+  end
 end
