@@ -87,13 +87,18 @@ RSpec.describe HomebuyingsController, type: :controller do
           @this_client = create(:client)
           sign_in @this_client
         end
-        it "updates the flash hash with succuss message" do
+        it "updates the flash hash with success message" do
           post :create, attributes_for(:homebuying)
           expect(flash[:success]).to be_present
         end
         it "redirects to the client status page" do
           post :create, attributes_for(:homebuying)
           expect(response).to redirect_to("/clients/#{@this_client.id}/status")
+        end
+        it "saves a new homebuying to the database" do
+          expect{
+            post :create, attributes_for(:homebuying)
+          }.to change(Homebuying, :count).by(1)
         end
       end
 
@@ -231,6 +236,30 @@ RSpec.describe HomebuyingsController, type: :controller do
           )
         expect(response).to render_template :edit
       end
+    end
+  end
+
+  # DESTROY
+  describe "destroy #DELETE" do
+    before :each do
+      @homebuying = create(:homebuying)
+    end
+    it "locates the homebuying to be deleted" do
+      delete :destroy, id: @homebuying.id
+      expect(assigns(:homebuying)).to eq(@homebuying)
+    end
+    it "deletes the homebuying" do
+      expect{
+        delete :destroy, id: @homebuying.id
+      }.to change(Homebuying, :count).by(-1)
+    end
+    it "updates the flash has with a danger message" do
+      delete :destroy, id: @homebuying.id
+      expect(flash[:danger]).to be_present
+    end
+    it "redirects to the clients status page" do
+      delete :destroy, id: @homebuying.id
+      expect(response).to redirect_to("/clients/#{@homebuying.client.id}/status")
     end
   end
 end

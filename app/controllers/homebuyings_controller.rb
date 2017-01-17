@@ -69,7 +69,7 @@ class HomebuyingsController < ApplicationController
     @homebuying = Homebuying.find(params[:id])
     @homebuying.destroy
     flash[:danger] = "Homebuying application deleted."
-    redirect_to "/clients/#{params[:id]}/status"
+    redirect_to "/clients/#{@homebuying.client.id}/status"
   end
 
   private
