@@ -29,7 +29,7 @@ FactoryGirl.define do
     employer_address "1"
     employer_city "1"
     employer_state "1"
-    employer_phone "1"
+    employer_phone "773-555-5555"
     position "1"
     length_employed 10
     personal_reference_name "1"
@@ -42,5 +42,9 @@ FactoryGirl.define do
     homeless "1"
     over_fifty_percent true
     agree_to_fee true
+
+    trait :invalid do
+      employer_phone "1"
+    end
   end
 end

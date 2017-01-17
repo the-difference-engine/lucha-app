@@ -16,6 +16,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_client!
+    unless current_client
+      flash[:notice] = "Unathenticated Client!"
+      redirect_to "/"
+    end
+  end
+
 
   def set_locale
     I18n.locale = params[:locale] if params[:locale].present?
