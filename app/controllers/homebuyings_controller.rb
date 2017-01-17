@@ -54,19 +54,18 @@ class HomebuyingsController < ApplicationController
   end
 
   def update
-    @homebuying = current_client.homebuying if current_client
     @homebuying = Homebuying.find(params[:id]) if current_user
+    @homebuying = current_client.homebuying if current_client
 
     if @homebuying.update(homebuying_params)
       flash[:success] = "homebuying application submitted."
-      redirect_to '/clients/#{@homebuying.client_id}'
+      redirect_to "/clients/#{@homebuying.client_id}"
     else
       render :edit
     end
   end
 
   def destroy
-
     @homebuying = Homebuying.find(params[:id])
     @homebuying.destroy
     flash[:danger] = "Homebuying application deleted."
@@ -90,7 +89,7 @@ class HomebuyingsController < ApplicationController
       :loan_officer_email,
       :loan_officer_phone,
       :payment_assistance_program,
-      :approx_closing_date
+      :approx_closing_date,
     )
   end
 end
