@@ -6,7 +6,7 @@ RSpec.describe RentalsController, type: :controller do
   describe 'GET #new' do
     context "current_client signed in" do
       before(:each) do
-        @client = FactoryGirl.create(:client)
+        @client = create(:client)
         sign_in @client
       end
       it "assigns a new Rental to @rental" do
@@ -20,7 +20,7 @@ RSpec.describe RentalsController, type: :controller do
     end
     context "current_user signed in" do
       before(:each) do
-        @user = FactoryGirl.create(:user)
+        @user = create(:user)
         sign_in @user
       end
       it "redirects user to root" do
@@ -32,8 +32,8 @@ RSpec.describe RentalsController, type: :controller do
 
   describe 'POST #create' do
     before(:each) do
-      @client = FactoryGirl.create(:client)
-      @user = FactoryGirl.create(:user)
+      @client = create(:client)
+      @user = create(:user)
     end
     context "current_client signed in" do
       before(:each) do
@@ -49,16 +49,16 @@ RSpec.describe RentalsController, type: :controller do
         sign_in @client
       end
       it "saves the new rental in the database" do
-        post :create, FactoryGirl.attributes_for(:rental)
-        rentals = Rental.all
-        expect(rentals.length).to eq(1)
+        expect {
+          post :create, attributes_for(:rental)
+        }.to change(Rental,:count).by(1)
       end
       it "has a success flash message" do
         post :create, attributes_for(:rental)
         expect(flash[:success]).to be_present
       end
       it "redirects to clients#status" do
-        post :create, FactoryGirl.attributes_for(:rental)
+        post :create, attributes_for(:rental)
         expect(response).to redirect_to "/clients/#{@client.id}/status"
       end
     end
@@ -67,16 +67,16 @@ RSpec.describe RentalsController, type: :controller do
         sign_in @client
       end
       it "does not save the new rental in the database" do
-        post :create, FactoryGirl.attributes_for(:rental, :invalid)
-        rentals = Rental.all
-        expect(rentals.length).to eq(0)
+        expect {
+          post :create, attributes_for(:rental, :invalid)
+        }.to change(Rental,:count).by(0)
       end
       it "has a danger flash message" do
         post :create, attributes_for(:rental, :invalid)
         expect(flash[:danger]).to be_present
       end
       it "renders the rentals/new template" do
-        post :create, FactoryGirl.attributes_for(:rental, :invalid)
+        post :create, attributes_for(:rental, :invalid)
         expect(response).to render_template :new
       end
     end

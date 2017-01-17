@@ -7,7 +7,6 @@ class BudgetsController < ApplicationController
 
   def update
     
-    # binding.pry
     budget = current_client.budget
     # if params[:income]
     #     form_params = income_params
