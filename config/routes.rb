@@ -82,7 +82,6 @@ Rails.application.routes.draw do
   # delete '/law_projects/:id' => 'law_projects#destroy', as: :law_project_delete
 
 
-  # XXX; get '/rentals' =>'rentals#index', as: :rentals
   get '/rentals/new' => 'rentals#new', as: :rental_intake
   post '/rentals/create' => 'rentals#create', as: :rental_create
   get '/rentals/:id' => 'rentals#show', as: :rental

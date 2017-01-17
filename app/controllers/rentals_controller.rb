@@ -8,7 +8,7 @@ class RentalsController < ApplicationController
 
 	def create
 		@id = current_client.id
-	  @rental = Rental.new(rental_params.merge(client_id: @id))
+		@rental = Rental.new(rental_params.merge(client_id: @id))
 
     if @rental.save
 	    flash[:success] = ["You've completed the rental application"]
