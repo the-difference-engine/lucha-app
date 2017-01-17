@@ -7,7 +7,7 @@ FactoryGirl.define do
     id 1
     first_name "Peter"
     last_name "Pan"
-    email "peterpan@example.com"
+    sequence(:email){ |n| "peterpan#{n}@example.com" }
     password "12345678"
     password_confirmation "12345678"
     authorization_and_waiver true
