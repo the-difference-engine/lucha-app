@@ -106,10 +106,9 @@ class ForeclosuresController < ApplicationController
     @foreclosure.destroy
     flash[:danger] = "Foreclosure application deleted."
     redirect_to "/clients/#{params[:id]}/status"
-
   end
 
-  private
+private
 
   def foreclosure_params
     params.require(:foreclosure).permit(

@@ -238,6 +238,27 @@ RSpec.describe ForeclosuresController, type: :controller do
     end
   end
 
-  describe "destroy #GET" do
+  # DESTROY
+  describe "destroy #DELETE" do
+    before :each do
+      @foreclosure = create(:foreclosure)
+    end
+    it "locates the foreclosure to be deleted" do
+      delete :destroy, id: @foreclosure.id
+      expect(assigns(:foreclosure)).to eq(@foreclosure)
+    end
+    it "deletes the foreclosure" do
+      expect {
+        delete :destroy, id: @foreclosure.id
+      }.to change(Foreclosure, :count).by(-1)
+    end
+    it "updates the flash has with a danger message" do
+      delete :destroy, id: @foreclosure.id
+      expect(flash[:danger]).to be_present
+    end
+    it "redirects to the clients status page" do
+      delete :destroy, id: @foreclosure.id
+      expect(response).to redirect_to("/clients/#{@foreclosure.id}/status")
+    end
   end
 end
