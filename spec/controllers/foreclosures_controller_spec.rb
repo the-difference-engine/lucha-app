@@ -158,7 +158,84 @@ RSpec.describe ForeclosuresController, type: :controller do
     end
   end
 
-  describe "update #GET" do
+  describe "update #PATCH" do
+
+    before :each do
+      @client = create(:client)
+      @foreclosure = create(:foreclosure, client_id: @client.id)
+    end
+
+    context "current_user logged in" do
+      it "locates the requested @foreclosure" do
+        sign_in create(:user)
+        put :update, id: @foreclosure, foreclosure: attributes_for(:foreclosure)
+        expect(assigns(:foreclosure)).to eq(@foreclosure)
+      end
+      it "updates the requested @foreclosure" do
+        sign_in create(:user)
+        put :update, id: @foreclosure,
+          foreclosure: attributes_for(:foreclosure,
+            originating_lender: "bob",
+            servicer: "verizon",
+          )
+        @foreclosure.reload
+        expect(@foreclosure.originating_lender).to eq('bob')
+        expect(@foreclosure.servicer).to eq('verizon')
+      end
+    end
+
+    context "current_client logged in" do
+      it "locates the client's @foreclosure" do
+        sign_in @client
+        put :update, id: @foreclosure, foreclosure: attributes_for(:foreclosure)
+        expect(assigns(:foreclosure)).to eq(@client.foreclosure)
+      end
+      it "updates the clients foreclosure" do
+        sign_in @client
+        put :update, id: @client.foreclosure,
+          foreclosure: attributes_for(:foreclosure,
+            originating_lender: "bob",
+            servicer: "verizon",
+          )
+        @client.foreclosure.reload
+        expect(@client.foreclosure.originating_lender).to eq('bob')
+        expect(@client.foreclosure.servicer).to eq('verizon')
+      end
+    end
+    context "successfully updates the foreclosure" do
+      it "updates the flash hash with a success message" do
+        sign_in @client
+        put :update, id: @client.foreclosure,
+          foreclosure: attributes_for(:foreclosure,
+            originating_lender: "aquaman",
+            servicer: "comcast",
+          )
+        expect(flash[:success]).to be_present
+      end
+
+      it "redirects to that clients status page" do
+        sign_in @client
+        put :update, id: @client.foreclosure,
+          foreclosure: attributes_for(:foreclosure,
+            originating_lender: "aquaman",
+            servicer: "comcast",
+          )
+        expect(response).to redirect_to("/clients/#{@foreclosure.client_id}")
+      end
+    end
+
+    context "fails to update the foreclosure" do
+      it "rerenders the edit page" do
+        sign_in @client
+        Foreclosure.any_instance.stub(save: false)
+        put :update, id: @client.foreclosure,
+          foreclosure: attributes_for(:foreclosure,
+            originating_lender: "bob",
+            servicer: "verizon",
+          )
+        expect(response).to render_template :edit
+      end
+    end
   end
 
   describe "destroy #GET" do

@@ -67,33 +67,38 @@ class ForeclosuresController < ApplicationController
   end
 
   def update
-    if current_client
-      @foreclosure = Foreclosure.find_by(client_id: current_client.id)
-    elsif current_user
-      @foreclosure = Foreclosure.where(client_id: params[:id])
-    end
 
-    @foreclosure = Foreclosure.where(client_id: current_client.id)[0]
-    if @foreclosure.update({
-      currently_foreclosed: params[:currently_foreclosed],
-      originating_lender: params[:originating_lender],
-      original_loan_number: params[:original_loan_number],
-      servicer: params[:servicer],
-      servicer_loan_number: params[:servicer_loan_number],
-      monthly_mortgage_payment: params[:monthly_mortgage_payment],
-      loan_term: params[:loan_term],
-      origination_date: params[:origination_date],
-      been_to_court: params[:been_to_court],
-      court_case_number: params[:court_case_number] ,
-      working_with_lawyer: params[:working_with_lawyer],
-      working_w_agency: params[:working_w_agency],
-      agency: params[:agency]
-      })
-    flash[:success] = "Foreclosure application submitted."
-    redirect_to '/clients/#{@foreclosure.client_id}'
-  else
-    render :edit
-  end
+    @foreclosure = current_client.foreclosure if current_client
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
+    # binding.pry
+    if @foreclosure.update_attributes(foreclosure_params)
+      flash[:success] = "Foreclosure application submitted."
+      redirect_to "/clients/#{@foreclosure.client_id}"
+    else
+      render :edit
+    end
+    # if @foreclosure.update({
+    #     currently_foreclosed: params[:currently_foreclosed],
+    #     originating_lender: params[:originating_lender],
+    #     original_loan_number: params[:original_loan_number],
+    #     servicer: params[:servicer],
+    #     servicer_loan_number: params[:servicer_loan_number],
+    #     monthly_mortgage_payment: params[:monthly_mortgage_payment],
+    #     loan_term: params[:loan_term],
+    #     origination_date: params[:origination_date],
+    #     been_to_court: params[:been_to_court],
+    #     court_case_number: params[:court_case_number] ,
+    #     working_with_lawyer: params[:working_with_lawyer],
+    #     working_w_agency: params[:working_w_agency],
+    #     agency: params[:agency],
+    #     reason_for_default: params[:reason_for_default]
+    #   })
+    #   flash[:success] = "Foreclosure application submitted."
+    #   redirect_to '/clients/#{@foreclosure.client_id}'
+    # else
+    #   render :edit
+    # end
+
   end
 
   def destroy
