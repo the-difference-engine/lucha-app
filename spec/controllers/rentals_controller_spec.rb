@@ -108,6 +108,71 @@ RSpec.describe RentalsController, type: :controller do
     end
   end
 
+  describe "update #PATCH" do
+    before :each do
+      @client = create(:client)
+      @rental = create(:rental, client_id: @client.id)
+    end
+    context "current_user logged in" do
+      it "locates the requested @rental" do
+        sign_in create(:user)
+        put :update, id: @client.id, rental: attributes_for(:rental)
+        expect(assigns(:rental)).to eq(@rental)
+      end
+      it "updates the requested @rental" do
+        sign_in create(:user)
+        @rental.update(employer_name:'Joe Smith', employer_city: 'Palatine')
+        expect(@rental.employer_name).to eq('Joe Smith')
+        expect(@rental.employer_city).to eq('Palatine')
+      end
+    end
+    context "current_client logged in" do
+      it "locates the client's @rental" do
+        sign_in @client
+        put :update, id: @rental, rental: attributes_for(:rental)
+        expect(assigns(:rental)).to eq(@client.rental)
+      end
+      it "updates the clients rental" do
+        sign_in @client
+        @rental.update(employer_name:'Joe Smith', employer_city: 'Palatine')
+        expect(@client.rental.employer_name).to eq('Joe Smith')
+        expect(@client.rental.employer_city).to eq('Palatine')
+      end
+    end
+    context "successfully updates the Rental" do
+      it "updates the flash hash with a success message" do
+        sign_in @client
+        put :update, id: @client.rental,
+          rental: attributes_for(:rental,
+            employer_name: 'Joe Smith',
+            employer_city: 'Palatine',
+          )
+        expect(flash[:success]).to be_present
+      end
+      it "redirects to that clients status page" do
+        sign_in @client
+        put :update, id: @client.rental,
+          rental: attributes_for(:rental,
+            employer_name: 'Joe Smith',
+            employer_city: 'Palatine',
+          )
+        expect(response).to redirect_to("/clients/#{@client.id}")
+      end
+    end
+    context "fails to update the rental" do
+      it "rerenders the edit page" do
+        sign_in @client
+        Rental.any_instance.stub(save: false)
+        put :update, id: @client.rental,
+          rental: attributes_for(:rental,
+            employer_name: 'Joe Smith',
+            employer_city: 'Palatine',
+          )
+        expect(response).to render_template :edit
+      end
+    end
+  end
+
   describe "show #GET" do
     before :each do
       client = create(:client)

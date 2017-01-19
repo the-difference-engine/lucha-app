@@ -26,20 +26,19 @@ class RentalsController < ApplicationController
 	def edit
 		if client_signed_in?
 			@rental = current_client.rental
-    elsif user_signed_in?
-      @rental = Rental.find(params[:id])
-    end
+    	elsif user_signed_in?
+     		@rental = Rental.find(params[:id])
+    	end
 	end
 
 	def update
-    if current_client
-      @rental = Rental.find_by(client_id: current_client.id)
-    elsif current_user
-      @rental = Rental.where(client_id: params[:id])
-    end
+	    if current_client
+	     	@rental = Rental.find_by(client_id: current_client.id)
+	    elsif current_user
+	     	@rental = Rental.find_by(client_id: params[:id])
+	    end
 
-		@rental = Rental.where(client_id: params[:id])
-		if @rental.update(rental_params)
+		if @rental.update(rental_params.merge(client_id: @rental.client_id))
 			flash[:success] = "rental application submitted."
 			redirect_to "/clients/#{@rental.client_id}"
 		else
