@@ -57,7 +57,6 @@ class ForeclosuresController < ApplicationController
     @foreclosure = Foreclosure.find(params[:id])
   end
 
-
   def edit
     if client_signed_in?
       @foreclosure = current_client.foreclosure
@@ -66,8 +65,8 @@ class ForeclosuresController < ApplicationController
     end
   end
 
-  def update
 
+  def update
     @foreclosure = current_client.foreclosure if current_client
     @foreclosure = Foreclosure.find(params[:id]) if current_user
 

@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   patch '/clients/:id' => 'clients#update', as: :client_update
   get '/clients/:id/status' => 'clients#status', as: :client_status
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
-  patch '/clients_assign/:id' => 'clients#assign', as: :client_assign
+  patch '/clients/:id/assign' => 'clients#assign', as: :client_assign
 
 
   get '/notes/:id/edit' => 'notes#edit', as: :notes_edit

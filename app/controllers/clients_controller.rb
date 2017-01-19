@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   before_action :authenticate_current_client!, :only => [:index, :show, :edit, :update, :destroy]
   respond_to :html, :json
 
-	def index
+  def index
     @employee = User.all
     @clients = Client.all
     @foreclosures = Foreclosure.all
@@ -43,7 +43,7 @@ class ClientsController < ApplicationController
   end
 
   def new
-  	@client = Client.new
+    @client = Client.new
   end
 
 
