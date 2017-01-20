@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_current_client!, :only => [:index, :show, :edit, :update, :destroy]
+  before_action :authenticate!, :only => [:index, :show, :update, :edit,]
+  before_action :authenticate_user!, :only => [:destroy,]
   respond_to :html, :json
 
   def index
@@ -49,7 +50,7 @@ class ClientsController < ApplicationController
 
 
   def edit
-    @client = Client.find(params[:id].to_i)
+    @client = Client.find(params[:id])
     if client_signed_in?
       @client = current_client
     end
