@@ -5,23 +5,84 @@ RSpec.describe ClientsController, type: :controller do
   include Devise::TestHelpers
 
 
+  # INDEX
+  describe "index #GET" do
+    it "assigns an array of @users" do
+      @user = create(:user)
+      sign_in @user
+      user1 = create(:user)
+      user2 = create(:user)
+      user3 = create(:user)
+      get :index
+      expect(assigns(:users)).to match_array([
+        @user,
+        user1,
+        user2,
+        user3,
+      ])
+    end
+
+    it "assigns an array of @clients" do 
+      @client = create(:client)
+      sign_in @client
+      client1 = create(:client)
+      client2 = create(:client)
+      client3 = create(:client)
+      get :index
+      expect(assigns(:clients)).to match_array([
+        @client,
+        client1,
+        client2,
+        client3,
+      ])
+    end
+
+    it "assigns an array of @foreclosures" do 
+      @user = create(:user)
+      sign_in @user
+      @foreclosure = create(:foreclosure)
+      foreclosure1 = create(:foreclosure)
+      foreclosure2 = create(:foreclosure)
+      foreclosure3 = create(:foreclosure)
+      get :index
+      expect(assigns(:foreclosures)).to match_array([
+        @foreclosure,
+        foreclosure1,
+        foreclosure2,
+        foreclosure3,
+      ])
+    end
+
+    it "renders index template" do
+      @user = create(:user)
+      sign_in @user
+      get :index
+      expect(response).to render_template :index
+    end
+
+
+    # This is currently not working some research may be required
+    xit "returns a CSV file" do 
+      @client = create(:client)
+      get :index, format: :csv
+      expect(response.header['Content-Type']).to include 'text/csv'
+    end
+  end
+
+
 # testing note create action
   describe "POST #note_create" do
 
     it "creates a new note for the client" do
       login_user
       @client = create(:client)
-      params = {
-        description: "Test description",
-        client_id: @client.id
-      }
 
-      post :note_create, id: @client.id, note: params
+      post :note_create, id: @client.id, description: "Test description"
       note = Note.last
 
       expect(Note.all.size).to eq(1)
       expect(note.description).to eq("Test description")
-      expect(response).to redirect_to client
+      expect(response).to redirect_to "/clients/#{@client.id}"
       expect(subject.request.flash[:success].first).to eq("Note added.")
     end
   end

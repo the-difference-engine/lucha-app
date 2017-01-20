@@ -1,17 +1,17 @@
 class ClientsController < ApplicationController
   before_action :authenticate!, :only => [:index, :show, :update, :edit,]
   before_action :authenticate_user!, :only => [:destroy,]
-  respond_to :html, :json
+  
 
   def index
-    @employee = User.all
+    @users = User.all
     @clients = Client.all
     @foreclosures = Foreclosure.all
 
     respond_to do |format|
       format.json
       format.html
-      format.csv { send_data @clients.to_csv }
+      format.csv { send_data @clients.to_csv, type: 'text/csv' }
       format.xls  { send_data @clients.to_csv(col_sep: "\t") }
     end
 
@@ -23,9 +23,9 @@ class ClientsController < ApplicationController
     # notes/1/edit => for edit
     # clients/1 => is the route for making new notes
     # you will have to modify both views
-    @client = params[:id]
-    params["note"]["user_id"] = current_user.id
-    note = Note.new(note_params)
+    @client = Client.find(params[:id])
+    note = Note.create(user_id: current_user.id, client_id: @client.id, description: params[:description])
+    p note
     if note.save!
       flash[:success] = ['Note added.']
       redirect_to client_path(@client)
