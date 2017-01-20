@@ -4,7 +4,6 @@ FactoryGirl.define do
   end
 
   factory :client do
-    id 1
     first_name "Peter"
     last_name "Pan"
     sequence(:email){ |n| "peterpan#{n}@example.com" }

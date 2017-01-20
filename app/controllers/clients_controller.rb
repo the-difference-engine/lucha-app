@@ -102,29 +102,12 @@ class ClientsController < ApplicationController
   end
 
   def assign
-    ## I wrote this test assuming that the user is the one to assign a client to a user
- ## I can't find where this is called, however this is something we need, again I don't think this is the right place for this. a client should be passed in and the two attributes updated, why @employee is set?? have no idea...
-## See my note in the clients_controller_spec.rb
-
-    @employee = User.all
-    # @foreclosure = Foreclosure.all
-    # @homebuyer = Homebuying.all
-
-    # @case = ProgramEmployee.new({
-    #   user_id: current_user.id,
-    #   programable_id: params[:programable_id],
-    #   programable_type: params[:programable_type]
-    #   })
-    @client = Client.find(params[:client_id])
-    if @client.update(user_id: current_user.id, assign: true)
-      flash[:success] = "Employee Assigned"
-      redirect_to "/users/#{current_user.id}"
-    else
-      flash[:warning] = @client.errors.full_messages
-      p @client.errors.full_messages
-      render :show
-    end
     client = Client.find(params[:id])
+    p client
+    client.update(user_id: current_user.id)
+    p client.valid?
+    flash[:success] = "Employee Assigned"
+    redirect_to "/users/#{current_user.id}"
   end
 
   private
@@ -135,33 +118,34 @@ class ClientsController < ApplicationController
 
   def client_params
     params.require(:client).permit(
-                                    :first_name,
-                                    :last_name,
-                                    :home_phone,
-                                    :cell_phone,
-                                    :work_phone,
-                                    :address,
-                                    :state,
-                                    :city,
-                                    :zip_code,
-                                    :ward,
-                                    :sex,
-                                    :race,
-                                    :ssn,
-                                    :preferred_contact_method,
-                                    :preferred_language,
-                                    :marital_status,
-                                    :dob,
-                                    :head_of_household,
-                                    :num_in_household,
-                                    :num_of_dependants,
-                                    :education_level,
-                                    :estimated_household_income,
-                                    :disability,
-                                    :union_member,
-                                    :military_service_member,
-                                    :volunteer_interest
-                                  )
+      :first_name,
+      :last_name,
+      :home_phone,
+      :cell_phone,
+      :work_phone,
+      :address,
+      :state,
+      :city,
+      :zip_code,
+      :ward,
+      :sex,
+      :race,
+      :ssn,
+      :preferred_contact_method,
+      :preferred_language,
+      :marital_status,
+      :dob,
+      :head_of_household,
+      :num_in_household,
+      :num_of_dependants,
+      :education_level,
+      :estimated_household_income,
+      :disability,
+      :union_member,
+      :military_service_member,
+      :volunteer_interest,
+      :user_id
+    )
   end
 
 end

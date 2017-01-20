@@ -9,13 +9,13 @@ RSpec.describe ClientsController, type: :controller do
 
     xit "creates a new note for the client" do
       login_user
-      client = create(:client)
+      @client = create(:client)
       params = {
         description: "Test description",
-        client_id: client.id
+        client_id: @client.id
       }
 
-      post :note_create, id: client.id, note: params
+      post :note_create, id: @client.id, note: params
       note = Note.last
 
       expect(Note.all.size).to eq(1)
@@ -57,13 +57,13 @@ RSpec.describe ClientsController, type: :controller do
           marital_status: "Single",
           dob: 19940301,
           num_in_household: 3,
-          num_of_dependants: 1
+          num_of_dependants: 1,
         }
 
         patch :update, id: @client.id, client: params
-        updated_client = Client.find_by(email: "peterpan@example.com")
+        @client.reload
 
-        expect(updated_client.first_name).to eq("Test")
+        expect(@client.first_name).to eq("Test")
         # expect(updated_client.last_name).to eq("Name")
         # expect(response).to redirect_to updated_client
         # expect(subject.request.flash[:success].first).to eq("Your info is updated.")
@@ -89,16 +89,14 @@ RSpec.describe ClientsController, type: :controller do
 
   describe "GET #assign" do
     before(:each) do
-      @user = FactoryGirl.create(:user)
-      @client = FactoryGirl.create(:client)
+      @user = create(:user)
+      @client = create(:client)
       sign_in @user
     end
-    # this test is not done, I am not sure how you want this user experence to work, once you figure it out you can update the method and then test it.
     it "Assigns a client to a user" do
-      # we want to assign a user id to a client user_id
-      patch :assign, id: 1, client_id: 1
-      expect(subject.request.flash[:success]).to eq("Employee Assigned")
-      expect(response).to redirect_to("/users/#{@user.id}")
+      put :assign, id: @client.id
+      @client.reload
+      expect(@client.user_id).to eq(@user.id)
     end
   end
 
