@@ -25,17 +25,28 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "finds an array of clients based on user id" do
-      sign_in @this_user
       client1 = create(:client, user_id: @this_user.id)
       client2 = create(:client, user_id: @this_user.id)
       get :show, id: @this_user
       expect(assigns(:clients)).to match_array([client1, client2])
     end
 
-    it "renders show template" do
+    it "renders :show template" do
       get :show, id: @this_user
       expect(response).to render_template :show
     end
+  end
+
+  describe "Get #new" do
+    it "creates a user instance" do
+      get :new
+      expect(assigns(:user)).to be_a_new(User)
+    end
+
+    it "renders a :new template" do
+      get :new
+      expect(response).to render_template :new
+    end  
   end
 #   describe "GET #index" do
 #     it "returns http success" do
