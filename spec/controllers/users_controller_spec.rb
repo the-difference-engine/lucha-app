@@ -12,6 +12,11 @@ RSpec.describe UsersController, type: :controller do
         expect(assigns(:clients)).to match_array([client1, client2])
       end
     end
+
+    it "renders an :index template" do
+      get :index
+      expect(response).to render_template :index
+    end  
   end
 
   describe "Get #show" do
