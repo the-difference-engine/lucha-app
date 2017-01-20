@@ -4,7 +4,7 @@ FactoryGirl.define do
   end
 
   factory :client do
-    id 1
+    sequence(:id){ |n| n }
     first_name "Peter"
     last_name "Pan"
     user
