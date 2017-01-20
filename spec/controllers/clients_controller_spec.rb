@@ -5,9 +5,10 @@ RSpec.describe ClientsController, type: :controller do
   include Devise::TestHelpers
 
 
+# testing note create action
   describe "POST #note_create" do
 
-    xit "creates a new note for the client" do
+    it "creates a new note for the client" do
       login_user
       @client = create(:client)
       params = {
@@ -23,7 +24,6 @@ RSpec.describe ClientsController, type: :controller do
       expect(response).to redirect_to client
       expect(subject.request.flash[:success].first).to eq("Note added.")
     end
-
   end
 
   describe "PATCH update" do
@@ -37,7 +37,6 @@ RSpec.describe ClientsController, type: :controller do
         patch :update, id: @client.id, client: attributes_for(:client)
         expect(assigns(:client)).to eq(@client)
       end
-
       it "updates an existing client" do
         params = {
           first_name: "Test",
@@ -72,18 +71,42 @@ RSpec.describe ClientsController, type: :controller do
   end
 
   describe "GET #destroy" do
-    xit "deletes a note" do
+
+    it "destroys a note for a user" do
       login_user
-      updated_client = create(:client,
-                      user_id: subject.current_user.id)
-      note = create(:note,
-                    user_id: subject.current_user.id,
-                    client_id: client.id)
+      client = create(:client)
+      params = {
+        description: "Test description",
+        client_id: client.id
+      }
+
+      post :note_create, id: client.id, note: params
+      note = Note.last
+
       expect(Note.all.size).to eq(1)
       get :destroy, id: note.id
       expect(response).to redirect_to( client_path(client.id) )
       expect(Note.all.size).to eq(0)
       expect(subject.request.flash[:success].first).to eq("Note deleted.")
+    end
+
+    it "does not destroy a note for a user" do
+      login_user
+      client = create(:client)
+      params = {
+        description: "Test description",
+        client_id: client.id
+      }
+      post :note_create, id: client.id, note: params
+      note = Note.last
+
+      expect(Note.all.size).to eq(1)
+      Note.any_instance.stub(destroy: false)
+      get :destroy, id: note.id
+      expect(response).to redirect_to( client_path(client.id) )
+      expect(Note.all.size).to eq(1)
+      expect(subject.request.flash[:error].first).to eq("Something went wrong note not deleted." )
+
     end
   end
 

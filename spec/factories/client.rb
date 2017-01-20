@@ -6,7 +6,8 @@ FactoryGirl.define do
   factory :client do
     first_name "Peter"
     last_name "Pan"
-    sequence(:email){ |n| "peterpan#{n}@example.com" }
+    user
+    sequence(:email){ |n| "peterpan#{n}@example.com"}
     password "12345678"
     password_confirmation "12345678"
     authorization_and_waiver true
@@ -23,12 +24,8 @@ FactoryGirl.define do
     education_level "GED"
     estimated_household_income "$15,000 or Less"
 
-
     trait :invalid do
       email nil
     end
   end
-
-
-
 end
