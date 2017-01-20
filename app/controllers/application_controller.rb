@@ -5,13 +5,15 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_client!, unless: :clients_controller?
   before_filter :set_locale
 
+  def authenticate!
+    unless current_client || current_user
+      redirect_to "/"
+    end
+  end
+
 
   def authenticate_user!
-    if current_user 
-      redirect_to employee_index_path
-    elsif current_client
-      redirect_to client_edit_path
-    else
+    unless current_user
       redirect_to "/"
     end
   end
@@ -23,28 +25,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def set_locale
     I18n.locale = params[:locale] if params[:locale].present?
   end
 
 
-  def authenticate_current_client!
-    # unless current_user || current_client.id == params[:id].to_i
-    #   flash[:notice] = "You may only view your own profile."
-    #   redirect_to client_path(current_client.id)
-    # end
-  end
 
   def clients_controller?
-    self.class == ClientsController    
+    self.class == ClientsController
   end
-    
+
 
   def authenticate_employee!
     # unless current_user
-    #   redirect_to new_user_session_path 
-    #   flash[:warning] = "Not an employee."  
+    #   redirect_to new_user_session_path
+    #   flash[:warning] = "Not an employee."
     # end
 	end
 

@@ -1,8 +1,9 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_current_client!, :only => [:index, :show, :edit, :update, :destroy]
+  before_action :authenticate!, :only => [:index, :show, :update, :edit,]
+  before_action :authenticate_user!, :only => [:destroy,]
   respond_to :html, :json
 
-	def index
+  def index
     @employee = User.all
     @clients = Client.all
     @foreclosures = Foreclosure.all
@@ -43,13 +44,13 @@ class ClientsController < ApplicationController
   end
 
   def new
-  	@client = Client.new
+    @client = Client.new
   end
 
-  
+
 
   def edit
-    @client = Client.find(params[:id].to_i)
+    @client = Client.find(params[:id])
     if client_signed_in?
       @client = current_client
     end
@@ -118,10 +119,10 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:client_id])
     if @client.update(user_id: current_user.id, assign: true)
       flash[:success] = "Employee Assigned"
-      redirect_to "/users/#{current_user.id}"   
+      redirect_to "/users/#{current_user.id}"
     else
       flash[:warning] = @client.errors.full_messages
-      render :show  
+      render :show
     end
     client = Client.find(params[:id])
   end
