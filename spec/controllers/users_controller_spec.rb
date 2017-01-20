@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   include Devise::TestHelpers
 
-  xdescribe "Get #index" do
+  describe "Get #index" do
     context 'signed in as a user' do
       it "populates an array of unassigned clients" do
         client1 = create(:client)
@@ -19,7 +19,7 @@ RSpec.describe UsersController, type: :controller do
     end  
   end
 
-  xdescribe "Get #show" do
+  describe "Get #show" do
     before :each do
       @this_user = create(:user)
     end
@@ -42,7 +42,7 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  xdescribe "Get #new" do
+  describe "Get #new" do
     it "creates a user instance" do
       get :new
       expect(assigns(:user)).to be_a_new(User)
@@ -57,9 +57,38 @@ RSpec.describe UsersController, type: :controller do
   describe "Post #create" do
     describe "creates an instance of a user and assigns it to @user" do
       it "assigns a user instance" do
-        params = {user: attributes_for(:user)}
-        post :create, params
+        user = create(:user)
+        post :create, {user: attributes_for(:user)}
         expect(assigns(:user)).to be_a_new(User)
+      end
+      context "saves succesfully" do
+        it "saves a new User to the db" do
+          expect{
+                  post :create, {user: attributes_for(:user)}
+                }.to change(User, :count).by(1)
+        end
+        it "redirects to the user show page" do
+          post :create, {user: attributes_for(:user)}
+          expect(response).to redirect_to("/users/#{assigns[:user].id}")
+        end
+        it "updates the flash hash with success message" do
+          post :create, {user: attributes_for(:user)}
+          expect(flash[:success]).to be_present
+        end
+      end
+      context "save fails" do
+        before :each do
+          User.any_instance.stub(save: false)
+          User.any_instance.stub_chain(:errors, :full_messages).and_return(["danger"])
+        end
+        it "render the new template" do
+          post :create, {user: attributes_for(:user)}
+          expect(response).to render_template :new
+        end
+        it "updates the flash hash with danger message" do
+          post :create, {user: attributes_for(:user)}
+          expect(flash[:danger]).to be_present
+        end
       end
     end
 
