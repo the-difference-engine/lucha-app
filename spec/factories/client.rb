@@ -4,10 +4,11 @@ FactoryGirl.define do
   end
 
   factory :client do
-    id 1
+    sequence(:id){ |n| n }
     first_name "Peter"
     last_name "Pan"
-    email "peterpan@example.com"
+    user
+    sequence(:email){ |n| "peterpan#{n}@example.com"}
     password "12345678"
     password_confirmation "12345678"
     authorization_and_waiver true
@@ -29,7 +30,5 @@ FactoryGirl.define do
       email nil
     end
   end
-
-
-
 end
+

@@ -122,7 +122,6 @@ class ClientsController < ApplicationController
       redirect_to "/users/#{current_user.id}"
     else
       flash[:warning] = @client.errors.full_messages
-      p @client.errors.full_messages
       render :show
     end
     client = Client.find(params[:id])

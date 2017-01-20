@@ -5,10 +5,12 @@ RSpec.describe ClientsController, type: :controller do
   include Devise::TestHelpers
 
 
+# testing note create action
   describe "POST #note_create" do
 
     it "creates a new note for the client" do
       login_user
+
       client = create(:client)
       params = {
         description: "Test description",
@@ -16,6 +18,7 @@ RSpec.describe ClientsController, type: :controller do
       }
 
       post :note_create, id: client.id, note: params
+
       note = Note.last
 
       expect(Note.all.size).to eq(1)
@@ -23,7 +26,6 @@ RSpec.describe ClientsController, type: :controller do
       expect(response).to redirect_to client
       expect(subject.request.flash[:success].first).to eq("Note added.")
     end
-
   end
 
   describe "PATCH update" do
@@ -37,7 +39,6 @@ RSpec.describe ClientsController, type: :controller do
         patch :update, id: @client.id, client: attributes_for(:client)
         expect(assigns(:client)).to eq(@client)
       end
-
       it "updates an existing client" do
         params = {
           first_name: "Test",

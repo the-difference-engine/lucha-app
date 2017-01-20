@@ -31,14 +31,14 @@ class ApplicationController < ActionController::Base
 
 
   def clients_controller?
-    self.class == ClientsController    
+    self.class == ClientsController
   end
-    
+
 
   def authenticate_employee!
     # unless current_user
-    #   redirect_to new_user_session_path 
-    #   flash[:warning] = "Not an employee."  
+    #   redirect_to new_user_session_path
+    #   flash[:warning] = "Not an employee."
     # end
 	end
 
