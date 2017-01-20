@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_client!
     unless current_client
+      flash[:notice] = "Unathenticated Client!"
       redirect_to "/"
     end
   end
