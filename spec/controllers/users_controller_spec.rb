@@ -13,6 +13,30 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe "Get #show" do
+    before :each do
+      @this_user = create(:user)
+    end
+
+    it "assigns a user instance" do
+      get :show, id: @this_user
+      expect(assigns(:user)).to eq(@this_user)
+    end
+
+    it "finds an array of clients based on user id" do
+      sign_in @this_user
+      client1 = create(:client, user_id: @this_user.id)
+      client2 = create(:client, user_id: @this_user.id)
+      get :show, id: @this_user
+      expect(assigns(:clients)).to match_array([client1, client2])
+    end
+
+    it "renders show template" do
+      get :show, id: @this_user
+      expect(response).to render_template :show
+    end
+  end
 #   describe "GET #index" do
 #     it "returns http success" do
 #       get :index
