@@ -11,6 +11,10 @@ RSpec.describe Budget, type: :model do
 			it 'returns quotient of budgets total monthly debt, and gross monthly income' do
 				expect(@budget.debt_income_ratio).to eq(5.0)
 			end
+			it 'returns 0 if either total_monthly_debt or gross_monthly_income are zero' do
+				@fail_budget = build(:budget, {total_monthly_debt: 10.0, gross_monthly_income: 0.0})
+				expect(@fail_budget.debt_income_ratio).to eq(0)
+			end
 		end
 
 		describe "validations" do
