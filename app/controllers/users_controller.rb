@@ -7,7 +7,9 @@ class UsersController < Devise::RegistrationsController
 
   def show
     @user = User.find(params[:id])
-    @clients = Client.where(user_id: current_user.id)
+    ## this didn't work for me. I had to change this. current_user was nil
+    # @clients = Client.where(user_id: current_user.id)
+    @clients = Client.where(user_id: @user.id)
   end
 
   def new

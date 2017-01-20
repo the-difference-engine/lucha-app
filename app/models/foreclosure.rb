@@ -1,5 +1,5 @@
+
 class Foreclosure < ActiveRecord::Base
-  validates_uniqueness_of :client_id
   validates_presence_of :client
 
   validates :originating_lender, :original_loan_number, :servicer, :servicer_loan_number, :monthly_mortgage_payment, :loan_term, presence: true
@@ -11,43 +11,17 @@ class Foreclosure < ActiveRecord::Base
 
   validates_presence_of :court_case_number, :if => :been_to_court?
 
-  # validates_format_of :employer_phone, :with => ^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-‌​9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})
+# validates_format_of :employer_phone, :with => ^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-‌​9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})
+
+belongs_to :client
 
 
-  has_many :program_employees, as: :programable
-  belongs_to :client
-
-
-  def counselor?
-    if program_employees[0].user.blank?
-     "Not yet assigned."
-   else 
-     program_employees[0].user
-   end
- end
-
- def column_count
-  attributes.length - 3
-    # Subtracting 3 from the column count to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
-
-  end
-
-  def filled_columns
-    filled_count = 0
-    attributes.each do |k, v|
-      if v != nil
-        filled_count+=1
+  def self.to_csv(options = {})
+    CSV.generate(options) do |column_names|
+      csv << column_names
+      all.each do |foreclosure|
+        csv << foreclosure.attributes.values_at(*column_names)
       end
     end
-    filled_count - 3
   end
-
-def self.to_csv(options = {})
-  CSV.generate(options) do |csv|
-    csv << column_names
-    all.each do |foreclosure|
-      csv << foreclosure.attributes.values_at(*column_names)
-    end
-  end
-end
 end
