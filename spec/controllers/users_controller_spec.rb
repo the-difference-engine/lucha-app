@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   include Devise::TestHelpers
 
-  describe "Get #index" do
+  xdescribe "Get #index" do
     context 'signed in as a user' do
       it "populates an array of unassigned clients" do
         client1 = create(:client)
@@ -19,7 +19,7 @@ RSpec.describe UsersController, type: :controller do
     end  
   end
 
-  describe "Get #show" do
+  xdescribe "Get #show" do
     before :each do
       @this_user = create(:user)
     end
@@ -42,7 +42,7 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "Get #new" do
+  xdescribe "Get #new" do
     it "creates a user instance" do
       get :new
       expect(assigns(:user)).to be_a_new(User)
@@ -52,6 +52,20 @@ RSpec.describe UsersController, type: :controller do
       get :new
       expect(response).to render_template :new
     end  
+  end
+
+  describe "Post #create" do
+    describe "creates an instance of a user and assigns it to @user" do
+      it "assigns a user instance" do
+        params = {user: attributes_for(:user)}
+        post :create, params
+        expect(assigns(:user)).to be_a_new(User)
+      end
+    end
+
+    # describe " " do
+
+    # end
   end
 #   describe "GET #index" do
 #     it "returns http success" do
