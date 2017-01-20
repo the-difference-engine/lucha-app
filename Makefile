@@ -1,5 +1,8 @@
 BE = bundle exec
 
+test:
+	$(BE) rspec
+  
 server:
 	$(BE) rails s
 
@@ -12,4 +15,5 @@ test_foreclosures_c:
 test_budget_m:
 	$(BE) rspec spec/models/budget_spec.rb
 
-.PHONY: server test_suite test_foreclosures test_budget_m
+.PHONY: test server test_suite_c test_foreclosures_c test_budget_m
+

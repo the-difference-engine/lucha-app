@@ -24,10 +24,8 @@ FactoryGirl.define do
     education_level "GED"
     estimated_household_income "$15,000 or Less"
 
-
     trait :invalid do
       email nil
     end
   end
 end
-
