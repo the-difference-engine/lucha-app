@@ -1,100 +1,80 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_current_client!, :only => [:index, :show, :edit, :update, :destroy]
-  respond_to :html, :json
+  before_action :authenticate!, :only => [:index, :show, :update, :edit,]
+  before_action :authenticate_user!, :only => [:destroy,]
+  
 
-	def index
-    @employee = User.all
+  def index
+    @users = User.all
     @clients = Client.all
     @foreclosures = Foreclosure.all
-    
+
     respond_to do |format|
       format.json
       format.html
-      format.csv { send_data @clients.to_csv }
+      format.csv { send_data @clients.to_csv, type: 'text/csv' }
       format.xls  { send_data @clients.to_csv(col_sep: "\t") }
     end
 
   end
 
   def note_create
-    @client = params[:id]
-    @user = Note.create({
-      description: params[:description],
-      user_id: current_user.id,
-      client_id: params[:id]
-      })
-
-    flash[:success] = ['Note added.']
-    redirect_to "/clients/#{@client}"
+    # TODO where is this used? I wrote test but not sure where the view code is
+    ## I wonder what the expectation is for 'notes'. can both a user and a client have notes? is this method in the right place? the way I read this code..... ok did some digging. this method is SO IN THE WRONG PLACE makes it really hard to test. this is for a user to make notes on a clients file....
+    # notes/1/edit => for edit
+    # clients/1 => is the route for making new notes
+    # you will have to modify both views
+    @client = Client.find(params[:id])
+    note = Note.create(user_id: current_user.id, client_id: @client.id, description: params[:description])
+    p note
+    if note.save!
+      flash[:success] = ['Note added.']
+      redirect_to client_path(@client)
+    else
+      render 'note_create'
+    end
   end
 
   def show
     if user_signed_in?
       @client = Client.find(params[:id])
       @client_notes = @client.notes
-      
     elsif client_signed_in?
       @client = current_client
     end
   end
 
   def new
-  	@client = Client.new
+    @client = Client.new
   end
 
   def edit
-    @client = Client.find(params[:id].to_i)
+    @client = Client.find(params[:id])
     if client_signed_in?
       @client = current_client
     end
   end
 
   def update
-
+ ## I am not sure why, in this action, there is an update for both user and client, I can not find anything that has to do with user update...
     if user_signed_in?
       @client = Client.find(params[:id])
     elsif client_signed_in?
       @client = current_client
     end
-
-    if @client.update({
-    first_name: params[:first_name],
-    last_name: params[:last_name],
-    home_phone: params[:home_phone], 
-    cell_phone: params[:cell_phone],
-    work_phone: params[:work_phone], 
-    address: params[:address], 
-    state: params[:state], 
-    city: params[:city], 
-    zip_code: params[:zip_code],
-    ward: params[:ward], 
-    sex: params[:sex], 
-    race: params[:race],
-    ssn: params[:ssn],
-    preferred_contact_method: params[:preferred_contact_method],
-    preferred_language: params[:preferred_language],
-    marital_status: params[:marital_status],
-    dob: params[:dob],
-    head_of_household: params[:head_of_household] || false,
-    num_in_household: params[:num_in_household],
-    num_of_dependants: params[:num_of_dependants],
-    education_level: params[:education_level],
-    estimated_household_income: params[:estimated_household_income],
-    disability: params[:disability] || false,
-    union_member: params[:union_member] || false,
-    military_service_member: params[:military_service_member] || false,
-    volunteer_interest: params[:volunteer_interest] || false })
-      if user_signed_in?
-        flash[:success] = "Client info updated."
-        redirect_to "/clients/#{@client.id}"
-      elsif client_signed_in?
-        flash[:success] = "Your info is updated."
-        redirect_to "/clients/#{@client.id}"
-      end
-    else
-      flash[:warning] = @client.errors.full_messages
-      render :edit
-    end
+    @client.update(client_params)
+    # if @client.update(client_params)
+    #   if user_signed_in?
+    #     flash[:success] = [ "Client info updated." ]
+    #     redirect_to client_path(@client)
+    #   elsif client_signed_in?
+    #     flash[:success] = [ "Your info is updated." ]
+        redirect_to client_path(@client)
+    #   end
+    # else
+    #   flash[:warning] = @client.errors.full_messages
+    #   render :edit
+    # end
+# TODO in the models make the true/false a default value, no need to do this or statement
   end
 
   def status
@@ -106,33 +86,63 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @note = Note.find_by(id: params[:id])
-    if current_user.id == @note.user_id
-      @note.destroy
-      redirect_to "/clients/#{@note.client_id}"
+    note = Note.find_by(id: params[:id])
+    if current_user.id == note.user_id
+      if note.destroy
+        flash[:success] = [ "Note deleted." ]
+        redirect_to client_path(note.client_id)
+      else
+        flash[:error] = [ "Something went wrong note not deleted." ]
+        redirect_to client_path(note.client_id)
+      end
     else
-      redirect_to "/clients/#{@note.client_id}"
+      redirect_to client_path(note.client_id)
     end
   end
 
   def assign
-    @employee = User.all
-    # @foreclosure = Foreclosure.all
-    # @homebuyer = Homebuying.all
+    client = Client.find(params[:id])
+    client.update(user_id: current_user.id)
+    p client.valid?
+    redirect_to "/users/#{current_user.id}"
+  end
 
-    # @case = ProgramEmployee.new({
-    #   user_id: current_user.id,
-    #   programable_id: params[:programable_id],
-    #   programable_type: params[:programable_type]
-    #   })
-    @client = Client.find(params[:client_id])
-    if @client.update(user_id: current_user.id, assign: true)
-      flash[:success] = "Employee Assigned"
-      redirect_to "/users/#{current_user.id}"   
-    else
-      flash[:warning] = @client.errors.full_messages
-      render :show  
-    end
+  private
+
+  def note_params
+    params.require(:note).permit(:description, :user_id, :client_id)
+  end
+
+  def client_params
+    params.require(:client).permit(
+      :first_name,
+      :last_name,
+      :home_phone,
+      :cell_phone,
+      :work_phone,
+      :address,
+      :state,
+      :city,
+      :zip_code,
+      :ward,
+      :sex,
+      :race,
+      :ssn,
+      :preferred_contact_method,
+      :preferred_language,
+      :marital_status,
+      :dob,
+      :head_of_household,
+      :num_in_household,
+      :num_of_dependants,
+      :education_level,
+      :estimated_household_income,
+      :disability,
+      :union_member,
+      :military_service_member,
+      :volunteer_interest,
+      :user_id
+    )
   end
 
 end

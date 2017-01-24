@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "clients/registrations"}, :except => [:new_client_session, :client_session]
   devise_for :clients, controllers: { registrations: "client/registrations"}, :except => [:new_client_session, :client_session]
   devise_scope :client do
@@ -30,16 +30,17 @@ Rails.application.routes.draw do
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
 
- 
 
-  get '/clients' =>'clients#index', as: :clients
+
+  get '/clients(.:format)' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
   post '/clients/:id' => 'clients#note_create'
   get '/clients/:id/edit' => 'clients#edit', as: :client_edit
-  put '/clients/:id' => 'clients#update', as: :client_update
+  patch '/clients/:id' => 'clients#update', as: :client_update
   get '/clients/:id/status' => 'clients#status', as: :client_status
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
-  patch '/clients_assign/:id' => 'clients#assign', as: :client_assign
+  put '/clients/:id/assign' => 'clients#assign', as: :client_assign
+
 
   get '/notes/:id/edit' => 'notes#edit', as: :notes_edit
   patch '/notes/:id' => 'notes#update', as: :note_update
@@ -79,7 +80,6 @@ Rails.application.routes.draw do
   # delete '/law_projects/:id' => 'law_projects#destroy', as: :law_project_delete
 
 
-  get '/rentals' =>'rentals#index', as: :rentals
   get '/rentals/new' => 'rentals#new', as: :rental_intake
   post '/rentals/create' => 'rentals#create', as: :rental_create
   get '/rentals/:id' => 'rentals#show', as: :rental

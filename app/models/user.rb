@@ -1,3 +1,5 @@
+
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -36,31 +38,31 @@ class User < ActiveRecord::Base
 
   def client_list
     clients = []
-    foreclosures.each do |foreclosure| 
+    foreclosures.each do |foreclosure|
       if foreclosure.client.id
-      clients << foreclosure.client 
-      end 
+      clients << foreclosure.client
+      end
     end
-    
-    homebuyings.each do |homebuying| 
-      clients << homebuying.client 
-    end 
 
-    homebuyings.each do |homebuying| 
-      clients << foreclosure.client 
-    end 
+    homebuyings.each do |homebuying|
+      clients << homebuying.client
+    end
 
-    foreclosures.each do |foreclosure| 
-      clients << foreclosure.client 
-    end 
+    homebuyings.each do |homebuying|
+      clients << foreclosure.client
+    end
 
-    foreclosures.each do |foreclosure| 
-      clients << foreclosure.client 
-    end 
+    foreclosures.each do |foreclosure|
+      clients << foreclosure.client
+    end
 
-    foreclosures.each do |foreclosure| 
-      clients << foreclosure.client 
-    end 
+    foreclosures.each do |foreclosure|
+      clients << foreclosure.client
+    end
+
+    foreclosures.each do |foreclosure|
+      clients << foreclosure.client
+    end
   end
 
 end

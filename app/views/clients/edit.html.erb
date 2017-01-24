@@ -1,107 +1,104 @@
 Language: 
             <%= link_to_unless_current "English", locale: "en" %>|
-             <%=  link_to_unless_current "Español", locale: "es" %>
-
-<% if @client.errors.any? %>
-  <div id="error_explanation">
-    <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
-    <ul>
-    <% @client.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+            <%=  link_to_unless_current "Español", locale: "es" %>
 
 <div class="row">
   <div class="col-md-6">
-    <%= form_tag "/clients/#{@client.id}", method: :put do %>
-
-
+    <%= form_for @client  do |form| %>
+        <% if @client.errors.any? %>
+          <div id="error_explanation">
+            <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
+            <ul>
+            <% @client.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
         <div class="form-group">
           <%= I18n.t "clients_edit.first_name"  %> <br>
-          <%= text_field_tag :first_name, @client.first_name %>
+          <%= form.text_field :first_name %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.last_name"  %> <br>
-          <%= text_field_tag :last_name, @client.last_name %>
+          <%= form.text_field :last_name %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.home_phone"  %> <br>
-          <%=text_field_tag :home_phone, @client.home_phone %>
+          <%= form.text_field :home_phone %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.cell"  %> <br>
-          <%= text_field_tag :cell_phone, @client.cell_phone %>
+          <%= form.text_field :cell_phone %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.work_phone"  %> <br>
-          <%= text_field_tag :work_phone, @client.work_phone %>
+          <%= form.text_field :work_phone %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.address"  %> <br>
-          <%= text_field_tag :address, @client.address %>
+          <%= form.text_field :address %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.city"  %> <br>
-          <%= text_field_tag :city, @client.city %>
+          <%= form.text_field :city %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.state"  %> <br>
-          <%= text_field_tag :state, @client.state %>
+          <%= form.text_field :state %>
         </div>
 
         <div class="form-group">
           <%= "Ward "%>
           <a href="https://webapps1.cityofchicago.org/ezbuy/geoWardLookup.do" target='_blank'><i>Search for your ward here</i></a> <br>
-          <%= text_field_tag :ward, @client.ward %>
+          <%= form.text_field :ward %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.zip"  %> <br>
-          <%= text_field_tag :zip_code, @client.zip_code %>
+          <%= form.text_field :zip_code %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.gender"  %> <br>
-          <%= select_tag(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
+          <%= form.select(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.race"  %> <br>
-          <%= select_tag(:race, options_for_select(racial_options, @client.race)) %>
+          <%= form.select(:race, options_for_select(racial_options, @client.race)) %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.ss"  %> <br>
-          <%= password_field_tag :ssn, @client.ssn %>
+          <%= form.password_field :ssn %>
         </div>
 
         <div class="form-group">
           Preferred Contact Method<br>
-          <%= text_field_tag :preferred_contact_method, @client.preferred_contact_method %>
+          <%= form.text_field :preferred_contact_method %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.pref_lang"  %> <br>
-          <%= text_field_tag :preferred_language, @client.preferred_language %>
+          <%= form.text_field :preferred_language %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.marital_stat"  %><br>
-          <%= text_field_tag :marital_status, @client.marital_status %>
+          <%= form.text_field :marital_status %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.dob"  %> <br>
-          <%= date_field_tag :dob, @client.dob %>
+          <%= form.date_field :dob %>
         </div>
 
         <div class="form-group">
@@ -113,22 +110,22 @@ Language:
 
         <div class="form-group">
           <%= I18n.t "clients_edit.house_occu"  %> <br>
-          <%= number_field_tag :num_in_household, @client.num_in_household, {in: 1..15} %>
+          <%= form.number_field :num_in_household, {in: 1..15} %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.dependants"  %><br>
-          <%= number_field_tag :num_of_dependants, @client.num_of_dependants, {in: 0..10} %>
+          <%= form.number_field :num_of_dependants, {in: 0..10} %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.education_level"  %> <br>
-          <%= select_tag :education_level, options_for_select(education, @client.education_level) %>
+          <%= form.select :education_level, options_for_select(education, @client.education_level) %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.est_house_income"  %> <br>
-          <%= select_tag :estimated_household_income, options_for_select(income_range, @client.estimated_household_income) %>
+          <%= form.select :estimated_household_income, options_for_select(income_range, @client.estimated_household_income) %>
         </div>
 
         <div class="form-group">
@@ -150,7 +147,7 @@ Language:
             <input id="military_service_member" name="military_service_member" type="checkbox" value="true"/>
             <%= I18n.t "clients_edit.military"  %> <br>
           </div>
-        </div>  
+        </div>
 
         <div class="form-group">
           <div class="checkbox-inline">
@@ -158,12 +155,10 @@ Language:
            <%= I18n.t "clients_edit.volunteer"  %> <br>
           </div>
         </div>
-      
         <div class="actions">
-          <%= submit_tag I18n.t "clients_edit.update" , :class => 'btn btn-large btn-primary' %>
-
+          <%= form.submit I18n.t "clients_edit.update", class: 'btn btn-large btn-primary' %>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 <% end %>
