@@ -40,7 +40,7 @@ class Client < ActiveRecord::Base
   end
 
   def has_user?
-    user
+    !!user 
   end
 
   def user_fullname
