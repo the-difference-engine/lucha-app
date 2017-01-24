@@ -1,3 +1,4 @@
+
 class Foreclosure < ActiveRecord::Base
   validates_uniqueness_of :client_id
   validates_presence_of :client
@@ -13,15 +14,13 @@ class Foreclosure < ActiveRecord::Base
 
   # validates_format_of :employer_phone, :with => ^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-‌​9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})
 
-
-  has_many :program_employees, as: :programable
   belongs_to :client
 
 
   def counselor?
     if program_employees[0].user.blank?
      "Not yet assigned."
-   else 
+   else
      program_employees[0].user
    end
  end
@@ -42,12 +41,12 @@ class Foreclosure < ActiveRecord::Base
     filled_count - 3
   end
 
-def self.to_csv(options = {})
-  CSV.generate(options) do |csv|
-    csv << column_names
-    all.each do |foreclosure|
-      csv << foreclosure.attributes.values_at(*column_names)
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |foreclosure|
+        csv << foreclosure.attributes.values_at(*column_names)
+      end
     end
   end
-end
 end
