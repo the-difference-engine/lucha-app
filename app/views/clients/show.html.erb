@@ -1,9 +1,7 @@
-<%= render "layouts/alerts" %>
+<!-- <%= render "layouts/alerts" %> -->
 
 <% if user_signed_in?  %>
   <%= render "user_view"%>
 <% elsif current_client %>
   <%= render "client_view" %>
 <% end %>
-
-

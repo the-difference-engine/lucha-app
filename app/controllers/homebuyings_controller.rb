@@ -42,40 +42,49 @@ class HomebuyingsController < ApplicationController
   end
 
   def show
-    @homebuying = Homebuying.find(params[:id])
+    @homebuying = Homebuying.find(params[:id]) if current_client
   end
 
   def edit
-    if current_client
-      @homebuying = current_client.homebuying
-    elsif current_user
-      @foreclosure = Homebuying.find(params[:id])
-    end
+    @homebuying = current_client.homebuying if current_client
+    # if current_client
+    #   @homebuying = current_client.homebuying
+    #
+    # else
+    #   @foreclosure = Homebuying.find(params[:id])
+    # end
   end
 
   def update
     @homebuying = Homebuying.find(params[:id]) if current_user
     @homebuying = current_client.homebuying if current_client
 
+    @homebuying.update(homebuying_params)
+
     if @homebuying.update(homebuying_params)
-      flash[:success] = "homebuying application submitted."
-      redirect_to "/clients/#{@homebuying.client_id}"
+      flash[:success] = "homebuying application updated"
+      redirect_to "/homebuyings/#{@homebuying.id}"
     else
+      flash[:warning] = "update unsuccessful"
       render :edit
     end
   end
 
   def destroy
     @homebuying = Homebuying.find(params[:id])
-    @homebuying.destroy
-    flash[:danger] = "Homebuying application deleted."
-    redirect_to "/clients/#{@homebuying.client.id}/status"
+    if @homebuying.destroy
+      flash[:danger] = "homebuying application deleted."
+      redirect_to "/clients/#{@homebuying.id}"
+    else
+      flash[:warning] = "application was not deleted"
+      render :show
+    end
   end
 
   private
 
   def homebuying_params
-    params.require(:homebuying).permit(
+    params.permit(
       :lender,
       :hear_of_workshop,
       :contact_for_appointment,
