@@ -78,7 +78,7 @@ Language:
 
         <div class="form-group">
           <%= I18n.t "clients_edit.ss"  %> <br>
-          <%= form.password_field :ssn %>
+          <%= form.password_field(:ssn, value: @client.ssn) %>
         </div>
 
         <div class="form-group">

@@ -85,7 +85,7 @@
     <td>Do you want to volunteer?</td><td><%= best_in_place @client, :volunteer_interest, as: :select, collection: {false: "No", true: "Yes"} %></td>
   </tr>
   <tr>
-    <td>Are you a member of a union?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+    <td>Are you a member of a union?</td><td><%= best_in_place @client, :union_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
   </tr>
 
 </table>
