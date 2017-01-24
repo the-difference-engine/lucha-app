@@ -81,7 +81,7 @@ RSpec.describe UsersController, type: :controller do
           User.any_instance.stub(save: false)
           User.any_instance.stub_chain(:errors, :full_messages).and_return(["danger"])
         end
-        it "render the new template" do
+        it "render a :new template" do
           post :create, {user: attributes_for(:user)}
           expect(response).to render_template :new
         end
@@ -91,11 +91,27 @@ RSpec.describe UsersController, type: :controller do
         end
       end
     end
+  end
+
+  describe 'Get #edit' do
+    it "assigns the requested user to @user" do
+      @another_user = create(:user)
+      sign_in @another_user
+      get :edit, id: @another_user.id
+      expect(assigns(:user)).to eq(@another_user)
+    end
+
+    it "renders the :edit template" do
+      get :edit, id: create(:user)
+      expect(response).to render_template :edit
+    end
+  end
+
 
     # describe " " do
 
     # end
-  end
+
 #   describe "GET #index" do
 #     it "returns http success" do
 #       get :index
