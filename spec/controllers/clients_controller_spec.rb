@@ -60,7 +60,6 @@ RSpec.describe ClientsController, type: :controller do
       expect(response).to render_template :index
     end
 
-
     # This is currently not working some research may be required
     xit "returns a CSV file" do 
       @client = create(:client)
@@ -68,7 +67,6 @@ RSpec.describe ClientsController, type: :controller do
       expect(response.header['Content-Type']).to include 'text/csv'
     end
   end
-
 
 # testing note create action
   describe "POST #note_create" do

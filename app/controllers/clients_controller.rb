@@ -47,8 +47,6 @@ class ClientsController < ApplicationController
     @client = Client.new
   end
 
-
-
   def edit
     @client = Client.find(params[:id])
     if client_signed_in?
