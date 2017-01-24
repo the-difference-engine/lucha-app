@@ -6,8 +6,8 @@ RSpec.describe UsersController, type: :controller do
   describe "Get #index" do
     context 'signed in as a user' do
       it "populates an array of unassigned clients" do
-        client1 = create(:client)
-        client2 = create(:client)
+        client1 = create(:client, user_id: nil)
+        client2 = create(:client, user_id: nil)
         get :index
         expect(assigns(:clients)).to match_array([client1, client2])
       end
@@ -57,7 +57,7 @@ RSpec.describe UsersController, type: :controller do
   describe "Post #create" do
     describe "creates an instance of a user and assigns it to @user" do
       it "assigns a user instance" do
-        user = create(:user)
+        @user = create(:user)
         post :create, {user: attributes_for(:user)}
         expect(assigns(:user)).to be_a_new(User)
       end
@@ -102,7 +102,9 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "renders the :edit template" do
-      get :edit, id: create(:user)
+      @other_user = create(:user)
+      sign_in @other_user
+      get :edit, id: @other_user
       expect(response).to render_template :edit
     end
   end
