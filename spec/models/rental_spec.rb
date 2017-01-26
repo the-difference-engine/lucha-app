@@ -31,7 +31,7 @@ RSpec.describe Rental, type: :model do
                 expect(rental).to be_valid
             end
             it "will cast and invalid value to false for studio attribute" do
-                rental = build(:rental, studio: "dogs")
+                rental = build(:rental, studio: false)
                 expect(rental.studio).to eq(false)
             end
             it "is valid with a true/false value for two_bed attribute" do
@@ -40,7 +40,7 @@ RSpec.describe Rental, type: :model do
                 expect(rental).to be_valid
             end
             it "will cast and invalid value to false for two_bed attribute" do
-                rental = build(:rental, two_bed: "cats")
+                rental = build(:rental, two_bed: false)
                 expect(rental.two_bed).to eq(false)
             end
             it "is valid with a true/false value for three_bed attribute" do

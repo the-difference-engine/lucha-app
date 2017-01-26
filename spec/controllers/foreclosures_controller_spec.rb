@@ -102,8 +102,8 @@ RSpec.describe ForeclosuresController, type: :controller do
         before :each do
           @this_client = create(:client)
           sign_in @this_client
-          Foreclosure.any_instance.stub(save: false)
-          Foreclosure.any_instance.stub_chain(:errors, :full_messages).and_return(["danger"])
+          allow_any_instance_of(Foreclosure).to receive(:save).and_return(false)
+          allow_any_instance_of(Foreclosure).to receive_message_chain(:errors, :full_messages).and_return(["danger"])
         end
         it "updates the flash message to danger" do
           post :create, attributes_for(:foreclosure)
@@ -227,7 +227,7 @@ RSpec.describe ForeclosuresController, type: :controller do
     context "fails to update the foreclosure" do
       it "rerenders the edit page" do
         sign_in @client
-        Foreclosure.any_instance.stub(save: false)
+        allow_any_instance_of(Foreclosure).to receive(:save).and_return(false)
         put :update, id: @client.foreclosure,
           foreclosure: attributes_for(:foreclosure,
             originating_lender: "bob",

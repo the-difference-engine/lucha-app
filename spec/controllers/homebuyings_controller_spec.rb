@@ -106,8 +106,8 @@ RSpec.describe HomebuyingsController, type: :controller do
         before :each do
           @this_client = create(:client)
           sign_in @this_client
-          Homebuying.any_instance.stub(save: false)
-          Homebuying.any_instance.stub_chain(:errors, :full_messages).and_return(["danger"])
+          allow_any_instance_of(Homebuying).to receive(:save).and_return(false)
+          allow_any_instance_of(Homebuying).to receive_message_chain(:errors, :full_messages).and_return(["danger"])
         end
         it "updates the flash message to danger" do
           post :create, attributes_for(:homebuying)
@@ -228,7 +228,7 @@ RSpec.describe HomebuyingsController, type: :controller do
     context "fails to update the homebuying" do
       it "rerenders the edit page" do
         sign_in @client
-        Homebuying.any_instance.stub(save: false)
+        allow_any_instance_of(Homebuying).to receive(:save).and_return(false)
         put :update, id: @client.homebuying,
           homebuying: attributes_for(:homebuying,
             lender: "new lender",
