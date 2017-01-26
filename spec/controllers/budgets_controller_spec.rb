@@ -29,27 +29,17 @@ RSpec.describe BudgetsController, type: :controller do
   #   end
   # end
 
-  # describe "PATCH #update" do
-  #   before :each do
-  #     # request.env['devise.mapping'] = Devise.mappings[:user]
-  #     login_with_client nil
-  #   end
-  #   it "updates gross wages" do
-  #     # budget = Budget.new
-  #     # binding.pry
-  #     # client = create(:client)
-  #     budget = create(:budget, client_id: client.id)
-      
-  #     form_params = {
-  #         "gross_wages"=>"15000.0"  
-  #     }
-  #     patch :update
-  #     # binding.pry
-  #     budget = Budget.all.last
-  #     expect(budget["gross_wages"]).to eq("15000.0")
-  #     # expect(response).to have_http_status(:success)
-  #   end
-  # end
+  describe "PATCH #update" do
+    before :each do
+      @client = create(:client)
+      @budget = create(:budget, client_id: @client.id)
+    end
+    it "locates the client's budget" do
+      sign_in @client
+      patch :update, id: @budget, income: { gross_wages: 50.00 }
+      expect(assigns(:budget).gross_wages).to eq(50.00)
+    end
+  end
 
   # describe "GET #edit" do
   #   it "returns http success" do

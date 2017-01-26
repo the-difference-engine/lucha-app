@@ -8,7 +8,6 @@ json.set! :income do
   json.set! :taxable_social_security, @budget.taxable_social_security
   json.set! :rental_income, @budget.rental_income
   json.set! :other_income, @budget.other_income
-  json.set! :gross_monthly_income, @budget.gross_monthly_income
 end
 
 json.set! :debt do
@@ -29,7 +28,6 @@ json.set! :debt do
   json.set! :medical_expenses, @budget.medical_expenses
   json.set! :rent, @budget.rent
   json.set! :rental_insurance, @budget.rental_insurance
-  json.set! :total_monthly_debt, @budget.total_monthly_debt
 end
 
 json.set! :assets do

@@ -6,38 +6,31 @@ class BudgetsController < ApplicationController
   end
 
   def update
-    
     budget = current_client.budget
-    # if params[:income]
-    #     form_params = income_params
-    # elsif params[:debt]
-    #     form_params = debt_params
-    # elsif params[:assets]
-    #     form_params = asset_params
-    # end
-
-    # if budget.update(form_params)
-    #   budget.update(gross_monthly_income: sum_income) if params[:income]
-    #   budget.update(total_monthly_debt: sum_debt) if params[:debt]
-    #   render json: { success: "yay! success you rock", budget: budget }.to_json
-    if budget.update(gross_wages: params[:gross_wages])
-
-      render json: { success: "yay! success you rock", budget: budget }.to_json
+    if params[:income]
+      form_params = income_params
+      form_name = 'Income'
+    elsif params[:debt]
+      form_params = debt_params
+      form_name = 'Debt'
+    elsif params[:assets]
+      form_params = asset_params
+      form_name = 'Assets'
+    end 
+    
+    if budget.update(form_params)
+      budget.update(
+        gross_monthly_income: budget.gross_monthly_income, 
+        total_monthly_debt: budget.total_monthly_debt,
+        debt_divided_by_income: budget.debt_income_ratio)
+      render json: { success: "Your '#{form_name} Data' has been updated." }.to_json
     else
-      render json: "failed".to_json, status: :unprocessable_entity
+      render json: { danger: "Error saving '#{form_name} Data'.", budget: budget.errors.full_messages }.to_json
     end
   end
 
-  def sum_income
-    income_params.values.map(&:to_f).inject(:+) 
-  end
-
-  def sum_debt
-    debt_params.values.map(&:to_f).inject(:+) 
-  end
-
   def income_params
-    params.require(:income).permit(:gross_wages, :self_employment_income, :overtime, :unemployment, :tips_commissions_bonus, :nontaxable_social_security, :taxable_social_security, :rental_income, :other_income)
+    params.permit(:gross_wages, :self_employment_income, :overtime, :unemployment, :tips_commissions_bonus, :nontaxable_social_security, :taxable_social_security, :rental_income, :other_income)
   end
 
   def debt_params
