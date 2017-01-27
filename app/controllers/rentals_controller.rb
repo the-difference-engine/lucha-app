@@ -40,7 +40,7 @@ class RentalsController < ApplicationController
 
 		if @rental.update(rental_params.merge(client_id: @rental.client_id))
 			flash[:success] = "rental application submitted."
-			redirect_to "/clients/#{@rental.client_id}"
+			redirect_to "/rentals/#{@rental.id}"
 		else
 			render :edit
 		end
@@ -53,7 +53,7 @@ class RentalsController < ApplicationController
 			redirect_to "/clients/#{current_client.id}"
 		else
 			flash[:warning] = "Rental NOT deleted"
-			redirect_to "/rentals/#{current_client.id}"
+			redirect_to "/rentals/#{@rental.id}"
 		end
 	end
 
