@@ -66,6 +66,8 @@ RSpec.describe HomebuyingsController, type: :controller do
 
       context "current_user logged in" do
         before :each do
+          @some_client = create(:client)
+          @some_user = create(:user)
           sign_in @some_client
           sign_in @some_user
         end
@@ -109,7 +111,7 @@ RSpec.describe HomebuyingsController, type: :controller do
         end
         it "redirects to the homebuying application page" do
           post :create, attributes_for(:homebuying)
-          expect(response).to redirect_to("/homebuyings/#{@homebuying.id}")
+          expect(response).to redirect_to("/homebuyings/#{:homebuying.id}")
         end
         it "saves a new homebuying to the database" do
           expect{
@@ -147,7 +149,7 @@ RSpec.describe HomebuyingsController, type: :controller do
       sign_in @user
     end
     it "assigns a homebuying instance" do
-      get :show, id: @this_homebuying
+      get :show, id: @client.homebuying.id
       expect(assigns(:homebuying)).to eq(@this_homebuying)
     end
 
@@ -179,7 +181,7 @@ RSpec.describe HomebuyingsController, type: :controller do
         some_user = create(:user)
         some_homebuying = create(:homebuying)
         sign_in some_user
-        get :edit, id: some_homebuying
+        get :edit, id: some_homebuying.id
         expect(assigns(:homebuying)).to eq(some_homebuying)
       end
     end
@@ -192,17 +194,18 @@ RSpec.describe HomebuyingsController, type: :controller do
   # UPDATE
   describe "update #PATCH" do
     before :each do
+      @user = create(:user)
       @client = create(:client)
       @homebuying = create(:homebuying, client_id: @client.id)
+      sign_in @client
+      sign_in @user
     end
     context "current_user logged in" do
       it "locates the requested @homebuying" do
-        sign_in create(:user)
         put :update, id: @homebuying.id, homebuying: attributes_for(:homebuying)
         expect(assigns(:homebuying)).to eq(@homebuying)
       end
       it "updates the requested @homebuying" do
-        sign_in create(:user)
         put :update, id: @homebuying.id,
           homebuying: attributes_for(:homebuying,
             lender: "new lender",
@@ -214,13 +217,17 @@ RSpec.describe HomebuyingsController, type: :controller do
       end
     end
     context "current_client logged in" do
-      it "locates the client's @homebuying" do
+      before :each do
+        @client = create(:client)
+        @user = create(:user)
+        sign_in @user
         sign_in @client
+      end
+      it "locates the client's @homebuying" do
         put :update, id: @homebuying.id, homebuying: attributes_for(:homebuying)
         expect(assigns(:homebuying)).to eq(@client.homebuying)
       end
       it "updates the clients homebuying" do
-        sign_in @client
         put :update, id: @client.homebuying,
           homebuying: attributes_for(:homebuying,
             lender: "new lender",

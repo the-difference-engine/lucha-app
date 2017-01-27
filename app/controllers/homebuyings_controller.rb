@@ -4,18 +4,12 @@ class HomebuyingsController < ApplicationController
 
 
   def index
-
     @homebuyings = Homebuying.all
-
-
   end
 
   def new
-
     @homebuying = Homebuying.new
-
   end
-
 
   def create
     @id = current_client.id if current_client
