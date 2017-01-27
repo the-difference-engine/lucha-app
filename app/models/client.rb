@@ -40,17 +40,11 @@ class Client < ActiveRecord::Base
   end
 
   def has_user?
-    !!user 
+    !!user
   end
 
   def user_fullname
     "#{user.first_name.titleize} #{user.last_name.titleize}"
-  end
-
-  def column_count
-    attributes.length - 4
-    # Can only be called on an instance
-    # Subtracting 4 from the number of attributes as those are created when the client makes an account
   end
 
   def filled_columns
