@@ -88,12 +88,12 @@ RSpec.describe HomebuyingsController, type: :controller do
         @some_client = create(:client)
         @some_other_client = create(:client)
         @some_user = create(:user)
-        sign_in = @some_client
-        sign_in = @some_user
+        sign_in @some_client
+        sign_in @some_user
       end
       it "assigns a homebuying instance" do
-        get :create
-        expect(assigns(:homebuying)).to be_a_new(Homebuying)
+        post :create, attributes_for(:homebuying)
+        expect(assigns(:homebuying)).to be_a_new(Homebuying) #YOU ARE HERE
       end
     end
 
