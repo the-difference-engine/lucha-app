@@ -1,6 +1,7 @@
 class HomebuyingsController < ApplicationController
-  skip_before_action :authenticate_client!
+  before_action :authenticate!
   respond_to :html, :json
+
 
   def index
     @homebuyings = Homebuying.all
@@ -12,8 +13,7 @@ class HomebuyingsController < ApplicationController
 
   def create
     @id = current_client.id if current_client
-    @id = Client.find(params[:id]).id if current_user
-
+    @id = current_user.id if current_user
     @homebuying = Homebuying.new({
       client_id: @id,
       lender: params[:lender],
@@ -30,52 +30,54 @@ class HomebuyingsController < ApplicationController
       loan_officer_phone: params[:loan_officer_phone],
       payment_assistance_program: params[:payment_assistance_program],
       approx_closing_date: params[:approx_closing_date],
-    })
-
-    if @homebuying.save
-      flash[:success] = ["You've completed the homebuying application"]
-      redirect_to "/clients/#{@homebuying.client_id}/status"
-    else
-      flash[:danger] = @homebuying.errors.full_messages
-      render :new
+      })
+      if @homebuying.save
+        flash[:success] = "Successfully Completed Hombuying Application"
+        redirect_to "/homebuyings/#{@homebuying.id}"
+      else
+        flash[:danger] = @homebuying.errors.full_messages
+        render :new
+      end
     end
-  end
 
-  def show
-    @homebuying = Homebuying.find(params[:id])
-  end
-
-  def edit
-    if current_client
-      @homebuying = current_client.homebuying
-    elsif current_user
-      @foreclosure = Homebuying.find(params[:id])
+    def show
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
     end
-  end
 
-  def update
-    @homebuying = Homebuying.find(params[:id]) if current_user
-    @homebuying = current_client.homebuying if current_client
-
-    if @homebuying.update(homebuying_params)
-      flash[:success] = "homebuying application submitted."
-      redirect_to "/clients/#{@homebuying.client_id}"
-    else
-      render :edit
+    def edit
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
     end
-  end
 
-  def destroy
-    @homebuying = Homebuying.find(params[:id])
-    @homebuying.destroy
-    flash[:danger] = "Homebuying application deleted."
-    redirect_to "/clients/#{@homebuying.client.id}/status"
-  end
+    def update
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
+      if @homebuying.update(homebuying_params)
+        flash[:success] = "Homebuying Application Updated"
+        redirect_to "/homebuyings/#{@homebuying.id}"
+      else
+        flash[:warning] = "update unsuccessful"
+        render :edit
+      end
+    end
 
-  private
+    def destroy
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
+      if @homebuying.destroy
+        flash[:danger] = "Homebuying Application Deleted."
+        redirect_to "/clients/#{current_client.id}"
+      else
+        flash[:warning] = "application was not deleted"
+        render :show
+      end
+    end
 
-  def homebuying_params
-    params.require(:homebuying).permit(
+private
+
+    def homebuying_params
+      params.permit(
       :lender,
       :hear_of_workshop,
       :contact_for_appointment,
@@ -90,6 +92,6 @@ class HomebuyingsController < ApplicationController
       :loan_officer_phone,
       :payment_assistance_program,
       :approx_closing_date,
-    )
-  end
+      )
+    end
 end

@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   post '/homebuyings/create' => 'homebuyings#create', as: :homebuying_create
   get '/homebuyings/:id' => 'homebuyings#show', as: :homebuying
   get '/homebuyings/:id/edit' => 'homebuyings#edit', as: :homebuying_edit
-  put '/homebuyings/:id' => 'homebuyings#update', as: :homebuying_update
+  patch '/homebuyings/:id' => 'homebuyings#update', as: :homebuying_update
   delete '/homebuyings/:id' => 'homebuyings#destroy', as: :homebuying_delete
 
 
@@ -97,4 +97,3 @@ Rails.application.routes.draw do
 
 
 end
-

@@ -1,95 +1,106 @@
 <h2>Hi <%= @client.full_name %>!</h2>
 <p>Below is the info we have on file for you. You can edit this form by clicking on the "Edit Profile" button at the bottom of this page.</p>
 
-<table class="table table-hover">
-  <thead>
-    <th colspan="2"><h3>Contact Info:</h3></th>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td>Home Phone:</td> <td><%= @client.home_phone %></td>
-    </tr>
-    <tr>
-      <td>Cell Phone:</td><td><%= @client.cell_phone %></td>
-    </tr>
-    <tr>
-      <td>Work Phone:</td> <td><%= @client.work_phone %></td>
-    </tr>
-    <tr>  
-      <td>Address:</td><td><%= @client.address %> <%= @client.city %>, <%= @client.state %> <%= @client.zip_code %></td>
-    </tr>
-    <tr>
-      <td>Ward:</td><td><%= @client.ward %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissible face show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
 
-<table class="table table-hover">
+      <%= value %>
+    </div>
+  <% end %>
+  <table class="table table-hover">
+    <thead>
+      <th colspan="2"><h3>Contact Info:</h3></th>
+    </thead>
 
-  <thead>
-    <th colspan="2"><h3>Demographics:</h3></th>
-  </thead>
+    <tbody>
+      <tr>
+        <td>Home Phone:</td> <td><%= @client.home_phone %></td>
+      </tr>
+      <tr>
+        <td>Cell Phone:</td><td><%= @client.cell_phone %></td>
+      </tr>
+      <tr>
+        <td>Work Phone:</td> <td><%= @client.work_phone %></td>
+      </tr>
+      <tr>
+        <td>Address:</td><td><%= @client.address %> <%= @client.city %>, <%= @client.state %> <%= @client.zip_code %></td>
+      </tr>
+      <tr>
+        <td>Ward:</td><td><%= @client.ward %></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <tbody>
+  <table class="table table-hover">
+
+    <thead>
+      <th colspan="2"><h3>Demographics:</h3></th>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Race:</td><td><%= @client.race %></td>
+      </tr>
+      <tr>
+        <td>Sex:</td><td><%= @client.sex %></td>
+      </tr>
+      <tr>
+        <td>Education level:</td><td><%= @client.education_level %></td>
+      </tr>
+      <tr>
+        <td>Martial status:</td><td><%= @client.marital_status %></td>
+      </tr>
+      <tr>
+        <td>Date of Birth:</td>
+        <td>
+          <% if @client.dob %>
+            <%= @client.dob.strftime("%m/%d/%Y") %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <table class="table table-hover">
+
+    <thead>
+      <th colspan="2"><h3>Household Info:</h3></th>
+    </thead>
+
     <tr>
-      <td>Race:</td><td><%= @client.race %></td>
+      <td>Head of household?</td><td><%= best_in_place @client, :head_of_household, as: :select, collection: {false: "No", true: "Yes"} %></td>
     </tr>
     <tr>
-      <td>Sex:</td><td><%= @client.sex %></td>
+      <td>Number in household:</td><td> <%= @client.num_in_household %></td>
     </tr>
     <tr>
-      <td>Education level:</td><td><%= @client.education_level %></td>
+      <td>Number of dependents:</td><td><%= @client.num_of_dependants %></td>
     </tr>
     <tr>
-      <td>Martial status:</td><td><%= @client.marital_status %></td>
+      <td>Estimated household income:</td><td><%= @client.estimated_household_income %></td>
+    </tr>
+    <br>
+    <tr>
+      <td>Do you have a disability?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
     </tr>
     <tr>
-      <td>Date of Birth:</td>
-      <td>
-        <% if @client.dob %>
-          <%= @client.dob.strftime("%m/%d/%Y") %>
-        <% end %>
-      </td>
+      <td>Are you a military service member?</td><td><%= best_in_place @client, :military_service_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
     </tr>
-  </tbody>
+    <tr>
+      <td>Do you want to volunteer?</td><td><%= best_in_place @client, :volunteer_interest, as: :select, collection: {false: "No", true: "Yes"} %></td>
+    </tr>
+    <tr>
+      <td>Are you a member of a union?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+    </tr>
 
-</table>
-
-<table class="table table-hover">
-
-  <thead>
-    <th colspan="2"><h3>Household Info:</h3></th>
-  </thead>
-
-  <tr>
-    <td>Head of household?</td><td><%= best_in_place @client, :head_of_household, as: :select, collection: {false: "No", true: "Yes"} %></td>
-  </tr>
-  <tr>
-    <td>Number in household:</td><td> <%= @client.num_in_household %></td>
-  </tr>
-  <tr>
-    <td>Number of dependents:</td><td><%= @client.num_of_dependants %></td>
-  </tr>
-  <tr>
-    <td>Estimated household income:</td><td><%= @client.estimated_household_income %></td>
-  </tr>
+  </table>
   <br>
-  <tr>
-    <td>Do you have a disability?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
-  </tr>
-  <tr>
-    <td>Are you a military service member?</td><td><%= best_in_place @client, :military_service_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
-  </tr>
-  <tr>
-    <td>Do you want to volunteer?</td><td><%= best_in_place @client, :volunteer_interest, as: :select, collection: {false: "No", true: "Yes"} %></td>
-  </tr>
-  <tr>
-    <td>Are you a member of a union?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
-  </tr>
-
-</table>
-<br>
-<div>
-  <p><a href="/clients/<%= current_client.id %>/edit">Edit Profile</a></p>
+  <div>
+    <p><a href="/clients/<%= current_client.id %>/edit">Edit Profile</a></p>
+  </div>
 </div>
