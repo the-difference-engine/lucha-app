@@ -12,15 +12,15 @@ class RentalsController < ApplicationController
 
     if @rental.save
 	    flash[:success] = ["You've completed the rental application"]
-	    redirect_to "/clients/#{@rental.client_id}/status"
+	    redirect_to "/rentals/#{@rental.client_id}"
     else
     	flash[:danger] = @rental.errors.full_messages
       render :new
     end
   end
-	
+
 	def show
-		@rental = Rental.find(params[:id])
+		@rental = current_client.rental
 	end
 
 	def edit
@@ -48,10 +48,13 @@ class RentalsController < ApplicationController
 
 	def destroy
 		@rental = Rental.find(params[:id])
-		client = @rental.client
-		@rental.destroy
-		flash[:danger] = "Rental application deleted."
-		redirect_to "/clients/#{client.id}/status"
+		if @rental.destroy
+			flash[:danger] = "Rental application deleted."
+			redirect_to "/clients/#{current_client.id}"
+		else
+			flash[:warning] = "Rental NOT deleted"
+			redirect_to "/rentals/#{current_client.id}"
+		end
 	end
 
   private
