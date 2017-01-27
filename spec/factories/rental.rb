@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :rental do
-    client_id 1
+    client
     evictions 1
     waitlist_num 1
     studio true
