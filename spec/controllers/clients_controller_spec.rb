@@ -22,7 +22,7 @@ RSpec.describe ClientsController, type: :controller do
       ])
     end
 
-    it "assigns an array of @clients" do 
+    it "assigns an array of @clients" do
       @client = create(:client)
       sign_in @client
       client1 = create(:client)
@@ -37,7 +37,7 @@ RSpec.describe ClientsController, type: :controller do
       ])
     end
 
-    it "assigns an array of @foreclosures" do 
+    it "assigns an array of @foreclosures" do
       @user = create(:user)
       sign_in @user
       @foreclosure = create(:foreclosure)
@@ -61,7 +61,7 @@ RSpec.describe ClientsController, type: :controller do
     end
 
     # This is currently not working some research may be required
-    xit "returns a CSV file" do 
+    xit "returns a CSV file" do
       @client = create(:client)
       get :index, format: :csv
       expect(response.header['Content-Type']).to include 'text/csv'
@@ -160,7 +160,7 @@ RSpec.describe ClientsController, type: :controller do
       note = Note.last
 
       expect(Note.all.size).to eq(1)
-      Note.any_instance.stub(destroy: false)
+      allow_any_instance_of(Note).to receive(:destroy).and_return(false)
       get :destroy, id: note.id
       expect(response).to redirect_to( client_path(client.id) )
       expect(Note.all.size).to eq(1)
