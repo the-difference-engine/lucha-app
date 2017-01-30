@@ -3,28 +3,53 @@
 
   angular.module("app").controller("budgetCtrl", function($scope, $http) {
 
+    var activeId = gon.id;
+
     $scope.init = function() {
-      $http.get("/api/budgets/1.json").then(function(response) {
-        $scope.income = response.data["income"];
-        $scope.debt = response.data["debt"];
-        $scope.assets = response.data["assets"];
+      $http.get('/api/budgets/' + activeId + '.json').then(function(response) {
+        $scope.budget = response.data;
         $scope.updateSum();
       }); 
     }
 
-    $scope.updateSum = function() {
-      $scope.grossMontlyIncome = sum($scope.income);
-      $scope.totalMonthlyDebt = sum($scope.debt);
+    function income(){
+      return _.pick($scope.budget, [
+        'gross_wages', 
+        'self_employment_income',
+        'overtime',
+        'unemployment',
+        'tips_commissions_bonus',
+        'nontaxable_social_security',
+        'taxable_social_security',
+        'rental_income',
+        'other_income'])
     }
 
-    $scope.closeAlert = function() {
-      setTimeout(function() {
-        $("#budget-alert").fadeTo(500, 0).slideUp(500, function() {
-          $(this).remove();
-          $scope.success = '';
-          $scope.error = '';
-        });
-      }, 5000);
+    function debt(){
+      return _.pick($scope.budget, [
+        'principal_and_interest', 
+        'prop_tax',
+        'assoc_fees',
+        'junior_mortgage',
+        'min_credit_card_payment',
+        'student_loan',
+        'taxable_social_security',
+        'gas',
+        'electricity',
+        'water',
+        'phone',
+        'other_utilities',
+        'food',
+        'gas_car_maintenance',
+        'child_care',
+        'medical_expenses',
+        'rent',
+        'rental_insurance'])
+    }
+
+    $scope.updateSum = function() {
+      $scope.grossMontlyIncome = sum(income());
+      $scope.totalMonthlyDebt = sum(debt());
     }
 
     function sum(obj) {
@@ -37,9 +62,9 @@
       return sum;
     }   
 
-    $scope.submitData = function(income) {
-      var monthlyIncome = { income };
-      $http.patch("/budgets", monthlyIncome).success(function(response){
+    $scope.submitData = function(data) {
+      var monthlyIncome = data;
+      $http.patch('/budgets/' + activeId, monthlyIncome).success(function(response){
         $scope.success = response.success;
         $scope.closeAlert();
       }).error(function(response) {
@@ -48,27 +73,20 @@
       })
     }
 
-    $scope.submitDebt = function(debt) {
-      var monthlyDebt = { debt };
-      $http.patch("/budgets", monthlyDebt).success(function(response){
-        $scope.success = response.success;
-        $scope.closeAlert();
-      }).error(function(response) {
-        $scope.error = response;
-        $scope.closeAlert();
-      })
+    $scope.closeAlert = function() {
+      setTimeout(function() {
+        $("#budget-alert").fadeTo(500, 0).slideUp(500, function() {
+          $(this).remove();
+          $scope.success = '';
+          $scope.error = '';
+        });
+      }, 5000);
     }
 
-    $scope.submitAssets = function(assets) {
-      var monthlyAssets = { assets };
-      $http.patch("/budgets", monthlyAssets).success(function(response){
-        $scope.success = response.success;
-        $scope.closeAlert();
-      }).error(function(response) {
-        $scope.error = response;
-        $scope.closeAlert();
-      })
-    }
+    $scope.$watch('budget', function() {
+        console.log('Budget Data Changed');
+        $scope.updateSum();
+    }, true);
 
     window.scope = $scope;
 

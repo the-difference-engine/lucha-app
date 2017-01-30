@@ -4,42 +4,40 @@
 	<tr>
 
 		<td><%= I18n.t "budget_assets.p_checking" %></td>
-		<td>$<input type="text" ng-model="assets.primary_checking"></td>
+		<td>$<input type="text" ng-model="budget.primary_checking"></td>
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_assets.s_checking" %></td>
-		<td>$<input type="text" ng-model="assets.secondary_checking"></td>
+		<td>$<input type="text" ng-model="budget.secondary_checking"></td>
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_assets.savings_money_mark" %></td>
-		<td>$<input type="text" ng-model="assets.savings_money_market"></td>
+		<td>$<input type="text" ng-model="budget.savings_money_market"></td>
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_assets.stocks" %></td>
-		<td>$<input type="text" ng-model="assets.stocks_or_bonds"></td>
+		<td>$<input type="text" ng-model="budget.stocks_or_bonds"></td>
 	</tr>
 	<tr>
 		<td>401K:</td>
-		<td>$<input type="text" ng-model="assets.four_zero_one_k"></td>
+		<td>$<input type="text" ng-model="budget.four_zero_one_k"></td>
 	</tr>
 	<tr>
 
 		<td><%= I18n.t "budget_assets.home_equity" %></td>
-		<td>$<input type="text" ng-model="assets.home_equity"></td>
+		<td>$<input type="text" ng-model="budget.home_equity"></td>
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_assets.value_of_prop" %></td>
-		<td>$<input type="text" ng-model="assets.other_property"></td>
+		<td>$<input type="text" ng-model="budget.other_property"></td>
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_assets.car_value" %></td>
-		<td>$<input type="text" ng-model="assets.car"></td>
+		<td>$<input type="text" ng-model="budget.car"></td>
 	</tr>
 	<tr>
 		<td><%= I18n.t "budget_assets.other_assets" %></td>
-		<td>$<input type="text" ng-model="assets.other_assets"></td>
+		<td>$<input type="text" ng-model="budget.other_assets"></td>
 	</tr>
 </table>
-
-<button ng-click="submitData(assets)"><%= I18n.t "budget_assets.update" %></button>
 

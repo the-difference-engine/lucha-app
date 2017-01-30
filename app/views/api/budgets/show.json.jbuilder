@@ -1,4 +1,4 @@
-json.set! :income do
+# json.set! :income do
   json.set! :gross_wages, @budget.gross_wages
   json.set! :self_employment_income, @budget.self_employment_income
   json.set! :overtime, @budget.overtime
@@ -8,9 +8,9 @@ json.set! :income do
   json.set! :taxable_social_security, @budget.taxable_social_security
   json.set! :rental_income, @budget.rental_income
   json.set! :other_income, @budget.other_income
-end
+# end
 
-json.set! :debt do
+# json.set! :debt do
   json.set! :principal_and_interest, @budget.principal_and_interest
   json.set! :prop_tax, @budget.prop_tax
   json.set! :assoc_fees, @budget.assoc_fees
@@ -28,9 +28,9 @@ json.set! :debt do
   json.set! :medical_expenses, @budget.medical_expenses
   json.set! :rent, @budget.rent
   json.set! :rental_insurance, @budget.rental_insurance
-end
+# end
 
-json.set! :assets do
+# json.set! :assets do
   json.set! :primary_checking, @budget.primary_checking
   json.set! :secondary_checking, @budget.secondary_checking
   json.set! :savings_money_market, @budget.savings_money_market
@@ -40,5 +40,5 @@ json.set! :assets do
   json.set! :other_property, @budget.other_property
   json.set! :car, @budget.car
   json.set! :other_assets, @budget.other_assets
-end
+# end
 
