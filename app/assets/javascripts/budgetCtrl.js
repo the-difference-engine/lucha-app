@@ -33,7 +33,6 @@
         'junior_mortgage',
         'min_credit_card_payment',
         'student_loan',
-        'taxable_social_security',
         'gas',
         'electricity',
         'water',
@@ -84,7 +83,6 @@
     }
 
     $scope.$watch('budget', function() {
-        console.log('Budget Data Changed');
         $scope.updateSum();
     }, true);
 
