@@ -35,9 +35,9 @@ RSpec.describe BudgetsController, type: :controller do
       @budget = create(:budget, client_id: @client.id)
     end
     it "locates the client's budget" do
-      sign_in @client
-      patch :update, id: @budget, income: { gross_wages: 50.00 }
-      expect(assigns(:budget).gross_wages).to eq(50.00)
+      sign_in create(:user)
+      put :update, id: @client.id, budget: {income: attributes_for(:rental)}
+      expect(assigns(:budget)).to eq(@budget)
     end
   end
 

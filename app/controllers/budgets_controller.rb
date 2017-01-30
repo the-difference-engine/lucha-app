@@ -30,7 +30,7 @@ class BudgetsController < ApplicationController
   end
 
   def income_params
-    params.permit(:gross_wages, :self_employment_income, :overtime, :unemployment, :tips_commissions_bonus, :nontaxable_social_security, :taxable_social_security, :rental_income, :other_income)
+    params.require(:income).permit(:gross_wages, :self_employment_income, :overtime, :unemployment, :tips_commissions_bonus, :nontaxable_social_security, :taxable_social_security, :rental_income, :other_income)
   end
 
   def debt_params

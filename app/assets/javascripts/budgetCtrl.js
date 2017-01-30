@@ -37,7 +37,7 @@
       return sum;
     }   
 
-    $scope.submitIncome = function(income) {
+    $scope.submitData = function(income) {
       var monthlyIncome = { income };
       $http.patch("/budgets", monthlyIncome).success(function(response){
         $scope.success = response.success;
