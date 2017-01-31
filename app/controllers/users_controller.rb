@@ -2,7 +2,7 @@ class UsersController < Devise::RegistrationsController
   # before_action :authenticate_employee!, except: [:new]
 
   def index
-    @clients = Client.incomplete_profile
+    @clients = Client.unassigned_client
   end
 
   def show
@@ -13,7 +13,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def new
-  	@user = User.new
+    @user = User.new
     render :new
   end
 
@@ -53,7 +53,7 @@ class UsersController < Devise::RegistrationsController
       cell_phone: params[:cell_phone]
         })
 
-    flash[:success] = "You're info is updated."
+    flash[:success] = "Your info is updated."
     redirect_to "/clients/#{@client.id}"
     else
       render :edit

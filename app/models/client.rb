@@ -31,19 +31,9 @@ class Client < ActiveRecord::Base
 
   before_create :make_budget
 
-  def self.incomplete_profile
-    where(user_id: nil).where.not(
-      sex: nil, 
-      race: nil, 
-      ssn: nil, 
-      preferred_contact_method: nil, 
-      preferred_language: nil, 
-      marital_status: nil, 
-      dob: nil, 
-      num_in_household: nil, 
-      num_of_dependants: nil, 
-      education_level: nil, 
-      estimated_household_income: nil)
+  def self.unassigned_client
+    where(user_id: nil)
+    #.where.not(sex: nil, race: nil, ssn: nil, preferred_contact_method: nil, preferred_language: nil, marital_status: nil, dob: nil, num_in_household: nil, num_of_dependants: nil, education_level: nil, estimated_household_income: nil) 
   end
 
   def full_name

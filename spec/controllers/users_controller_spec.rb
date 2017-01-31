@@ -56,6 +56,11 @@ RSpec.describe UsersController, type: :controller do
 
   describe "Post #create" do
     describe "creates an instance of a user and assigns it to @user" do
+      it "assigns a user instance" do
+        @user = create(:user)
+        post :create, {user: attributes_for(:user)}
+        expect(assigns(:user)).to be_a_new(User)
+      end
       context "saves succesfully" do
         it "saves a new User to the db" do
           expect{
@@ -76,7 +81,7 @@ RSpec.describe UsersController, type: :controller do
           allow_any_instance_of(User).to receive(:save).and_return(false)
           allow_any_instance_of(User).to receive_message_chain(:errors, :full_messages).and_return(["danger"])
         end
-        it "render the new template" do
+        it "render a :new template" do
           post :create, {user: attributes_for(:user)}
           expect(response).to render_template :new
         end
@@ -86,28 +91,30 @@ RSpec.describe UsersController, type: :controller do
         end
       end
     end
-
-    # describe " " do
-
-    # end
   end
-#   describe "GET #index" do
-#     it "returns http success" do
-#       get :index
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
 
-#   describe "GET #show" do
-#     it "returns http success" do
-#       get :show
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
+  describe 'Get #edit' do
+    it "assigns the requested user to @user" do
+      @another_user = create(:user)
+      sign_in @another_user
+      get :edit, id: @another_user.id
+      expect(assigns(:user)).to eq(@another_user)
+    end
 
+    it "renders the :edit template" do
+      @other_user = create(:user)
+      sign_in @other_user
+      get :edit, id: @other_user
+      expect(response).to render_template :edit
+    end
+  end
 
+  describe '#devise_mapping' do
+  end
 
+  describe 'Post #search' do
+  end
 
-
-
+  describe 'Get #destroy' do
+  end
 end

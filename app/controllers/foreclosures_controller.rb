@@ -1,6 +1,8 @@
 class ForeclosuresController < ApplicationController
+
   before_action :authenticate!
-  respond_to :html, :json
+  respond_to :html, :json, :csv
+
 
   def index
     @foreclosures = Foreclosure.all
