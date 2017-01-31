@@ -78,8 +78,8 @@ RSpec.describe UsersController, type: :controller do
       end
       context "save fails" do
         before :each do
-          User.any_instance.stub(save: false)
-          User.any_instance.stub_chain(:errors, :full_messages).and_return(["danger"])
+          allow_any_instance_of(User).to receive(:save).and_return(false)
+          allow_any_instance_of(User).to receive_message_chain(:errors, :full_messages).and_return(["danger"])
         end
         it "render a :new template" do
           post :create, {user: attributes_for(:user)}
@@ -109,28 +109,12 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe '#devise_mapping' do
+  end
 
-    # describe " " do
+  describe 'Post #search' do
+  end
 
-    # end
-
-#   describe "GET #index" do
-#     it "returns http success" do
-#       get :index
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
-#   describe "GET #show" do
-#     it "returns http success" do
-#       get :show
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-
-
-
-
-
-
+  describe 'Get #destroy' do
+  end
 end
