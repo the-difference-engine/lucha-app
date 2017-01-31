@@ -8,6 +8,18 @@
   
   <tbody>
     <tr>
+      <td>First Name:</td> <td><%= @client.first_name %></td>
+    </tr>
+    <tr>
+      <td>Last Name:</td> <td><%= @client.last_name %></td>
+    </tr>
+    <tr>
+      <td>Preferred Language:</td> <td><%= @client.preferred_language %></td>
+    </tr>
+    <tr>
+      <td>Preferred Contact Method:</td> <td><%= @client.preferred_contact_method %></td>
+    </tr>
+    <tr>
       <td>Home Phone:</td> <td><%= @client.home_phone %></td>
     </tr>
     <tr>
@@ -17,7 +29,7 @@
       <td>Work Phone:</td> <td><%= @client.work_phone %></td>
     </tr>
     <tr>  
-      <td>Address:</td><td><%= @client.address %> <%= @client.city %>, <%= @client.state %> <%= @client.zip_code %></td>
+      <td>Address:</td><td><%= @client.address %> <br><%= @client.city %>, <%= @client.state %> <%= @client.zip_code %></td>
     </tr>
     <tr>
       <td>Ward:</td><td><%= @client.ward %></td>
@@ -39,10 +51,10 @@
       <td>Sex:</td><td><%= @client.sex %></td>
     </tr>
     <tr>
-      <td>Education level:</td><td><%= @client.education_level %></td>
+      <td>Education Level:</td><td><%= @client.education_level %></td>
     </tr>
     <tr>
-      <td>Martial status:</td><td><%= @client.marital_status %></td>
+      <td>Marital Status:</td><td><%= @client.marital_status %></td>
     </tr>
     <tr>
       <td>Date of Birth:</td>
@@ -50,6 +62,12 @@
         <% if @client.dob %>
           <%= @client.dob.strftime("%m/%d/%Y") %>
         <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>SSN:</td>
+      <td>
+        *********
       </td>
     </tr>
   </tbody>
@@ -63,29 +81,29 @@
   </thead>
 
   <tr>
-    <td>Head of household?</td><td><%= best_in_place @client, :head_of_household, as: :select, collection: {false: "No", true: "Yes"} %></td>
+    <td>Head of Household:</td><td><%= best_in_place @client, :head_of_household, as: :select, collection: {false: "No", true: "Yes"} %></td>
   </tr>
   <tr>
-    <td>Number in household:</td><td> <%= @client.num_in_household %></td>
+    <td>Number in Household:</td><td> <%= @client.num_in_household %></td>
   </tr>
   <tr>
-    <td>Number of dependents:</td><td><%= @client.num_of_dependants %></td>
+    <td>Number of Dependents:</td><td><%= @client.num_of_dependants %></td>
   </tr>
   <tr>
-    <td>Estimated household income:</td><td><%= @client.estimated_household_income %></td>
+    <td>Estimated Household Income:</td><td><%= @client.estimated_household_income %></td>
   </tr>
   <br>
   <tr>
-    <td>Do you have a disability?</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+    <td>Disability:</td><td><%= best_in_place @client, :disability, as: :select, collection: {false: "No", true: "Yes"}  %></td>
   </tr>
   <tr>
-    <td>Are you a military service member?</td><td><%= best_in_place @client, :military_service_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+    <td>Military Service Member:</td><td><%= best_in_place @client, :military_service_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
   </tr>
   <tr>
-    <td>Do you want to volunteer?</td><td><%= best_in_place @client, :volunteer_interest, as: :select, collection: {false: "No", true: "Yes"} %></td>
+    <td>Volunteer:</td><td><%= best_in_place @client, :volunteer_interest, as: :select, collection: {false: "No", true: "Yes"} %></td>
   </tr>
   <tr>
-    <td>Are you a member of a union?</td><td><%= best_in_place @client, :union_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
+    <td>Union Member:</td><td><%= best_in_place @client, :union_member, as: :select, collection: {false: "No", true: "Yes"}  %></td>
   </tr>
 
 </table>

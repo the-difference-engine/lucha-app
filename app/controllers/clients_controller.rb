@@ -61,8 +61,34 @@ class ClientsController < ApplicationController
       @client = current_client
     end
 
-    params = params[:client]
-    @client.update(client_params)
+    @client.update({
+      first_name: params[:client][:first_name],
+      last_name: params[:client][:last_name],
+      home_phone: params[:client][:home_phone],
+      cell_phone: params[:client][:cell_phone],
+      work_phone: params[:client][:work_phone],
+      address: params[:client][:address],
+      state: params[:client][:state],
+      city: params[:client][:city],
+      zip_code: params[:client][:zip_code],
+      ward: params[:client][:ward],
+      sex: params[:client][:sex],
+      race: params[:client][:race],
+      ssn: params[:client][:ssn],
+      preferred_contact_method: params[:client][:preferred_contact_method],
+      preferred_language: params[:client][:preferred_language],
+      marital_status: params[:client][:marital_status],
+      dob: params[:client][:dob],
+      head_of_household: params[:client][:head_of_household],
+      num_in_household: params[:client][:num_in_household],
+      num_of_dependants: params[:client][:num_of_dependants],
+      education_level: params[:client][:education_level],
+      estimated_household_income: params[:client][:estimated_household_income],
+      disability: params[:client][:disability],
+      union_member: params[:client][:union_member],
+      military_service_member: params[:client][:military_service_member],
+      volunteer_interest: params[:client][:volunteer_interest],
+      user_id: params[:client][:user_id]})
     # if @client.update(client_params)
     #   if user_signed_in?
     #     flash[:success] = [ "Client info updated." ]
