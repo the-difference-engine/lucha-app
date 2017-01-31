@@ -1,7 +1,6 @@
 class ClientsController < ApplicationController
   before_action :authenticate!, :only => [:index, :show, :update, :edit,]
-  before_action :authenticate_user!, :only => [:destroy,]
-
+  before_action :verify_user!, :only => [:destroy,]
 
   def index
     @users = User.all
