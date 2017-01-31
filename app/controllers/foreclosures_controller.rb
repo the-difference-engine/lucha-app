@@ -43,7 +43,7 @@ class ForeclosuresController < ApplicationController
       agency: params[:agency]
       })
     if @foreclosure.save
-      flash[:success] = "You've Completed Your Foreclosure Application"
+      flash[:success] = ["You've Completed Your Foreclosure Application"]
       redirect_to "/foreclosures/#{@foreclosure.id}"
     else
       flash[:danger] = @foreclosure.errors.full_messages
@@ -78,7 +78,7 @@ class ForeclosuresController < ApplicationController
   def destroy
     @foreclosure = Foreclosure.find(params[:id]) if current_user
     @foreclosure = current_client.foreclosure if current_client
-    
+
     if @foreclosure.destroy
       flash[:danger] = "Foreclosure Application Deleted."
       redirect_to "/clients/#{current_client.id}"
