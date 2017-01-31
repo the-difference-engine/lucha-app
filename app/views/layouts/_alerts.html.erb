@@ -1,11 +1,15 @@
-<%flash.each do |name, messages| %>
+<% flash.each do |name, messages| %>
 
-  <div class="alert alert-= name %> alert-dismissible" role="alert">  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <%= messages %>
-    <ul>
-       <%# messages.each do |message| %>
-        <li><%#= message %></li>
-       <%# end %>
-    </ul>
+  <div class="alert alert-<%= name == 'alert' || name == 'notice' ? 'warning' : name %> alert-dismissible" role="alert"> 
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <p><b><%= name %>!</b></p>
+    <% messages.each do |message| %>
+        <p> <%= message %> <p>
+    <% end %>
+
   </div>
+  
 <% end %>

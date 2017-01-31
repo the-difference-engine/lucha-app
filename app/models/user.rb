@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :program_employees
   has_many :foreclosures, through: :program_employees, source: :programable, source_type: "Foreclosure"
   has_many :homebuyings, through: :program_employees, source: :programable, source_type: "Homebuying"
   has_many :rentals, through: :program_employees, source: :programable, source_type: "Rental"

@@ -13,3 +13,5 @@
 /tmp
 .env
 Procfile
+coverage
+spec/examples.txt

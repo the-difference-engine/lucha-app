@@ -32,7 +32,7 @@ class UsersController < Devise::RegistrationsController
       flash[:success] = "The account has been created"
       redirect_to "/users/#{@user.id}"
     else
-      flash[:danger] = @user.errors.full_messages
+      flash[:danger] = "The account failed to be created"
       render :new
     end
   end

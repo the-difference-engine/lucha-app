@@ -1,7 +1,6 @@
 class ClientsController < ApplicationController
   before_action :authenticate!, :only => [:index, :show, :update, :edit,]
   before_action :verify_user!, :only => [:destroy,]
-  
 
   def index
     @users = User.all
@@ -25,7 +24,6 @@ class ClientsController < ApplicationController
     # you will have to modify both views
     @client = Client.find(params[:id])
     note = Note.create(user_id: current_user.id, client_id: @client.id, description: params[:description])
-    p note
     if note.save!
       flash[:success] = ['Note added.']
       redirect_to client_path(@client)
