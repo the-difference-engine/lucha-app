@@ -9,6 +9,4 @@ FactoryGirl.define do
     work_phone "432-234-6756"
     cell_phone "876-456-3454"
   end
-  
 end
-
