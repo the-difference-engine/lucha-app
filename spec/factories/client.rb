@@ -23,6 +23,11 @@ FactoryGirl.define do
     race "Hispanic/Latino"
     education_level "GED"
     estimated_household_income "$15,000 or Less"
+    disability true
+    union_member true
+    military_service_member true
+    volunteer_interest true
+    head_of_household true
 
     trait :invalid do
       email nil
