@@ -4,7 +4,7 @@ Language:
 
 <div class="row">
   <div class="col-md-6">
-    <%= form_for @client  do |form| %>
+    <%= form_for @client do |form| %>
         <% if @client.errors.any? %>
           <div id="error_explanation">
             <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
@@ -78,11 +78,11 @@ Language:
 
         <div class="form-group">
           <%= I18n.t "clients_edit.ss"  %> <br>
-          <%= form.password_field :ssn %>
+          <%= form.password_field(:ssn, value: @client.ssn) %>
         </div>
 
         <div class="form-group">
-          Preferred Contact Method<br>
+          <%= I18n.t "clients_edit.pref_contact"  %> <br>
           <%= form.text_field :preferred_contact_method %>
         </div>
 
@@ -99,13 +99,6 @@ Language:
         <div class="form-group">
           <%= I18n.t "clients_edit.dob"  %> <br>
           <%= form.date_field :dob %>
-        </div>
-
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="head_of_household" name="head_of_household" type="checkbox" value="true"/>
-            <%= I18n.t "clients_edit.head_of_house"  %>
-          </div>
         </div>
 
         <div class="form-group">
@@ -128,33 +121,41 @@ Language:
           <%= form.select :estimated_household_income, options_for_select(income_range, @client.estimated_household_income) %>
         </div>
 
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="disability" name="disability" type="checkbox" value="true"/>
-            <%= I18n.t "clients_edit.disability"  %> 
-          </div>
-        </div>  
+        <div>
 
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="union_member" name="union_member" type="checkbox" value="true"/>
+          <h5>Check all that apply:</h5>
+
+          <div class="form-group">
+            <%= hidden_field_tag 'client[head_of_household]', false %>
+            <%= check_box_tag 'client[head_of_household]', true, @client.head_of_household %>
+            <%= I18n.t "clients_edit.head_of_house"  %>
+          </div>
+
+          <div class="form-group">
+            <%= hidden_field_tag 'client[disability]', false %>
+            <%= check_box_tag 'client[disability]', true, @client.disability %>
+            <%= I18n.t "clients_edit.disability"  %>
+          </div>
+
+          <div class="form-group">
+            <%= hidden_field_tag 'client[union_member]', false %>
+            <%= check_box_tag 'client[union_member]', true, @client.union_member %>
             <%= I18n.t "clients_edit.union"  %>
           </div>
-        </div>
 
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="military_service_member" name="military_service_member" type="checkbox" value="true"/>
-            <%= I18n.t "clients_edit.military"  %> <br>
+          <div class="form-group">
+            <%= hidden_field_tag 'client[military_service_member]', false %>
+            <%= check_box_tag 'client[military_service_member]', true, @client.military_service_member %>
+            <%= I18n.t "clients_edit.military"  %>
+          </div>
+
+          <div class="form-group">
+            <%= hidden_field_tag 'client[volunteer_interest]', false %>
+            <%= check_box_tag 'client[volunteer_interest]', true, @client.volunteer_interest %>
+            <%= I18n.t "clients_edit.volunteer"  %>
           </div>
         </div>
 
-        <div class="form-group">
-          <div class="checkbox-inline">
-            <input id="volunteer_interest" name="volunteer_interest" type="checkbox" value="true"/>
-           <%= I18n.t "clients_edit.volunteer"  %> <br>
-          </div>
-        </div>
         <div class="actions">
           <%= form.submit I18n.t "clients_edit.update", class: 'btn btn-large btn-primary' %>
         </div>

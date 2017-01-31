@@ -53,7 +53,7 @@ class UsersController < Devise::RegistrationsController
       cell_phone: params[:cell_phone]
         })
 
-    flash[:success] = "You're info is updated."
+    flash[:success] = "Your info is updated."
     redirect_to "/clients/#{@client.id}"
     else
       render :edit
