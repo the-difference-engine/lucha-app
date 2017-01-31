@@ -11,7 +11,7 @@ RSpec.describe RentalsController, type: :controller do
       end
       it "assigns a new Rental to @rental" do
         get :new
-        expect(assigns(:rental)).to be_a_new(Rental) 
+        expect(assigns(:rental)).to be_a_new(Rental)
       end
       it "renders the :new template" do
         get :new
@@ -162,7 +162,7 @@ RSpec.describe RentalsController, type: :controller do
     context "fails to update the rental" do
       it "rerenders the edit page" do
         sign_in @client
-        Rental.any_instance.stub(save: false)
+        allow_any_instance_of(Rental).to receive(:save).and_return(false)
         put :update, id: @client.rental,
           rental: attributes_for(:rental,
             employer_name: 'Joe Smith',

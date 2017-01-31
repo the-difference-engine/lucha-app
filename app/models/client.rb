@@ -32,7 +32,18 @@ class Client < ActiveRecord::Base
   before_create :make_budget
 
   def self.incomplete_profile
-    where(user_id: nil).where.not(sex: nil, race: nil, ssn: nil, preferred_contact_method: nil, preferred_language: nil, marital_status: nil, dob: nil,  num_in_household: nil, num_of_dependants: nil, education_level: nil, estimated_household_income: nil)
+    where(user_id: nil).where.not(
+      sex: nil, 
+      race: nil, 
+      ssn: nil, 
+      preferred_contact_method: nil, 
+      preferred_language: nil, 
+      marital_status: nil, 
+      dob: nil, 
+      num_in_household: nil, 
+      num_of_dependants: nil, 
+      education_level: nil, 
+      estimated_household_income: nil)
   end
 
   def full_name
@@ -40,17 +51,11 @@ class Client < ActiveRecord::Base
   end
 
   def has_user?
-    !!user 
+    !!user
   end
 
   def user_fullname
     "#{user.first_name.titleize} #{user.last_name.titleize}"
-  end
-
-  def column_count
-    attributes.length - 4
-    # Can only be called on an instance
-    # Subtracting 4 from the number of attributes as those are created when the client makes an account
   end
 
   def filled_columns

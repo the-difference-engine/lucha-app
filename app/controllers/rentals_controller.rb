@@ -10,14 +10,14 @@ class RentalsController < ApplicationController
 		@id = current_client.id
 		@rental = Rental.new(rental_params.merge(client_id: @id))
 
-    if @rental.save
-	    flash[:success] = ["You've completed the rental application"]
-	    redirect_to "/clients/#{@rental.client_id}/status"
-    else
-    	flash[:danger] = @rental.errors.full_messages
-      render :new
+    	if @rental.save
+	    	flash[:success] = ["You've completed the rental application"]
+	    	redirect_to "/clients/#{@rental.client_id}/status"
+    	else
+    		flash[:danger] = @rental.errors.full_messages
+      		render :new
+    	end
     end
-  end
 	
 	def show
 		@rental = Rental.find(params[:id])

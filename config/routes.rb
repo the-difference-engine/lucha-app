@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   post '/budgets/create' => 'budgets#create', as: :budget_create
   get '/budgets/:id' => 'budgets#show', as: :budget
   get '/budgets/:id/edit' => 'budgets#edit', as: :edit_budget
-  patch '/budgets' => 'budgets#update', as: :update_budget
+  patch '/budgets/:id'=> 'budgets#update', as: :update_budget
   delete '/budgets/:id' => 'budgets#destroy', as: :budget_delete
 
   get '/foreclosures' =>'foreclosures#index', as: :foreclosures
@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   post '/homebuyings/create' => 'homebuyings#create', as: :homebuying_create
   get '/homebuyings/:id' => 'homebuyings#show', as: :homebuying
   get '/homebuyings/:id/edit' => 'homebuyings#edit', as: :homebuying_edit
-  put '/homebuyings/:id' => 'homebuyings#update', as: :homebuying_update
+  patch '/homebuyings/:id' => 'homebuyings#update', as: :homebuying_update
   delete '/homebuyings/:id' => 'homebuyings#destroy', as: :homebuying_delete
 
 
@@ -97,4 +97,3 @@ Rails.application.routes.draw do
 
 
 end
-
