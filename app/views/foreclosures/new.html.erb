@@ -1,5 +1,5 @@
 
-Language: 
+Language:
             <%= link_to_unless_current "English", locale: "en" %>|
             <%=  link_to_unless_current "Español", locale: "es" %>
 
@@ -78,15 +78,13 @@ Language:
     <%= select_tag(:working_w_agency, options_for_select([["No", false],["Yes", true]], @foreclosure.working_w_agency)) %>
   </div>
 
+  <div class="form-group">
+    <%= label_tag :reason_for_default %><br>
+    <%= text_field_tag :reason_for_default %>
+  </div>
+
 	<div class="actions">
 	  <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
-	</div>	
+	</div>
 
 <% end %>
-
-
-
-
-
-
-

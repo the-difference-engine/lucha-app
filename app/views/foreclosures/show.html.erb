@@ -1,6 +1,78 @@
 
 <h2>Foreclosure</h2>
 <p>See any information that's incorrect below? Simply click the data and change it out.</p>
-<%= render "foreclosure" %>
-
-<%= link_to "Delete this application.", "/foreclosures/#{@foreclosure.id}", method: :delete, data:{confirm: "Are you sure you want to delete this foreclosure application?"} %>
+<div class="container-fluid">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissible face show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= value %>
+    </div>
+  <% end %>
+  <table class="table table-hover">
+  		<thead>
+  			<th colspan="2"><h3>Foreclosure Application:</h3></th>
+  		</thead>
+  	<tbody>
+  		<tr>
+  			<td>Are you currently going through foreclosure?</td>
+  			<td><%= best_in_place @foreclosure, :currently_foreclosed, :as => :select, :class=>"best_in_place", :collection => foreclosure_status  %></td>
+  		</tr>
+  		<tr>
+  			<td>Who is your originating lender?</td>
+  			<td><%= best_in_place @foreclosure, :originating_lender %></td>
+  		</tr>
+  		<tr>
+  			<td>What is your loan number?</td>
+  			<td><%= best_in_place @foreclosure, :original_loan_number %></td>
+  		</tr>
+  		<tr>
+  			<td>Who is your servicer?</td>
+  			<td><%= best_in_place @foreclosure, :servicer %></td>
+  		</tr>
+  		<tr>
+  			<td>What is the servicer loan number?</td>
+  			<td><%= best_in_place @foreclosure, :servicer_loan_number %></td>
+  		</tr>
+  		<tr>
+  			<td>Monthly Mortgage Payment:</td>
+  			<td><%= best_in_place @foreclosure, :monthly_mortgage_payment, :display_with => :number_to_currency %></td>
+  		</tr>
+      <tr>
+        <td>Loan Term:</td>
+        <td><%= best_in_place @foreclosure, :loan_term %> years</td>
+      </tr>
+  		<tr>
+  			<td>Loan origination date:</td>
+  			<td><%= best_in_place @foreclosure, :origination_date, :as => :date %></td>
+  		</tr>
+  		<tr>
+  			<td>Have you been to court?</td>
+  			<td><%= best_in_place @foreclosure, :been_to_court, as: :select, collection: {false: "No", true: "Yes"} %></td>
+  		</tr>
+  		<tr>
+  			<td>What is your court case number?</td>
+  			<td><%= best_in_place @foreclosure, :court_case_number %></td>
+  		</tr>
+  		<tr>
+  			<td>Are you working with a lawyer?</td>
+  			<td><%= best_in_place @foreclosure, :working_with_lawyer, as: :select, collection: {false: "No", true: "Yes"} %></td>
+  		</tr>
+  		<tr>
+  			<td>Are you working with another HUD approved agency?</td>
+  			<td><%= best_in_place @foreclosure, :working_w_agency, as: :select, collection: {false: "No", true: "Yes"} %></td>
+  		</tr>
+      <tr>
+        <td>Agency</td>
+        <td><%= best_in_place @foreclosure, :working_w_agency, as: :select, collection: {false: "No", true: "Yes"} %></td>
+      </tr>
+  		<tr>
+  			<td>What is the reason for your default?</td>
+  			<td><%= best_in_place @foreclosure, :reason_for_default %></td>
+  		</tr>
+  	</tbody>
+  </table>
+  <%= link_to "Edit Application", "/foreclosures/#{@foreclosure.id}/edit", method: :get %><br>
+  <%= link_to "Delete Application", "/foreclosures/#{@foreclosure.id}", method: :delete, data: { confirm: "Are you sure you want to delete this foreclosure application?"} %>
+</div>

@@ -1,7 +1,6 @@
 class ForeclosuresController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
-
-  respond_to :html, :json, :csv
+  before_action :authenticate!
+  respond_to :html, :json
 
   def index
     @foreclosures = Foreclosure.all
@@ -24,7 +23,6 @@ class ForeclosuresController < ApplicationController
 
 
   def create
-
     @id = current_client.id if current_client
     @id = Client.find(params[:id]).id if current_user
 
@@ -45,8 +43,8 @@ class ForeclosuresController < ApplicationController
       agency: params[:agency]
       })
     if @foreclosure.save
-      flash[:success] = ["You've completed the foreclosure application"]
-      redirect_to "/foreclosures/#{@foreclosure.client_id}"
+      flash[:success] = "You've Completed Your Foreclosure Application"
+      redirect_to "/foreclosures/#{@foreclosure.id}"
     else
       flash[:danger] = @foreclosure.errors.full_messages
       render :new
@@ -54,42 +52,46 @@ class ForeclosuresController < ApplicationController
   end
 
   def show
-    @foreclosure = Foreclosure.find(params[:id])
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
+    @foreclosure = current_client.foreclosure if current_client
   end
 
   def edit
-    if client_signed_in?
-      @foreclosure = current_client.foreclosure
-    elsif user_signed_in?
-      @foreclosure = Foreclosure.find(params[:id])
-    end
+    @foreclosure = current_client.foreclosure if current_client
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
   end
 
 
   def update
-    @foreclosure = current_client.foreclosure if current_client
     @foreclosure = Foreclosure.find(params[:id]) if current_user
+    @foreclosure = current_client.foreclosure if current_client
 
-    if @foreclosure.update_attributes(foreclosure_params)
+    if @foreclosure.update(foreclosure_params)
       flash[:success] = "Foreclosure application submitted."
-      redirect_to "/clients/#{@foreclosure.client_id}"
+      redirect_to "/foreclosures/#{@foreclosure.id}"
     else
+      flash[:warning] = "update unsuccessful"
       render :edit
     end
-
   end
 
   def destroy
-    @foreclosure = Foreclosure.find(params[:id])
-    @foreclosure.destroy
-    flash[:danger] = "Foreclosure application deleted."
-    redirect_to "/clients/#{params[:id]}/status"
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
+    @foreclosure = current_client.foreclosure if current_client
+    
+    if @foreclosure.destroy
+      flash[:danger] = "Foreclosure Application Deleted."
+      redirect_to "/clients/#{current_client.id}"
+    else
+      flash[:warning] = "application was not deleted"
+      render :show
+    end
   end
 
 private
 
   def foreclosure_params
-    params.require(:foreclosure).permit(
+    params.permit(
       :currently_foreclosed,
       :originating_lender,
       :original_loan_number,
