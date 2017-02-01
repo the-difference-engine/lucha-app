@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :budget do
    client
-   gross_wages 1.0
-   self_employment_income 1.0
+   gross_wages 5.0
+   self_employment_income 5.0
    overtime 1.0
    unemployment 1.0
    tips_commissions_bonus 1.0
