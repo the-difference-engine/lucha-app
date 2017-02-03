@@ -6,8 +6,12 @@
        <span aria-hidden="true">&times;</span>
    </button>
    <p><b><%= name %>!</b></p>
-   <% messages.each do |message| %>
-       <p> <%= message %> <p>
+   <% if messages.class == String %>
+     <p><%= messages %></p>
+   <% else %>
+     <% messages.each do |message| %>
+       <p><%= message %><p>
+      <% end %>
    <% end %>
 
  </div>
