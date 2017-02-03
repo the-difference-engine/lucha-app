@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+
 gem 'pry'
 gem 'rb-readline'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -39,7 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'devise'
+gem 'devise', '~> 4.1.0'
 # gem 'oauth2', '~> 1.1'
 gem 'puma'
 
