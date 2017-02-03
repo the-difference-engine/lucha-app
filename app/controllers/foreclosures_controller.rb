@@ -69,7 +69,7 @@ class ForeclosuresController < ApplicationController
     @foreclosure = current_client.foreclosure if current_client
 
     if @foreclosure.update(foreclosure_params)
-      flash[:success] = "Foreclosure application submitted."
+      flash[:success] = ["Foreclosure application submitted."]
       redirect_to "/foreclosures/#{@foreclosure.id}"
     else
       flash[:warning] = "update unsuccessful"
@@ -82,7 +82,7 @@ class ForeclosuresController < ApplicationController
     @foreclosure = current_client.foreclosure if current_client
 
     if @foreclosure.destroy
-      flash[:danger] = "Foreclosure Application Deleted."
+      flash[:danger] = ["Foreclosure Application Deleted."]
       redirect_to "/clients/#{current_client.id}"
     else
       flash[:warning] = "application was not deleted"
