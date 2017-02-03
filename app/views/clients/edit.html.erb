@@ -6,14 +6,14 @@ Language:
   <div class="col-md-6">
     <%= form_for @client do |form| %>
         <% if @client.errors.any? %>
-          <div id="error_explanation">
-            <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
-            <ul>
-            <% @client.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-            </ul>
-          </div>
+          <div id="error_explanation">
+            <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
+            <ul>
+            <% @client.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
         <% end %>
         <div class="form-group">
           <%= I18n.t "clients_edit.first_name"  %> <br>
