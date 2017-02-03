@@ -1,53 +1,43 @@
-<% if @forclosure.errors.any? %>
-  <div id="error_explanation">
-    <h5><%= pluralize(@forclosure.errors.count, "error") %> prohibited this forclosure from being saved:</h5>
-    <ul>
-    <% @forclosure.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <h1>Update your foreclosure case:</h1>
 
-<%= form_tag foreclosure_update_path, method: :patch do %>
+<%= form_tag "/foreclosures/#{@foreclosure.id}", method: :patch do %>
 
-  <div class="field">
-    <%= label_tag :originating_lender %><br />
-    <%=text_field_tag :originating_lender, @foreclosure.originating_lender %>
+  <div class="form-group">
+    <%= label_tag :originating_lender %><br>
+    <%= text_field_tag :originating_lender, @foreclosure.originating_lender %>
   </div>
 
-  <div class="field">
-    <%= label_tag :original_loan_number %><br />
-    <%=text_field_tag :original_loan_number, @foreclosure.original_loan_number %>
+  <div class="form-group">
+    <%= label_tag :original_loan_number %><br>
+    <%= text_field_tag :original_loan_number, @foreclosure.original_loan_number %>
   </div>
 
-  <div class="field">
-    <%= label_tag :servicer %><br />
-    <%=text_field_tag :servicer, @foreclosure.servicer %>
+  <div class="form-group">
+    <%= label_tag :servicer %><br>
+    <%= text_field_tag :servicer, @foreclosure.servicer %>
   </div>
 
-  <div class="field">
-    <%= label_tag :servicer_loan_number %><br />
-    <%=text_field_tag :servicer_loan_number, @foreclosure.servicer_loan_number %>
+  <div class="form-group">
+    <%= label_tag :servicer_loan_number %><br>
+    <%= text_field_tag :servicer_loan_number, @foreclosure.servicer_loan_number %>
   </div>
 
-  <div class="field">
-    <%= label_tag :monthly_mortgage_payment %><br />
-    <%=text_field_tag :monthly_mortgage_payment, @foreclosure.monthly_mortgage_payment %>
+  <div class="form-group">
+    <%= label_tag :monthly_mortgage_payment %><br>
+    <%= text_field_tag :monthly_mortgage_payment, @foreclosure.monthly_mortgage_payment %>
   </div>
 
-  <div class="field">
-    <%= label_tag :loan_term %><br />
+  <div class="form-group">
+    <%= label_tag :loan_term %><br>
     <%= text_field_tag :loan_term, @foreclosure.loan_term %>
   </div>
 
-    <div class="field">
-    <%= label_tag :been_to_court %><br />
-    <%=text_field_tag :been_to_court, @foreclosure.been_to_court %>
+  <div class="form-group">
+    <%= label_tag :been_to_court %><br>
+    <%= select_tag :been_to_court, options_for_select([["No", false],["Yes", true]], @foreclosure.been_to_court) %>
   </div>
 
+  <div class="actions">
+    <%= submit_tag "Update", :class => 'btn btn-large btn-primary' %>
+  </div>
 <% end %>
-
-

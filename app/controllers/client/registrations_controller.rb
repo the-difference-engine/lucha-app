@@ -1,20 +1,21 @@
 class Client::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
-	
+
   def after_sign_up_path_for(client)
     # client_edit_path(client)
     client_path(client)
   end
 
 	protected
-	
+
   def configure_permitted_parameters
+
     devise_parameter_sanitizer.for(:sign_up) do |client_params|
-      client_params.permit(:first_name, 
-          :last_name, 
-          :email, 
-          :authorization_and_waiver, 
-          :privacy_policy_authorization, 
+      client_params.permit(:first_name,
+          :last_name,
+          :email,
+          :authorization_and_waiver,
+          :privacy_policy_authorization,
           :race,
           :sex,
           :home_phone,

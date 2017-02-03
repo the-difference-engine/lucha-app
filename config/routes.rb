@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :controllers
   # devise_for :clients, :path => '', :path_names => {:sign_up => 'register', :sign_in => 'login', :sign_out => 'logout'}, controllers: { registrations: "clients/registrations"}, :except => [:new_client_session, :client_session]
   devise_for :clients, controllers: { registrations: "client/registrations"}, :except => [:new_client_session, :client_session]
   devise_scope :client do
@@ -58,7 +59,7 @@ Rails.application.routes.draw do
   post '/foreclosures/create' => 'foreclosures#create', as: :foreclosure_create
   get '/foreclosures/:id' => 'foreclosures#show', as: :foreclosure
   get '/foreclosures/:id/edit' => 'foreclosures#edit', as: :foreclosure_edit
-  put '/foreclosures/:id' => 'foreclosures#update', as: :foreclosure_update
+  patch '/foreclosures/:id' => 'foreclosures#update', as: :foreclosure_update
   delete '/foreclosures/:id' => 'foreclosures#destroy', as: :foreclosure_delete
 
 
@@ -84,7 +85,7 @@ Rails.application.routes.draw do
   post '/rentals/create' => 'rentals#create', as: :rental_create
   get '/rentals/:id' => 'rentals#show', as: :rental
   get '/rentals/:id/edit' => 'rentals#edit', as: :rental_edit
-  put '/rentals/:id' => 'rentals#update', as: :rental_update
+  patch '/rentals/:id' => 'rentals#update', as: :rental_update
   delete '/rentals/:id' => 'rentals#destroy', as: :rental_delete
 
   # get '/senior_repairs' =>'senior_repairs#index', as: :senior_repairs
