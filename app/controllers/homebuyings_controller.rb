@@ -65,6 +65,7 @@ class HomebuyingsController < ApplicationController
     def destroy
       @homebuying = Homebuying.find(params[:id]) if current_user
       @homebuying = current_client.homebuying if current_client
+      
       if @homebuying.destroy
         flash[:danger] = "Homebuying Application Deleted."
         redirect_to "/clients/#{current_client.id}"

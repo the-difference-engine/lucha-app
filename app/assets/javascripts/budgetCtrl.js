@@ -6,6 +6,7 @@
     var activeId = gon.id;
 
     $scope.init = function() {
+      $("#budget-alert").hide();
       $http.get('/api/budgets/' + activeId + '.json').then(function(response) {
         $scope.budget = response.data;
         $scope.updateSum();
@@ -64,22 +65,30 @@
     $scope.submitData = function(data) {
       var monthlyIncome = data;
       $http.patch('/budgets/' + activeId, monthlyIncome).success(function(response){
-        $scope.success = response.success;
-        $scope.closeAlert();
+        $scope.response = response.success;
+        flashAlert('success');
       }).error(function(response) {
-        $scope.error = response;
-        $scope.closeAlert();
+        $scope.response = response.error;
+        flashAlert('danger');
       })
     }
 
-    $scope.closeAlert = function() {
+    function flashAlert(flashType){
+      $("#budget-alert")
+          .addClass('alert-' + flashType)
+          .show();
       setTimeout(function() {
-        $("#budget-alert").fadeTo(500, 0).slideUp(500, function() {
-          $(this).remove();
-          $scope.success = '';
-          $scope.error = '';
-        });
-      }, 5000);
+        $("#budget-alert")
+          .slideUp(500, function() {
+            $scope.closeAlert();
+          })
+          .removeClass('alert-' + flashType);
+      }, 4000);
+
+    }
+
+    $scope.closeAlert = function() {
+      $("#budget-alert").hide();
     }
 
     $scope.$watch('budget', function() {
