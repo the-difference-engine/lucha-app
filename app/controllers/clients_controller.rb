@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  include FormInputsHelper
   before_action :authenticate!, :only => [:index, :show, :update, :edit,]
   before_action :verify_user!, :only => [:destroy,]
 
@@ -47,6 +48,32 @@ class ClientsController < ApplicationController
 
   def edit
     @client = Client.find(params[:id])
+    
+    @contact_methods = [
+      ['Email', 'Email'], 
+      ['Cell Phone', 'Cell Phone'], 
+      ['Home Phone', 'Home Phone'], 
+      ['Work Phone', 'Work Phone']
+    ]
+  
+    @languages = [
+      ['English', 'English'], 
+      ['Spanish', 'Spanish']
+    ]
+
+    @genders = [
+      ['Male', 'Male'],
+      ['Female', 'Female']
+    ]
+
+    @marital_statuses = [
+      ['Married', 'Married'], 
+      ['Divorced', 'Divorced'], 
+      ['Single', 'Single'], 
+      ['Widowed', 'Widowed']
+    ]
+
+
     if client_signed_in?
       @client = current_client
     end
