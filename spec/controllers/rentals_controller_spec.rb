@@ -156,7 +156,7 @@ RSpec.describe RentalsController, type: :controller do
             employer_name: 'Joe Smith',
             employer_city: 'Palatine',
           )
-        expect(response).to redirect_to("/clients/#{@client.id}")
+        expect(response).to redirect_to("/rentals/#{@rental.id}")
       end
     end
     context "fails to update the rental" do
@@ -176,6 +176,7 @@ RSpec.describe RentalsController, type: :controller do
   describe "show #GET" do
     before :each do
       client = create(:client)
+      sign_in client
       @rental = create(:rental, client_id: client.id)
     end
     it "assigns a Rental to @rental" do
@@ -192,6 +193,7 @@ RSpec.describe RentalsController, type: :controller do
   describe "DELETE #destroy" do
     before(:each) do
       @client = create(:client)
+      sign_in @client
       @rental = create(:rental, client_id: @client.id)
     end
 
@@ -206,7 +208,7 @@ RSpec.describe RentalsController, type: :controller do
     end
     it "redirects to clients#status" do
       delete :destroy, id: @rental
-      expect(response).to redirect_to "/clients/#{@client.id}/status"
+      expect(response).to redirect_to "/clients/#{@client.id}"
     end
   end
 

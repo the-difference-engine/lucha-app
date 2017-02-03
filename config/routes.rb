@@ -85,7 +85,7 @@ Rails.application.routes.draw do
   post '/rentals/create' => 'rentals#create', as: :rental_create
   get '/rentals/:id' => 'rentals#show', as: :rental
   get '/rentals/:id/edit' => 'rentals#edit', as: :rental_edit
-  put '/rentals/:id' => 'rentals#update', as: :rental_update
+  patch '/rentals/:id' => 'rentals#update', as: :rental_update
   delete '/rentals/:id' => 'rentals#destroy', as: :rental_delete
 
   # get '/senior_repairs' =>'senior_repairs#index', as: :senior_repairs
