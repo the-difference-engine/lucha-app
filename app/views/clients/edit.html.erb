@@ -68,7 +68,7 @@ Language:
 
         <div class="form-group">
           <%= I18n.t "clients_edit.gender"  %> <br>
-          <%= form.select(:sex, options_for_select([['Male', 'Male'], ['Female', 'Female']], @client.sex)) %>
+          <%= form.select(:sex, options_for_select(@genders, @client.sex)) %>
         </div>
 
         <div class="form-group">
@@ -84,17 +84,16 @@ Language:
         <div class="form-group">
           <%= I18n.t "clients_edit.pref_contact"  %> <br>
           
-          <%= form.select(:preferred_contact_method, options_for_select([ ['Cell Phone', 'Cell Phone'], ['Email', 'Email'], ['Home Phone', 'Home Phone'], ['Work Phone']], @client.preferred_contact_method)) %>
+          <%= form.select(:preferred_contact_method, options_for_select(@contact_methods, @client.preferred_contact_method)) %>
         </div>
-
         <div class="form-group">
           <%= I18n.t "clients_edit.pref_lang"  %> <br>
-          <%= form.select(:preferred_language, options_for_select([['English', 'English'], ['Spanish', 'Spanish']], @client.preferred_language)) %>
+          <%= form.select(:preferred_language, options_for_select(@languages, @client.preferred_language)) %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.marital_stat"  %><br>
-          <%= form.select(:marital_status, options_for_select([ ['Married', 'Married'], ['Divorced', 'Divorced'], ['Single', 'Single'], ['Widowed', 'Widowed']], @client.marital_status)) %>
+          <%= form.select(:marital_status, options_for_select(@marital_statuses, @client.marital_status)) %>
         </div>
 
         <div class="form-group">
