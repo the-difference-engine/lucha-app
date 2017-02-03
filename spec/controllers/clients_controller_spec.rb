@@ -116,6 +116,11 @@ RSpec.describe ClientsController, type: :controller do
           dob: 19940301,
           num_in_household: 3,
           num_of_dependants: 1,
+          head_of_household: true,
+          disability: true,
+          union_member: true,
+          military_service_member: true,
+          volunteer_interest: true,
         }
 
         patch :update, id: @client.id, client: params
