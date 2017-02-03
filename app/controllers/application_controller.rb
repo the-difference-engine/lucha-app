@@ -11,8 +11,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-  def authenticate_user!
+  def verify_user!
     unless current_user
       redirect_to "/"
     end

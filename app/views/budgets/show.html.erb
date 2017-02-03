@@ -5,6 +5,19 @@
             <%= link_to_unless_current "English", locale: "en" %>|
             <%=  link_to_unless_current "Español", locale: "es" %>
 
+    	<div ng-if="success" id="budget-alert" class="alert alert-success alert-dismissible" role="alert"> 
+		    <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+		        <span aria-hidden="true">&times;</span>
+		    </button>
+		    <p>{{success}}</p>
+  		</div>
+  		<div ng-if="error" class="alert alert-danger alert-dismissible" role="alert"> 
+		    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		        <span aria-hidden="true">&times;</span>
+		    </button>
+		    <p>{{error}}</p>
+  		</div>
+
 	<h2><%= I18n.t ".budget_show.title" %></h2>
 	<p><%= I18n.t "budget_show.description" %></p>
 		<div>
@@ -35,15 +48,17 @@
 							</tr>
 							<tr>
 								<td><%= I18n.t "budget_show.gross_monthly" %></td>
-								<td>${{ income.gross_monthly_income || 0 }}</td>
+								<td>{{ grossMontlyIncome | currency }}</td>
 							</tr>
 							<tr>
 								<td><%= I18n.t "budget_show.total_monthly" %></td>
-								<td>${{ debt.total_monthly_debt || 0 }}</td>
+								<td>{{ totalMonthlyDebt | currency }}</td>
 							</tr>
 							<tr>
  								<td><%= I18n.t "budget_show.debt_to_income"  %></td>
- 								<td>{{ (debt.total_monthly_debt / income.gross_monthly_income).toFixed(2) || 0 }}</td>
+ 								<td ng-if="grossMontlyIncome > 0">
+ 									{{ (totalMonthlyDebt / grossMontlyIncome).toFixed(2) || 0 }}
+ 								</td>
  							</tr>
  					</table>
  				</div>
@@ -57,5 +72,6 @@
 		    </div>
 		  </div>
 		</div>
+		<button ng-click="submitData(budget)"><%= I18n.t "budget_debts.update" %></button>
 	</div>
 </div>
