@@ -142,33 +142,33 @@ module FormInputsHelper
 
 	def gender_options
 		[
-		    ['Male', 'Male'],
-		    ['Female', 'Female']
-	    ]
+			['Male', 'Male'],
+			['Female', 'Female']
+		]
 	end
 
 	def contact_method_options
 		[
-	    	['Email', 'Email'], 
-	    	['Cell Phone', 'Cell Phone'], 
-	    	['Home Phone', 'Home Phone'], 
-	    	['Work Phone', 'Work Phone']
-	    ]
+			['Email', 'Email'], 
+			['Cell Phone', 'Cell Phone'], 
+			['Home Phone', 'Home Phone'], 
+			['Work Phone', 'Work Phone']
+		]
 	end
 
 	def language_options
 		[
-    		['English', 'English'], 
-    		['Spanish', 'Spanish']
-    	]
+			['English', 'English'], 
+			['Spanish', 'Spanish']
+		]
 	end
 
 	def marital_status_options
 		[
-    		['Married', 'Married'], 
-    		['Divorced', 'Divorced'], 
-    		['Single', 'Single'], 
-    		['Widowed', 'Widowed']
-    	]
-    end
+			['Married', 'Married'], 
+			['Divorced', 'Divorced'], 
+			['Single', 'Single'], 
+			['Widowed', 'Widowed']
+		]
+	end
 end
