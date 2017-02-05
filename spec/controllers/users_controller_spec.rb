@@ -56,9 +56,8 @@ RSpec.describe UsersController, type: :controller do
 
   describe "Post #create" do
     describe "creates an instance of a user and assigns it to @user" do
-      it "assigns a user instance" do
-        @user = create(:user)
-        post :create, {user: attributes_for(:user)}
+      xit "assigns a user instance" do
+        post :create, user: attributes_for(:user)
         expect(assigns(:user)).to be_a_new(User)
       end
       context "saves succesfully" do

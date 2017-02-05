@@ -35,7 +35,7 @@ class HomebuyingsController < ApplicationController
         flash[:success] = "Successfully Completed Hombuying Application"
         redirect_to "/homebuyings/#{@homebuying.id}"
       else
-        flash[:danger] = @homebuying.errors.full_messages
+        flash.now[:warning] = @homebuying.errors.full_messages
         render :new
       end
     end
@@ -57,7 +57,7 @@ class HomebuyingsController < ApplicationController
         flash[:success] = "Homebuying Application Updated"
         redirect_to "/homebuyings/#{@homebuying.id}"
       else
-        flash[:warning] = "update unsuccessful"
+        flash.now[:warning] = @homebuying.errors.full_messages
         render :edit
       end
     end
@@ -67,10 +67,10 @@ class HomebuyingsController < ApplicationController
       @homebuying = current_client.homebuying if current_client
       
       if @homebuying.destroy
-        flash[:danger] = "Homebuying Application Deleted."
+        flash[:success] = "Homebuying Application Deleted."
         redirect_to "/clients/#{current_client.id}"
       else
-        flash[:warning] = "application was not deleted"
+        flash.now[:warning] = @homebuying.errors.full_messages
         render :show
       end
     end

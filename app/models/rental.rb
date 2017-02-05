@@ -1,4 +1,5 @@
 class Rental < ActiveRecord::Base
+  validates_uniqueness_of :client_id
 	validates_presence_of :client
 
   validates :studio, :inclusion => {:in => [true, false]}

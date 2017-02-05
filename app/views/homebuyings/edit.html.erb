@@ -1,14 +1,3 @@
-<% if @homebuying.errors.any? %>
-  <div id="error_explanation">
-    <h5><%= pluralize(@homebuying.errors.count, "error") %> prohibited this application from being saved:</h5>
-    <ul>
-    <% @homebuying.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <h1>Homebuying Application</h1>
 
 <%= form_tag "/homebuyings/#{@homebuying.id}", :class => "form-horizontal", role: "form", method: :patch do %>

@@ -13,8 +13,8 @@ class RentalsController < ApplicationController
     	flash[:success] = ["You've completed the rental application"]
     	redirect_to "/clients/#{@rental.client_id}/status"
   	else
-  		flash[:danger] = @rental.errors.full_messages
-    		render :new
+  		flash.now[:danger] = @rental.errors.full_messages
+    	render :new
   	end
   end
 
@@ -42,9 +42,10 @@ class RentalsController < ApplicationController
     end
 
     if @rental.update(rental_params.merge(client_id: @rental.client_id))
-      flash[:success] = "rental application submitted."
+      flash[:success] = "Rental application submitted."
       redirect_to "/rentals/#{@rental.id}"
     else
+      flash.now[:warning] = @rental.errors.full_messages
       render :edit
     end
   end
