@@ -55,7 +55,9 @@
     <tr>
       <td>SSN:</td>
       <td>
-        *********
+        <% if @client.ssn %>
+          *********
+        <%end%>
       </td>
     </tr>
   </tbody>
