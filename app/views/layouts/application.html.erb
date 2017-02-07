@@ -29,9 +29,9 @@
                       <ul class="nav nav-pills">
                           <li class="active"><a href="<%= root_path %>">LUCHA</a></li>
                           <% if user_signed_in? %>
-                            <li><a href="/users/<%= current_user.id %>">Your Caseload</a></li>
-                            <li><%= link_to 'Unassigned Caseload', employee_index_path %></li>
-                            <li><%= link_to 'Foreclosures', "/foreclosures" %></li>
+                            <li><a href="/users/<%= current_user.id %>">Your Clients</a></li>
+                            <li><%= link_to 'Unassigned Clients', employee_index_path %></li>
+                            <li><%= link_to 'Foreclosures', foreclosures_path %></li>
                             <li><%= link_to 'Home Buying', homebuyings_path %></li>
                             <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                           <% elsif client_signed_in? %>
