@@ -111,7 +111,7 @@ class ClientsController < ApplicationController
         flash[:success] = [ "Note deleted." ]
         redirect_to client_path(note.client_id)
       else
-        flash[:error] = [ "Something went wrong note not deleted." ]
+        flash[:danger] = [ "Something went wrong note not deleted." ]
         redirect_to client_path(note.client_id)
       end
     else
@@ -122,7 +122,11 @@ class ClientsController < ApplicationController
   def assign
     client = Client.find(params[:id])
     client.update(user_id: current_user.id)
-    p client.valid?
+    if client.valid?
+      flash[:success] = [ 'Client assigned successfully' ]
+    else
+      flash[:danger] = [ 'Something has gone wrong' ]
+    end
     redirect_to "/users/#{current_user.id}"
   end
 
