@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   get '/clients/:id/status' => 'clients#status', as: :client_status
   delete '/clients/:id' => 'clients#destroy', as: :client_delete
   patch '/clients/:id/assign' => 'clients#assign', as: :client_assign
-
+  patch '/clients/:id/unassign' => 'clients#unassign', as: :client_unassign
 
   get '/notes/:id/edit' => 'notes#edit', as: :notes_edit
   patch '/notes/:id' => 'notes#update', as: :note_update

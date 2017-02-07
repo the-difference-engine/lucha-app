@@ -130,6 +130,17 @@ class ClientsController < ApplicationController
     redirect_to "/users"
   end
 
+  def unassign
+    client = Client.find(params[:id])
+    client.update(user_id: nil)
+    if client.valid?
+      flash[:success] = [ 'Client unassigned successfully' ]
+    else
+      flash[:danger] = [ 'Something has gone wrong' ]
+    end
+    redirect_to "/users/#{current_user.id}"
+  end
+
   private
 
   def note_params
