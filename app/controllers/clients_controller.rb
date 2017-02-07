@@ -127,7 +127,7 @@ class ClientsController < ApplicationController
     else
       flash[:danger] = [ 'Something has gone wrong' ]
     end
-    redirect_to "/users/#{current_user.id}"
+    redirect_to "/users"
   end
 
   private

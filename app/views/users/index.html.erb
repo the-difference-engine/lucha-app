@@ -11,6 +11,7 @@
     <th class="col-md-3 col-xs-3">Home Phone</th>
     <th class="col-md-3 col-xs-3">Address</th>
     <th class="col-md-3 col-xs-3">Client Type</th>
+    <th class="col-md-3 col-xs-3">Assign</th>
     <th >View</th>
    </tr>
    <tr class="warning no-result">
@@ -26,6 +27,15 @@
     <td><%= client.home_phone %></td>
     <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
     <td><%= client.client_types.to_sentence %></td>
+    <td>
+        <%= form_tag("/clients/#{client.id}/assign", method: :patch) do %>
+          <div class = "field">
+            <%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
+            </div>
+            <%= hidden_field_tag :client_id, client.id %>
+            <%= submit_tag "Assign" %>
+        <% end %>
+    </td>
     <td>
       <%= link_to "View", "/clients/#{client.id}" %>
     </td>
