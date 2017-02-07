@@ -5,16 +5,6 @@ Language:
 <div class="row">
   <div class="col-md-6">
     <%= form_for @client do |form| %>
-        <% if @client.errors.any? %>
-          <div id="error_explanation">
-            <h5><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h5>
-            <ul>
-            <% @client.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
         <div class="form-group">
           <%= I18n.t "clients_edit.first_name"  %> <br>
           <%= form.text_field :first_name %>
@@ -68,7 +58,7 @@ Language:
 
         <div class="form-group">
           <%= I18n.t "clients_edit.gender"  %> <br>
-          <%= form.select(:sex, options_for_select(@genders, @client.sex)) %>
+          <%= form.select(:sex, options_for_select(gender_options, @client.sex)) %>
         </div>
 
         <div class="form-group">
@@ -84,16 +74,16 @@ Language:
         <div class="form-group">
           <%= I18n.t "clients_edit.pref_contact"  %> <br>
           
-          <%= form.select(:preferred_contact_method, options_for_select(@contact_methods, @client.preferred_contact_method)) %>
+          <%= form.select(:preferred_contact_method, options_for_select(contact_method_options, @client.preferred_contact_method)) %>
         </div>
         <div class="form-group">
           <%= I18n.t "clients_edit.pref_lang"  %> <br>
-          <%= form.select(:preferred_language, options_for_select(@languages, @client.preferred_language)) %>
+          <%= form.select(:preferred_language, options_for_select(language_options, @client.preferred_language)) %>
         </div>
 
         <div class="form-group">
           <%= I18n.t "clients_edit.marital_stat"  %><br>
-          <%= form.select(:marital_status, options_for_select(@marital_statuses, @client.marital_status)) %>
+          <%= form.select(:marital_status, options_for_select(marital_status_options, @client.marital_status)) %>
         </div>
 
         <div class="form-group">

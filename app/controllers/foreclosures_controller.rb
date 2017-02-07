@@ -48,7 +48,7 @@ class ForeclosuresController < ApplicationController
       flash[:success] = ["You've Completed Your Foreclosure Application"]
       redirect_to "/foreclosures/#{@foreclosure.id}"
     else
-      flash[:danger] = @foreclosure.errors.full_messages
+      flash.now[:danger] = @foreclosure.errors.full_messages
       render :new
     end
   end
@@ -69,10 +69,10 @@ class ForeclosuresController < ApplicationController
     @foreclosure = current_client.foreclosure if current_client
 
     if @foreclosure.update(foreclosure_params)
-      flash[:success] = ["Foreclosure application submitted."]
+      flash[:success] = ["Foreclosure application updated."]
       redirect_to "/foreclosures/#{@foreclosure.id}"
     else
-      flash[:warning] = "update unsuccessful"
+      flash.now[:warning] = @foreclosure.errors.full_messages
       render :edit
     end
   end
@@ -82,10 +82,10 @@ class ForeclosuresController < ApplicationController
     @foreclosure = current_client.foreclosure if current_client
 
     if @foreclosure.destroy
-      flash[:danger] = ["Foreclosure Application Deleted."]
+      flash[:success] = ["Foreclosure Application Deleted."]
       redirect_to "/clients/#{current_client.id}"
     else
-      flash[:warning] = "application was not deleted"
+      flash.now[:warning] = "Error deleting application."
       render :show
     end
   end

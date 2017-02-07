@@ -3,18 +3,6 @@ Language:
   <%= link_to_unless_current "English", locale: "en" %>|
   <%=  link_to_unless_current "Español", locale: "es" %>
 
-<% if @foreclosure.errors.any? %>
-  <div id="error_explanation">
-    <h5><%= pluralize(@foreclosure.errors.count, "error") %> prohibited this foreclosure from being saved:</h5>
-    <ul>
-    <% @foreclosure.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
 <h2><%= I18n.t "foreclosure.title" %></h2>
 <p><%= I18n.t "foreclosure.description" %></p>
 

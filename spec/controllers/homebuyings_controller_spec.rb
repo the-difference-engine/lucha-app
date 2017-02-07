@@ -95,7 +95,7 @@ RSpec.describe HomebuyingsController, type: :controller do
       end
       it "assigns a homebuying instance" do
         post :create, attributes_for(:homebuying)
-        expect(assigns(:homebuying)).to be_a_new(Homebuying) #YOU ARE HERE
+        expect(assigns(:homebuying)).to be_a_new(Homebuying)
       end
     end
 
@@ -111,7 +111,7 @@ RSpec.describe HomebuyingsController, type: :controller do
         end
         it "redirects to the homebuying application page" do
           post :create, attributes_for(:homebuying)
-          expect(response).to redirect_to("/homebuyings/#{:homebuying.id}")
+          expect(response).to redirect_to("/homebuyings/#{@this_client.homebuying.id}")
         end
         it "saves a new homebuying to the database" do
           expect{
@@ -129,7 +129,7 @@ RSpec.describe HomebuyingsController, type: :controller do
         end
         it "updates the flash message to danger" do
           post :create, attributes_for(:homebuying)
-          expect(flash[:danger]).to be_present
+          expect(flash[:warning]).to be_present
         end
         it "renders the NEW template" do
           post :create, attributes_for(:homebuying)
@@ -142,10 +142,10 @@ RSpec.describe HomebuyingsController, type: :controller do
   # SHOW
   describe "show #GET" do
     before :each do
-      @this_homebuying = create(:homebuying)
       @client = create(:client)
-      @user = create(:user)
       sign_in @client
+      @this_homebuying = create(:homebuying, client_id: @client.id)
+      @user = create(:user)
       sign_in @user
     end
     it "assigns a homebuying instance" do
@@ -164,7 +164,6 @@ RSpec.describe HomebuyingsController, type: :controller do
     before :each do
       @client = create(:client)
       @user = create(:user)
-      sign_in @client
       sign_in @user
     end
     context "client signed in" do
@@ -197,42 +196,34 @@ RSpec.describe HomebuyingsController, type: :controller do
       @user = create(:user)
       @client = create(:client)
       @homebuying = create(:homebuying, client_id: @client.id)
-      sign_in @client
-      sign_in @user
     end
     context "current_user logged in" do
       it "locates the requested @homebuying" do
+        sign_in @user
         put :update, id: @homebuying.id, homebuying: attributes_for(:homebuying)
         expect(assigns(:homebuying)).to eq(@homebuying)
       end
       it "updates the requested @homebuying" do
-        put :update, id: @homebuying.id,
-          homebuying: attributes_for(:homebuying,
+        sign_in @user
+        patch :update, id: @homebuying,
             lender: "new lender",
-            realtor_name: "those people",
-          )
+            realtor_name: "those people"
         @homebuying.reload
         expect(@homebuying.lender).to eq('new lender')
         expect(@homebuying.realtor_name).to eq('those people')
       end
     end
     context "current_client logged in" do
-      before :each do
-        @client = create(:client)
-        @user = create(:user)
-        sign_in @user
-        sign_in @client
-      end
       it "locates the client's @homebuying" do
+        sign_in @client
         put :update, id: @homebuying.id, homebuying: attributes_for(:homebuying)
         expect(assigns(:homebuying)).to eq(@client.homebuying)
       end
       it "updates the clients homebuying" do
+        sign_in @client
         put :update, id: @client.homebuying,
-          homebuying: attributes_for(:homebuying,
-            lender: "new lender",
-            realtor_name: "those people",
-          )
+          lender: "new lender",
+          realtor_name: "those people"
         @client.homebuying.reload
         expect(@client.homebuying.lender).to eq('new lender')
         expect(@client.homebuying.realtor_name).to eq('those people')
@@ -275,9 +266,9 @@ RSpec.describe HomebuyingsController, type: :controller do
   # DESTROY
   describe "destroy #DELETE" do
     before :each do
-      @homebuying = create(:homebuying)
       @user = create(:user)
       @client = create(:client)
+      @homebuying = create(:homebuying, client_id: @client.id)
       sign_in @client
       sign_in @user
     end
@@ -292,11 +283,11 @@ RSpec.describe HomebuyingsController, type: :controller do
     end
     it "updates the flash has with a danger message" do
       delete :destroy, id: @homebuying.id
-      expect(flash[:danger]).to be_present
+      expect(flash[:success]).to be_present
     end
     it "redirects to the clients profile page" do
         delete :destroy, id: @homebuying.id
-      expect(response).to redirect_to("/clients/#{current_client.id}")
+      expect(response).to redirect_to("/clients/#{@client.id}")
     end
   end
 end

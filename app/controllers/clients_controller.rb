@@ -48,31 +48,6 @@ class ClientsController < ApplicationController
 
   def edit
     @client = Client.find(params[:id])
-    
-    @contact_methods = [
-      ['Email', 'Email'], 
-      ['Cell Phone', 'Cell Phone'], 
-      ['Home Phone', 'Home Phone'], 
-      ['Work Phone', 'Work Phone']
-    ]
-  
-    @languages = [
-      ['English', 'English'], 
-      ['Spanish', 'Spanish']
-    ]
-
-    @genders = [
-      ['Male', 'Male'],
-      ['Female', 'Female']
-    ]
-
-    @marital_statuses = [
-      ['Married', 'Married'], 
-      ['Divorced', 'Divorced'], 
-      ['Single', 'Single'], 
-      ['Widowed', 'Widowed']
-    ]
-
 
     if client_signed_in?
       @client = current_client
@@ -85,8 +60,7 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
-
-    @client.update({
+    if @client.update({
       first_name: params[:client][:first_name],
       last_name: params[:client][:last_name],
       home_phone: params[:client][:home_phone],
@@ -114,14 +88,12 @@ class ClientsController < ApplicationController
       military_service_member: params[:client][:military_service_member],
       volunteer_interest: params[:client][:volunteer_interest],
       user_id: params[:client][:user_id]})
-    # if @client.update(client_params)
-    #   if user_signed_in?
-    #     flash[:success] = [ "Client info updated." ]
-    #     redirect_to client_path(@client)
-    #   elsif client_signed_in?
-    #     flash[:success] = [ "Your info is updated." ]
-        redirect_to client_path(@client)
-
+      flash[:success] = [ "Profile Updated." ]
+      redirect_to client_path(@client)
+    else
+      flash.now[:warning] = @client.errors.full_messages
+      render :edit
+    end
   end
 
   def status

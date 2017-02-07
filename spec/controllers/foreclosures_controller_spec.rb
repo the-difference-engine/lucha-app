@@ -77,6 +77,8 @@ RSpec.describe ForeclosuresController, type: :controller do
 
     describe "creates a new foreclosure instance and assigns it to foreclosure" do
       it "assigns a foreclosure instance" do
+        client = create(:client)
+        sign_in client
         get :create
         expect(assigns(:foreclosure)).to be_a_new(Foreclosure)
       end
@@ -94,7 +96,7 @@ RSpec.describe ForeclosuresController, type: :controller do
         end
         it "redirects to the client status page" do
           post :create, attributes_for(:foreclosure)
-          expect(response).to redirect_to("/foreclosures/#{@this_client.id}")
+          expect(response).to redirect_to("/foreclosures/#{@this_client.foreclosure.id}")
         end
       end
 
@@ -120,7 +122,9 @@ RSpec.describe ForeclosuresController, type: :controller do
   #SHOW
   describe "show #GET" do
     before :each do
-      @this_foreclosure = create(:foreclosure)
+      client = create(:client)
+      sign_in client
+      @this_foreclosure = create(:foreclosure, client_id: client.id)
     end
     it "assigns a foreclosure instance" do
       get :show, id: @this_foreclosure
@@ -153,7 +157,9 @@ RSpec.describe ForeclosuresController, type: :controller do
       end
     end
     it "renders the #edit template" do
-      get :edit, id: create(:foreclosure)
+      client = create(:client)
+      sign_in client
+      get :edit, id: create(:foreclosure, client_id: client.id)
       expect(response).to render_template :edit
     end
   end
@@ -213,14 +219,14 @@ RSpec.describe ForeclosuresController, type: :controller do
         expect(flash[:success]).to be_present
       end
 
-      it "redirects to that clients status page" do
+      it "redirects to the foreclosures show page" do
         sign_in @client
         put :update, id: @client.foreclosure,
           foreclosure: attributes_for(:foreclosure,
             originating_lender: "aquaman",
             servicer: "comcast",
           )
-        expect(response).to redirect_to("/clients/#{@foreclosure.client_id}")
+        expect(response).to redirect_to("/foreclosures/#{@foreclosure.id}")
       end
     end
 
@@ -241,7 +247,9 @@ RSpec.describe ForeclosuresController, type: :controller do
   # DESTROY
   describe "destroy #DELETE" do
     before :each do
-      @foreclosure = create(:foreclosure)
+      @client = create(:client)
+      sign_in @client
+      @foreclosure = create(:foreclosure, client_id: @client.id)
     end
     it "locates the foreclosure to be deleted" do
       delete :destroy, id: @foreclosure.id
@@ -254,11 +262,11 @@ RSpec.describe ForeclosuresController, type: :controller do
     end
     it "updates the flash has with a danger message" do
       delete :destroy, id: @foreclosure.id
-      expect(flash[:danger]).to be_present
+      expect(flash[:success]).to be_present
     end
-    it "redirects to the clients status page" do
+    it "redirects to the clients profile page" do
       delete :destroy, id: @foreclosure.id
-      expect(response).to redirect_to("/clients/#{@foreclosure.id}/status")
+      expect(response).to redirect_to("/clients/#{@client.id}")
     end
   end
 end
