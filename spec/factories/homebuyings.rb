@@ -3,7 +3,6 @@ FactoryGirl.define do
   factory :homebuying do
     lender "bunk_mortgage"
     client
-    hear_of_workshop "internet"
     contact_for_appointment [true, false].sample
     real_estate_contract [true, false].sample
     realtor_name "realtor"
