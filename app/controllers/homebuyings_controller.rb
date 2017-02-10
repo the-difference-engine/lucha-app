@@ -17,7 +17,7 @@ class HomebuyingsController < ApplicationController
     @homebuying = Homebuying.new({
       client_id: @id,
       lender: params[:lender],
-      hear_of_workshop: params[:hear_of_workshop],
+      loan_type: params[:loan_type],
       contact_for_appointment: params[:contact_for_appointment],
       real_estate_contract: params[:real_estate_contract],
       realtor_name: params[:realtor_name],
