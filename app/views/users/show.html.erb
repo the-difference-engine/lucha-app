@@ -1,6 +1,4 @@
-<h4><%#= current_user.first_name %> <%#= current_user.last_name %></h4>
-
-<h1>Clients</h1>
+<h1>Your Clients</h1>
 
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder="What you looking for?">
@@ -13,8 +11,9 @@
     <th class="col-md-3 col-xs-3">Home Phone</th>
     <th class="col-md-3 col-xs-3">Address</th>
     <th class="col-md-3 col-xs-3">Client Type</th>
-    <th >View</th> 
-   </tr>    
+    <th class="col-md-3 col-xs-3">View</th>
+    <th class="col-md-3 col-xs-3">Unassign Client</th>
+   </tr>
    <tr class="warning no-result">
       <td colspan="4"><i class="fa fa-warning"></i> No result</td>
     </tr>
@@ -31,11 +30,11 @@
     <td>
       <%= link_to "View", "/clients/#{client.id}" %>
     </td>
+    <td>
+    <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch") %>
+      </td>
+
     </tr>
   </tbody>
 <% end %>
 </table>
-
-
-
-
