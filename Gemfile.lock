@@ -93,7 +93,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faker (1.7.2)
+    faker (1.7.3)
       i18n (~> 0.5)
     faker-medical (0.5.2)
       faker
@@ -206,7 +206,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
-    ruby_outlook (0.2.0)
+    ruby_outlook (0.3.0)
       faraday
       uuidtools
     sass (3.4.23)

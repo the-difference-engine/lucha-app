@@ -125,7 +125,7 @@ class ClientsController < ApplicationController
     if client.valid?
       flash[:success] = [ 'Client assigned successfully' ]
     else
-      flash[:danger] = [ 'Something has gone wrong' ]
+      flash[:danger] = client.errors.full_messages
     end
     redirect_to "/users"
   end
