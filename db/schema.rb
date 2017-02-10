@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203003526) do
+ActiveRecord::Schema.define(version: 20170210011422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,7 +154,6 @@ ActiveRecord::Schema.define(version: 20170203003526) do
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.integer  "client_id"
-    t.string   "hear_of_workshop"
     t.boolean  "contact_for_appointment",    default: false
     t.boolean  "real_estate_contract",       default: false
     t.string   "realtor_name"
@@ -167,6 +166,7 @@ ActiveRecord::Schema.define(version: 20170203003526) do
     t.string   "loan_officer_phone"
     t.string   "payment_assistance_program"
     t.string   "approx_closing_date"
+    t.string   "loan_type"
   end
 
   create_table "law_projects", force: :cascade do |t|
