@@ -1,3 +1,4 @@
+<div class="well well-sm">
 <table class="table table-hover">
  <thead>
    <tr>
@@ -12,11 +13,14 @@
  <tbody>
    <tr>
      <td><%= foreclosure.client.id %></td>
-     <td><%= foreclosure.client.full_name.titleize %></td>
+     <td>
+       <%= link_to(foreclosure.client.full_name.titleize, client_path(foreclosure.client.id)) %>
+      
+     </td>
      <td><%= foreclosure.client.home_phone %></td>
      <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td>
      <td>
-       <%= link_to "View", client_path(foreclosure.client.id), class: "btn btn-default" %>
+       <%= link_to "View", foreclosure_path(foreclosure.id), class: "btn btn-default" %>
      </td>
    </tr>
  </tbody>
@@ -25,8 +29,11 @@
 
 
 
+
 <p>
   Download:
   <%= link_to "CSV", foreclosures_path(format: "csv") %> |
   <%= link_to "Excel", foreclosures_path(format: "xls") %>
+  </div>
 </p>
+
