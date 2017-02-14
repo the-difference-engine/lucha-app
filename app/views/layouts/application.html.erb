@@ -34,6 +34,7 @@
                             <li><%= link_to 'Foreclosures', foreclosures_path %></li>
                             <li><%= link_to 'Home Buying', homebuyings_path %></li>
                             <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                            <li><%= render "layouts/language" %></li>
                           <% elsif client_signed_in? %>
                             <li><%= link_to 'Application Status', client_status_path(current_client.id) %></li>
                             <li><%= link_to 'Profile', client_path(current_client.id) %></li>
