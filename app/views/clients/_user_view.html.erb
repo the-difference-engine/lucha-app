@@ -9,6 +9,9 @@
 <h3>Demographics:</h3>
 <h4>Race: <%= @client.race %>
 <h4>Sex: <%= @client.sex %></h4>
+<% if @client.foreclosure %>
+  <%= link_to "Foreclosure", "/foreclosures/#{@client.foreclosure.id}" %>
+<% end %>
 
 <%= form_tag "/clients/#{@client.id}", method: :post do %>
   <div>
