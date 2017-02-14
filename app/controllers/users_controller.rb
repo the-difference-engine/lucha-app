@@ -1,5 +1,5 @@
 class UsersController < Devise::RegistrationsController
-  before_action :verify_user!, except: [:new]
+  before_action :verify_user!, except: [:new, :create]
 
   def index
     @clients = Client.unassigned_client

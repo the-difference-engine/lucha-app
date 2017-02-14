@@ -4,6 +4,10 @@ RSpec.describe UsersController, type: :controller do
   include Devise::TestHelpers
 
   describe "Get #index" do
+    before :each do
+      @this_user = create(:user)
+      sign_in @this_user
+    end
     context 'signed in as a user' do
       it "populates an array of unassigned clients" do
         client1 = create(:client, user_id: nil)
@@ -22,6 +26,7 @@ RSpec.describe UsersController, type: :controller do
   describe "Get #show" do
     before :each do
       @this_user = create(:user)
+      sign_in @this_user
     end
 
     it "assigns a user instance" do
