@@ -6,6 +6,16 @@ class RentalsController < ApplicationController
     @rental = Rental.new
   end
 
+  def index
+    @rentals = Rental.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @rentals.to_csv } #untested
+      format.xls { send_data @rentals.to_csv(col_sep: "\t") } #untested
+    end
+  end
+
   def create
     @id = current_client.id
     @rental = Rental.new(rental_params.merge(client_id: @id))
