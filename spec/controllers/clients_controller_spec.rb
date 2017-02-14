@@ -169,7 +169,7 @@ RSpec.describe ClientsController, type: :controller do
       get :destroy, id: note.id
       expect(response).to redirect_to( client_path(client.id) )
       expect(Note.all.size).to eq(1)
-      expect(subject.request.flash[:error].first).to eq("Something went wrong note not deleted." )
+      expect(subject.request.flash[:danger].first).to eq("Something went wrong note not deleted." )
 
     end
   end

@@ -22,7 +22,7 @@
  <tbody>
    <tr>
      <td><%= homebuying.client.id %></td>
-     <td><%= homebuying.client.full_name.titleize %></td>
+     <td><%= link_to(homebuying.client.full_name.titleize, client_path(homebuying.client.id)) %></td>
      <td><%= homebuying.client.home_phone %></td>
      <td><%= homebuying.client.address %>, <%= homebuying.client.city %>, <%= homebuying.client.state %></td>
      <td><% if homebuying.contact_for_appointment== false %>
@@ -33,7 +33,7 @@
      </td>
      <td><%= homebuying.realtor_name %></td>
      <td>
-       <%= link_to "View", client_path(homebuying.client.id), class: "btn btn-default" %>
+       <%= link_to "View", homebuying_path(homebuying.id), class: "btn btn-default" %>
      </td>
    </tr>
  </tbody>
