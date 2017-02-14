@@ -1,7 +1,3 @@
-Language: 
-            <%= link_to_unless_current "English", locale: "en" %>|
-            <%=  link_to_unless_current "Español", locale: "es" %>
-
 <div class="row">
   <div class="col-md-6">
     <%= form_for @client do |form| %>
@@ -73,7 +69,7 @@ Language:
 
         <div class="form-group">
           <%= I18n.t "clients_edit.pref_contact"  %> <br>
-          
+
           <%= form.select(:preferred_contact_method, options_for_select(contact_method_options, @client.preferred_contact_method)) %>
         </div>
         <div class="form-group">
