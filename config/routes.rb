@@ -14,6 +14,14 @@ Rails.application.routes.draw do
       get 'register', to: 'users/registrations#new'
       get 'login', to: 'users/sessions#new'
       delete 'logout', to: 'users/sessions#destroy'
+
+  end
+
+  authenticated :user do
+    root to: 'users#show', as: 'authenticated_user_root'
+  end
+  authenticated :client do
+    root to: 'clients#show', as: 'authenticated_client_root'
   end
 
   root to: 'landing_pages#index'
@@ -26,7 +34,7 @@ Rails.application.routes.draw do
   post '/search' => 'users#search'
   get '/users/new' => 'users#new'
   post '/users/create' => 'users#create'
-  get '/users/:id' => 'users#show'
+  get '/users/:id' => 'users#show', as: :user
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'

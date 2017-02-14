@@ -1,5 +1,5 @@
 class UsersController < Devise::RegistrationsController
-  # before_action :authenticate_employee!, except: [:new]
+  before_action :verify_user!, except: [:new]
 
   def index
     @clients = Client.unassigned_client
@@ -7,7 +7,7 @@ class UsersController < Devise::RegistrationsController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     ## this didn't work for me. I had to change this. current_user was nil
     # @clients = Client.where(user_id: current_user.id)
     @clients = Client.where(user_id: @user.id)
