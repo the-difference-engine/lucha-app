@@ -17,6 +17,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require 'rollbar'
+
 I18n.available_locales = [:en, :es]
 
 
