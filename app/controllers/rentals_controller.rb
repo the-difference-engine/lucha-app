@@ -29,12 +29,9 @@ class RentalsController < ApplicationController
   end
 
 	def show
-		@rental = Rental.find(params[:id])
+    @rental = Rental.find(params[:id]) if current_user
+    @rental = current_client.rental if current_client
 	end
-
-  def show
-    @rental = current_client.rental
-  end
 
   def edit
     if client_signed_in?
