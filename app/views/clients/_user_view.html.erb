@@ -18,6 +18,9 @@
   <%= link_to "Homebuying", "/homebuyings/#{@client.homebuying.id}" %>
 <% end %>
 
+<% if @client.rental %>
+  <%= link_to "Rental", "/rentals/#{@client.rental.id}" %>
+<% end %>
 
 <%= form_tag "/clients/#{@client.id}", method: :post do %>
   <div>
