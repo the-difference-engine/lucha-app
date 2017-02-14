@@ -63,7 +63,7 @@
         </div>
 
         <div class="form-group">
-          <%= I18n.t "clients_edit.ss"  %> <br>
+          <%= I18n.t "clients_edit.ss"  %>* <br>
           <%= form.password_field(:ssn, value: @client.ssn) %>
         </div>
 
@@ -83,17 +83,17 @@
         </div>
 
         <div class="form-group">
-          <%= I18n.t "clients_edit.dob"  %> <br>
+          <%= I18n.t "clients_edit.dob"  %>* <br>
           <%= form.date_field :dob %>
         </div>
 
         <div class="form-group">
-          <%= I18n.t "clients_edit.house_occu"  %> <br>
+          <%= I18n.t "clients_edit.house_occu"  %>* <br>
           <%= form.number_field :num_in_household, {in: 1..15} %>
         </div>
 
         <div class="form-group">
-          <%= I18n.t "clients_edit.dependants"  %><br>
+          <%= I18n.t "clients_edit.dependants"  %>*<br>
           <%= form.number_field :num_of_dependants, {in: 0..10} %>
         </div>
 
