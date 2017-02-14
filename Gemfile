@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-
+gem 'rollbar'
+gem 'oj', '~> 2.12.14'
 gem 'pry'
 gem 'rb-readline'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
