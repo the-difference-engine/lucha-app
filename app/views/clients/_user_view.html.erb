@@ -10,6 +10,18 @@
 <h4>Race: <%= @client.race %>
 <h4>Sex: <%= @client.sex %></h4>
 
+<% if @client.foreclosure %>
+  <%= link_to "Foreclosure", "/foreclosures/#{@client.foreclosure.id}" %>
+<% end %>
+
+<% if @client.homebuying %>
+  <%= link_to "Homebuying", "/homebuyings/#{@client.homebuying.id}" %>
+<% end %>
+
+<% if @client.rental %>
+  <%= link_to "Rental", "/rentals/#{@client.rental.id}" %>
+<% end %>
+
 <%= form_tag "/clients/#{@client.id}", method: :post do %>
   <div>
     <%= label_tag :Notes %>
