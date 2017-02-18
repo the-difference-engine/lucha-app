@@ -1,43 +1,51 @@
-<h1>Unassigned Clients</h1>
+<h1>All Registered Clients</h1>
 
-<div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
+<div class="form-group pull-left">
+    <input type="text" class="search form-control" placeholder="Who you looking for?">
 </div>
-<span class="counter pull-right"></span>
-<table class="table table-hover table-bordered results">
+<span class="counter pull-left"></span>
+<table class="table table-hover results">
   <thead>
-    <th >ID</th>
-    <th class="col-md-5 col-xs-5">Name</th>
-    <th class="col-md-3 col-xs-3">Home Phone</th>
-    <th class="col-md-3 col-xs-3">Address</th>
-    <th class="col-md-3 col-xs-3">Client Type</th>
-    <th class="col-md-3 col-xs-3">Assign</th>
-    <th >View</th>
-   <tr class="warning no-result">
-      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    <th>#</th>
+    <th>Name</th>
+    <th>Home Phone</th>
+    <th>Submitted Applications</th>
+    <th>Assigned Employee</th>
+    <th>Client Info</th>
+    <tr class="warning no-result">
+        <td colspan="6"><i class="fa fa-warning"></i> No results </td>
     </tr>
   </thead>
 
 <% @clients.each do |client| %>
- <tbody>
-   <tr>
-    <td><%= client.id %></td>
-    <td><%= client.full_name.titleize %></td>
-    <td><%= client.home_phone %></td>
-    <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
-    <td><%= client.client_types.to_sentence %></td>
-    <td>
-        <%= form_tag("/clients/#{client.id}/assign", method: :patch) do %>
-          <div class = "field">
-            <%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
-            </div>
-            <%= hidden_field_tag :client_id, client.id %>
-            <%= submit_tag "Assign" %>
+  <tbody>
+    <tr>
+      <td><%= client.id %></td>
+      <td><%= client.full_name.titleize %></td>
+      <td><%= client.home_phone %></td>
+      <td><%= client.client_types.to_sentence %></td>
+      <td>
+        <% if client.user_id %>
+          <%= client.user.full_name %>
+        <% elsif client.sex %> 
+          <div class="row">
+            <%= form_tag("/clients/#{client.id}/assign", method: :patch) do %>
+              <div class = "col-md-8 field">
+                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}, :class => "form-control input-sm") %>
+              </div>
+              <div class="col-md-4">
+                <%= hidden_field_tag :client_id, client.id %>
+                <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p class="text-danger">Profile not complete.</p>
         <% end %>
-    </td>
-    <td>
-      <%= link_to "View", "/clients/#{client.id}" %>
-    </td>
+      </td>
+      <td>
+        <%= link_to "View", "/clients/#{client.id}", :class => "btn btn-sm btn-primary" %>
+      </td>
     </tr>
   </tbody>
 <% end %>
