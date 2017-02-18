@@ -41,6 +41,11 @@ body {
   margin-right: 0;
 }
 
+.devise {
+  margin: auto;
+  max-width: 500px;
+}
+
  h2 {
   font-weight: 400;
  }
