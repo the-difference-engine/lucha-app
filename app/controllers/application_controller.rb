@@ -56,10 +56,10 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
-  protected
+  # protected
 
   def layout_by_resource
-    if devise_controller?
+    if devise_controller? && !(current_user || current_client)
       "devise"
     else
       "application"
