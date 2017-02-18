@@ -1,30 +1,46 @@
-<% if request.fullpath == '/users/sign_in'%>
-  <h2>Employee Log in</h2>
-<% else %>
-  <h2>Client Log in</h2>
-<% end %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<div class="content devise", style="margin-left:30%;margin-right:30%";">
+<!--   <%= image_tag "logo.jpg", :class => "img-responsive pull-right" %><br /> -->
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <% if request.fullpath == '/users/sign_in'%>
+    <h1>Employee Log in</h1>
+  <% else %>
+    <h1>Client Log in</h1>
+  <% end %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <hr>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
+
+    <%= render "layouts/alerts" %>
+
+    <div class="form-grop field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, :class => "form-control" %>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in", :class => 'btn btn-large btn-primary' %>
-  </div>
-<% end %>
+    <div class="form-group field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+      <div class="form-group field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.submit "Log in", :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <hr>
+ 
+  <h5 class="devise-links">
+    <%= render "devise/shared/links" %>
+  </h5>
+
+</div>
+
