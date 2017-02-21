@@ -5,3 +5,5 @@
 <% elsif current_client %>
   <%= render "client_view" %>
 <% end %>
+
+<%= link_to('Download PDF', download_client_path(format: :pdf))

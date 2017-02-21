@@ -55,7 +55,13 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
 gem 'prawn'
+#HTML generated PDF utility (much easier than prawn)
+gem 'wicked_pdf', '~> 1.1'
+#needed for wicked_pdf
+gem 'wkhtmltopdf-binary'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

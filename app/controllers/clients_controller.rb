@@ -40,6 +40,13 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
+
+    format.pdf do
+          @client = Client.find(params[:id])
+          render :pdf => "#{@client.first_name}#{@client.last_name}",
+                 :template => 'clients/pdfshow.html.erb',
+                 :layout => 'pdf'
+          end
   end
 
   def new

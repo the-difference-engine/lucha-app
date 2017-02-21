@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get '/clients(.:format)' =>'clients#index', as: :clients
   get '/clients/:id' => 'clients#show', as: :client
   post '/clients/:id' => 'clients#note_create'
+  get 'clients/:id/download' => 'clients#download'
   get '/clients/:id/edit' => 'clients#edit', as: :client_edit
   patch '/clients/:id' => 'clients#update', as: :client_update
   get '/clients/:id/status' => 'clients#status', as: :client_status
