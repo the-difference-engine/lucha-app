@@ -209,6 +209,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    ruby_http_client (3.0.1)
     ruby_outlook (0.3.0)
       faraday
       uuidtools
@@ -225,6 +226,8 @@ GEM
     seed_dump (3.2.4)
       activerecord (>= 4)
       activesupport (>= 4)
+    sendgrid-ruby (4.0.8)
+      ruby_http_client (~> 3.0.1)
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -304,6 +307,7 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   seed_dump
+  sendgrid-ruby
   simple_form
   simplecov
   state_select
