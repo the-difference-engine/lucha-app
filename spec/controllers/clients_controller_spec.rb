@@ -19,7 +19,7 @@ RSpec.describe ClientsController, type: :controller do
         user1,
         user2,
         user3,
-      ])
+        ])
     end
 
     it "assigns an array of @clients" do
@@ -34,7 +34,7 @@ RSpec.describe ClientsController, type: :controller do
         client1,
         client2,
         client3,
-      ])
+        ])
     end
 
     it "assigns an array of @foreclosures" do
@@ -50,7 +50,7 @@ RSpec.describe ClientsController, type: :controller do
         foreclosure1,
         foreclosure2,
         foreclosure3,
-      ])
+        ])
     end
 
     it "renders index template" do
@@ -69,23 +69,23 @@ RSpec.describe ClientsController, type: :controller do
   end
 
 # testing note create action
-  describe "POST #note_create" do
+describe "POST #note_create" do
 
-    it "creates a new note for the client" do
-      login_user
-      @client = create(:client)
+  it "creates a new note for the client" do
+    login_user
+    @client = create(:client)
 
-      post :note_create, id: @client.id, description: "Test description"
-      note = Note.last
+    post :note_create, id: @client.id, description: "Test description"
+    note = Note.last
 
-      expect(Note.all.size).to eq(1)
-      expect(note.description).to eq("Test description")
-      expect(response).to redirect_to "/clients/#{@client.id}"
-      expect(subject.request.flash[:success].first).to eq("Note added.")
-    end
+    expect(Note.all.size).to eq(1)
+    expect(note.description).to eq("Test description")
+    expect(response).to redirect_to "/clients/#{@client.id}"
+    expect(subject.request.flash[:success].first).to eq("Note added.")
   end
+end
 
-  describe "PATCH update" do
+describe "PATCH update" do
     # This is done by joy/nate
     before(:each) do
       @client = FactoryGirl.create(:client)
@@ -184,6 +184,18 @@ RSpec.describe ClientsController, type: :controller do
       put :assign, id: @client.id, client: {user_id: @user.id}
       @client.reload
       expect(@client.user_id).to eq(@user.id)
+    end
+  end
+  describe "PATCH #unassign" do
+    before(:each) do
+      @user = create(:user)
+      @client = create(:client)
+      sign_in @user
+  end
+    it "unassigns a client from a user" do
+      patch :unassign, id: @client.id
+      @user.reload
+      expect(@client.user_id) == nil
     end
   end
 
