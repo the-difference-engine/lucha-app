@@ -36,6 +36,12 @@ class Client < ActiveRecord::Base
     #.where.not(sex: nil, race: nil, ssn: nil, preferred_contact_method: nil, preferred_language: nil, marital_status: nil, dob: nil, num_in_household: nil, num_of_dependants: nil, education_level: nil, estimated_household_income: nil) 
   end
 
+  #checks if client has completed profile
+  #if dob is nil, due to other validations :on update - signifies complete profile
+  def incomplete_profile?
+    dob == nil
+  end
+
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
   end
@@ -46,6 +52,10 @@ class Client < ActiveRecord::Base
 
   def user_fullname
     "#{user.first_name.titleize} #{user.last_name.titleize}"
+  end
+
+  def user_email
+    "#{user.email}"
   end
 
   def filled_columns

@@ -73,7 +73,7 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <% if current_client %>
-                                <li><a href="/clients/<%= current_client.id %>" class="btn btn-default btn-lg"><span class="network-name">View my profile</span></a></li>
+                                <li><a href="/clients/<%= current_client.id %>/status" class="btn btn-default btn-lg"><span class="network-name">View my profile</span></a></li>
                                 <li><a href="/clients/sign_out" data-method="delete" class="btn btn-default btn-lg"><span class="network-name">Sign Out</span></a></li>
                             <% elsif current_user %>
                                 <li><a href="/users" class="btn btn-default btn-lg"><span class="network-name">View your clients</span></a></li>

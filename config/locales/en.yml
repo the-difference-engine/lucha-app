@@ -24,7 +24,7 @@ en:
       title: "Your Monthly Budget"  
       description: "Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them." 
       debts: "Debts"
-      debts_description: "lease keep in mind, these are monthly debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month."
+      debts_description: "Please keep in mind, these are monthly debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month."
       total: "Your totals"
       income: "Income"
       assets: "Assets"
