@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   before_action :authenticate_client!, only: [:new, :create]
-  respond_to :html, :json
+  respond_to :html, :json, :csv
 
   def new
     @rental = Rental.new
@@ -11,7 +11,7 @@ class RentalsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @rentals.to_csv } #untested
+      format.csv { send_data @rentals.to_csv, filename: "rentals-#{Date.today}.csv" } #untested
       format.xls { send_data @rentals.to_csv(col_sep: "\t") } #untested
     end
   end

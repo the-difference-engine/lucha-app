@@ -19,5 +19,12 @@ class Homebuying < ActiveRecord::Base
   validates_format_of :loan_officer_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
 	belongs_to :client
-
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |homebuying|
+        csv << homebuying.attributes.values_at(*column_names)
+      end
+    end
+  end
 end
