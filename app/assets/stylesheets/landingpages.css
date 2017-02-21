@@ -1,9 +1,9 @@
-// Place all the styles related to the landing_pages controller here.
+/*// Place all the styles related to the landing_pages controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
-
+  
 
 body,
 html {
@@ -23,7 +23,7 @@ h6 {
 }
 
 .topnav {
-    font-size: 14px; 
+    font-size: 14px;
 }
 
 .lead {

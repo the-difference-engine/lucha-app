@@ -1,7 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "agency";
+@import "layouts";
+@import "navbar";
+
 
 .pure-menu-list {
   list-style-type: none;
-  font-size: 16px; 
+  font-size: 16px;
 }

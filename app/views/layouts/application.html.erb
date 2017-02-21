@@ -1,93 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 
-    <title>LUCHA CMS</title>
-    <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag 'application' %>
-    <%= csrf_meta_tags %>
-    <%= include_gon %>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Montserrat|Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="assets/stylesheets/font-awesome.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <title>LUCHA CMS</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <%= include_gon %>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Montserrat|Roboto+Slab" rel="stylesheet">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
-
-<div id="layout">
-    <div class="row">
-        <div class="col-sm-2">
-            <div class="sidebar-nav" id="nav">
-                <div class="navbar navbar-default">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                      </button>
-                      <span class="visible-xs navbar-brand">Menu</span>
-                    </div>
-
-                    <div class="collapse navbar-collapse">
-                      <ul class="nav nav-pills">
-                          <li><a href="/">LUCHA</a></li>
-                          <% if user_signed_in? %>
-                            <li><a href="/users/<%= current_user.id %>">Your Clients</a></li>
-                            <li><%= link_to 'Unassigned Clients', employee_index_path %></li>
-                            <li><%= link_to 'Foreclosures', foreclosures_path %></li>
-                            <li><%= link_to 'Home Buying', homebuyings_path %></li>
-                            <li><%= link_to 'Rentals', rentals_path %></li>
-                            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-                            <li><%= render "layouts/language" %></li>
-                          <% elsif client_signed_in? %>
-                            <li><%= link_to 'Application Status', client_status_path(current_client.id) %></li>
-                            <li><%= link_to 'Profile', client_path(current_client.id) %></li>
-                            <li><%= link_to 'Budget', budget_path(current_client.budget.id) %></li>
-                            <li>
-                              <% if current_client.foreclosure.blank? %>
-                                  <%= link_to 'Foreclosures', "/foreclosures/new" %>
-                              <% else %>
-                                  <%= link_to 'View Foreclosure App', foreclosure_path(current_client.foreclosure.id) %>
-                              <% end %>
-                            </li>
-                            <li>
-                              <%  if current_client.homebuying.blank? %>
-                                  <%= link_to 'Homebuying Application', homebuying_intake_path(current_client.id) %>
-                              <% else %>
-                                  <%= link_to 'View Homebuying App', homebuying_path(current_client.homebuying.id)  %>
-                              <% end %>
-                            </li>
-                            <li>
-                              <%  if current_client.rental.blank? %>
-                                  <%= link_to 'Rental Application', rental_intake_path(current_client.id) %>
-                              <% else %>
-                                  <%= link_to 'View  Rental App', rental_path(current_client.rental.id)  %>
-                              <% end %>
-                            </li>
-                            <li><%= link_to "Sign out", "/clients/sign_out", method: :delete if client_signed_in? %></li>
-                            <li><%= render "layouts/language" %></li>
-                          <% else %>
-                          <li><a href="/register" class="pure-menu-link">Client Registration</a></li>
-                          <li><a href="/users/sign_up" class="pure-menu-link">Users Registration</a></li>
-                          <li><%= link_to('Employee login', new_user_session_path) %>  </li>
-                          <li><%= link_to('Client login', new_client_session_path) %></li>
-                          <% end %>
-                      </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
-          </div>
-          <div class="col-sm-10">
-            <div id="main">
-                <div class="content">
-                    <%= render "layouts/alerts" %>
-                    <%= yield %>
-                </div>
-            </div>
+  <%= render "layouts/navbar" %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div id="main">
+        <div class="content">
+          <%= render "layouts/alerts" %>
+          <%= yield %>
         </div>
+      </div>
     </div>
-</div>
-
-
+  </div>
 </body>
 </html>

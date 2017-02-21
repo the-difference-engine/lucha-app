@@ -1,5 +1,5 @@
-@import "variables.scss";
-@import "mixins.scss";
+@import "variables";
+@import "mixins";
 
 // Global Components
 
@@ -34,14 +34,14 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: lightblue;
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-    color: darken(#fed136, 10%);
+    color: darken(lightblue, 10%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -187,8 +187,8 @@ section {
                 -webkit-transform: rotate(90deg);
                 /* Safari and Chrome */
                 z-index:1052;
-            }            
-        }        
+            }
+        }
     }
     .modal-backdrop {
         opacity: 0;
