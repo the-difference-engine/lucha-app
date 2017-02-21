@@ -181,7 +181,7 @@ RSpec.describe ClientsController, type: :controller do
       sign_in @user
     end
     it "Assigns a client to a user" do
-      put :assign, id: @client.id
+      put :assign, id: @client.id, client: {user_id: @user.id}
       @client.reload
       expect(@client.user_id).to eq(@user.id)
     end

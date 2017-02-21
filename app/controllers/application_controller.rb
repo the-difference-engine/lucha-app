@@ -54,5 +54,16 @@ class ApplicationController < ActionController::Base
   #   if current_client.foreclosure.
   # end
 
+  layout :layout_by_resource
+
+  # protected
+
+  def layout_by_resource
+    if devise_controller? && !(current_user || current_client)
+      "devise"
+    else
+      "application"
+    end
+  end
 
 end

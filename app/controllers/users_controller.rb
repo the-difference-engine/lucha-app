@@ -2,7 +2,7 @@ class UsersController < Devise::RegistrationsController
   before_action :verify_user!, except: [:new, :create]
 
   def index
-    @clients = Client.unassigned_client
+    @clients = Client.all
     # @client = 
   end
 
@@ -30,6 +30,7 @@ class UsersController < Devise::RegistrationsController
       cell_phone: params[:user][:cell_phone]
       })
     if @user.save
+      sign_in(@user, scope: :user)
       flash[:success] = "The account has been created"
       redirect_to "/users/#{@user.id}"
     else

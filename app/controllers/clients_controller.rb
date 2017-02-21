@@ -121,19 +121,18 @@ class ClientsController < ApplicationController
 
   def assign
     client = Client.find(params[:id])
-    client.update(user_id: current_user.id)
-    if client.valid?
-      flash[:success] = [ 'Client assigned successfully' ]
+    user_id = params[:client][:user_id]
+    if user_id && client.update(user_id: user_id)
+      flash[:success] = [ 'Client assigned successfully!' ]
     else
-      flash[:danger] = client.errors.full_messages
+      flash[:danger] = [ 'Something has gone wrong.']
     end
     redirect_to "/users"
   end
 
   def unassign
     client = Client.find(params[:id])
-    client.update(user_id: nil)
-    if client.valid?
+    if client.update(user_id: nil)
       flash[:success] = [ 'Client unassigned successfully' ]
     else
       flash[:danger] = [ 'Something has gone wrong' ]

@@ -2,22 +2,20 @@
 <h4><%#= current_user.first_name %> <%#= current_user.last_name %></h4>
 <h1>Your Clients</h1>
 
-<div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
+<div class="form-group pull-left">
+    <input type="text" class="search form-control" placeholder="Filter...">
 </div>
-<span class="counter pull-right"></span>
-<table class="table table-hover table-bordered results">
+<span class="counter pull-left"></span>
+<table class="table table-hover results">
   <thead>
-    <th >ID</th>
-    <th class="col-md-5 col-xs-5">Name</th>
-    <th class="col-md-3 col-xs-3">Home Phone</th>
-    <th class="col-md-3 col-xs-3">Address</th>
-    <th class="col-md-3 col-xs-3">Client Type</th>
-
-    <th class="col-md-3 col-xs-3">View</th>
-    <th class="col-md-3 col-xs-3">Unassign Client</th>
-   <tr class="warning no-result">
-      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    <th>#</th>
+    <th>Name</th>
+    <th>Home Phone</th>
+    <th>Submitted Applications</th>
+    <th>Unassign?</th>
+    <th>Client Info</th>
+    <tr class="warning no-result">
+        <td colspan="6"><i class="fa fa-warning"></i> No results </td>
     </tr>
   </thead>
 
@@ -26,15 +24,14 @@
    <tr>
     <td><%= client.id %></td>
     <td><%= client.full_name.titleize %></td>
-    <td><%= client.home_phone %></td>
-    <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
+    <td><%= client.home_phone %></td> 
     <td><%= client.client_types.to_sentence %></td>
     <td>
-      <%= link_to "View", "/clients/#{client.id}" %>
+      <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>
     </td>
     <td>
-    <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch") %>
-      </td>
+      <%= link_to "View", "/clients/#{client.id}", :class => "btn btn-xs btn-primary" %>
+    </td>
 
     </tr>
   </tbody>
