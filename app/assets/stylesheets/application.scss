@@ -13,11 +13,12 @@
  *= require landingpages
  *= require landingpages
  *= require jquery-ui
-
- *= require_tree .
  *= require_self
  *= require agency
  */
+
+@import "external";
+
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -55,12 +56,6 @@ body {
   font-weight: 300;
 
  }
-
-
-
-
-
-
 
 .btn-default-lg {
     color: #333;
