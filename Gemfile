@@ -8,6 +8,7 @@ gem 'rb-readline'
 gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
 gem 'seed_dump'
+gem 'sendgrid-ruby'
 gem 'ruby_outlook'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'globalize3'
