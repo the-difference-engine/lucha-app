@@ -9,7 +9,7 @@ class HomebuyingsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @homebuyings.to_csv } #untested
+      format.csv { send_data @homebuyings.to_csv, filename: "homebuyings-#{Date.today}.csv" } #untested
       format.xls { send_data @homebuyings.to_csv(col_sep: "\t") } #untested
     end
   end
