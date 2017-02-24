@@ -1,9 +1,18 @@
 class UsersController < Devise::RegistrationsController
   before_action :verify_user!, except: [:new, :create]
 
+
+
   def index
     @clients = Client.all
     # @client = 
+
+    respond_to do |format|
+      format.json
+      format.html
+      format.csv { send_data @clients.to_csv, type: 'text/csv' , filename: "all_clients-#{Date.today}.csv"}
+      format.xls 
+    end
   end
 
   def show
@@ -11,6 +20,13 @@ class UsersController < Devise::RegistrationsController
     ## this didn't work for me. I had to change this. current_user was nil
     # @clients = Client.where(user_id: current_user.id)
     @clients = Client.where(user_id: @user.id)
+
+    respond_to do |format|
+      format.json
+      format.html
+      format.csv { send_data @clients.to_csv, type: 'text/csv', filename: "#{@user.full_name}'s clients-#{Date.today}.csv" }
+      format.xls { send_data @clients.to_csv, filename: "#{@user.full_name}'s clients-#{Date.today}.xls"}
+    end
   end
 
   def new

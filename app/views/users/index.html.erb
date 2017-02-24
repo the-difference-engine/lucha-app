@@ -49,4 +49,11 @@
     </tr>
   </tbody>
 <% end %>
+
 </table>
+<p>
+  Download:
+  <%= link_to "CSV", clients_path(format: "csv") %> |
+  <%= link_to "Excel", clients_path(format: "xls") %>
+  </div>
+</p>
