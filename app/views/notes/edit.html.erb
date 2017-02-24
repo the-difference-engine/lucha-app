@@ -1,16 +1,19 @@
 <h1>Edit Note</h1>
+<hr>
 
 <%= form_tag "/notes/#{@note.id}", method: :patch do %>
 
-  <div>
+  <div class="form-group">
     <%= label_tag :description %>
-    <%= text_area_tag :description, @note.description %>
+    <%= text_area_tag :description, @note.description, :class => "form-control" %>
   </div>
 
-  <div>
-    <%= submit_tag "Update" %>
+  <div class="form-group">
+    <%= submit_tag "Update", :class=>"btn btn-sm btn-primary" %>
   </div>
 
-<%= link_to "Back to Client Page", "/clients/#{@note.client.id}" %>
+  <hr>
+
+  <%= link_to "Back to Client Page", "/clients/#{@note.client.id}" %>
 
 <% end %>

@@ -20,7 +20,7 @@ class Client < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :user
-  has_many :notes, through: :user
+  has_many :notes
 
   has_one :foreclosure, dependent: :destroy
   has_one :homebuying, dependent: :destroy
