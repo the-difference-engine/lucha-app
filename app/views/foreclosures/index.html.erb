@@ -11,11 +11,11 @@
  <thead>
    <tr>
      <th>ID</th>
-     <th class="col-md-5 col-xs-5">Name</th>
-     <th class="col-md-5 col-xs-5">Home Phone</th>
-     <th class="col-md-5 col-xs-5">Address</th>
-     <th class="col-md-5 col-xs-5">View</th>
-     <th class="col-md-5 col-xs-5">Date Submitted</th>
+     <th>Name</th>
+     <th>Home Phone</th>
+     <th>Address</th>
+     <th>Date Submitted</th>
+     <th>View</th>
    </tr>
  </thead>
 <% @foreclosures.each do |foreclosure| %>
@@ -24,23 +24,19 @@
      <td><%= foreclosure.client.id %></td>
      <td>
        <%= link_to(foreclosure.client.full_name.titleize, client_path(foreclosure.client.id)) %>
-      
      </td>
      <td><%= foreclosure.client.home_phone %></td>
-     <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td>
+     <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td> 
      <td>
-       <%= link_to "View", foreclosure_path(foreclosure.id), class: "btn btn-default" %>
+       <%= foreclosure.pretty_time %> 
      </td>
      <td>
-     <td>
-     
+       <%= link_to "View", foreclosure_path(foreclosure.id), class: "btn btn-default" %>
      </td>
    </tr>
  </tbody>
 <% end %>
 </table>
-
-
 
 <hr>
 <p>
@@ -49,4 +45,3 @@
   <%= link_to "Excel", foreclosures_path(format: "xls") %>
   </div>
 </p>
-
