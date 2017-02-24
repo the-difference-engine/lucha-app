@@ -35,3 +35,10 @@
     </tbody>
   <% end %>
 </table>
+
+<p>
+  Download:
+  <%= link_to "CSV", user_path(format: "csv") %> |
+  <%= link_to "Excel", user_path(format: "xls") %>
+  </div>
+</p>
