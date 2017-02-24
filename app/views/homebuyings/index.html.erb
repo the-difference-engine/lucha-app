@@ -1,46 +1,31 @@
 <h1>Homebuying Clients
-<br>
+  <br>
   <small> 
     This is a list of all the homebuying applicants
   </small>
 </h1>
+<hr>
 <div class="form-group pull-left">
   <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
-  <span class="counter pull-left"></span>
+<span class="counter pull-left"></span>
 <table class="table table-hover results">
   <thead>
-     <th>
-       ID
-     </th>
-     <th>
-       Name
-      </th>
-     <th>
-       Home Phone
-     </th>
-     <th>
-       Address
-     </th>
-     <th>
-       Contact for Appointment
-     </th>
-     <th>
-      Realtor's Name
-     </th>
-     <th>
-       Date Created
-     </th>
-     <th>
-       View
-     </th> 
-   </tr>    
-<!--    <tr class="warning">
-      <td colspan="4">
-        <i class="fa fa-warning"></i> 
-          No result
-      </td>
-    </tr> -->
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Home Phone</th>
+      <th>Address</th>
+      <th>Contact for Appointment</th>
+      <th>Realtor's Name</th>
+      <th>Date Created</th>
+      <th>View</th> 
+    </tr>    
+  <tr class="warning no-result">
+    <td colspan="8">
+      <i class="fa fa-warning"></i> No results
+    </td>
+  </tr>
   </thead>
 <% @homebuyings.each do |homebuying| %>
  <tbody>
