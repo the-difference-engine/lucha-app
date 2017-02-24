@@ -1,0 +1,98 @@
+<div class="company-info">
+  <div class="company-info__logo">
+    <%= image_tag Rails.root.join('public', 'images', 'nei/logo.png') %>
+  </div>
+  <div class="company-info__address">
+    NEW ECOLOGY, INC.<br>
+    15 Court Square, Suite 420<br>
+    Boston, MA 02108<br>
+  </div>
+</div>
+
+<div class="intro">
+  <div class="report-info">
+    <h1 class="report-info__title">
+      Energy and Water Audit Report
+    </h1>
+    <div class="report-info__building">
+      <div class="report-info__building__title">
+        <%= context.report.building_name || '<BUILDING NAME>' %>
+      </div>
+      <%= context.report.building_address || '<BUILDING ADDRESS>' %><br>
+      <%= context.report.building_city || '<BUILDING CITY>' %>,
+      <%= context.report.building_state || '<BUILDING STATE>' %>
+      <%= context.report.building_zip || '<BUILDING ZIP>' %>
+    </div>
+  </div>
+  <div class="cover-image">
+    <%= image_tag context.report.cover_image_url || context.report.demo_cover_image_url %>
+  </div>
+</div>
+
+<div class="submitted-to">
+  <span class="submitted-to__title">Submitted to: </span>
+  <div class="submitted-to__address">
+    <%= context.report.contact_name || '<CONTACT NAME>' %><br>
+    <%= context.report.contact_company || '<CONTACT COMPANY>' %><br>
+    <%= context.report.contact_address || '<CONTACT ADDRESS>' %><br>
+    <%= context.report.contact_city || '<CONTACT CITY>' %>,
+    <%= context.report.contact_state || '<CONTACT STATE>' %>
+    <%= context.report.contact_zip  || '<CONTACT ZIP>' %><br>
+    <%= context.report.contact_phone || '<CONTACT PHONE>' %><br>
+    <%= context.report.contact_email || '<CONTACT EMAIL>' %><br>
+  </div>
+  <%= context.report.created_at.strftime('%B %d, %Y') %>
+</div>
+
+<div class='page-break'></div>
+<%= @context.preview_html %>
+
+
+<div class="disclaimer">
+  <strong>DISCLAIMER</strong>
+  <p>
+    This report does not assure financial savings, energy savings, or
+    building upgrades. Financial and energy savings depend on many
+    interrelated variables: building performance, quality of contractor
+    installations, job costs, operations and maintenance, tenant behavior,
+    weather, and energy prices.  Achieving energy savings will require a
+    concentrated and proactive approach on the part of the building owner,
+    e.g., by following best practices in operations and maintenance,
+    performing basic upgrades (weatherstripping, compact fluorescent
+    lamps), educating tenants about the impact of their behavior on energy
+    consumption, and pursuing smart upgrades and retrofits. This report
+    should not be used for specifying upgrade techniques or methods.
+  </p>
+
+  <p>
+    The contents of this report should not be construed as assuring any
+    energy savings, investment, or financing for upgrades. The results,
+    assessments, conclusions, and recommendations stated herein are
+    factually representative of the conditions and circumstances observed
+    in accessible building areas on the date of the assessment. We do not
+    assume responsibility for building conditions found in inaccessible
+    areas or any change in conditions or circumstances. This report and its
+    findings and recommendations, if implemented by your firm, should not
+    be construed as an assurance or implied warranty for the continuing
+    safety, performance, or cost-effectiveness of any equipment, product,
+    system, facility, procedure, or policy discussed or recommended herein.
+  </p>
+
+  <p>
+    This report may contain sensitive information about your firm, staff,
+    equipment, operations, or policies. It may also contain confidential or
+    proprietary information about specific equipment or products that have
+    been provided to New Ecology Inc. by the manufacturers or other sources.
+    Therefore, we consider this report confidential and ask that you do the
+    same. This report should not be transmitted to third parties without
+    the written permission of New Ecology Inc. and an authorized agent of
+    your firm. Asbestos-containing materials, lead-based paint, and other
+    hazardous materials, such as mercury and PCBs in lighting ballasts, may
+    be present in building materials. The Owner is responsible for
+    identifying those materials that will be affected by the planned
+    retrofit work. Licensed, insured, and experienced professionals should
+    be retained to test, manage, remove, and dispose of all hazardous
+    materials in accordance with all applicable federal, state, and local
+    regulations.
+  </p>
+</div>

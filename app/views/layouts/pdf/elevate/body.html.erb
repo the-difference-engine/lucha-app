@@ -1,0 +1,117 @@
+<div class="logo">
+  <%= image_tag Rails.root.join('public', 'images', 'elevate/logo.png') %>
+</div>
+
+<div class="created-date">
+  <%= context.report.created_at.strftime('%B %d, %Y') %>
+</div>
+
+<h1 class="page-title">Energy Assessment & Potential Savings Report</h1>
+
+<div class="cover-image">
+  <%= image_tag context.report.cover_image_url || context.report.demo_cover_image_url %>
+</div>
+
+<div class="assessment-date">
+  <div class="assessment-date__title">
+    Assessment Date:
+  </div>
+  <%= context.report.audit_date.strftime("%m/%d/%Y") %>
+</div>
+
+<div class="completed-for">
+  <div class="completed-for__title">Completed for:</div>
+  <div class="completed-for__client-address">
+    <%= context.report.building_name || '[BUILDING NAME]' %><br>
+    <%= context.report.building_address || '[BUILDING ADDRESS]' %><br>
+    <%= context.report.building_city || '[BUILDING CITY]' %>,
+    <%= context.report.building_state || '[BUILDING STATE]' %>
+    <%= context.report.building_zip || '[BUILDING ZIP]' %>
+  </div>
+</div>
+
+
+<div class='page-break'></div>
+
+<div class="report-summary">
+  <div class="report-summary__title">
+    Potential Gas Savings:</span>
+    <span class="report-summary__amount">
+      <%=  context.report.annual_gas_usage_reduction_percentage || '[GAS REDUCTION PERCENTAGE]' %>%
+    </span>
+  </div>
+  <div class="report-summary__date">
+    <%= context.report.created_at.strftime('%B %d, %Y') %>
+  </div>
+</div>
+
+<div class="address">
+  <div class="address__client">
+    <%= context.report.contact_name || '[CONTACT NAME]' %><br>
+    <%= context.report.contact_company || '[CONTACT COMPANY]' %><br>
+    <%= context.report.contact_address || '[CONTACT ADDRESS>]' %><br>
+    <%= context.report.contact_city || '[CONTACT CITY]' %>, <%= context.report.contact_state || '[CONTACT STATE]' %> <%= context.report.contact_zip  || '[CONTACT ZIP]' %><br>
+    <%= context.report.contact_phone || '[CONTACT PHONE]' %><br>
+    <%= context.report.contact_email || '[CONTACT EMAIL]' %>
+  </div>
+
+  <div class="address__auditor">
+    <%= context.report.auditor_name || '[AUDITOR NAME]' %><br>
+    Elevate Energy<br>
+    322 S Green St, Suite 300<br>
+    Chicago, IL 60607<br>
+    (773) 922-3015<br>
+    <%= context.report.auditor_email || '[AUDITOR NAME]' %><br>
+  </div>
+</div>
+
+<%= @context.preview_html %>
+
+<div class="disclaimer">
+  <strong>DISCLAIMER</strong>
+  <p>
+    This report does not assure financial savings, energy savings, or
+    building upgrades. Financial and energy savings depend on many
+    interrelated variables: building performance, quality of contractor
+    installations, job costs, operations and maintenance, tenant behavior,
+    weather, and energy prices.  Achieving energy savings will require a
+    concentrated and proactive approach on the part of the building owner,
+    e.g., by following best practices in operations and maintenance,
+    performing basic upgrades (weatherstripping, compact fluorescent
+    lamps), educating tenants about the impact of their behavior on energy
+    consumption, and pursuing smart upgrades and retrofits. This report
+    should not be used for specifying upgrade techniques or methods.
+  </p>
+
+  <p>
+    The contents of this report should not be construed as assuring any
+    energy savings, investment, or financing for upgrades. The results,
+    assessments, conclusions, and recommendations stated herein are
+    factually representative of the conditions and circumstances observed
+    in accessible building areas on the date of the assessment. We do not
+    assume responsibility for building conditions found in inaccessible
+    areas or any change in conditions or circumstances. This report and its
+    findings and recommendations, if implemented by your firm, should not
+    be construed as an assurance or implied warranty for the continuing
+    safety, performance, or cost-effectiveness of any equipment, product,
+    system, facility, procedure, or policy discussed or recommended herein.
+  </p>
+
+  <p>
+    This report may contain sensitive information about your firm, staff,
+    equipment, operations, or policies. It may also contain confidential or
+    proprietary information about specific equipment or products that have
+    been provided to Elevate Energy by the manufacturers or other sources.
+    Therefore, we consider this report confidential and ask that you do the
+    same. This report should not be transmitted to third parties without
+    the written permission of Elevate Energy and an authorized agent of
+    your firm. Asbestos-containing materials, lead-based paint, and other
+    hazardous materials, such as mercury and PCBs in lighting ballasts, may
+    be present in building materials. The Owner is responsible for
+    identifying those materials that will be affected by the planned
+    retrofit work. Licensed, insured, and experienced professionals should
+    be retained to test, manage, remove, and dispose of all hazardous
+    materials in accordance with all applicable federal, state, and local
+    regulations.
+  </p>
+</div>

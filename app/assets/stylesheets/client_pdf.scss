@@ -1,0 +1,120 @@
+@import "pdf/variables";
+@import "pdf/placeholders";
+@import "pdf/fonts";
+
+// Variables
+$brand-color: #466E82;
+$elevate-font-family: 'roboto';
+
+// Placeholders
+%elevate-title {
+  font-family: $elevate-font-family;
+  color: $brand-color;
+  font-weight: bold;
+}
+
+.elevate-pdf {
+  font-family: $elevate-font-family;
+  font-size: $base-font-size;
+
+  .logo {
+    padding-bottom: $base-line-height;
+    margin-bottom: $base-line-height;
+    border-bottom: 1px solid #666;
+
+    img {
+      max-width: 200px;
+    }
+  }
+
+  .created-date {
+    text-align: right;
+  }
+
+  .assessment-date {
+    float: right;
+    width: 250px;
+
+    &__title {
+      @extend %elevate-title;
+      font-size: $h3-size;
+      margin-bottom: $base-line-height/2;
+    }
+  }
+
+  .completed-for {
+    float: left;
+
+    &__title {
+      @extend %elevate-title;
+      font-size: $h3-size;
+      font-weight: bold;
+      margin-bottom: $base-line-height/2;
+    }
+  }
+
+  h1, h2, h3, h4 {
+    @extend %elevate-title;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 26px;
+    margin: $base-line-height 0;
+  }
+
+  .cover-image {
+    margin-bottom: $base-line-height;
+    text-align: center;
+
+    img {
+      width: 580px;
+    }
+  }
+
+  .disclaimer {
+    font-size: $small-font-size;
+    margin-top: $base-line-height;
+  }
+
+  .address {
+    @extend %clearfix;
+    margin-bottom: $base-line-height;
+
+    &__client {
+      float: right;
+    }
+
+    &__auditor {
+      float: left;
+    }
+  }
+
+  .report-summary {
+    margin-bottom: $base-line-height;
+
+    &__title {
+      @extend %elevate-title;
+      font-size: $h3-size;
+      margin-bottom: $base-line-height/2;
+    }
+  }
+
+  .header {
+    text-align: right;
+  }
+
+  .footer {
+    height: $base-line-height;
+
+    &__page-no {
+      float: left;
+    }
+
+    &__copyright {
+      text-align: right;
+      float: right;
+      width: 200px;
+    }
+  }
+}
