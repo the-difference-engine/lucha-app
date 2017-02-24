@@ -6,11 +6,16 @@
   }
 }
 
+.navbar {
+  background-color: white;
+}
+
 .topbar {
   position: relative;
   min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: 0px;
   border: 1px solid transparent;
+  background-color: white;
 
   // Prevent floats from breaking the navbar
   @include clearfix;
