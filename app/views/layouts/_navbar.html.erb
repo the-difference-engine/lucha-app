@@ -5,15 +5,15 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
       </button>
-      <a class="navbar-brand" href="#">LUCHA</a>
+      <a class="navbar-brand" href="/">LUCHA</a>
     </div>
     <div class="navbar-right" id="bs-example-navbar-collapse-1">
       <% if user_signed_in? %>
-        <p class="navbar-text">Signed in as <a href="#" class="navbar-link"><%= current_user.first_name %></a></p>
-        <%= link_to "Sign out", "/users/sign_out", method: :delete %>
+        <span class="navbar-text">Signed in as <a href="#" class="navbar-link"><%= current_user.first_name %></a>
+        <%= link_to "Sign out", "/users/sign_out", method: :delete, :class => "btn btn-sm btn-default" %></span>
       <% else %>
-        <p class="navbar-text">Signed in as <a href="#" class="navbar-link"><%= current_client.first_name %></a></p>
-        <p class="navbar-text"><%= link_to "Sign out", "/clients/sign_out", {class: "navbar-link", method: :delete} %></p>
+        <span class="navbar-text">Signed in as <a href="#" class="navbar-link"><%= current_client.first_name %></a>
+        <%= link_to "Sign out", "/clients/sign_out", {class: "navbar-link", method: :delete, :class => "btn btn-sm btn-default"} %></span>
       <% end %>
     </div>
     </div><!-- /.navbar-collapse -->
@@ -40,7 +40,6 @@
           <li><%= link_to 'Home Buying', homebuyings_path %></li>
           <li><%= link_to 'Rentals', rentals_path %></li>
           <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-          <li><%= render "layouts/language" %></li>
         <% elsif client_signed_in? %>
           <li><%= link_to 'Application Status', client_status_path(current_client.id) %></li>
           <li><%= link_to 'Profile', client_path(current_client.id) %></li>

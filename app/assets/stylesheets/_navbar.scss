@@ -4,6 +4,9 @@
   p {
     margin-bottom: 0px;
   }
+  .btn {
+    margin-left: 10px;
+  }
 }
 
 .navbar {
@@ -23,4 +26,11 @@
   @media (min-width: $grid-float-breakpoint) {
     border-radius: 0px;
   }
+}
+
+.navbar-nav
+.active
+a {
+  border-bottom-color: black;
+  border-bottom: solid;
 }

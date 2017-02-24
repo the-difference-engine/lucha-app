@@ -45,6 +45,7 @@ body {
 .devise {
   margin: auto;
   max-width: 500px;
+  padding-top: 30px;
 }
 
  h2 {
@@ -71,4 +72,18 @@ body {
     text-align: center;
     width: inherit;
     display: inline-block;
+}
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px;
+  color:#ccc;
 }
