@@ -38,7 +38,7 @@
 
 <p>
   Download:
-  <%= link_to "CSV", user_path(format: "csv") %> |
-  <%= link_to "Excel", user_path(format: "xls") %>
+  <%= link_to "CSV", user_path(id: @user.id, format: "csv") %> |
+  <%= link_to "Excel", user_path(id: @user.id, format: "xls") %>
   </div>
 </p>
