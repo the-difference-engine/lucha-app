@@ -169,7 +169,7 @@ fieldset[disabled] .btn-xl.active {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   color: white;
-  font-size: 12px;
+  /*font-size: 12px;*/
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
@@ -207,7 +207,7 @@ fieldset[disabled] .btn-xl.active {
     border: none;
   }
   .navbar-custom .navbar-brand {
-    font-size: 2em;
+    /*font-size: 2em;*/
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -222,7 +222,7 @@ fieldset[disabled] .btn-xl.active {
     padding: 10px 0;
   }
   .navbar-custom.affix .navbar-brand {
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
   }
 }
 header {
