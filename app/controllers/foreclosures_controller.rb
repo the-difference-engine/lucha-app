@@ -29,22 +29,7 @@ class ForeclosuresController < ApplicationController
     @id = current_client.id if current_client
     @id = Client.find(params[:id]).id if current_user
 
-    @foreclosure = Foreclosure.new({
-      client_id: @id,
-      currently_foreclosed: params[:currently_foreclosed],
-      originating_lender: params[:originating_lender],
-      original_loan_number: params[:original_loan_number],
-      servicer: params[:servicer],
-      servicer_loan_number: params[:servicer_loan_number],
-      monthly_mortgage_payment: params[:monthly_mortgage_payment],
-      loan_term: params[:loan_term],
-      origination_date: params[:origination_date],
-      been_to_court: params[:been_to_court],
-      court_case_number: params[:court_case_number],
-      working_with_lawyer: params[:working_with_lawyer],
-      working_w_agency: params[:working_w_agency],
-      agency: params[:agency]
-      })
+    @foreclosure = Foreclosure.new(foreclosure_params.merge(client_id: @id))
     if @foreclosure.save
       flash[:success] = ["You've Completed Your Foreclosure Application"]
       redirect_to "/foreclosures/#{@foreclosure.id}"
