@@ -1,78 +1,20 @@
+<h1>
+  <%= I18n.t "foreclosure.title" %><br>
+  <small><%= I18n.t "foreclosure.description" %></small>
+</h1>
 
-Language:
-  <%= link_to_unless_current "English", locale: "en" %>|
-  <%=  link_to_unless_current "Español", locale: "es" %>
-
-<h2><%= I18n.t "foreclosure.title" %></h2>
-<p><%= I18n.t "foreclosure.description" %></p>
-
-<%= form_tag foreclosure_create_path, :class => "form-horizontal", role: "form", method: :post do %>
-	<div class="form-group">
-    <%= label_tag I18n.t "foreclosure.currently_foreclosed" %><br />
-    <%= select_tag(:currently_foreclosed, options_for_select(foreclosure_status, @foreclosure.currently_foreclosed)) %>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Foreclosure Information</h3>
   </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.originating_lender" %><br />
-    <%= text_field_tag :originating_lender, @foreclosure.originating_lender %>
+  <div class="panel-body">
+    <%= form_tag foreclosure_create_path, role: "form", method: :post do %>
+      <%= render "form" %>
+    <hr>
+    <div class="form-group">
+      <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= label_tag :original_loan_number %><br />
-    <%=text_field_tag :original_loan_number, @foreclosure.original_loan_number %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.servicer"  %><br />
-    <%= text_field_tag :servicer, @foreclosure.servicer %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.servicer_loan_number"  %><br />
-    <%= text_field_tag :servicer_loan_number, @foreclosure.servicer_loan_number %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.monthly_mortgage_payment"  %><br />
-    <%= number_field_tag :monthly_mortgage_payment, @foreclosure.monthly_mortgage_payment %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.loan_term"  %><br />
-    <%= text_field_tag :loan_term, @foreclosure.loan_term %>
-  </div>
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.origination_date"  %><br />
-    <%= date_field_tag :origination_date, @foreclosure.origination_date %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.been_to_court"  %><br />
-    <%= select_tag(:been_to_court, options_for_select([["No", false], ["Yes", true]], @foreclosure.been_to_court)) %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.court_case_number"  %><br />
-    <%= text_field_tag :court_case_number, @foreclosure.court_case_number %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.working_with_lawyer" %><br />
-    <%= select_tag(:working_with_lawyer, options_for_select([["No", false],["Yes", true]], @foreclosure.working_with_lawyer)) %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag I18n.t "foreclosure.working_with_agency"  %><br />
-    <%= select_tag(:working_w_agency, options_for_select([["No", false],["Yes", true]], @foreclosure.working_w_agency)) %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag :reason_for_default %><br>
-    <%= text_field_tag :reason_for_default %>
-  </div>
-
-	<div class="actions">
-	  <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
-	</div>
-
-<% end %>
+</div>
