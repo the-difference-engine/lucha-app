@@ -10,18 +10,10 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: { registrations: "users"}
-      devise_scope :user do
-      get 'register', to: 'users/registrations#new'
-      get 'login', to: 'users/sessions#new'
-      delete 'logout', to: 'users/sessions#destroy'
-
-  end
-
-  authenticated :user do
-    root to: 'users#show', as: 'authenticated_user_root'
-  end
-  authenticated :client do
-    root to: 'clients#show', as: 'authenticated_client_root'
+  devise_scope :user do
+    get 'register', to: 'users/registrations#new'
+    get 'login', to: 'users/sessions#new'
+    delete 'logout', to: 'users/sessions#destroy'
   end
 
   root to: 'landing_pages#index'
