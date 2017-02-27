@@ -1,27 +1,40 @@
-<h1>
-  Client profile for: <strong class="text-primary"> <%= @client.full_name %> </strong> <br>
-    <% if @client.user_id %>
-    <small>
-      Assigned Employee: <strong class="text-success"> <%= @client.user.full_name %> </strong>
-    </small>
-    <% elsif !@client.incomplete_profile? %>
-      <div class="row" style="padding-top:10px;">
+
+<div class="row" style="margin-bottom:0;">
+  <div class="col-md-8">
+    <h1>
+      Client profile for: <strong class="text-primary"> <%= @client.full_name %> </strong> <br>
+        <% if @client.user_id %>
+        <small>
+          Assigned Employee: <strong class="text-success"> <%= @client.user.full_name %> </strong>
+        </small>
+        <% elsif !@client.incomplete_profile? %>
+          <div class="row" style="padding-top:10px;margin-bottom:0;">
             <%= form_tag("/clients/#{@client.id}/assign", method: :patch) do %>
-              <div class = "col-md-3 field">
+              <div class="col-md-4" style="margin-top:2px;">
                 <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}, :class => "form-control input-sm") %>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-8">
                 <%= hidden_field_tag :client_id, @client.id %>
                 <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
               </div>
             <% end %>
-          </div>
-          <%else%>
+              </div>
+        <%else%>
           <small class="text-danger">Profile not complete.</small>
-
-    <% end %>
-  </small>
-</h1>
+        <% end %>
+    </h1>
+  </div>
+  <div class="col-md-4">
+    <div class="text-right">
+      <% if @client.client_applications.length > 0 %>
+        <h5>Submitted Applications</h5>
+        <% @client.client_applications.each do |application| %>
+          <%= link_to "#{application.class.to_s}", "/#{application.class.to_s.downcase}s/#{application.id}", :class => "btn btn-success btn-sm" %>
+        <% end %>
+      <% end %>
+    </div>
+</div>
+</div>
 <hr>
 <div class="row">
   <div class="col-md-6">

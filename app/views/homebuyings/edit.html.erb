@@ -1,78 +1,20 @@
-<h1>Homebuying Application</h1>
-
-<%= form_tag "/homebuyings/#{@homebuying.id}", :class => "form-horizontal", role: "form", method: :patch do %>
-    <div class="form-group">
-      <%= label_tag :loan_type %>
-      <%= select_tag(:loan_type, options_for_select(loan_type, @homebuying.loan_type)) %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :lender %>
-      <%= text_field_tag :lender, @homebuying.lender %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :contact_for_appointment %><br/>
-      <%= select_tag(:contact_for_appointment, options_for_select([["No", false],["Yes", true]], @homebuying.contact_for_appointment)) %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :real_estate_contract %>
-      <%= select_tag(:real_estate_contract, options_for_select([["No", false],["Yes", true]], @homebuying.real_estate_contract)) %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :realtor_name %>
-      <%= text_field_tag :realtor_name, @homebuying.realtor_name %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :realtor_phone %>
-      <%= telephone_field_tag :realtor_phone, @homebuying.realtor_phone %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :property_address %>
-      <%= text_field_tag :property_address, @homebuying.property_address %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :property_city %>
-      <%= text_field_tag :property_city, @homebuying.property_city %>
-    </div>
-
-
-    <div class="form-group">
-      <%= label_tag :property_state %>
-      <%= select_tag(:property_state, options_for_select(us_states, "IL")) %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :loan_officer_name %>
-      <%= text_field_tag :loan_officer_name, @homebuying.loan_officer_name %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :loan_officer_email %>
-      <%= email_field_tag :loan_officer_email, @homebuying.loan_officer_email  %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :loan_officer_phone %>
-      <%= telephone_field_tag :loan_officer_phone, @homebuying.loan_officer_phone %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :payment_assistance_program %>
-      <%= select_tag(:payment_assistance_program, options_for_select(down_payment_assistance_program, @homebuying.payment_assistance_program)) %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :approx_closing_date %>
-      <%= date_field_tag :approx_closing_date, @homebuying.approx_closing_date %>
-    </div>
-
-    <div class="actions">
-      <%= submit_tag "Update", :class => 'btn btn-large btn-primary' %>
-    </div>
-<% end %>
+<h1>Homebuying Application <br>
+  <small>
+    Edit the information below
+  </small>
+</h1>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Homebuying Information</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag "/homebuyings/#{@homebuying.id}", role: "form", method: :patch do %>
+      <%= render "form" %>
+      <hr>
+      <div class="form-group">
+        <%= submit_tag "Update", :class => 'btn btn-large btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

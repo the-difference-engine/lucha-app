@@ -1,6 +1,7 @@
 class ForeclosuresController < ApplicationController
 
   before_action :authenticate!
+  before_action :verify_user!, :only => [:index]
 
   respond_to :html, :json, :csv
 

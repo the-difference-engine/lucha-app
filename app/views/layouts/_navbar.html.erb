@@ -2,12 +2,9 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-      </button>
       <a class="navbar-brand" href="/">LUCHA</a>
     </div>
-    <div class="navbar-right" id="bs-example-navbar-collapse-1">
+    <div class="navbar-right" id="bs-example-navbar-collapse-2">
       <% if user_signed_in? %>
         <span class="navbar-text">Signed in as <%= link_to current_user.first_name, user_path(id: current_user.id) %>
         <%= link_to "Sign out", "/users/sign_out", method: :delete, :class => "btn btn-sm btn-default" %></span>
@@ -27,6 +24,7 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
+        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
       </button>
     </div>
 

@@ -1,83 +1,20 @@
-<h1>Homebuying Application</h1>
-
-<%= form_tag homebuying_create_path, :class => "form-horizontal", role: "form", method: :post do %>
-    <div class="form-group"> 
-      <%= label_tag :loan_type %>
-      <%= select_tag(:loan_type, options_for_select(loan_type, @homebuying.loan_type)) %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :lender %>
-      <%= text_field_tag :lender %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :contact_for_appointment %><br />
-      <%= select_tag(:contact_for_appointment, options_for_select([["No", false],["Yes", true]], @homebuying.contact_for_appointment)) %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :real_estate_contract %>
-      <%= select_tag(:real_estate_contract, options_for_select([["No", false],["Yes", true]], @homebuying.real_estate_contract)) %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :realtor_name %>
-      <%= text_field_tag :realtor_name %>
-    </div>
-
-    <div class="form-group">  
-      <%= label_tag :realtor_phone %>
-      <%= telephone_field_tag :realtor_phone %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag :lender %>
-      <%= text_field_tag :lender %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :property_address %>
-      <%= text_field_tag :property_address %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :property_city %>
-      <%= text_field_tag :property_city %>
-    </div>
-
-
-    <div class="form-group"> 
-      <%= label_tag :property_state %>
-      <%= select_tag(:property_state, options_for_select(us_states, "IL")) %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :loan_officer_name %>
-      <%= text_field_tag :loan_officer_name %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :loan_officer_email %>
-      <%= email_field_tag :loan_officer_email  %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :loan_officer_phone %>
-      <%= telephone_field_tag :loan_officer_phone %>
-    </div>
-
-    <div class="form-group"> 
-      <%= label_tag :payment_assistance_program %>
-      <%= select_tag(:payment_assistance_program, options_for_select(down_payment_assistance_program, @homebuying.payment_assistance_program)) %>
-    </div>
-
-    <div class="form-group">  
-      <%= label_tag :approx_closing_date %>
-      <%= date_field_tag :approx_closing_date %>
-    </div>
-
-    <div class="actions">
-      <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
-    </div>  
-<% end %>
+<h1>Homebuying Application
+  <small>
+    Ready to take the plunge into homebuying? Just fill out this info and we can set you up with one of our homebuying counselors to guide you through the homebuying process.
+  </small>
+</h1>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Foreclosure Information</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag homebuying_create_path, role: "form", method: :post do %>
+      <%= render "form" %>
+      <hr>
+      <div class="form-group">
+        <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
+      </div>  
+    <% end %>
+  </div>
+</div>
