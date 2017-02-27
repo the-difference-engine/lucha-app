@@ -20,7 +20,7 @@ class Client < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :user
-  has_many :notes, through: :user
+  has_many :notes
 
   has_one :foreclosure, dependent: :destroy
   has_one :homebuying, dependent: :destroy
@@ -48,6 +48,10 @@ class Client < ActiveRecord::Base
 
   def has_user?
     !!user
+  end
+
+  def full_address
+    "#{address}, #{city} #{state} #{zip_code}"
   end
 
   def user_fullname
@@ -96,18 +100,69 @@ class Client < ActiveRecord::Base
     type
   end
 
-  def self.to_csv(options = {})
-    # Eventually, I need a way to make this class dynamic, as a way for me to be able to check what kinds of applications there are. I can use the model method I created called Client_applications, but there has to be some way for the csv method to know. It will be easy enough being able to print out all of the methods there are, but then I have ugly empty columns in my CSV file.
-    CSV.generate(options) do |csv|
-      csv << column_names + Foreclosure.column_names
-      all.each do |client|
-      values = client.attributes.values
-        if client.foreclosures[0]
-          values += client.foreclosures[0].attributes.values
+  def self.to_csv
+    attributes = %w{
+                    id 
+                    account_created 
+                    name 
+                    email 
+                    contact_method 
+                    submmitted_application 
+                    address 
+                    ward 
+                    home_phone 
+                    work_phone 
+                    cell_phone 
+                    preferred_language
+                    marital_status
+                    date_of_birth
+                    head_of_household 
+                    num_in_household
+                    num_of_dependants
+                    education_level
+                    disability
+                    union_member
+                    military_service_member
+                    volunteer_interest
+                    estimated_household_income
+                    authorization_and_waiver
+                    privacy_policy_authorization
+                    employee_assigned
+                  }
+
+      CSV.generate do |csv|
+        csv << attributes
+        all.each do |client|
+          csv.add_row([
+            client.id,
+            client.created_at,
+            client.full_name,
+            client.email,
+            client.preferred_contact_method,
+            client.client_types.join(", "),
+            client.full_address,
+            client.ward,
+            client.home_phone,
+            client.work_phone,
+            client.cell_phone,
+            client.preferred_language,
+            client.marital_status,
+            client.dob,
+            client.head_of_household,
+            client.num_in_household,
+            client.num_of_dependants,
+            client.education_level,
+            client.disability,
+            client.union_member,
+            client.military_service_member,
+            client.volunteer_interest,
+            client.estimated_household_income,
+            client.authorization_and_waiver,
+            client.privacy_policy_authorization,
+            client.user_id ? client.user.full_name : "not assigned"
+            ])
         end
-      csv.add_row values
       end
-    end
   end
 
   def counselors

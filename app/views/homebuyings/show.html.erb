@@ -1,69 +1,75 @@
-<h2>Homebuying Counseling Application</h2>
+<h1>Homebuying Counseling Application</h1>
 
-<p>Ready to take the plunge into homebuying? Just fill out this info and we can set you up with one of our homebuying counselors to guide you through the homebuying process.</p>
-
-  <table class="table table-hover">
-    <thead>
-      <th colspan="2"><h3>Homebuying Counseling  Information:</h3></th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Lender</td>
-        <td><%= best_in_place @homebuying, :lender, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>Would you Like to be contacted for an appointment</td>
-        <td><%= best_in_place @homebuying, :contact_for_appointment, :class=>"best_in_place", as: :checkbox, collection: {false: "No", true: "Yes"} %></td>
-      </tr>
-      <tr>
-        <td>Have you signed a real estate contract yet?</td>
-        <td><%= best_in_place @homebuying, :real_estate_contract, as: :checkbox, collection: {false: "No", true: "Yes"}, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>What is your realtor's name?</td>
-        <td><%= best_in_place @homebuying, :realtor_name, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>Realtor's phone number</td>
-        <td><%= best_in_place @homebuying, :realtor_phone, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>What is the address of the property you are looking to purchase?</td>
-        <td><%= best_in_place @homebuying, :property_address, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>City</td>
-        <td><%= best_in_place @homebuying, :property_city, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>State</td>
-        <td><%= best_in_place @homebuying, :property_state, :class=>"best_in_place", :as => :select, :collection => us_states %></td>
-      </tr>
-      <tr>
-        <td>What is your loan officer's name?</td>
-        <td><%= best_in_place @homebuying, :loan_officer_name, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>loan officer's email</td>
-        <td><%= best_in_place @homebuying, :loan_officer_email, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>loan officer's phone number</td>
-        <td><%= best_in_place @homebuying, :loan_officer_phone, :display_with => :number_to_phone, :class=>"best_in_place" %></td>
-      </tr>
-      <tr>
-        <td>What kind of payment assistance program will you be using?</td>
-        <td><%= best_in_place @homebuying, :payment_assistance_program, :as => :select, :class=>"best_in_place", :collection => down_payment_assistance_program %></td>
-      </tr>
-      <tr>
-        <td>What is the approximate closing date? </td>
-        <td><%= best_in_place @homebuying, :approx_closing_date, :as => :date, :class=>"best_in_place" %></td>
-      </tr>
-      
-    </tbody>
-  </table>
-  <div>
-    <%= link_to "Edit Application", "/homebuyings/#{@homebuying.id}/edit", method: :get %><br>
-    <%= link_to "Delete Application", "/homebuyings/#{@homebuying.id}", method: :delete, data:{confirm: "Are you sure you want to delete this homebuying application?"} %>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Foreclosure Information submitted by 
+      <strong class="text-warning"><%= @homebuying.client.full_name %></strong> on
+      <strong class="text-warning"><%= @homebuying.pretty_time %></strong>
+    </h3>
   </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td>Lender</td>
+          <td class="text-right"><strong><%= @homebuying.lender %></strong></td>
+        </tr>
+        <tr>
+          <td>Would you Like to be contacted for an appointment</td>
+          <td class="text-right"><strong><%= @homebuying.contact_for_appointment ? "Yes" : "No" %></strong></td>
+        </tr>
+        <tr>
+          <td>Have you signed a real estate contract yet?</td>
+          <td class="text-right"><strong><%= @homebuying.real_estate_contract ? "Yes" : "No" %></strong></td>
+        </tr>
+        <tr>
+          <td>What is your realtor's name?</td>
+          <td class="text-right"><strong><%= @homebuying.realtor_name %></strong></td>
+        </tr>
+        <tr>
+          <td>Realtor's phone number</td>
+          <td class="text-right"><strong><%= @homebuying.realtor_phone %></strong></td>
+        </tr>
+        <tr>
+          <td>What is the address of the property you are looking to purchase?</td>
+          <td class="text-right"><strong><%= @homebuying.property_address %></strong></td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td class="text-right"><strong><%= @homebuying.property_city %></strong></td>
+        </tr>
+        <tr>
+          <td>State</td>
+          <td class="text-right"><strong><%= @homebuying.property_state %></strong></td>
+        </tr>
+        <tr>
+          <td>What is your loan officer's name?</td>
+          <td class="text-right"><strong><%= @homebuying.loan_officer_name %></strong></td>
+        </tr>
+        <tr>
+          <td>loan officer's email</td>
+          <td class="text-right"><strong><%= @homebuying.loan_officer_email %></strong></td>
+        </tr>
+        <tr>
+          <td>loan officer's phone number</td>
+          <td class="text-right"><strong><%= @homebuying.loan_officer_phone %></strong></td>
+        </tr>
+        <tr>
+          <td>What kind of payment assistance program will you be using?</td>
+          <td class="text-right"><strong><%= @homebuying.payment_assistance_program %></strong></td>
+        </tr>
+        <tr>
+          <td>What is the approximate closing date? </td>
+          <td class="text-right"><strong><%= @homebuying.approx_closing_date %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr>
+<div>
+  <%= link_to "Edit Application", "/homebuyings/#{@homebuying.id}/edit", :class => "btn btn-warning" %>
+  <%= link_to "Delete Application", "/homebuyings/#{@homebuying.id}", method: :delete, data:{confirm: "Are you sure you want to delete this homebuying application?"}, :class => "btn btn-danger" %>
 </div>

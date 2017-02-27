@@ -27,4 +27,8 @@ class Homebuying < ActiveRecord::Base
       end
     end
   end
+  
+  def pretty_time
+    created_at.strftime("%A, %b %d")
+  end
 end
