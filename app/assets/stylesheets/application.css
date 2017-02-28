@@ -17,6 +17,7 @@
  *= require_tree .
  *= require_self
  *= require agency
+ *= require pdf
  */
 
 body {
@@ -55,10 +56,6 @@ body {
   font-weight: 300;
 
  }
-
-
-
-
 
 
 

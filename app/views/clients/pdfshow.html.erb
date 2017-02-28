@@ -1,23 +1,23 @@
 <h1>
-  Hello <%= @client.full_name %>! <br />
+  <%= @client.full_name %> Profile <br />
 </h1>
 <hr>
-<div class="row">
+<div class="clientpdf">
   <div class="col-md-4">
     <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">Contact Information</h3>
       </div>
       <div class="panel-body">
-        <table class="table table-hover">
+        <table class="tablepdf">
           <tbody>
             <tr>
-              <td>Client Name:</td> 
-              <td class="text-right"><strong><%= @client.full_name %></strong></td>
+              <td>Client Name: <br></td> 
+              <td class="text-right"><strong> <%= @client.full_name %></strong></td>
             </tr>
             <tr>
-              <td>Home Phone:</td> 
-              <td class="text-right"><strong><%= @client.home_phone %></strong></td>
+              <td>Home Phone:   <br></td>
+              <td class="text-right">  <strong><%= @client.home_phone %></strong></td>
             </tr>
             <tr>
               <td>Cell Phone:</td>
@@ -54,7 +54,7 @@
         <h3 class="panel-title">Demographics</h3>
       </div>
       <div class="panel-body">
-        <table class="table table-hover">
+        <table class="tablepdf">
             <tr>
               <td>Race:</td>
               <td class="text-right"><strong><%= @client.race %></strong></td>
@@ -104,7 +104,7 @@
         <h3 class="panel-title">Household Information</h3>
       </div>
       <div class="panel-body">
-        <table class="table table-hover">
+        <table class="table">
           <tr>
             <td>Head of Household:</td>
             <td class="text-right">

@@ -6,6 +6,7 @@
 body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 48px;
 }
 .text-muted {
   color: #777777;
@@ -14,12 +15,50 @@ body {
   color: #005900;
 }
 p {
-  font-size: 14px;
+  font-size: 36px;
   line-height: 1.75;
 }
 p.large {
-  font-size: 16px;
+  font-size: 36px;
 }
+
+#clientpdf {
+  font-size: 36px;
+}
+
+#tablepdf {
+  $table-border-color: #E0E0E0;
+  font-size: 36px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+  width: 100%;
+  margin: 16 0 16*2;
+  page-break-inside: avoid;
+  break-inside: avoid;
+
+  th,
+  td {
+    text-align: left;
+    padding: 6px 4px;
+    font-size: 24px;
+  }
+
+  th {
+    vertical-align: bottom;
+    border-bottom: 1px solid darken($table-border-color, 8%);
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  td {
+    vertical-align: top;
+    border-bottom: 1px solid $table-border-color;
+    background-color: #fff;
+    font-size: 24px;
+  }
+}
+
 a,
 a:hover,
 a:focus,
@@ -244,7 +283,7 @@ header .intro-text {
 header .intro-text .intro-lead-in {
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
-  font-size: 22px;
+  font-size: 36px;
   line-height: 22px;
   margin-bottom: 25px;
 }
@@ -286,7 +325,7 @@ section h2.section-heading {
   margin-bottom: 15px;
 }
 section h3.section-subheading {
-  font-size: 16px;
+  font-size: 36px;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: none;
   font-style: italic;
@@ -299,7 +338,7 @@ section h3.section-subheading {
   }
 }
 .service-heading {
-  margin: 15px 0;
+  margin: 36px 0;
   text-transform: none;
 }
 #portfolio .portfolio-item {

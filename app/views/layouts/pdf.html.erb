@@ -6,11 +6,11 @@
     <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 
     <title>WickedPDF</title>
-    <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64("agency") %>
+    <%= wicked_pdf_javascript_include_tag 'clients' %>
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Montserrat|Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    
 </head>
 <body>
 
