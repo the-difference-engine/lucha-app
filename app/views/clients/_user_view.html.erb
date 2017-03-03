@@ -32,6 +32,8 @@
           <%= link_to "#{application.class.to_s}", "/#{application.class.to_s.downcase}s/#{application.id}", :class => "btn btn-success btn-sm" %>
         <% end %>
       <% end %>
+<%= link_to "Budget", "/budgets/#{@client.budget.id}", :class => "btn btn-success btn-sm" %>
+
     </div>
 </div>
 </div>
@@ -222,17 +224,7 @@
 </div>
 
 
-<% if @client.foreclosure %>
-  <%= link_to "Foreclosure", "/foreclosures/#{@client.foreclosure.id}" %>
-<% end %>
 
-<% if @client.homebuying %>
-  <%= link_to "Homebuying", "/homebuyings/#{@client.homebuying.id}" %>
-<% end %>
-
-<% if @client.rental %>
-  <%= link_to "Rental", "/rentals/#{@client.rental.id}" %>
-<% end %>
 
 
 

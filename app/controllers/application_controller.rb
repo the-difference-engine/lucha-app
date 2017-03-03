@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate!
-    unless current_client || current_user
+    unless current_client || current_user 
       redirect_to "/"
     end
   end
