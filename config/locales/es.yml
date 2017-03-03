@@ -20,6 +20,8 @@ es:
         The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
 
     client_sign_up:
+        welcome: "Bienvenido"
+        please_fill_in: "PLEASE FILL IN THE FOLLOWING TO CREATE A CLIENT PROFILE."
         first_name: "Nombre *"
         last_name: "Apellido *"
         home_phone: "Número de teléfono de casa"
@@ -28,15 +30,24 @@ es:
         city: "Ciudad"
         state: "Estado"
         ward: "Ward"
+        search_for_ward: "Search for your ward"
         zip_code: "Codigo postal"
         authorize_lucha: "*I authorize LUCHA and it's staff to use my information for the purposes of counseling."
         privacy_and_disclosure: "*I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set."
         login_information: "THE FOLLOWING INFORMATION WILL BE YOUR LOGIN INFORMATION, MAKE SURE TO KEEP THIS SAFE WITH YOU."
         email: "Correo electrónico*"
         password: "Contraseña*"
+        eight_characters_minimum: "8 characters minimum"
         password_confirmation: "Password confirmation"
         remember_me: "Remember me"
+        sign_up: "SIGN UP"
         already_have_account: "ALREADY HAVE AN ACCOUNT?"
+
+    client_log_in:
+        email: "Correo electrónico*"
+        password: "Contraseña*"
+        remember_me: "Remember me"
+        log_in: "LOGIN"
 
     budget_show:
         title: "Su presupuesto mensual"
