@@ -1,6 +1,6 @@
 
-<h4><%#= current_user.first_name %> <%#= current_user.last_name %></h4>
 <h1>Your Clients</h1>
+<hr>
 
 <div class="form-group pull-left">
     <input type="text" class="search form-control" placeholder="Filter...">
@@ -19,21 +19,27 @@
     </tr>
   </thead>
 
-<% @clients.each do |client| %>
- <tbody>
-   <tr>
-    <td><%= client.id %></td>
-    <td><%= client.full_name.titleize %></td>
-    <td><%= client.home_phone %></td> 
-    <td><%= client.client_types.to_sentence %></td>
-    <td>
-      <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>
-    </td>
-    <td>
-      <%= link_to "View", "/clients/#{client.id}", :class => "btn btn-xs btn-primary" %>
-    </td>
-
-    </tr>
-  </tbody>
-<% end %>
+  <% @clients.each do |client| %>
+    <tbody>
+      <tr>
+        <td><%= client.id %></td>
+        <td><%= client.full_name.titleize %></td>
+        <td><%= client.home_phone %></td> 
+        <td><%= client.client_types.to_sentence %></td>
+        <td>
+          <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>
+        </td>
+        <td>
+          <%= link_to "View", "/clients/#{client.id}", :class => "btn btn-xs btn-primary" %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
 </table>
+<hr>
+<p>
+  Download:
+  <%= link_to "CSV", user_path(id: @user.id, format: "csv") %> |
+  <%= link_to "Excel", user_path(id: @user.id, format: "xls") %>
+  </div>
+</p>

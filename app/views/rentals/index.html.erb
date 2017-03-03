@@ -30,3 +30,12 @@
  </tbody>
 <% end %>
 </table>
+
+
+
+<p>
+  Download:
+  <%= link_to "CSV", rentals_path(format: "csv") %> |
+  <%= link_to "Excel", rentals_path(format: "xls") %>
+  </div>
+</p>

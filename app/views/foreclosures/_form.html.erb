@@ -1,0 +1,63 @@
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.currently_foreclosed" %>
+  <%= select_tag(:currently_foreclosed, options_for_select(foreclosure_status, @foreclosure.currently_foreclosed), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.originating_lender" %>
+  <%= text_field_tag :originating_lender, @foreclosure.originating_lender, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :original_loan_number %>
+  <%=text_field_tag :original_loan_number, @foreclosure.original_loan_number, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.servicer"  %>
+  <%= text_field_tag :servicer, @foreclosure.servicer, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.servicer_loan_number"  %>
+  <%= text_field_tag :servicer_loan_number, @foreclosure.servicer_loan_number, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.monthly_mortgage_payment"  %>
+  <%= number_field_tag :monthly_mortgage_payment, @foreclosure.monthly_mortgage_payment, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.loan_term"  %>
+  <%= text_field_tag :loan_term, @foreclosure.loan_term, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.origination_date"  %>
+  <%= date_field_tag :origination_date, @foreclosure.origination_date, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.been_to_court"  %>
+  <%= select_tag(:been_to_court, options_for_select([["No", false], ["Yes", true]], @foreclosure.been_to_court), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.court_case_number"  %>
+  <%= text_field_tag :court_case_number, @foreclosure.court_case_number, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.working_with_lawyer" %>
+  <%= select_tag(:working_with_lawyer, options_for_select([["No", false],["Yes", true]], @foreclosure.working_with_lawyer), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "foreclosure.working_with_agency"  %>
+  <%= select_tag(:working_w_agency, options_for_select([["No", false],["Yes", true]], @foreclosure.working_w_agency), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :reason_for_default %><br>
+  <%= text_field_tag :reason_for_default, @foreclosure.reason_for_default, :class => "form-control" %>
+</div>

@@ -15,16 +15,16 @@
         <table class="table table-hover">
           <tbody>
             <tr>
-              <td>Client Name:</td> 
+              <td>Client Name:</td>
               <td class="text-right"><strong><%= @client.full_name %></strong></td>
             </tr>
             <tr>
-              <td>Home Phone:</td> 
+              <td>Home Phone:</td>
               <td class="text-right"><strong><%= @client.home_phone %></strong></td>
             </tr>
             <tr>
               <td>Cell Phone:</td>
-              <td><strong><%= @client.cell_phone %></strong></td>
+              <td class="text-right"><strong><%= @client.cell_phone %></strong></td>
             </tr>
             <tr>
               <td>Work Phone:</td>
@@ -89,7 +89,9 @@
               <td class="text-right">
                 <strong>
                   <% if @client.ssn %>
-                    *********
+                    <%= @client.ssn %>
+                  <% else %>
+                    <%= "Not Submitted" %>
                   <% end %>
                 </strong>
               </td>

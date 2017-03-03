@@ -5,8 +5,16 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_client!, unless: :clients_controller?
   before_filter :set_locale
 
+  def after_sign_in_path_for(resource)
+    if resource.class == User
+      user_path(resource) 
+    elsif resource.class == Client
+      client_path(resource) 
+    end
+  end
+
   def authenticate!
-    unless current_client || current_user
+    unless current_client || current_user 
       redirect_to "/"
     end
   end

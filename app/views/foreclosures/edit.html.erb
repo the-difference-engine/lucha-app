@@ -1,43 +1,16 @@
 <h1>Update your foreclosure case:</h1>
-
-<%= form_tag "/foreclosures/#{@foreclosure.id}", method: :patch do %>
-
-  <div class="form-group">
-    <%= label_tag :originating_lender %><br>
-    <%= text_field_tag :originating_lender, @foreclosure.originating_lender %>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Foreclosure Information</h3>
   </div>
-
-  <div class="form-group">
-    <%= label_tag :original_loan_number %><br>
-    <%= text_field_tag :original_loan_number, @foreclosure.original_loan_number %>
+  <div class="panel-body">
+    <%= form_tag "/foreclosures/#{@foreclosure.id}", method: :patch do %>
+      <%= render "form" %>
+    <hr>
+    <div class="form-group">
+      <%= submit_tag "Edit", :class => 'btn btn-large btn-primary' %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= label_tag :servicer %><br>
-    <%= text_field_tag :servicer, @foreclosure.servicer %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag :servicer_loan_number %><br>
-    <%= text_field_tag :servicer_loan_number, @foreclosure.servicer_loan_number %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag :monthly_mortgage_payment %><br>
-    <%= text_field_tag :monthly_mortgage_payment, @foreclosure.monthly_mortgage_payment %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag :loan_term %><br>
-    <%= text_field_tag :loan_term, @foreclosure.loan_term %>
-  </div>
-
-  <div class="form-group">
-    <%= label_tag :been_to_court %><br>
-    <%= select_tag :been_to_court, options_for_select([["No", false],["Yes", true]], @foreclosure.been_to_court) %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag "Update", :class => 'btn btn-large btn-primary' %>
-  </div>
-<% end %>
+</div>

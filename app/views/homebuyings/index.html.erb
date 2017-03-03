@@ -1,37 +1,60 @@
-<h1>Homebuying Clients</h1>
-
-<div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
+<h1>Homebuying Clients
+  <br>
+  <small> 
+    This is a list of all the homebuying applicants
+  </small>
+</h1>
+<hr>
+<div class="form-group pull-left">
+  <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
-<span class="counter pull-right"></span>
-<table class="table table-hover table-bordered results">
+<span class="counter pull-left"></span>
+<table class="table table-hover results">
   <thead>
-     <th >ID</th>
-     <th class="col-md-5 col-xs-5">Name</th>
-     <th class="col-md-3 col-xs-3">Home Phone</th>
-     <th class="col-md-3 col-xs-3">Address</th>
-     <th class="col-md-3 col-xs-3">Contact for Appointment</th>
-     <th class="col-md-3 col-xs-3">Realtor's Name</th>
-     <th >View</th> 
-   </tr>    
-   <tr class="warning no-result">
-      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-    </tr>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Home Phone</th>
+      <th>Address</th>
+      <th>Contact for Appointment</th>
+      <th>Realtor's Name</th>
+      <th>Date Created</th>
+      <th>View</th> 
+    </tr>    
+  <tr class="warning no-result">
+    <td colspan="8">
+      <i class="fa fa-warning"></i> No results
+    </td>
+  </tr>
   </thead>
 <% @homebuyings.each do |homebuying| %>
  <tbody>
    <tr>
-     <td><%= homebuying.client.id %></td>
-     <td><%= link_to(homebuying.client.full_name.titleize, client_path(homebuying.client.id)) %></td>
-     <td><%= homebuying.client.home_phone %></td>
-     <td><%= homebuying.client.address %>, <%= homebuying.client.city %>, <%= homebuying.client.state %></td>
-     <td><% if homebuying.contact_for_appointment== false %>
-        <%= "No" %>
+     <td>
+       <%= homebuying.client.id %>
+     </td>
+     <td>
+       <%= link_to(homebuying.client.full_name.titleize, client_path(homebuying.client.id)) %>
+     </td>
+     <td>
+       <%= homebuying.client.home_phone %>
+     </td>
+     <td>
+       <%= homebuying.client.address %>, <%= homebuying.client.city %>, <%= homebuying.client.state %>
+     </td>
+     <td>
+        <% if homebuying.contact_for_appointment== false %>
+          <%= "No" %>
         <% else %>
-        <%= "Yes" %>
+          <%= "Yes" %>
         <% end %>
      </td>
-     <td><%= homebuying.realtor_name %></td>
+     <td>
+       <%= homebuying.realtor_name %>
+     </td>
+     <td>
+       <%= homebuying.pretty_time %>
+     </td>
      <td>
        <%= link_to "View", homebuying_path(homebuying.id), class: "btn btn-default" %>
      </td>
@@ -39,5 +62,10 @@
  </tbody>
 <% end %>
 </table>
-
-
+<hr>
+<p>
+  Download:
+  <%= link_to "CSV", homebuyings_path(format: "csv") %> |
+  <%= link_to "Excel", homebuyings_path(format: "xls") %>
+  </div>
+</p>
