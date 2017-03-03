@@ -1,5 +1,3 @@
-#way to go above and beyond josh. 
-
 en:
   splash: 
       title: "Latin United Community Housing Association"
@@ -20,6 +18,26 @@ en:
       demographics: "LUCHA Demographics:"
       demographics_statement: "A few notes on the diversity of our clients: 
       The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+
+  client_sign_up:
+      first_name: "First name *"
+      last_name: "Last name *"
+      home_phone: "Home phone"
+      cell_phone: "Cell phone"
+      address: "Address"
+      city: "City"
+      state: "State"
+      ward: "Ward"
+      zip_code: "Zip code"
+      authorize_lucha: "*I authorize LUCHA and it's staff to use my information for the purposes of counseling."
+      privacy_and_disclosure: "*I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set."
+      login_information: "THE FOLLOWING INFORMATION WILL BE YOUR LOGIN INFORMATION, MAKE SURE TO KEEP THIS SAFE WITH YOU."
+      email: "email*"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      remember_me: "Remember me"
+      already_have_account: "ALREADY HAVE AN ACCOUNT?"
+
   budget_show:
       title: "Your Monthly Budget"  
       description: "Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them." 
