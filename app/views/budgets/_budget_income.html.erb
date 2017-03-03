@@ -1,41 +1,36 @@
-<table class="table table-hover">
-	<tr>
-		<th colspan="2"><h3><%= I18n.t ".budget_income.title" %></h3></th>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.gross_wages" %></td>
-		<td>$<input type="text" ng-model="budget.gross_wages"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.self_employment" %></td>
-		<td>$<input type="text" ng-model="budget.self_employment_income"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.over_time" %></td>
-		<td>$<input type="text" ng-model="budget.overtime"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.check" %></td>
-		<td>$<input type="text" ng-model="budget.unemployment"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.tips" %></td>
-		<td>$<input type="text" ng-model="budget.tips_commissions_bonus"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.non_tax" %></td>
-		<td>$<input type="text" ng-model="budget.nontaxable_social_security"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.tax_ss" %></td>
-		<td>$<input type="text" ng-model="budget.taxable_social_security"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.renter_income" %></td>
-		<td>$<input type="text" ng-model="budget.rental_income"></td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_income.other" %></td>
-		<td>$<input type="text" ng-model="budget.other_income"></td>
-	</tr>
-</table>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.gross_wages" %></label>
+	<input class="form-control" type="text" ng-model="budget.gross_wages">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.self_employment" %></label>
+	<input class="form-control" type="text" ng-model="budget.self_employment_income">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.over_time" %></label>
+	<input class="form-control" type="text" ng-model="budget.overtime">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.check" %></label>
+	<input class="form-control" type="text" ng-model="budget.unemployment">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.tips" %></label>
+	<input class="form-control" type="text" ng-model="budget.tips_commissions_bonus">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.non_tax" %></label>
+	<input class="form-control" type="text" ng-model="budget.nontaxable_social_security">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.tax_ss" %></label>
+	<input class="form-control" type="text" ng-model="budget.taxable_social_security">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.renter_income" %></label>
+	<input class="form-control" type="text" ng-model="budget.rental_income">
+</div>
+<div class="form-group">
+	<label><%= I18n.t "budget_income.other" %></label>
+	<input class="form-control" type="text" ng-model="budget.other_income">
+</div>
