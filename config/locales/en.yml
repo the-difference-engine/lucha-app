@@ -1,7 +1,7 @@
-#way to go above and beyond josh. 
+#way to go above and beyond josh.
 
 en:
-  splash: 
+  splash:
       title: "Latin United Community Housing Association"
       sub_title: "LUCHA Client Portal"
       sign_up: "sign up"
@@ -18,18 +18,18 @@ en:
       contact: "Contact"
       copy_right: "Copyright \u00A9 Lucha 2016. All Rights Reserved"
       demographics: "LUCHA Demographics:"
-      demographics_statement: "A few notes on the diversity of our clients: 
+      demographics_statement: "A few notes on the diversity of our clients:
       The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
   budget_show:
-      title: "Your Monthly Budget"  
-      description: "Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them." 
+      title: "Budget For, "  
+      description: "Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them."
       debts: "Debts"
       debts_description: "Please keep in mind, these are monthly debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month."
       total: "Your totals"
       income: "Income"
       assets: "Assets"
       assets_title: "Now tell us a bit about your assets"
-      assets_description: "This is wealth that you have accumulated throughout your life."       
+      assets_description: "This is wealth that you have accumulated throughout your life."
       monthly_debt: "Your total monthly debt and income"
       gross_monthly: "Gross Monthly Income:"
       total_monthly: "Total Monthly Debt:"
@@ -51,8 +51,8 @@ en:
       total_monthly: "Total Monthly Debt:"
       debt_to_income: "Debt to Income Ratio:"
       update: "Update"
-  
-  budget_debts: 
+
+  budget_debts:
       title: "Monthly Debt Payments"
       principal: "Principal and Interest:"
       prop_taxes: "Property Taxes:"
@@ -144,69 +144,3 @@ en:
             dob:
             num_of_dependants:
             num_in_household:
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
