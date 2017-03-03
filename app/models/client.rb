@@ -48,6 +48,10 @@ class Client < ActiveRecord::Base
     "#{first_name.titleize} #{last_name.titleize}"
   end
 
+  def full_name_pdf
+    "#{first_name}#{last_name}"
+  end
+
   def has_user?
     !!user
   end

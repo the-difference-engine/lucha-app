@@ -40,6 +40,19 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        html = render_to_string(:action => :show, :template => "clients/pdfshow.html.erb", :layout => "pdf.html.erb") 
+        pdf = WickedPdf.new.pdf_from_string(html) 
+
+        send_data(pdf, 
+          :filename => "#{@client.full_name_pdf}.pdf", 
+          :disposition => 'attachment')
+      end
+    end
+      
   end
 
   def new
