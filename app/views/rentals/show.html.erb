@@ -14,9 +14,9 @@
 	    <%= render "rental" %>
 	</table>
 	</div>
+		
 </div>
-
-
+<hr>
 
 <%= link_to "Edit this application.", "/rentals/#{@rental.id}/edit", :class => "btn btn-warning", method: :get %>
 <%= link_to "Delete this application.", "/rentals/#{@rental.id}", method: :delete, data:{confirm: "Are you sure you want to delete this rental application?"}, :class => "btn btn-danger" %>
