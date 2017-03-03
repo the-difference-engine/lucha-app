@@ -119,8 +119,10 @@
               <td>SSN:</td>
               <td class="text-right">
                 <strong>
-                  <% if @client.ssn %>
-                    *********
+                  <% if @client.ssn  %>
+                    <%= @client.ssn %>
+                  <% else %>
+                    <%= "Not Submitted" %>
                   <% end %>
                 </strong>
               </td>
