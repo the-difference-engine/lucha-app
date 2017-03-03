@@ -1,72 +1,63 @@
 <div ng-app="app">
 	<div ng-controller="budgetCtrl" ng-init="init()">
-
-	Language: 
-            <%= link_to_unless_current "English", locale: "en" %>|
-            <%=  link_to_unless_current "Español", locale: "es" %>
 		<div id="budget-alert">
-	    	<div class="alert alert-dismissible" role="alert"> 
-			    <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
-			        <span aria-hidden="true">&times;</span>
-			    </button>
-			    <p id="flashText">{{response}}</p>
-	  		</div>
-	  	</div>
-
-	<h2><%= I18n.t "budget_show.title" %></h2>
-	<p><%= I18n.t "budget_show.description" %></p>
-		<div>
-		  <ul class="nav nav-tabs" role="tablist">
-		    <li role="presentation" class="active"><a href="#income" aria-controls="income" role="tab" data-toggle="tab"><%= I18n.t "budget_show.income" %></a></li>
-		    <li role="presentation"><a href="#debt" aria-controls="debt" role="tab" data-toggle="tab">
-		    	<%= I18n.t "budget_show.debts" %></a></li>
-		    <li role="presentation"><a href="#totals" aria-controls="totals" role="tab" data-toggle="tab">
-		    	<%= I18n.t "budget_show.total" %></a></li>
-		    <li role="presentation"><a href="#assets" aria-controls="assets" role="tab" data-toggle="tab">
-		    	<%= I18n.t "budget_show.assets" %></a></li>
-		   </ul>
-		  <div class="tab-content">
-		    <div role="tabpanel" class="tab-pane active" id="income">
-		    	<%= render "budget_income" %>
-		    </div>
-
-		    <div role="tabpanel" class="tab-pane" id="debt">
-		    	<h3><%= I18n.t "budget_show.debts" %></h3>
-					<p><%= I18n.t "budget_show.debts_description" %> </p>
-					<%= render "budget_debts" %>
-		    </div>
-		    <div role="tabpanel" class="tab-pane" id="totals">
-					<h3><%= I18n.t "budget_show.total" %></h3>
-						<table class="table table-hover">
-							<tr>
-								<th colspan="2"><%= I18n.t "budget_show.monthly_debt" %></th>
-							</tr>
-							<tr>
-								<td><%= I18n.t "budget_show.gross_monthly" %></td>
-								<td>{{ grossMontlyIncome | currency }}</td>
-							</tr>
-							<tr>
-								<td><%= I18n.t "budget_show.total_monthly" %></td>
-								<td>{{ totalMonthlyDebt | currency }}</td>
-							</tr>
-							<tr>
- 								<td><%= I18n.t "budget_show.debt_to_income"  %></td>
- 								<td ng-if="grossMontlyIncome > 0">
- 									{{ (totalMonthlyDebt / grossMontlyIncome).toFixed(2) || 0 }}
- 								</td>
- 							</tr>
- 					</table>
- 				</div>
-
-		    <div role="tabpanel" class="tab-pane" id="assets">
-
-					<h3><%= I18n.t "budget_show.assets_title" %></h3>
-					<p><%= I18n.t "budget_show.assets_description" %></p>
-
-					<%= render "budget_assets" %>
-		    </div>
-		  </div>
+			<div class="alert alert-dismissible" role="alert">
+				<button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<p id="flashText">{{response}}</p>
+			</div>
 		</div>
+		<h2><%= I18n.t "budget_show.title" %><%= @client.full_name %></h2>
+		<p><%= I18n.t "budget_show.description" %></p>
+		<hr>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Income</h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_income" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Debts</h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_debts" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Assets</h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_assets" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">Totals</h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_totals" %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
 		<button ng-click="submitData(budget)"><%= I18n.t "budget_debts.update" %></button>
 	</div>
 </div>

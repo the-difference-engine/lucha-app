@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+    	<label><%= I18n.t "budget_debts.gross_monthly" %></label>
+    	<td>{{ grossMonthlyIncome | currency}}</td>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+    	<label><%= I18n.t "budget_debts.total_monthly" %></label>
+    	<td>{{ totalMonthlyDebt | currency }}</td>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+    	<label><%= I18n.t "budget_debts.debt_to_income" %></label>
+    	<td ng-if="grossMonthlyIncome > 0">{{ (totalMonthlyDebt / grossMontlyIncome).toFixed(2) || 0 }}</td>
+    </div>
+  </div>
+</div>

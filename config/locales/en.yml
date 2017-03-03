@@ -1,5 +1,5 @@
 en:
-  splash: 
+  splash:
       title: "Latin United Community Housing Association"
       sub_title: "LUCHA Client Portal"
       sign_up: "sign up"
@@ -16,7 +16,7 @@ en:
       contact: "Contact"
       copy_right: "Copyright \u00A9 Lucha 2016. All Rights Reserved"
       demographics: "LUCHA Demographics:"
-      demographics_statement: "A few notes on the diversity of our clients: 
+      demographics_statement: "A few notes on the diversity of our clients:
       The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
 
   client_sign_up:
@@ -50,15 +50,15 @@ en:
       remember_me: "Remember me"
 
   budget_show:
-      title: "Your Monthly Budget"  
-      description: "Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them." 
+      title: "Budget For, "
+      description: "Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them."
       debts: "Debts"
       debts_description: "Please keep in mind, these are monthly debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month."
       total: "Your totals"
       income: "Income"
       assets: "Assets"
       assets_title: "Now tell us a bit about your assets"
-      assets_description: "This is wealth that you have accumulated throughout your life."       
+      assets_description: "This is wealth that you have accumulated throughout your life."
       monthly_debt: "Your total monthly debt and income"
       gross_monthly: "Gross Monthly Income:"
       total_monthly: "Total Monthly Debt:"
@@ -80,22 +80,22 @@ en:
       total_monthly: "Total Monthly Debt:"
       debt_to_income: "Debt to Income Ratio:"
       update: "Update"
-  
-  budget_debts: 
+
+  budget_debts:
       title: "Monthly Debt Payments"
       principal: "Principal and Interest:"
       prop_taxes: "Property Taxes:"
       asso_fees: "Association Fees:"
       jr_mort: "Junior Mortgage:"
-      min_month_cred_payment: "Minimum Monthly Credit Card Payment"
+      min_month_cred_payment: "Credit Payment"
       stud_loan: "Student Loan"
-      gas: "gas"
+      gas: "Gas"
       electic: "Electricity"
       H20: "Water"
       tele: "Phone"
       other_util: "Other Utilities"
       food: "Food/Groceries"
-      gas_car: "Gas and car maintenance"
+      gas_car: "Auto Maintenance"
       child: "Child Care"
       medical: "Medical Expenses"
       if_renter: "Only if you are a renter, please fill out the below"
@@ -107,6 +107,7 @@ en:
       p_checking: "Primary Checking:"
       s_checking: "Secondary Checking:"
       savings_money_mark: "Savings/Money Market:"
+      four_zero_one_k: "401K"
       stocks: "Stocks or Bonds:"
       home_equity: "Home Equity:"
       value_of_prop: "Value of Other Properties:"
@@ -173,69 +174,3 @@ en:
             dob:
             num_of_dependants:
             num_in_household:
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
