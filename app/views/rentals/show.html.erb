@@ -1,8 +1,22 @@
-<h2>Rentals</h2>
-<p>This is the information we have on file, we'll get in contact to you shortly.</p>
+<h1>Rental Application</h1>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+  	<h3 class="panel-title">
+		Rental Information submitted by
+		<strong class="text-warning"><%= @rental.client.full_name %></strong> on
+		<strong class="text-warning"><%= @rental.pretty_time %></strong>
+	</h3>
+  </div>
 
-<%= render "rental" %>
+  <div class="panel-body">
+    <table class="table table-hover"
+	    <%= render "rental" %>
+	</table>
+	</div>
+</div>
 
-<%= link_to "Edit this application.", "/rentals/#{@rental.id}/edit", method: :get %>
-<br>
-<%= link_to "Delete this application.", "/rentals/#{@rental.id}", method: :delete, data:{confirm: "Are you sure you want to delete this rental application?"} %>
+
+
+<%= link_to "Edit this application.", "/rentals/#{@rental.id}/edit", :class => "btn btn-warning", method: :get %>
+<%= link_to "Delete this application.", "/rentals/#{@rental.id}", method: :delete, data:{confirm: "Are you sure you want to delete this rental application?"}, :class => "btn btn-danger" %>
