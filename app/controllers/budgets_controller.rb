@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-  before_action :authenticate_client!
+  before_action :authenticate!
   respond_to :html, :json
 
   def index

@@ -48,6 +48,10 @@ class Client < ActiveRecord::Base
     "#{first_name.titleize} #{last_name.titleize}"
   end
 
+  def full_name_pdf
+    "#{first_name}#{last_name}"
+  end
+
   def has_user?
     !!user
   end
@@ -58,6 +62,14 @@ class Client < ActiveRecord::Base
 
   def user_fullname
     "#{user.first_name.titleize} #{user.last_name.titleize}"
+  end
+
+  def encoded_ssn
+    if ssn != nil
+      "***-**-****"
+    else
+      "Not Submitted"
+    end
   end
 
   def user_email
@@ -107,6 +119,7 @@ class Client < ActiveRecord::Base
                     id 
                     account_created 
                     name 
+                    encoded_ssn
                     email 
                     contact_method 
                     submmitted_application 
@@ -139,6 +152,7 @@ class Client < ActiveRecord::Base
             client.id,
             client.created_at,
             client.full_name,
+            client.encoded_ssn,
             client.email,
             client.preferred_contact_method,
             client.client_types.join(", "),
