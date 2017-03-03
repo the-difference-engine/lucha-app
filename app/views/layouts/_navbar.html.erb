@@ -37,6 +37,7 @@
           <li><%= link_to 'Foreclosures', foreclosures_path %></li>
           <li><%= link_to 'Home Buying', homebuyings_path %></li>
           <li><%= link_to 'Rentals', rentals_path %></li>
+          
         <% elsif client_signed_in? %>
           <li><%= link_to 'Application Status', client_status_path(current_client.id) %></li>
           <li><%= link_to 'Profile', client_path(current_client.id) %></li>
