@@ -89,7 +89,9 @@
               <td class="text-right">
                 <strong>
                   <% if @client.ssn %>
-                    *********
+                    <%= @client.ssn %>
+                  <% else %>
+                    <%= "Not Submitted" %>
                   <% end %>
                 </strong>
               </td>
