@@ -18,58 +18,49 @@
 
       <div class="form-group">
         <%= I18n.t "client_sign_up.first_name" %>
-        <span class="text-danger"></span>
-        <br>
+        <span class="text-danger"> * </span>
         <%= f.text_field :first_name, autofocus: true, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :last_name %>
+        <%= I18n.t "client_sign_up.last_name" %>
         <span class="text-danger"> * </span>
-        <br>
         <%= f.text_field :last_name, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :home_phone %>
-        <br>
+        <%= I18n.t "client_sign_up.home_phone" %>
         <%=f.text_field :home_phone, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :cell_phone %>
-        <br>
+        <%= I18n.t "client_sign_up.cell_phone" %>
         <%=f.text_field :cell_phone, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :address %>
-        <br>
+        <%= I18n.t "client_sign_up.address" %>
         <%= f.text_field :address, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :city %>
-        <br>
+        <%= I18n.t "client_sign_up.city" %>
         <%= f.text_field :city, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :state %>
-        <br>
+        <%= I18n.t "client_sign_up.state" %>
         <%= f.select(:state, options_for_select(us_states, "IL"), {}, {:class => "form-control"} ) %>
       </div>
 
       <div class="form-group">
-        <%= f.label :ward %>
-        <br>
+        <%= I18n.t "client_sign_up.ward" %>
         <%= f.text_field :ward, :class => "form-control" %>
-        <a href="https://webapps1.cityofchicago.org/ezbuy/geoWardLookup.do" target='_blank'><i>Search for your ward</i></a>
+        <a href="https://webapps1.cityofchicago.org/ezbuy/geoWardLookup.do" target='_blank'><i><%= I18n.t "client_sign_up.search_for_ward" %></i></a>
       </div>
 
       <div class="form-group">
-        <%= f.label :zip_code %>
-        <br>
+        <%= I18n.t "client_sign_up.zip_code" %>
         <%= f.text_field :zip_code, :class => "form-control" %>
       </div>
 
@@ -79,7 +70,8 @@
         <div class="checkbox-inline" %>
           <%= f.label :authorization_and_waiver do %>
             <%= f.check_box :authorization_and_waiver %>
-            *I authorize LUCHA and it's staff to use my information for the purposes of counseling. 
+            <span class="text-danger"> * </span>
+            <%= I18n.t "client_sign_up.authorize_lucha" %>
           <% end %>
         </div>
       </div>
@@ -88,7 +80,8 @@
         <div class="checkbox-inline">
           <%= f.label :privacy_policy_authorization do %>
             <%= f.check_box :privacy_policy_authorization%>
-            *I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set.  
+            <span class="text-danger"> * </span>
+            <%= I18n.t "client_sign_up.authorize_lucha" %>            
           <% end %>
         </div>
       </div>
@@ -97,17 +90,19 @@
 
       <h1>
         <small>
-          The following information will be your login information, make sure to keep this safe with you.
+          <%= I18n.t "client_sign_up.login_information" %>
         </small>
       </h1>   
 
       <div class="form-group">
-        <%= f.label :email %><span class="text-danger"> * </span><br />
+        <%= I18n.t "client_sign_up.email" %>
+        <span class="text-danger"> * </span>
         <%= f.email_field :email, :class => "form-control"  %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password %><span class="text-danger"> * </span><br>
+        <%= I18n.t "client_sign_up.password" %>
+        <span class="text-danger"> * </span>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
@@ -115,25 +110,27 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
+        <%= I18n.t "client_sign_up.password_confirmation" %>
+        <span class="text-danger"> * </span>
         <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control"  %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
         <div class="form-group">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= I18n.t "client_sign_up.remember_me" %>
         </div>
       <% end -%>
 
       <div class="form-group">
         <%= f.submit "Sign up", :class => 'btn btn-primary' %>
+        <%= I18n.t "client_sign_up.sign_up" %>
       </div>
     <% end %>
 
     <hr>
 
-    <h5>Already have an account? <%= render "devise/shared/links" %></h5>
+    <h5><%= I18n.t "client_sign_up.already_have_account" %><%= render "devise/shared/links" %></h5>
 
   </div>
 </div>
