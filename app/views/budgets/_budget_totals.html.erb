@@ -14,7 +14,7 @@
   <div class="col-md-4">
     <div class="form-group">
     	<label><%= I18n.t "budget_debts.debt_to_income" %></label>
-    	<td ng-if="grossMonthlyIncome > 0">{{ (totalMonthlyDebt / grossMontlyIncome).toFixed(2) || 0 }}</td>
+    	<td ng-if="grossMonthlyIncome > 0">{{ (totalMonthlyDebt / grossMonthlyIncome).toFixed(2) || 0 }}</td>
     </div>
   </div>
 </div>
