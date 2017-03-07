@@ -1,6 +1,8 @@
 <div class="devise center-block">
   <div class="content">
-  <!--   <%= image_tag "logo.jpg", :class => "img-responsive pull-right" %><br /> -->
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-text"><%= render "layouts/language"   %></li>
+    </ul>
 
     <% if request.fullpath == '/users/sign_in'%>
       <h1>Employee Log in</h1>
