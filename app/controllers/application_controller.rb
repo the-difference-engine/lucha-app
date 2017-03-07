@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if resource.class == User
       user_path(resource) 
     elsif resource.class == Client
-      client_path(resource) 
+      client_status_path(resource) 
     end
   end
 
