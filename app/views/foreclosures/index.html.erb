@@ -3,8 +3,8 @@
 </h1>
 <hr>
 
-<div class="form-group pull-left">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder="Search on this page">
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results">
@@ -36,7 +36,7 @@
        <%= foreclosure.pretty_time %> 
      </td>
      <td>
-       <%= link_to "View", foreclosure_path(foreclosure.id), class: "btn btn-default" %>
+       <%= link_to "View", foreclosure_path(foreclosure.id), :class => "btn btn-sm btn-primary" %>
      </td>
    </tr>
  </tbody>
