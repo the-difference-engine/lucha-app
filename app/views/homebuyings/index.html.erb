@@ -37,7 +37,7 @@
        <%= link_to(homebuying.client.full_name.titleize, client_path(homebuying.client.id)) %>
      </td>
      <td>
-       <%= homebuying.client.home_phone %>
+       <%= number_to_phone(homebuying.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %>
      </td>
      <td>
        <%= homebuying.client.address %>, <%= homebuying.client.city %>, <%= homebuying.client.state %>

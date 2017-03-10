@@ -30,7 +30,7 @@
      <td>
        <%= link_to(foreclosure.client.full_name.titleize, client_path(foreclosure.client.id)) %>
      </td>
-     <td><%= foreclosure.client.home_phone %></td>
+     <td><%= number_to_phone(foreclosure.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td>
      <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td> 
      <td>
        <%= foreclosure.pretty_time %> 
