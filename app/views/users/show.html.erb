@@ -24,7 +24,7 @@
       <tr>
         <td><%= client.id %></td>
         <td><%= client.full_name.titleize %></td>
-        <td><%= client.home_phone %></td> 
+        <td><%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td> 
         <td><%= client.client_types.to_sentence %></td>
         <td>
           <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>

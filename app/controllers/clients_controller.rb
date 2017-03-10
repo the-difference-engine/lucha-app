@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   include FormInputsHelper
+
   before_action :authenticate!, :only => [:index, :show, :update, :edit,]
   before_action :verify_user!, :only => [:destroy,]
 

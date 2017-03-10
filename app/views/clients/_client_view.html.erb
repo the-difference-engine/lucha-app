@@ -20,15 +20,15 @@
             </tr>
             <tr>
               <td><%= I18n.t "clients_show.home_phone"  %></td>
-              <td class="text-right"><strong><%= @client.home_phone %></strong></td>
+              <td class="text-right"><strong><%= number_to_phone(@client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
               <td><%= I18n.t "clients_show.cell"  %></td>
-              <td class="text-right"><strong><%= @client.cell_phone %></strong></td>
+              <td class="text-right"><strong><%= number_to_phone(@client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
               <td><%= I18n.t "clients_show.work_phone"  %></td>
-              <td class="text-right"><strong><%= @client.work_phone %></strong></td>
+              <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true)%></strong></td>
             </tr>
             <tr>
               <td><%= I18n.t "clients_show.address"  %></td>
