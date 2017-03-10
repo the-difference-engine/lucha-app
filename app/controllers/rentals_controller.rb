@@ -45,7 +45,7 @@ class RentalsController < ApplicationController
     if current_client
       @rental = Rental.find_by(client_id: current_client.id)
     elsif current_user
-      @rental = Rental.find_by(client_id: params[:id])
+      @rental = Rental.find(params[:id])
     end
 
     if @rental.update(rental_params.merge(client_id: @rental.client_id))
