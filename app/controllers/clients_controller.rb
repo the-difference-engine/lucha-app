@@ -103,7 +103,7 @@ class ClientsController < ApplicationController
       volunteer_interest: params[:client][:volunteer_interest],
       user_id: params[:client][:user_id]})
       flash[:success] = [ "Profile Updated." ]
-      redirect_to client_path(@client)
+      redirect_to client_status_path(@client)
     else
       flash.now[:warning] = @client.errors.full_messages
       render :edit
