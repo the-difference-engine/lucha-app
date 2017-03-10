@@ -2,8 +2,8 @@
 <h1>Your Clients</h1>
 <hr>
 
-<div class="form-group pull-left">
-    <input type="text" class="search form-control" placeholder="Filter...">
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder="Search on this page">
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results">
@@ -23,7 +23,7 @@
     <tbody>
       <tr>
         <td><%= client.id %></td>
-        <td><%= client.full_name.titleize %></td>
+        <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
         <td><%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td> 
         <td><%= client.client_types.to_sentence %></td>
         <td>

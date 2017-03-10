@@ -5,8 +5,8 @@
   </small>
 </h1>
 <hr>
-<div class="form-group pull-left">
-  <input type="text" class="search form-control" placeholder="What you looking for?">
+<div class="form-group pull-right">
+  <input type="text" class="search form-control" placeholder="Search on this page">
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results">
@@ -37,7 +37,7 @@
        <%= link_to(homebuying.client.full_name.titleize, client_path(homebuying.client.id)) %>
      </td>
      <td>
-       <%= homebuying.client.home_phone %>
+       <%= number_to_phone(homebuying.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %>
      </td>
      <td>
        <%= homebuying.client.address %>, <%= homebuying.client.city %>, <%= homebuying.client.state %>
@@ -56,7 +56,7 @@
        <%= homebuying.pretty_time %>
      </td>
      <td>
-       <%= link_to "View", homebuying_path(homebuying.id), class: "btn btn-default" %>
+       <%= link_to "View", homebuying_path(homebuying.id), :class => "btn btn-sm btn-primary" %>
      </td>
    </tr>
  </tbody>

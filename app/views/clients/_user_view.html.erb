@@ -4,10 +4,18 @@
     <h1>
       Client profile for: <strong class="text-primary"> <%= @client.full_name %> </strong> <br>
         <% if @client.user_id %>
-        <small>
-          Assigned Employee: <strong class="text-success"> <%= @client.user.full_name %> </strong>
-        </small>
-        <% elsif !@client.incomplete_profile? %>
+          <div class="row" style="padding-top:10px;margin-bottom:0;">
+            <%= form_tag("/clients/#{@client.id}/assign", method: :patch) do %>
+              <div class="col-md-4" style="margin-top:2px;">
+                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => @client.user.full_name}, :class => "form-control input-sm") %>
+              </div>
+              <div class="col-md-8">
+                <%= hidden_field_tag :client_id, @client.id %>
+                <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
+              </div>
+            <% end %>
+              </div>
+        <% elsif !@client.incomplete_profile? && current_user.admin %>
           <div class="row" style="padding-top:10px;margin-bottom:0;">
             <%= form_tag("/clients/#{@client.id}/assign", method: :patch) do %>
               <div class="col-md-4" style="margin-top:2px;">
@@ -19,6 +27,8 @@
               </div>
             <% end %>
               </div>
+         <%elsif !@client.incomplete_profile? && current_user.admin == false %>
+          <small class="text-warning">awaiting assignment</small>     
         <%else%>
           <small class="text-danger">Profile not complete.</small>
         <% end %>
