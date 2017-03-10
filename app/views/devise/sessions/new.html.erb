@@ -1,6 +1,5 @@
 <div class="devise center-block">
   <div class="content">
-  <!--   <%= image_tag "logo.jpg", :class => "img-responsive pull-right" %><br /> -->
 
     <% if request.fullpath == '/users/sign_in'%>
       <h1>Employee Log in</h1>
@@ -11,8 +10,6 @@
     <hr>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
-
-      <%= render "layouts/alerts" %>
 
       <div class="form-group field">
         <%= f.label :email %><br />

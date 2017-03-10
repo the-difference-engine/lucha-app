@@ -1,7 +1,7 @@
 <h1>
-  Hello <%= @client.full_name %>! <br />
+  <%= I18n.t "clients_show.hello"  %> <%= @client.full_name %>! <br />
   <small>
-    Below is the info we have on file for you. You can edit this form by clicking on the "Edit Profile" button at the bottom of this page.
+    <%= I18n.t "clients_show.below"  %>
   </small>
 </h1>
 <hr>
@@ -9,29 +9,29 @@
   <div class="col-md-4">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Contact Information</h3>
+        <h3 class="panel-title"><%= I18n.t "clients_show.contact_information"  %></h3>
       </div>
       <div class="panel-body">
         <table class="table table-hover">
           <tbody>
             <tr>
-              <td>Client Name:</td>
+              <td><%= I18n.t "clients_show.client_name"  %></td>
               <td class="text-right"><strong><%= @client.full_name %></strong></td>
             </tr>
             <tr>
-              <td>Home Phone:</td>
+              <td><%= I18n.t "clients_show.home_phone"  %></td>
               <td class="text-right"><strong><%= number_to_phone(@client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
-              <td>Cell Phone:</td>
+              <td><%= I18n.t "clients_show.cell"  %></td>
               <td class="text-right"><strong><%= number_to_phone(@client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
-              <td>Work Phone:</td>
+              <td><%= I18n.t "clients_show.work_phone"  %></td>
               <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true)%></strong></td>
             </tr>
             <tr>
-              <td>Address:</td>
+              <td><%= I18n.t "clients_show.address"  %></td>
               <td class="text-right">
                 <strong>
                   <%= @client.address %>
@@ -42,7 +42,7 @@
               </td>
             </tr>
             <tr>
-              <td>Ward:</td>
+              <td><%= I18n.t "clients_show.ward"  %></td>
               <td class="text-right"><strong><%= @client.ward %></strong></td>
             </tr>
           </tbody>
@@ -54,28 +54,28 @@
   <div class="col-md-4">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Demographics</h3>
+        <h3 class="panel-title"><%= I18n.t "clients_show.demographics"  %></h3>
       </div>
       <div class="panel-body">
         <table class="table table-hover">
             <tr>
-              <td>Race:</td>
+              <td><%= I18n.t "clients_show.race"  %></td>
               <td class="text-right"><strong><%= @client.race %></strong></td>
             </tr>
             <tr>
-              <td>Sex:</td>
+              <td><%= I18n.t "clients_show.gender"  %></td>
               <td class="text-right"><strong><%= @client.sex %></strong></td>
             </tr>
             <tr>
-              <td>Education Level:</td>
+              <td><%= I18n.t "clients_show.education_level"  %></td>
               <td class="text-right"><strong><%= @client.education_level %></strong></td>
             </tr>
             <tr>
-              <td>Marital Status:</td>
+              <td><%= I18n.t "clients_show.marital_stat"  %></td>
               <td class="text-right"><strong><%= @client.marital_status %></strong></td>
             </tr>
             <tr>
-              <td>Date of Birth:</td>
+              <td><%= I18n.t "clients_show.dob"  %></td>
               <td class="text-right">
                 <strong>
                   <% if @client.dob %>
@@ -85,7 +85,7 @@
               </td>
             </tr>
             <tr>
-              <td>SSN:</td>
+              <td><%= I18n.t "clients_show.ss"  %></td>
               <td class="text-right">
                 <strong>
                   <% if @client.ssn %>
@@ -106,12 +106,12 @@
   <div class="col-md-4">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Household Information</h3>
+        <h3 class="panel-title"><%= I18n.t "clients_show.household_information"  %></h3>
       </div>
       <div class="panel-body">
         <table class="table table-hover">
           <tr>
-            <td>Head of Household:</td>
+            <td><%= I18n.t "clients_show.head_of_house"  %></td>
             <td class="text-right">
               <strong>
                 <%= @client.head_of_household ? "Yes" : "No" %>
@@ -119,31 +119,31 @@
             </td>
           </tr>
           <tr>
-            <td>Number in Household:</td>
+            <td><%= I18n.t "clients_show.house_occu"  %></td>
             <td class="text-right"><strong><%= @client.num_in_household %></strong></td>
           </tr>
           <tr>
-            <td>Number of Dependents:</td>
+            <td><%= I18n.t "clients_show.dependants"  %></td>
             <td class="text-right"><strong><%= @client.num_of_dependants %></strong></td>
           </tr>
           <tr>
-            <td>Estimated Household Income:</td>
+            <td><%= I18n.t "clients_show.est_house_income"  %></td>
             <td class="text-right"><strong><%= @client.estimated_household_income %></strong></td>
           </tr>
           <tr>
-            <td>Disability:</td>
+            <td><%= I18n.t "clients_show.disability"  %></td>
             <td class="text-right"><strong><%= @client.disability ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
-            <td>Military Service Member:</td>
+            <td><%= I18n.t "clients_show.military"  %></td>
             <td class="text-right"><strong><%= @client.military_service_member ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
-            <td>Volunteer:</td>
+            <td><%= I18n.t "clients_show.volunteer"  %></td>
             <td class="text-right"><strong><%= @client.volunteer_interest ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
-            <td>Union Member:</td>
+            <td><%= I18n.t "clients_show.union"  %></td>
             <td class="text-right"><strong><%= @client.union_member ? "Yes" : "No" %></strong></td>
           </tr>
         </table>
@@ -151,7 +151,6 @@
     </div>
   </div>
 </div>
-
 <hr>
 <div>
   <a href="/clients/<%= current_client.id %>/edit" class="btn btn-primary">Edit Profile</a>
