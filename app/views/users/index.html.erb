@@ -27,7 +27,7 @@
       <td>
         <% if client.user_id %>
           <%= client.user.full_name %>
-        <% elsif client.sex %> 
+        <% elsif !client.incomplete_profile? && current_user.admin %> 
           <div class="row">
             <%= form_tag("/clients/#{client.id}/assign", method: :patch) do %>
               <div class = "col-md-8 field">
@@ -39,6 +39,8 @@
               </div>
             <% end %>
           </div>
+        <% elsif !client.incomplete_profile? && !current_user.admin %>
+          <p class="text-warning">Awaiting assignment</p>
         <% else %>
           <p class="text-danger">Profile not complete.</p>
         <% end %>
