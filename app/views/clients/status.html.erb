@@ -1,19 +1,36 @@
-<section id="about">
-      <div class="container">
+        <% if @client.incomplete_profile? && @client.client_applications.length > 0 %>
+        
+        <h5>Submitted Applications</h5>
+        <% @client.client_applications.each do |application| %>
+          <%= link_to "#{application.class.to_s}", "/#{application.class.to_s.downcase}s/#{application.id}", :class => "btn btn-success btn-sm" %>
+          <h6>Your Profile is missing some required information<br>Please edit your profile by clicking here:<a href="/clients/<%= current_client.id %>/edit" class="btn btn-link btn-sm"><span class="network-name">Edit Profile</span></a></h6>
+        <% end %>
+      <% end %>
+      
+                  <br>
+                <% if @client.incomplete_profile? && @client.client_applications.length <= 0 %>
+                  <div class="alert alert-warning">
+        <strong>Warning!</strong> please select which application you would like to fill out<a href="/foreclosures/new", class="btn btn-link btn-sm"><span class="network-name">foreclosure application</span></a> <a href="/homebuyings/new", class="btn btn-link btn-sm"><span class="network-name">homebuying application</span></a> <a href="/rentals/new", class="btn btn-link btn-sm"><span class="network-name">rental application</span></a>
+                  </div>
+              <%end%>
+              <div class="container">
           <div class="row">
               <div class="col-lg-12 text-center">
+              
+
                   <h3 class="section-subheading1 text-muted">Profile Status</h3>
                   <h2 class="section-heading1"><%= @client.full_name %></h2>
               </div>
-          <% if @client.incomplete_profile? %>
-            <br>
-            <h6>Your Profile is missing some required information<br>Please edit your profile by clicking here:<a href="/clients/<%= current_client.id %>/edit" class="btn btn-link btn-sm"><span class="network-name">Edit Profile</span></a></h6>
-            <br>
-            <br>
-          <% else %>
-            <br>
-          <% end %>
           </div>
+      </div>
+          
+            
+            <br>
+            <br>
+          
+            <br>
+          
+          
               <% if @client.has_user? %>
           <div class="row">
               <div class="col-lg-12">
@@ -159,4 +176,4 @@
               </div>
           <% end %>
       </div>
-  </section>
+  
