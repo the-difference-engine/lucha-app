@@ -1,6 +1,3 @@
-@import "variables";
-@import "table";
-
 /*body {
   margin: 0;
   // stop text getting cut off on the right edge
@@ -48,11 +45,11 @@
   }
 }
 
-/*.page-break {
+.page-break {
   display: block;
   clear: both;
   page-break-after: always;
-}*/
+}
 
 .hide-from-pdf {
   display: none;
