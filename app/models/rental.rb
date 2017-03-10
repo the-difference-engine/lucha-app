@@ -12,10 +12,6 @@ class Rental < ActiveRecord::Base
 
   validates :hear_of_property, :reason_for_move, :housing_situation, :employer_name, :employer_address, :employer_city, presence: true
 
-  validates_format_of :employer_phone,
-    :with => /[0-9]{3}-[0-9]{3}-[0-9]{4}/,
-    :message => "- Phone numbers must be in xxx-xxx-xxxx format."
-
 	belongs_to :client
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
