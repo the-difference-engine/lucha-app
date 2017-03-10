@@ -44,7 +44,7 @@ FactoryGirl.define do
     agree_to_fee true
 
     trait :invalid do
-      employer_phone "1"
+      hear_of_property ""
     end
   end
 end

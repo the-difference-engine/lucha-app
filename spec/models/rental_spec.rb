@@ -117,10 +117,5 @@ RSpec.describe Rental, type: :model do
       rental.valid?
       expect(rental.errors[:employer_city]).to include("can't be blank")
     end
-    it "is invalid without formatted employer_phone attribute" do
-      rental = build(:rental, employer_phone: '123-3213')
-      rental.valid?
-      expect(rental.errors[:employer_phone]).to include("- Phone numbers must be in xxx-xxx-xxxx format.")
-    end
   end
 end

@@ -116,7 +116,7 @@ RSpec.describe RentalsController, type: :controller do
     context "current_user logged in" do
       it "locates the requested @rental" do
         sign_in create(:user)
-        put :update, id: @client.id, rental: attributes_for(:rental)
+        put :update, id: @rental.id, rental: attributes_for(:rental)
         expect(assigns(:rental)).to eq(@rental)
       end
       it "updates the requested @rental" do
