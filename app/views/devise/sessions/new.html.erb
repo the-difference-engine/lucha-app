@@ -1,7 +1,14 @@
 <div class="devise center-block">
   <div class="content">
-
-    <% if request.fullpath == '/users/sign_in'%>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-text">
+        <p>
+          <%= link_to_unless_current "English", "/clients/sign_in?locale=en" %> | 
+          <%= link_to_unless_current "Español", "/clients/sign_in?locale=es" %>
+        </p>
+      </li>
+    </ul>
+    <% if request.fullpath == '/users/sign_in' %>
       <h1>Employee Log in</h1>
     <% else %>
       <h1>Client Log in</h1>
@@ -34,10 +41,19 @@
     <% end %>
 
     <hr>
-   
-    <h5 class="devise-links">
-      <%= render "devise/shared/links" %>
-    </h5>
+    <div class="sign-in-footer">
+      <h5 class="devise-links pull-left">
+        <%= render "devise/shared/links" %>
+      </h5>
+
+      <div class="pull-right">
+        <% if request.fullpath == '/users/sign_in' %>
+          <%= link_to "Client Log In", "/clients/sign_in", :class => "btn btn-sm btn-default" %>
+        <% else %>
+          <%= link_to "Employee Log In", "/users/sign_in", :class => "btn btn-sm btn-default" %>
+        <% end %>
+      </div>
+    </div>
 
   </div>
 </div>
