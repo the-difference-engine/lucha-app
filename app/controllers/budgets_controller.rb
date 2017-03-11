@@ -22,7 +22,7 @@ class BudgetsController < ApplicationController
         gross_monthly_income: @budget.gross_monthly_income,
         total_monthly_debt: @budget.total_monthly_debt,
         debt_divided_by_income: @budget.debt_income_ratio)
-
+      flash[:success] = ["Budget updated."]
       render json: { success: "Your budget has been updated." }.to_json
     else
       render json: { error: @budget.errors }, status: 422
