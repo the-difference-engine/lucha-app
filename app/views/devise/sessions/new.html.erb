@@ -9,9 +9,9 @@
       </li>
     </ul>
     <% if request.fullpath == '/users/sign_in' %>
-      <h1>Employee Log in</h1>
+      <h1><%= I18n.t "employee_log_in.employee_log_in" %></h1>
     <% else %>
-      <h1>Client Log in</h1>
+      <h1><%= I18n.t "client_log_in.client_log_in" %></h1>
     <% end %>
 
     <hr>
@@ -19,19 +19,21 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
 
       <div class="form-group field">
-        <%= f.label :email %><br />
+        <%= I18n.t "client_log_in.email" %>
+        <span class="text-danger"> * </span>
         <%= f.email_field :email, autofocus: true, :class => "form-control" %>
       </div>
 
       <div class="form-group field">
-        <%= f.label :password %><br />
+        <%= I18n.t "client_log_in.password" %>
+        <span class="text-danger"> * </span>
         <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
         <div class="form-group field">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= I18n.t "client_log_in.remember_me" %>
         </div>
       <% end %>
 

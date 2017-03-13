@@ -45,7 +45,9 @@ es:
         log_in: "Inicio de sesión"
 
     client_log_in:
-        email: "Correo electrónico*"
+        employee_log_in: "Employee Log In"
+        client_log_in: "Client Log In"
+        email: "Correo electrónico"
         password: "Contraseña*"
         remember_me: "Remember me"
         log_in: "LOGIN"

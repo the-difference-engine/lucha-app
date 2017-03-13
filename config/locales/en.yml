@@ -45,6 +45,8 @@ en:
       log_in: "LOGIN"
 
   client_log_in:
+      employee_log_in: "Employee Log In"
+      client_log_in: "Client Log In"
       email: "Email"
       password: "Password"
       remember_me: "Remember me"
