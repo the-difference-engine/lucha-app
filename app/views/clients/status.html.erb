@@ -5,29 +5,30 @@
       Thank you for your interest in LUCHA's services. Please follow the steps below.
     </small>
   </h1>
-  <hr>
-  <table class="table">
-  <% step = 1 %>
-  
 
+  <table class="table status-table">
+  
     <!-- STEP ONE: CLIENT PROFILE -->
-    <tr>
+    <tr class=<%=@step_one%> >
       <td>
         Step 1
       </td>
       <td>
-        <% if @client.incomplete_profile? %>
-          Please complete your profile before submitting an application:
+        <% if @step_one != "completed-step" %>
+          <div> 
+            Please complete your profile before submitting an application:
+          </div>
         <% else %>
-          <% step = 2 %>
-          Thank you for completing your profile, you can update anytime.
+          <div>
+            Thank you for completing your profile, you can update anytime.
+          </div>
         <% end %>
       </td>
       <td>
         <%= link_to "Edit Profile", "/clients/#{@client.id}/edit", :class => "btn btn-primary" %>
       </td>
       <td>
-        <% if @client.incomplete_profile? %>
+        <% if @step_one != "completed-step" %>
           <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
         <% else %>
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -37,52 +38,48 @@
 
     
     <!-- STEP TWO: BUDGET -->
-    <% if (step == 2 || step == 3) || step == 4 %>
-    <tr>
-      <td>
-        Step 2
-      </td>
-      <td>
-        LUCHA may need some financial information to better assist you.
-      </td>
-      <td>
-        <%= link_to "Budget", "/budgets/#{@client.id}", :class => "btn btn-primary" %>
-      </td>
-      <td>
-        <% if @client.budget.debt_income_ratio == 0 %>
-          <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
-        <% else %>
-          <% step = 3 %>
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
+      <tr class=<%=@step_two%>>
+        <td>
+            Step 2
+        </td>
+        <td>
+          <div>LUCHA may need some financial information to better assist you.</div>
+        </td>
+        <td>
+          <%= link_to "Budget", "/budgets/#{@client.id}", :class => "btn btn-primary #{ @step_two == 'incomplete-step' ? 'disabled' : ''}" %>
+        </td>
+        <td>
+          <% if @step_two != "completed-step" %>
+            <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <% end %>
+        </td>
+      </tr>
 
     
     <!-- STEP THREE: APPLICATION -->
-    <% if (step == 3 || step == 4) %>
-    <% if !@client.incomplete_profile? %>
-      <tr>
+    
+      <tr class=<%=@step_three%>>
         <td>
+        <div>
           Step 3
         </td>
-        <% if @client.client_applications.length == 0 %>
+        <% if @step_three != "completed-step" %>
           <td>
             What application are you interested in submitting?
           </td>
           <td>
-            <%= link_to "Foreclosure", "/foreclosures/new", :class => "btn btn-primary" %>
-            <%= link_to "Rental", "/rentals/new", :class => "btn btn-primary" %>
-            <%= link_to "Homebuying", "/homebuyings/new", :class => "btn btn-primary" %>
+            <%= link_to "Foreclosure", "/foreclosures/new", :class => "btn btn-primary #{ @step_three == 'incomplete-step' ? 'disabled' : ''}" %>
+            <%= link_to "Rental", "/rentals/new", :class => "btn btn-primary #{ @step_three == 'incomplete-step' ? 'disabled' : ''}" %>
+            <%= link_to "Homebuying", "/homebuyings/new", :class => "btn btn-primary #{ @step_three == 'incomplete-step' ? 'disabled' : ''}" %>
           </td>
           <td>
             <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
           </td>
         <% else %>
           <td>
-            <% step = 4 %>
-            Thank you for submitting an application(s).
+            <div>Thank you for submitting an application(s).</div>
           </td>
           <td>
             <% @client.client_applications.each do |application| %>
@@ -92,21 +89,22 @@
           <td>
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
           </td>
-        <% end %>
+         <% end %>
       </tr>
-      <% end %>
+
 
     <!-- STEP FOUR: CLIENT ASSIGNMENT -->
-    <% if step == 4 %>
-    <tr> 
+  
+    <tr class=<%=@step_four%>> 
       <td>
         Step 4
       </td>
       <% if !@client.has_user? %>
         <td>
-          A LUCHA representative will review your information and contact you within <br>
-          two business days to set-up and appointment and inform you of your next steps. <br>
-          We look forward to working with you. 
+            A LUCHA representative will review your information and contact you within
+            <br>
+            two business days to set-up and appointment and inform you of your next steps.<br>
+            We look forward to working with you. 
         </td>
         <td>
         </td>
@@ -126,14 +124,7 @@
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         </td>
       <% end %>
-      <% end %>
-
-
-
-
     </tr>
-
-    <% end %>
   </table>
   <hr>
 </div>
