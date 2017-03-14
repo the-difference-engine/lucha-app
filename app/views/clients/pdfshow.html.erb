@@ -1,7 +1,6 @@
-<h1>
+<h1 class="clientpdf">
   <%= @client.full_name %> Profile <br />
 </h1>
-<hr>
 <div class="clientpdf">
   <div class="col-md-4">
     <div class="panel panel-success">
@@ -146,3 +145,243 @@
     </div>
   </div>
 </div>
+
+<div class='page-break'></div>
+
+<h1 class="clientpdf">Budget For, <%= @client.full_name %></h1>
+    
+      <div class="clientpdf">
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Income</h3>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Gross Wages: $</label>
+                <%= @client.budget.gross_wages %>
+              </div>
+              <div class="form-group">
+                <label>Self-Employment Income: $</label>
+                <%= @client.budget.self_employment_income %>
+              </div>
+              <div class="form-group">
+                <label>Overtime: $</label>
+                <%= @client.budget.overtime %>
+              </div>
+              <div class="form-group">
+                <label>Unemployment Check: $</label>
+                <%= @client.budget.unemployment %>
+              </div>
+              <div class="form-group">
+                <label>Tips, Commission, or Bonuses: $</label>
+                <%= @client.budget.tips_commissions_bonus %>
+              </div>
+              <div class="form-group">
+                <label>Non-Taxable Social Secruity: $</label>
+                <%= @client.budget.nontaxable_social_security %>
+              </div>
+              <div class="form-group">
+                <label>Taxable Social Secruity: $</label>
+                <%= @client.budget.taxable_social_security %>
+              </div>
+              <div class="form-group">
+                <label>Income from Renters: $</label>
+                <%= @client.budget.rental_income %>
+              </div>
+              <div class="form-group">
+                <label>Other: $</label>
+                <%= @client.budget.other_income %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Debts</h3>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+  <label>Principal and Interest: $</label>
+  <%= @client.budget.principal_and_interest %>
+</div>
+<div class="clientpdf">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Property Taxes: $</label>
+      <%= @client.budget.prop_tax %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Association Fees: $</label>
+      <%= @client.budget.assoc_fees %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Junior Mortgage: $</label>
+      <%= @client.budget.junior_mortgage %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Credit Payment: $</label>
+      <%= @client.budget.min_credit_card_payment %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Student Loan: $</label>
+      <%= @client.budget.student_loan %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Electricity: $</label>
+      <%= @client.budget.electricity %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Gas: $</label>
+      <%= @client.budget.gas %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Water: $</label>
+      <%= @client.budget.water %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Phone: $</label>
+      <%= @client.budget.phone %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Other Utilities: $</label>
+      <%= @client.budget.other_utilities %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Food/Groceries: $</label>
+      <%= @client.budget.food %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Auto Maintenance: $</label>
+      <%= @client.budget.gas_car_maintenance %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Child Care: $</label>
+      <%= @client.budget.child_care %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Medical Expenses: $</label>
+      <%= @client.budget.medical_expenses %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Rent: $</label>
+      <%= @client.budget.rent %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Rental insurance: $</label>
+      <%= @client.budget.rental_insurance %>
+    </div>
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+      <div class="clientpdf">
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Assets</h3>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Primary Checking: $</label>
+                <%= @client.budget.primary_checking %>
+              </div>
+              <div class="form-group">
+                <label>Secondary Checking: $</label>
+                <%= @client.budget.secondary_checking %>
+              </div>
+              <div class="form-group">
+                <label>Savings/Money Market: $</label>
+                <%= @client.budget.savings_money_market %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.stocks" %> $</label>
+                <%= @client.budget.stocks_or_bonds %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.four_zero_one_k" %> $</label>
+                <%= @client.budget.four_zero_one_k %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.home_equity" %> $</label>
+                <%= @client.budget.home_equity %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.value_of_prop" %> $</label>
+                <%= @client.budget.other_property %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.car_value" %> $</label>
+                <%= @client.budget.car %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.other_assets" %> $</label>
+                <%= @client.budget.other_assets %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clientpdf">
+        <div class="col-md-12">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Totals</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label><%= I18n.t "budget_debts.gross_monthly" %></label>
+                    <td>$<%= @client.budget.gross_monthly_income %></td>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label><%= I18n.t "budget_debts.total_monthly" %></label>
+                    <td>$<%= @client.budget.total_monthly_debt %></td>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label><%= I18n.t "budget_debts.debt_to_income" %></label>
+                    <td><%= @client.budget.debt_income_ratio.round(2) %></td>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

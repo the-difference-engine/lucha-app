@@ -62,6 +62,8 @@ gem 'prawn'
 gem 'wicked_pdf', '~> 1.1'
 #needed for wicked_pdf
 gem 'wkhtmltopdf-binary'
+#needed for wicked_pdf on heroku
+gem 'wkhtmltopdf-heroku'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -87,7 +89,7 @@ group :development, :test do
 
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
 
 end
 

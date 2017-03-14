@@ -104,9 +104,9 @@ en:
       rent: "Rent:"
       rent_insurance: "Rental insurance:"
       update: "Update"
-      debt_to_income: "Debt to Income:"
-      total_monthly: "Debt Monthly:"
-      gross_monthly: "Gross Monthly:"
+      debt_to_income: "Debt to Income Ratio:"
+      total_monthly: "Total Monthly Debt:"
+      gross_monthly: "Gross Monthly Income:"
 
   budget_assets:
       title: "Assets"
