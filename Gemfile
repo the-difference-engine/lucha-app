@@ -62,6 +62,8 @@ gem 'prawn'
 gem 'wicked_pdf', '~> 1.1'
 #needed for wicked_pdf
 gem 'wkhtmltopdf-binary'
+#needed for wicked_pdf on heroku
+gem 'wkhtmltopdf-heroku'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
