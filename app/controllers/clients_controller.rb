@@ -116,6 +116,10 @@ class ClientsController < ApplicationController
     @foreclosure = @client.foreclosure
     @homebuying = @client.homebuying
     @rental = @client.rental
+    @step_one = !@client.incomplete_profile?
+    @step_two = @client.budget.debt_income_ratio > 0
+    @step_three = @client.client_applications.length > 0 
+    @step_four = !!@client.user_id
   end
 
   def destroy
