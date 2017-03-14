@@ -1,10 +1,17 @@
 <div class="devise center-block">
   <div class="content">
-
-    <% if request.fullpath == '/users/sign_in'%>
-      <h1>Employee Log in</h1>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-text">
+        <p>
+          <%= link_to_unless_current "English", "/clients/sign_in?locale=en" %> | 
+          <%= link_to_unless_current "Español", "/clients/sign_in?locale=es" %>
+        </p>
+      </li>
+    </ul>
+    <% if request.fullpath == '/users/sign_in' %>
+      <h1><%= I18n.t "employee_log_in.employee_log_in" %></h1>
     <% else %>
-      <h1>Client Log in</h1>
+      <h1><%= I18n.t "client_log_in.client_log_in" %></h1>
     <% end %>
 
     <hr>
@@ -12,19 +19,21 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
 
       <div class="form-group field">
-        <%= f.label :email %><br />
+        <%= I18n.t "client_log_in.email" %>
+        <span class="text-danger"> * </span>
         <%= f.email_field :email, autofocus: true, :class => "form-control" %>
       </div>
 
       <div class="form-group field">
-        <%= f.label :password %><br />
+        <%= I18n.t "client_log_in.password" %>
+        <span class="text-danger"> * </span>
         <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
         <div class="form-group field">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= I18n.t "client_log_in.remember_me" %>
         </div>
       <% end %>
 
@@ -34,10 +43,19 @@
     <% end %>
 
     <hr>
-   
-    <h5 class="devise-links">
-      <%= render "devise/shared/links" %>
-    </h5>
+    <div class="sign-in-footer">
+      <h5 class="devise-links pull-left">
+        <%= render "devise/shared/links" %>
+      </h5>
+
+      <div class="pull-right">
+        <% if request.fullpath == '/users/sign_in' %>
+          <%= link_to "Client Log In", "/clients/sign_in", :class => "btn btn-sm btn-default" %>
+        <% else %>
+          <%= link_to "Employee Log In", "/users/sign_in", :class => "btn btn-sm btn-default" %>
+        <% end %>
+      </div>
+    </div>
 
   </div>
 </div>

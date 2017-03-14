@@ -1,20 +1,20 @@
-<div class="row">
+<h3>
   <div class="col-md-4">
     <div class="form-group">
-    	<label><%= I18n.t "budget_debts.gross_monthly" %></label>
-    	<td>{{ grossMonthlyIncome | currency}}</td>
+    	<label><%= I18n.t "budget_debts.gross_monthly" %></label><br>
+    	<td><strong class="text-success">{{ grossMonthlyIncome | currency}}</strong></td>
     </div>
   </div>
   <div class="col-md-4">
     <div class="form-group">
-    	<label><%= I18n.t "budget_debts.total_monthly" %></label>
-    	<td>{{ totalMonthlyDebt | currency }}</td>
+    	<label><%= I18n.t "budget_debts.total_monthly" %></label><br>
+    	<td><strong class="text-danger">{{ totalMonthlyDebt | currency }}</strong></td>
     </div>
   </div>
   <div class="col-md-4">
     <div class="form-group">
-    	<label><%= I18n.t "budget_debts.debt_to_income" %></label>
-    	<td ng-if="grossMonthlyIncome > 0">{{ (totalMonthlyDebt / grossMonthlyIncome).toFixed(2) || 0 }}</td>
+    	<label><%= I18n.t "budget_debts.debt_to_income" %></label><br>
+    	<td ng-if="grossMonthlyIncome > 0"><strong class="text-warning">{{ (totalMonthlyDebt / grossMonthlyIncome).toFixed(2) || 0 }}</strong></td>
     </div>
   </div>
-</div>
+</h3>

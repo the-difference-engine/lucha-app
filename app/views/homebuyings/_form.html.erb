@@ -5,6 +5,7 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.lender" %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :lender, @homebuying.lender, :class => "form-control" %>
 </div>
 
@@ -20,6 +21,7 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.realtor_name" %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :realtor_name, @homebuying.realtor_name, :class => "form-control" %>
 </div>
 
@@ -30,11 +32,13 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.property_address" %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :property_address, @homebuying.property_address, :class => "form-control" %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.property_city" %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :property_city, @homebuying.property_city, :class => "form-control" %>
 </div>
 
@@ -46,16 +50,19 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.loan_officer_name" %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :loan_officer_name, @homebuying.loan_officer_name, :class => "form-control" %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.loan_officer_email" %>
+  <span class="text-danger"> * </span>
   <%= email_field_tag :loan_officer_email, @homebuying.loan_officer_email, :class => "form-control"  %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.loan_officer_phone" %>
+  <span class="text-danger"> * </span>
   <%= telephone_field_tag :loan_officer_phone, @homebuying.loan_officer_phone, :class => "form-control" %>
 </div>
 

@@ -66,7 +66,8 @@
       var monthlyIncome = data;
       $http.patch('/budgets/' + activeId, monthlyIncome).success(function(response){
         $scope.response = response.success;
-        flashAlert('success');
+        // flashAlert('success');
+        window.location.replace("/clients/"+activeId+"/status");
       }).error(function(response) {
         $scope.response = response.error;
         flashAlert('danger');

@@ -5,31 +5,37 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.originating_lender" %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :originating_lender, @foreclosure.originating_lender, :class => "form-control" %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.original_loan_number" %>
+  <span class="text-danger"> * </span>
   <%=text_field_tag :original_loan_number, @foreclosure.original_loan_number, :class => "form-control" %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.servicer"  %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :servicer, @foreclosure.servicer, :class => "form-control" %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.servicer_loan_number"  %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :servicer_loan_number, @foreclosure.servicer_loan_number, :class => "form-control" %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.monthly_mortgage_payment"  %>
+  <span class="text-danger"> * </span>
   <%= number_field_tag :monthly_mortgage_payment, @foreclosure.monthly_mortgage_payment, :class => "form-control" %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.loan_term"  %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :loan_term, @foreclosure.loan_term, :class => "form-control" %>
 </div>
 <div class="form-group">
@@ -58,6 +64,6 @@
 </div>
 
 <div class="form-group">
-  <%= label_tag :reason_for_default %><br>
+  <%= label_tag :reason_for_default %>
   <%= text_field_tag :reason_for_default, @foreclosure.reason_for_default, :class => "form-control" %>
 </div>
