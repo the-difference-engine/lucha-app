@@ -30,6 +30,18 @@ body {
   background-color: #EFECEC;
 }
 
+.status-table{
+  td {
+    color: #bfbfbf;
+  }
+  .completed-step td {
+    color: black;
+  }
+  .active-step td {
+    font-size: 20px;
+    color: green;
+  }
+}
 .content {
     background: #FDFDFD;
     border-radius: 0px;
