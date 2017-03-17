@@ -9,12 +9,12 @@
 }*/
 
 .clientpdf {
-  font-size: 48px;
+  font-size: 18px;
 }
 
 .tablepdf {
   $table-border-color: #E0E0E0;
-  font-size: 48px;
+  font-size: 18px;
   border-collapse: collapse;
   border-spacing: 0;
   max-width: 100%;
@@ -27,21 +27,21 @@
   td {
     text-align: left;
     padding: 6px 4px;
-    font-size: 48px;
+    font-size: 18px;
   }
 
   th {
     vertical-align: bottom;
     border-bottom: 1px solid darken($table-border-color, 8%);
     font-weight: bold;
-    font-size: 48px;
+    font-size: 18px;
   }
 
   td {
     vertical-align: top;
     border-bottom: 1px solid $table-border-color;
     background-color: #fff;
-    font-size: 48px;
+    font-size: 18px;
   }
 }
 
