@@ -8,8 +8,10 @@
 				<p id="flashText">{{response}}</p>
 			</div>
 		</div>
-		<h2><%= I18n.t "budget_show.title" %><%= @client.full_name %></h2>
-		<p><%= I18n.t "budget_show.description" %></p>
+		<h1>
+			<%= I18n.t "budget_show.title" %><%= @client.full_name %><br>
+			<small><%= I18n.t "budget_show.description" %></small>
+		</h1>
 		<hr>
 			<div class="row">
 				<div class="col-md-4">
