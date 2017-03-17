@@ -95,7 +95,7 @@ class Client < ActiveRecord::Base
   end
 
   def client_applications
-    program_types = [foreclosure, homebuying, rental, senior_repair, law_project]
+    program_types = [foreclosure, homebuying, rental]
     client_enrolled_programs = []
     program_types.each do |program|
       if !program.blank?
@@ -105,6 +105,16 @@ class Client < ActiveRecord::Base
     client_enrolled_programs
   end
 
+  def blank_applications
+    applications = [foreclosure, homebuying, rental]
+    blank_applications = []
+    applications.each do |application|
+      if application.blank?
+        blank_applications << application.to_s
+      end
+    end
+    blank_applications
+  end
 
   def client_types
     type = []

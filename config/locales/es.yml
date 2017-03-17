@@ -53,8 +53,8 @@ es:
         log_in: "LOGIN"
 
     budget_show:
-        title: "Su presupuesto mensual"
-        description: "Llene esto lo mejor que pueda. Si hay algunos cambios que le gustaría hacer, simplemente haga clic en el número y hacerlos."
+        title: "Su presupuesto mensual:"
+        description: "Fill this out as best you can. If there are any changes you would like to make simply click on the appropriate field. You can make changes at any time. You must provide information for at least one field in each section to continue with your application."
         debts: "Deudas"
         debts_description: "Por favor, tenga en cuenta, se trata de deudas mensuales. Se le discutiendo la deuda acumulada con su consejero pronto. Si usted tiene una factura (es decir. De agua) que viene cada dos meses, por favor promedia a ir a un mes." 
         income: "Ingreso"
@@ -100,7 +100,7 @@ es:
         gas_car: "El gas y el mantenimiento del coche"
         child: "Cuidado de los niños"
         medical: "Gastos médicos"
-        if_renter: "Sólo si usted es un inquilino, por favor llene el siguiente."
+        if_renter: "If you are a renter, fill out the fields below:"
         rent: "Seguro de alquiler"
         rent_insurance: "Seguro de alquiler"
         update: "Actualizar"
@@ -219,6 +219,7 @@ es:
         court_case_number: "número de caso judicial"
         working_with_lawyer: "¿Está trabajando con un abogado en este caso?"
         working_with_agency: "¿Está trabajando con otra organización con re-speto a su hipoteca?"
+        reason_for_default: "Reason for default:"
         submit: "Submit"
 
 
