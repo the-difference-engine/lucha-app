@@ -9,7 +9,7 @@ RSpec.feature 'Test foreclose application page', js: true, type: :feature do
   #   sign_in @client
   # end
 
-  it 'visits the #show page' do
+  xit 'visits the #show page' do
     visit "/landing_pages/index"
   end
 
