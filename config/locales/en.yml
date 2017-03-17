@@ -58,7 +58,7 @@ en:
       debts: "Debts"
       debts_description: "Please keep in mind, these are monthly debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month."
       income: "Income"
-      total: "Your totals"  
+      total: "Your totals"
       assets: "Assets"
       monthly_debt: "Your total monthly debt and income"
       assets_title: "Now tell us a bit about your assets"
@@ -123,7 +123,7 @@ en:
 
   clients_show:
       hello: "Hello "
-      below: "BELOW IS THE INFO WE HAVE ON FILE FOR YOU. YOU CAN EDIT THIS FORM BY CLICKING ON THE EDIT PROFILE BUTTON AT THE BOTTOM OF THIS PAGE."
+      below: "Below is the info we have on file for you. Make adjustments by clicking on the edit profile button at the bottom of this page."  
       contact_information: "Contact Information"
       first_name: "First Name:"
       last_name: "Last Name:"
@@ -141,14 +141,14 @@ en:
       gender: "Gender:"
       education_level: "Education Level:"
       marital_stat: "Marital Status:"
-      dob: "Date Of Birth:"      
+      dob: "Date Of Birth:"
       ss: "Social Security Number:"
       household_information: "Household Information"
       pref_contact: "Preferred Contact Method:"
-      pref_lang: "Preferred Language:"            
+      pref_lang: "Preferred Language:"
       head_of_house: "Are you the head of the household?"
       house_occu: "How many people live in the household?"
-      dependants: "Number of dependants?"      
+      dependants: "Number of dependants?"
       est_house_income: "Estimated Household Income:"
       disability: "Do you have a disability?"
       union: "Are you a member of a union?"
@@ -185,7 +185,7 @@ en:
       volunteer: "Would you like to volunteer?"
       update: "Update!"
 
-  homebuying: 
+  homebuying:
       loan_type: "Loan type"
       lender: "Lender"
       contact_for_appointment: "Contact for appointment"
