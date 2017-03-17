@@ -386,8 +386,6 @@
         </div>
       </div>
 
-<div class='page-break'></div>
-
 <% if @client.foreclosure %>
 
       <div class="clientpdf">
@@ -459,5 +457,153 @@
       </div>
 <div class='page-break'></div>
     <% else %>
-      <h3 class="panel-title">No Foreclosure Information</h3>
+      <h3 class="panel-title">No Foreclosure Assistance Information</h3>
+    <% end %>
+    
+  <% if @client.homebuying %>
+
+    <div class="clientpdf">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Homebuying Information for  
+          <strong class="text-warning"><%= @client.full_name %></strong> on
+          <strong class="text-warning"><%= @client.homebuying.pretty_time %></strong>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <table class="tablepdf">
+          <tbody>
+            <tr>
+              <td>Lender:</td>
+              <td class="text-right"><strong><%= @client.homebuying.lender %></strong></td>
+            </tr>
+            <tr>
+              <td>Wants to be contacted for an appointment?</td>
+              <td class="text-right"><strong><%= @client.homebuying.contact_for_appointment ? "Yes" : "No" %></strong></td>
+            </tr>
+            <tr>
+              <td>Signed a real estate contract at time of application?</td>
+              <td class="text-right"><strong><%= @client.homebuying.real_estate_contract ? "Yes" : "No" %></strong></td>
+            </tr>
+            <tr>
+              <td>Realtor's name:</td>
+              <td class="text-right"><strong><%= @client.homebuying.realtor_name %></strong></td>
+            </tr>
+            <tr>
+              <td>Realtor's phone number:</td>
+              <td class="text-right"><strong><%= number_to_phone(@client.homebuying.realtor_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr>
+            <tr>
+              <td>Address of prospective property looking to purchase:</td>
+              <td class="text-right"><strong><%= @client.homebuying.property_address %></strong></td>
+            </tr>
+            <tr>
+              <td>City:</td>
+              <td class="text-right"><strong><%= @client.homebuying.property_city %></strong></td>
+            </tr>
+            <tr>
+              <td>State:</td>
+              <td class="text-right"><strong><%= @client.homebuying.property_state %></strong></td>
+            </tr>
+            <tr>
+              <td>Loan officer:</td>
+              <td class="text-right"><strong><%= @client.homebuying.loan_officer_name %></strong></td>
+            </tr>
+            <tr>
+              <td>Loan officer email:</td>
+              <td class="text-right"><strong><%= @client.homebuying.loan_officer_email %></strong></td>
+            </tr>
+            <tr>
+              <td>Loan officer phone:</td>
+              <td class="text-right"><strong><%= number_to_phone(@client.homebuying.loan_officer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr>
+            <tr>
+              <td>Payment assistance program:</td>
+              <td class="text-right"><strong><%= @client.homebuying.payment_assistance_program %></strong></td>
+            </tr>
+            <tr>
+              <td>Approximate closing date: </td>
+              <td class="text-right"><strong><%= @client.homebuying.approx_closing_date %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <div class='page-break'></div>
+    <% else %>
+      <h3 class="panel-title">No Homebuying Counseling Information</h3>
+    <% end %>
+    
+  <% if @client.rental %>
+
+    <div class="clientpdf">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+        Renter Information submitted by
+        <strong class="text-warning"><%= @client.full_name %></strong> on
+        <strong class="text-warning"><%= @client.rental.pretty_time %></strong>
+      </h3>
+      </div>
+
+      <div class="panel-body">
+        <table class="tablepdf">
+          <tbody>
+            <tr>
+              <td>Interested in a studio? </td>
+              <td class="text-right"><strong><%= @client.rental.studio ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+              <td>Interested in a 2 bedroom? </td>
+              <td class="text-right"><strong><%= @client.rental.two_bed ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+              <td>Interested in a 3 bedroom? </td>
+              <td class="text-right"><strong><%= @client.rental.three_bed ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+              <td>Needs wheelchair accessible unit? </td>
+              <td class="text-right"><strong><%= @client.rental.wheelchair_accessible ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+                <td>Car? </td>
+                <td class="text-right"><strong><%= @client.rental.car_owner ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+                <td>Pet(s)? </td>
+                <td class="text-right"><strong><%= @client.rental.pet_owner ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+                <td>How did you hear about the property? </td>
+                <td class="text-right"><strong><%= @client.rental.hear_of_property %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Reason given for applying to LUCHA? </td>
+                <td class="text-right"><strong><%= @client.rental.reason_for_move %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Current housing situation? </td>
+                <td class="text-right"><strong><%= @client.rental.housing_situation %></strong></td>
+            </tr><tr>
+                </tr><tr>
+                <td>Current employer's name: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_name %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Current employer's address: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_address %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Current employer's city: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_city %></strong></td>
+            </tr><tr>
+                <td>Current employer's state: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_state %></strong></td>
+            </tr><tr>
+                <td>Current employer's phone: </td>
+                <td class="text-right"><strong><%= number_to_phone(@client.rental.employer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr><tr>
+                <td>Agreed to background check fee?</td>
+                <td class="text-right"><strong><%= @client.rental.agree_to_fee ? "Yes" : "No" %></strong></td>
+          </tbody>
+      </table>
+      </div>  
+    </div>
+
+<div class='page-break'></div>
+    <% else %>
+        <h3 class="panel-title">No Rental Assistance Information</h3>
     <% end %>
