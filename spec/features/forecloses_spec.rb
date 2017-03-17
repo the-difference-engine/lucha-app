@@ -1,21 +1,24 @@
 require 'rails_helper'
 
-# describe 'Test foreclose application page', js: true, type: :feature do
+include Devise::TestHelpers
 
-#   before(:each) do
-#     @showing = create(:showing)
-#   end
+RSpec.feature 'Test foreclose application page', js: true, type: :feature do
 
-#   it 'visits the #show page' do
-#     visit(root_path)
-#   end
+  # before(:each) do
+  #   @client = create(:client)
+  #   sign_in @client
+  # end
 
-#   it 'visits homepage, clicks one showing' do
-#     visit(root_path)
-#     within ".showtimes" do
-#       find('input[type=hidden]').set @showing.id
-#       find('input[type="submit"]').click
-#     end
-#     expect(page)
-#   end
-# end
+  it 'visits the #show page' do
+    visit "/landing_pages/index"
+  end
+
+  # it 'visits homepage, clicks one showing' do
+  #   visit(root_path)
+  #   within ".showtimes" do
+  #     find('input[type=hidden]').set @showing.id
+  #     find('input[type="submit"]').click
+  #   end
+  #   expect(page)
+  # end
+end
