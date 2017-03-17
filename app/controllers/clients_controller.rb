@@ -154,7 +154,8 @@ class ClientsController < ApplicationController
   def assign
     client = Client.find(params[:id])
     user_id = params[:client][:user_id]
-    if user_id && client.update(user_id: user_id)
+    client.user_id = user_id
+    if user_id && client.save
       flash[:success] = [ 'Client assigned successfully!' ]
     else
       flash[:danger] = [ 'Something has gone wrong.']
