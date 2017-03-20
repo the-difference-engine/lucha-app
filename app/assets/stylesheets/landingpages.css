@@ -161,11 +161,16 @@ h6 {
     }
 }
 
-footer {
-    padding: 50px 0;
-    background-color: #f8f8f8;
+div.absolute {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    
 }
 
+
 p.copyright {
-    margin: 15px 0 0;
+    left: 0;
+    bottom: 50%;
+    width: 100%;
 }
