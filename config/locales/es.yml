@@ -225,14 +225,14 @@ es:
         last_name: "Apellido"
         home_phone: "Número de teléfono de casa"
         cell_phone: "Teléfono móvil"
-        login_information: "The following informatin will be your login information. Make sure to keep this safe with you."
+        login_information: "The following information will be your login information. Make sure to keep this safe with you."
         email: "Correo Electrónico"
         password: "Contraseña"
         eight_characters_minimum: "(8 characters minimum)"
         password_confirmation: "Confirmación de Contraseña"
         remember_me: "Recordarme"
         sign_up: "SIGN UP"
-        already_have_account: "¿Ya tienes una cuenta?"
+        already_have_account: "¿Ya tienes una cuenta? "
         log_in: "Inicio de sesión"
 
     

@@ -225,14 +225,14 @@ en:
       last_name: "Last Name"
       home_phone: "Home Phone"
       cell_phone: "Cell Phone"
-      login_information: "The following informatin will be your login information. Make sure to keep this safe with you."
+      login_information: "The following information will be your login information. Make sure to keep this safe with you."
       email: "Email"
       password: "Password"
       eight_characters_minimum: "8 Characters Minimum"
       password_confirmation: "Password Confirmation"
       remember_me: "Remember Me"
       sign_up: "SIGN UP"
-      already_have_account: "Already have an account?"
+      already_have_account: "Already have an account? "
       log_in: "LOGIN"
       
   activerecord:
