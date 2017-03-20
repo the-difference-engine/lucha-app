@@ -1,4 +1,3 @@
-
 <h1>Foreclosure Application
   <small></small>
 </h1>
@@ -6,7 +5,7 @@
 <div class="panel panel-success">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Foreclosure Information submitted by 
+      Foreclosure Information submitted by
       <strong class="text-warning"><%= @foreclosure.client.full_name %></strong> on
       <strong class="text-warning"><%= @foreclosure.pretty_time %></strong>
     </h3>
@@ -73,5 +72,3 @@
 <hr>
 <%= link_to "Edit Application", "/foreclosures/#{@foreclosure.id}/edit", :class => "btn btn-warning" %>
 <%= link_to "Delete Application", "/foreclosures/#{@foreclosure.id}", method: :delete, data: { confirm: "Are you sure you want to delete this foreclosure application?"}, :class => "btn btn-danger" %>
-
-

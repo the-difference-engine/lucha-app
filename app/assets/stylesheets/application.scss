@@ -10,16 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require landingpages
  *= require jquery-ui
  *= require_self
- *= require agency
- *= require pdf
  */
 
 
 @import "external";
-
+.panel-success {
+  border-color: lightblue;
+}
+.panel-success > .panel-heading {
+  color: white;
+  background-color: $brand-primary;
+  border-color: lightblue;
+}
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -45,30 +49,32 @@ body {
 }
 
 .status-table{
-  .incomplete-step td {
-    color: #bfbfbf;
+  .incomplete-step {
+    background-color: $gray-lighter;
+    color: $gray-light;
+    &:disabled {
+    }
   }
   .completed-step {
     td {
       color: black;
     }
     .btn-primary {
-      background-color: #55B8F5;
-      border-color: #55B8F5;
+      background-color: $brand-primary;
+      border-color: $brand-primary;
       &:hover{
         opacity: 0.7;
       }
     }
     .glyphicon {
-      color: #55B8F5;
+      color: $brand-accent;
       font-size: 20px;
     }
   }
   .active-step {
-    td {
-      font-size: 20px;
-      color: green;
-    }
+    font-size: 1.75rem;
+    color: $brand-primary;
+
   }
 
 }

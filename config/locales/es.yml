@@ -18,7 +18,7 @@ es:
         demographics: "LUCHA Demographics:"
         demographics_statement: "A few notes on the diversity of our clients: 
         The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
-
+    # Client section, employee section below
     client_sign_up:
         welcome: "Bienvenido"
         please_fill_in: "PLEASE FILL IN THE FOLLOWING TO CREATE A CLIENT PROFILE."
@@ -34,11 +34,11 @@ es:
         zip_code: "Codigo postal"
         authorize_lucha: "I authorize LUCHA and it's staff to use my information for the purposes of counseling."
         privacy_and_disclosure: "I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set."
-        login_information: "THE FOLLOWING INFORMATION WILL BE YOUR LOGIN INFORMATION, MAKE SURE TO KEEP THIS SAFE WITH YOU."
-        email: "Correo electrónico"
+        login_information: "The following informatin will be your login information. Make sure to keep this safe with you."
+        email: "Correo Electrónico"
         password: "Contraseña"
         eight_characters_minimum: "(8 characters minimum)"
-        password_confirmation: "Confirmación de contraseña"
+        password_confirmation: "Confirmación de Contraseña"
         remember_me: "Recordarme"
         sign_up: "SIGN UP"
         already_have_account: "¿Ya tienes una cuenta?"
@@ -53,8 +53,8 @@ es:
         log_in: "LOGIN"
 
     budget_show:
-        title: "Su presupuesto mensual"
-        description: "Llene esto lo mejor que pueda. Si hay algunos cambios que le gustaría hacer, simplemente haga clic en el número y hacerlos."
+        title: "Su presupuesto mensual:"
+        description: "Fill this out as best you can. If there are any changes you would like to make simply click on the appropriate field. You can make changes at any time. You must provide information for at least one field in each section to continue with your application."
         debts: "Deudas"
         debts_description: "Por favor, tenga en cuenta, se trata de deudas mensuales. Se le discutiendo la deuda acumulada con su consejero pronto. Si usted tiene una factura (es decir. De agua) que viene cada dos meses, por favor promedia a ir a un mes." 
         income: "Ingreso"
@@ -100,7 +100,7 @@ es:
         gas_car: "El gas y el mantenimiento del coche"
         child: "Cuidado de los niños"
         medical: "Gastos médicos"
-        if_renter: "Sólo si usted es un inquilino, por favor llene el siguiente."
+        if_renter: "If you are a renter, fill out the fields below:"
         rent: "Seguro de alquiler"
         rent_insurance: "Seguro de alquiler"
         update: "Actualizar"
@@ -185,8 +185,6 @@ es:
         volunteer: "¿Le gustaría ser voluntario?"
         update: "Actualizar" 
 
-
-
     homebuying: 
         loan_type: "Loan type"
         lender: "¿Cuál es el nombre de su Prestamista?"
@@ -219,8 +217,23 @@ es:
         court_case_number: "número de caso judicial"
         working_with_lawyer: "¿Está trabajando con un abogado en este caso?"
         working_with_agency: "¿Está trabajando con otra organización con re-speto a su hipoteca?"
+        reason_for_default: "Reason for default:"
         submit: "Submit"
 
-
+    employee_sign_up:
+        please_fill_in: "Please fill in the following to create an employee account."
+        first_name: "Nombre"
+        last_name: "Apellido"
+        home_phone: "Número de teléfono de casa"
+        cell_phone: "Teléfono móvil"
+        login_information: "The following information will be your login information. Make sure to keep this safe with you."
+        email: "Correo Electrónico"
+        password: "Contraseña"
+        eight_characters_minimum: "(8 characters minimum)"
+        password_confirmation: "Confirmación de Contraseña"
+        remember_me: "Recordarme"
+        sign_up: "SIGN UP"
+        already_have_account: "¿Ya tienes una cuenta? "
+        log_in: "Inicio de sesión"
 
     

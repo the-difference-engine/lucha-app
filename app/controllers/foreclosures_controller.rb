@@ -33,7 +33,7 @@ class ForeclosuresController < ApplicationController
     @foreclosure = Foreclosure.new(foreclosure_params.merge(client_id: @id))
     if @foreclosure.save
       flash[:success] = ["You've Completed Your Foreclosure Application"]
-      redirect_to "/foreclosures/#{@foreclosure.id}"
+      redirect_to client_status_path(@current_client)
     else
       flash.now[:danger] = @foreclosure.errors.full_messages
       render :new

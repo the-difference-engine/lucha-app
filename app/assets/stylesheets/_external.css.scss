@@ -1,8 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "agency";
+@import "variables";
 @import "layouts";
 @import "navbar";
+@import "pdf";
+@import "landingpages";
+@import "forms";
+@import "clients";
 
 
 .pure-menu-list {
