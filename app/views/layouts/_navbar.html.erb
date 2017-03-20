@@ -33,7 +33,7 @@
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><a href="/users/<%= current_user.id %>">Your Clients</a></li>
-          <li><%= link_to 'Unassigned Clients', employee_index_path %></li>
+          <li><%= link_to 'Registered Clients', employee_index_path %></li>
           <li><%= link_to 'Foreclosures', foreclosures_path %></li>
           <li><%= link_to 'Home Buying', homebuyings_path %></li>
           <li><%= link_to 'Rentals', rentals_path %></li>
@@ -41,26 +41,24 @@
         <% elsif client_signed_in? %>
           <li><%= link_to 'Application Status', client_status_path(current_client.id) %></li>
           <li><%= link_to 'Profile', client_path(current_client.id) %></li>
-          <li><%= link_to 'Budget', budget_path(current_client.budget.id) %></li>
           <li>
-            <% if current_client.foreclosure.blank? %>
-                <%= link_to 'Foreclosures', "/foreclosures/new" %>
-            <% else %>
-                <%= link_to 'View Foreclosure App', foreclosure_path(current_client.foreclosure.id) %>
+            <% if !current_client.incomplete_profile? %>
+              <%= link_to 'Budget', budget_path(current_client.budget.id) %>
+            <% end %>    
+          </li>
+          <li>
+            <% if !current_client.foreclosure.blank? %>
+                <%= link_to 'Your Foreclosure Application', "/foreclosures/new" %>
             <% end %>
           </li>
           <li>
-            <%  if current_client.homebuying.blank? %>
-                <%= link_to 'Homebuying Application', homebuying_intake_path(current_client.id) %>
-            <% else %>
-                <%= link_to 'View Homebuying App', homebuying_path(current_client.homebuying.id)  %>
+            <%  if !current_client.homebuying.blank? %>
+                <%= link_to 'Your Homebuying Application', homebuying_intake_path(current_client.id) %>
             <% end %>
           </li>
           <li>
-            <%  if current_client.rental.blank? %>
-                <%= link_to 'Rental Application', rental_intake_path(current_client.id) %>
-            <% else %>
-                <%= link_to 'View  Rental App', rental_path(current_client.rental.id)  %>
+            <%  if !current_client.rental.blank? %>
+                <%= link_to 'Your Rental Application', rental_intake_path(current_client.id) %>
             <% end %>
           </li>
         <% else %>
