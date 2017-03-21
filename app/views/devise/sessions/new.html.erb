@@ -18,6 +18,8 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
 
+      <%= devise_error_messages! %>
+
       <div class="form-group field">
         <%= I18n.t "client_log_in.email" %>
         <span class="text-danger"> * </span>
