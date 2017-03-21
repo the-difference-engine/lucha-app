@@ -19,12 +19,13 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "form-horizontal", role: "form"}) do |f| %>
 
       <%= devise_error_messages! %>
+
       <%= content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-danger") if flash[:error] %>
 
       <%= content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-warning") if flash[:notice] %>
 
       <%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-warning") if flash[:alert] %>
-  
+
       <div class="form-group field">
         <%= I18n.t "client_log_in.email" %>
         <span class="text-danger"> * </span>
