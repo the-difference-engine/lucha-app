@@ -4,20 +4,23 @@ es:
         sub_title: "LUCHA Portal Cliente"
         sign_up: "Apuntarse"
         sign_in: "Entrar"
-        mission: "Misión de Lucha:"
-        mission_statement: "La misión de LUCHA es proporcionar vivienda digna y asequible, servicios de vivienda y educación para los hispanos de bajos y moderados ingresos, y demás residentes." 
+
+        #old splash page, all removed
+        # mission: "Misión de Lucha:"
+        # mission_statement: "La misión de LUCHA es proporcionar vivienda digna y asequible, servicios de vivienda y educación para los hispanos de bajos y moderados ingresos, y demás residentes." 
         user_sign_in: "Aceso de Empleados"
-        lucha_vision: "Visión de Lucha "
-        lucha_vision_lead: "Esto se hace mediante la capacitación de los residentes a través de la educación, la participación, promoción del desarrollo de viviendas asequibles y la adquisición de viviendas; proveyendo liderazgo y abogando por recursos."
-        connect: "Únete con Nosotros:"
-        home: "Inicio"
-        about: "Sobre"
-        services: "Servicios"
-        contact: "Contactar"
+        # lucha_vision: "Visión de Lucha "
+        # lucha_vision_lead: "Esto se hace mediante la capacitación de los residentes a través de la educación, la participación, promoción del desarrollo de viviendas asequibles y la adquisición de viviendas; proveyendo liderazgo y abogando por recursos."
+        # connect: "Únete con Nosotros:"
+        # home: "Inicio"
+        # about: "Sobre"
+        # services: "Servicios"
+        # contact: "Contactar"
         copy_right: "Registro Civil &copy; Lucha 2016. Reservados todos los derechos"
-        demographics: "LUCHA Demographics:"
-        demographics_statement: "A few notes on the diversity of our clients: 
-        The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+        # demographics: "LUCHA Demographics:"
+        # demographics_statement: "A few notes on the diversity of our clients: 
+        # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+    
     # Client section, employee section below
     client_sign_up:
         welcome: "Bienvenido"
@@ -48,7 +51,7 @@ es:
         employee_log_in: "Employee Log In"
         client_log_in: "Client Log In"
         email: "Correo electrónico"
-        password: "Contraseña*"
+        password: "Contraseña"
         remember_me: "Remember me"
         log_in: "LOGIN"
 
@@ -218,12 +221,14 @@ es:
         working_with_lawyer: "¿Está trabajando con un abogado en este caso?"
         working_with_agency: "¿Está trabajando con otra organización con re-speto a su hipoteca?"
         submit: "Submit"
-
+    
+    #employee section, client section above
+    #no need for employee log in, same fields/page as client log in
     employee_sign_up:
         please_fill_in: "Please fill in the following to create an employee account."
         first_name: "Nombre"
         last_name: "Apellido"
-        home_phone: "Número de teléfono de casa"
+        home_phone: "Número de Teléfono de Casa"
         cell_phone: "Teléfono móvil"
         login_information: "The following information will be your login information. Make sure to keep this safe with you."
         email: "Correo Electrónico"
@@ -234,5 +239,21 @@ es:
         sign_up: "SIGN UP"
         already_have_account: "¿Ya tienes una cuenta? "
         log_in: "Inicio de sesión"
+
+    employee_show:
+        your_clients: "Your Clients"
+        name: "Nombre"
+        home_phone: "Número de Teléfono de Casa"
+        submitted_applications: "Submitted Applications"
+        unassign: "Unassign?"
+        client_info: "Client Info"
+
+    employee_registered_clients:
+        all_registered_clients: "All Registered Clients"
+        name: "Nombre"
+        home_phone: "Número de Teléfono de Casa"
+        submitted_applications: "Submitted Applications"
+        assigned_employee: "Assigned Employee"
+        client_info: "Client Info"
 
     
