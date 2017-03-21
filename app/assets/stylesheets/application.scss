@@ -16,13 +16,16 @@
 
 
 @import "external";
+
 .panel-success {
+  border-radius: 0px;
   border-color: lightblue;
 }
 .panel-success > .panel-heading {
   color: white;
   background-color: $brand-primary;
   border-color: lightblue;
+  border-radius: 0px;
 }
 
 body {
@@ -97,6 +100,12 @@ body {
   font-weight: 300;
 
  }
+
+.btn {
+  width: 100%;
+  border-radius: 0px;
+  margin-top: 10px;
+}
 
 .btn-default-lg {
     color: #333;
