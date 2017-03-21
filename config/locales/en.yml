@@ -4,20 +4,23 @@ en:
       sub_title: "LUCHA Client Portal"
       sign_up: "sign up"
       sign_in: "sign in"
-      mission: "LUCHA's Mission:"
-      mission_statement: "LUCHA (the Spanish word for “Fight ”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services."
+
+      #old splash page, all removed
+      # mission: "LUCHA's Mission:"
+      # mission_statement: "LUCHA (the Spanish word for “Fight ”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services."
       user_sign_in: "Employee Login"
-      lucha_vision: "LUCHA's Vision"
-      lucha_vision_lead: "We aspire to build empowered, thriving communities and further access to equitable and fair housing."
-      connect: "Connect with us:"
-      home: "Home"
-      about: "About"
-      services: "Services"
-      contact: "Contact"
+      # lucha_vision: "LUCHA's Vision"
+      # lucha_vision_lead: "We aspire to build empowered, thriving communities and further access to equitable and fair housing."
+      # connect: "Connect with us:"
+      # home: "Home"
+      # about: "About"
+      # services: "Services"
+      # contact: "Contact"
       copy_right: "Copyright \u00A9 Lucha 2016. All Rights Reserved"
-      demographics: "LUCHA Demographics:"
-      demographics_statement: "A few notes on the diversity of our clients:
-      The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+      # demographics: "LUCHA Demographics:"
+      # demographics_statement: "A few notes on the diversity of our clients:
+      # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+  
   # Client section, employee section below
   client_sign_up:
       welcome: "Welcome"
@@ -143,6 +146,7 @@ en:
       marital_stat: "Marital Status:"
       dob: "Date Of Birth:"
       ss: "Social Security Number:"
+      not_submitted: "Not Submitted"
       household_information: "Household Information"
       pref_contact: "Preferred Contact Method:"
       pref_lang: "Preferred Language:"
@@ -154,19 +158,25 @@ en:
       union: "Are you a member of a union?"
       military: "Are you a current or former military service member?"
       volunteer: "Would you like to volunteer?"
-      update: "Update!"
+      edit_profile: "Edit Profile"
 
   clients_edit:
+      edit_profile: "Edit Your Profile Information"
+      update_information: "Update the information below and click the Update button to save."
+      contact_information: "Contact Information"
       first_name: "First Name:"
       last_name: "Last Name:"
       home_phone: "Home Phone Number:"
       cell: "Cell Phone:"
+      email: "Email:"
       work_phone: "Work Phone:"
       address: "Address:"
       city: "City:"
       state: "State:"
       ward: "Ward:"
+      search_for_ward: "Search for your ward"
       zip: "ZIP Code:"
+      demographics: "Demographics"
       gender: "Gender:"
       race: "Race:"
       ss: "Social Security Number:"
@@ -175,10 +185,12 @@ en:
       marital_stat: "Marital Status:"
       dob: "Date Of Birth:"
       head_of_house: "Are you the head of the household?"
+      household_information: "Household Information"
       house_occu: "How many people live in the household?"
       dependants: "Number of dependants?"
       education_level: "Education Level:"
       est_house_income: "Estimated Household Income:"
+      check_all_that_apply: "Check all that apply:"
       disability: "Do you have a disability?"
       union: "Are you a member of a union?"
       military: "Are you a current or former military service member?"
@@ -220,6 +232,8 @@ en:
       reason_for_default: "Reason for default:"
       submit: "Submit"
 
+  #employee section, client section above
+  #no need for employee log in, same fields/page as client log in
   employee_sign_up:
       please_fill_in: "Please fill in the following to create an employee account."
       first_name: "First Name"
@@ -235,6 +249,60 @@ en:
       sign_up: "SIGN UP"
       already_have_account: "Already have an account? "
       log_in: "LOGIN"
+
+  employee_show:
+      your_clients: "Your Clients"
+      name: "Name"
+      home_phone: "Home Phone"
+      submitted_applications: "Submitted Applications"
+      unassign: "Unassign?"
+      client_info: "Client Info"
+
+  employee_registered_clients:
+      all_registered_clients: "All Registered Clients"
+      name: "Name"
+      home_phone: "Home Phone"
+      submitted_applications: "Submitted Applications"
+      assigned_employee: "Assigned Employee"
+      client_info: "Client Info"
+
+  employee_view:
+      client_profile_for: "Client profile for: "
+      awaiting_assignment: "Awaiting assignment."
+      profile_not_complete: "Profile not complete."
+      contact_information: "Contact Information"
+      client_name: "Client Name:"
+      home_phone: "Home Phone:"
+      cell_phone: "Cell Phone:"
+      work_phone: "Work Phone:"
+      email: "Email"
+      address: "Address:"
+      ward: "Ward:"
+      demographics: "Demographics"
+      race: "Race:"
+      gender: "Gender:"
+      education_level: "Education Level:"
+      marital_status: "Marital Status"
+      date_of_birth: "Date of Birth:"
+      ssn: "SSN:"
+      not_submitted: "Not Submitted"
+      household_information: "Household Information"
+      head_of_household: "Head of Household:"
+      number_in_household: "Number in Household:"
+      number_of_dependents: "Number of Dependents:"
+      estimated_household_income: "Estimated Household Income:"
+      disability: "Disability:"
+      military_service_member: "Military Service Member:"
+      volunteer: "Volunteer:"
+      union_member: "Union Member:"
+      notes: "Notes"
+      add_note: "Add note"
+      submit_note: "Submit Note"
+      note: "Note"
+      time: "Time"
+      action: "Action"
+
+
       
   activerecord:
     attributes:

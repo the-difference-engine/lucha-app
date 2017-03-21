@@ -2,7 +2,7 @@
 <div class="row" style="margin-bottom:0;">
   <div class="col-md-8">
     <h1>
-      Client profile for: <strong class="text-primary"> <%= @client.full_name %> </strong> <br>
+      <%= I18n.t "employee_view.client_profile_for" %><strong class="text-primary"> <%= @client.full_name %> </strong> <br>
         <% if @client.user_id %>
           <div class="row" style="padding-top:10px;margin-bottom:0;">
             <%= form_tag("/clients/#{@client.id}/assign", method: :patch) do %>
@@ -52,29 +52,33 @@
   <div class="col-md-6">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Contact Information</h3>
+        <h3 class="panel-title"><%= I18n.t "employee_view.contact_information" %></h3>
       </div>
       <div class="panel-body">
         <table class="table table-hover">
           <tbody>
             <tr>
-              <td>Client Name:</td>
+              <td><%= I18n.t "employee_view.client_name" %></td>
               <td class="text-right"><strong><%= @client.full_name %></strong></td>
             </tr>
             <tr>
-              <td>Home Phone:</td>
+              <td><%= I18n.t "employee_view.home_phone" %></td>
               <td class="text-right"><strong><%= number_to_phone(@client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
-              <td>Cell Phone:</td>
+              <td><%= I18n.t "employee_view.cell_phone" %></td>
               <td class="text-right"><strong><%= number_to_phone(@client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
-              <td>Work Phone:</td>
+              <td><%= I18n.t "employee_view.work_phone" %></td>
               <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
-              <td>Address:</td>
+              <td><%= I18n.t "employee_view.email" %></td>
+              <td class="text-right"><strong><%= @client.email %></strong></td>
+            </tr>
+            <tr>
+              <td><%= I18n.t "employee_view.address" %></td>
               <td class="text-right">
                 <strong>
                   <%= @client.address %>
@@ -85,7 +89,7 @@
               </td>
             </tr>
             <tr>
-              <td>Ward:</td>
+              <td><%= I18n.t "employee_view.ward" %></td>
               <td class="text-right"><strong><%= @client.ward %></strong></td>
             </tr>
           </tbody>
@@ -97,28 +101,28 @@
   <div class="col-md-6">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Demographics</h3>
+        <h3 class="panel-title"><%= I18n.t "employee_view.demographics" %></h3>
       </div>
       <div class="panel-body">
         <table class="table table-hover">
             <tr>
-              <td>Race:</td>
+              <td><%= I18n.t "employee_view.race" %></td>
               <td class="text-right"><strong><%= @client.race %></strong></td>
             </tr>
             <tr>
-              <td>Sex:</td>
+              <td><%= I18n.t "employee_view.gender" %></td>
               <td class="text-right"><strong><%= @client.sex %></strong></td>
             </tr>
             <tr>
-              <td>Education Level:</td>
+              <td><%= I18n.t "employee_view.education_level" %></td>
               <td class="text-right"><strong><%= @client.education_level %></strong></td>
             </tr>
             <tr>
-              <td>Marital Status:</td>
+              <td><%= I18n.t "employee_view.marital_status" %></td>
               <td class="text-right"><strong><%= @client.marital_status %></strong></td>
             </tr>
             <tr>
-              <td>Date of Birth:</td>
+              <td><%= I18n.t "employee_view.date_of_birth" %></td>
               <td class="text-right">
                 <strong>
                   <% if @client.dob %>
@@ -128,13 +132,13 @@
               </td>
             </tr>
             <tr>
-              <td>SSN:</td>
+              <td><%= I18n.t "employee_view.ssn" %></td>
               <td class="text-right">
                 <strong>
                   <% if @client.ssn  %>
                     <%= @client.ssn %>
                   <% else %>
-                    <%= "Not Submitted" %>
+                    <%= I18n.t "employee_view.not_submitted" %>
                   <% end %>
                 </strong>
               </td>
@@ -149,12 +153,12 @@
   <div class="col-md-6">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Household Information</h3>
+        <h3 class="panel-title"><%= I18n.t "employee_view.household_information" %></h3>
       </div>
       <div class="panel-body">
         <table class="table table-hover">
           <tr>
-            <td>Head of Household:</td>
+            <td><%= I18n.t "employee_view.head_of_household" %></td>
             <td class="text-right">
               <strong>
                 <%= @client.head_of_household ? "Yes" : "No" %>
@@ -162,31 +166,31 @@
             </td>
           </tr>
           <tr>
-            <td>Number in Household:</td>
+            <td><%= I18n.t "employee_view.number_in_household" %></td>
             <td class="text-right"><strong><%= @client.num_in_household %></strong></td>
           </tr>
           <tr>
-            <td>Number of Dependents:</td>
+            <td><%= I18n.t "employee_view.number_of_dependents" %></td>
             <td class="text-right"><strong><%= @client.num_of_dependants %></strong></td>
           </tr>
           <tr>
-            <td>Estimated Household Income:</td>
+            <td><%= I18n.t "employee_view.estimated_household_income" %></td>
             <td class="text-right"><strong><%= @client.estimated_household_income %></strong></td>
           </tr>
           <tr>
-            <td>Disability:</td>
+            <td><%= I18n.t "employee_view.disability" %></td>
             <td class="text-right"><strong><%= @client.disability ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
-            <td>Military Service Member:</td>
+            <td><%= I18n.t "employee_view.military_service_member" %></td>
             <td class="text-right"><strong><%= @client.military_service_member ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
-            <td>Volunteer:</td>
+            <td><%= I18n.t "employee_view.volunteer" %></td>
             <td class="text-right"><strong><%= @client.volunteer_interest ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
-            <td>Union Member:</td>
+            <td><%= I18n.t "employee_view.union_member" %></td>
             <td class="text-right"><strong><%= @client.union_member ? "Yes" : "No" %></strong></td>
           </tr>
         </table>
@@ -196,13 +200,13 @@
   <div class="col-md-6">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Notes</h3>
+        <h3 class="panel-title"><%= I18n.t "employee_view.notes" %></h3>
       </div>
       <div class="panel-body">
 
         <%= form_tag "/clients/#{@client.id}", method: :post do %>
           <div class="form-group">
-            <%= label_tag :Add_Note %>
+            <%= I18n.t "employee_view.add_note" %>
             <%= text_area_tag :description, nil, :class => "form-control" %>
           </div>
           <div class="form-group">
@@ -212,9 +216,9 @@
 
         <table class="table table-hover">
           <tr>
-            <th>Note</th>
-            <th>Time</th>
-            <th colspan="2">Action</th>
+            <th><%= I18n.t "employee_view.note" %></th>
+            <th><%= I18n.t "employee_view.time" %></th>
+            <th colspan="2"><%= I18n.t "employee_view.action" %></th>
           </tr>
           <% @client.notes.each do |note| %>
           <tr>
