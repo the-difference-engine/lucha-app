@@ -11,7 +11,17 @@
   }
 }
 
-.navbar {
+.navbar-default .navbar-link {
+  color: lighten($brand-accent, 30%);
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+.navbar-default {
   background-color: white;
   .navbar-nav .active a {
     border-bottom: 4px solid lighten($brand-accent, 30%);
