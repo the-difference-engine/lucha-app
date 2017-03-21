@@ -96,7 +96,7 @@ RSpec.describe ForeclosuresController, type: :controller do
         end
         it "redirects to the client status page" do
           post :create, attributes_for(:foreclosure)
-          expect(response).to redirect_to("/foreclosures/#{@this_client.foreclosure.id}")
+          expect(response).to redirect_to("/clients/#{@this_client.id}/status")
         end
       end
 
