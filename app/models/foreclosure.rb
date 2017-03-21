@@ -14,6 +14,24 @@ class Foreclosure < ActiveRecord::Base
 
   belongs_to :client
 
+  serialize :currently_foreclosed, EncryptedCoder.new
+  # serialize :client_id, EncryptedCoder.new
+  serialize :originating_lender, EncryptedCoder.new
+  serialize :original_loan_number, EncryptedCoder.new
+  serialize :servicer, EncryptedCoder.new
+  serialize :servicer_loan_number, EncryptedCoder.new
+  # serialize :monthly_mortgage_payment, EncryptedCoder.new
+  # serialize :loan_term, EncryptedCoder.new
+  # serialize :origination_date, EncryptedCoder.new
+  # serialize :been_to_court, EncryptedCoder.new
+  serialize :court_case_number, EncryptedCoder.new
+  # serialize :working_with_lawyer, EncryptedCoder.new
+  # serialize :working_w_agency, EncryptedCoder.new
+  serialize :agency, EncryptedCoder.new
+  serialize :reason_for_default, EncryptedCoder.new
+
+
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

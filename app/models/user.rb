@@ -29,7 +29,16 @@ class User < ActiveRecord::Base
 
   has_many :budgets, through: :clients
 
-
+  serialize :current_sign_in_ip, EncryptedCoder.new
+  serialize :last_sign_in_ip, EncryptedCoder.new
+  serialize :first_name, EncryptedCoder.new
+  serialize :last_name, EncryptedCoder.new
+  serialize :position, EncryptedCoder.new
+  serialize :home_phone, EncryptedCoder.new
+  serialize :work_phone, EncryptedCoder.new
+  serialize :cell_phone, EncryptedCoder.new
+  # serialize :permissions, EncryptedCoder.new
+  # serialize :admin, EncryptedCoder.new
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"

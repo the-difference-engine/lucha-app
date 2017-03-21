@@ -16,4 +16,8 @@ class SeniorRepair < ActiveRecord::Base
 	has_many :program_employees, as: :programable
 	belongs_to :client
 
+	# serialize :contractor, EncryptedCoder.new
+	# serialize :client_id, EncryptedCoder.new
+	
+
 end

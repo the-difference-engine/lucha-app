@@ -11,6 +11,23 @@ class Homebuying < ActiveRecord::Base
   validates_format_of :loan_officer_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
 	belongs_to :client
+
+  serialize :lender, EncryptedCoder.new
+  # serialize :client_id, EncryptedCoder.new
+  # serialize :contact_for_appointment, EncryptedCoder.new
+  # serialize :real_estate_contract, EncryptedCoder.new
+  serialize :realtor_name, EncryptedCoder.new
+  serialize :realtor_phone, EncryptedCoder.new
+  serialize :property_address, EncryptedCoder.new
+  serialize :property_state, EncryptedCoder.new
+  serialize :property_city, EncryptedCoder.new
+  serialize :loan_officer_name, EncryptedCoder.new
+  serialize :loan_officer_email, EncryptedCoder.new
+  serialize :loan_officer_phone, EncryptedCoder.new
+  serialize :payment_assistance_program, EncryptedCoder.new
+  serialize :approx_closing_date, EncryptedCoder.new
+  serialize :loan_type, EncryptedCoder.new
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names
