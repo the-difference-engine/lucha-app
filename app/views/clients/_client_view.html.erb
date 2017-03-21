@@ -91,7 +91,7 @@
                   <% if @client.ssn %>
                     <%= @client.ssn %>
                   <% else %>
-                    <%= "Not Submitted" %>
+                    <%= I18n.t "clients_show.not_submitted"  %>
                   <% end %>
                 </strong>
               </td>
@@ -153,5 +153,5 @@
 </div>
 <hr>
 <div>
-  <a href="/clients/<%= current_client.id %>/edit" class="btn btn-primary">Edit Profile</a>
+  <a href="/clients/<%= current_client.id %>/edit" class="btn btn-primary"><%= I18n.t "clients_show.edit_profile"  %></a>
 </div>
