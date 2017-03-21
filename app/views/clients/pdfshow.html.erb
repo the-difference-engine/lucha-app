@@ -1,4 +1,4 @@
-<h1 class="clientpdf">
+<h3 class="panel-title">
   <%= @client.full_name %> Profile <br />
 </h1>
 <div class="clientpdf">
@@ -72,7 +72,7 @@
     </div>
   </div>
   <% else %>
-    <h3 class="panel-title">No Assigned Counselor</h3>
+    <h3 class="panel-title"> * No Assigned Counselor * </h3>
   <% end %>
 
 
@@ -123,9 +123,7 @@
       </div>
     </div>
   </div>
-<!-- </div>
 
-<div class="row"> -->
   <div class="clientpdf">
     <div class="col-md-4">
       <div class="panel-heading">
@@ -135,7 +133,6 @@
         <table class="tablepdf">
           <tr>
             <td>Head of Household:
-            <br>
               <strong>
                 <%= @client.head_of_household ? "Yes" : "No" %>
               </strong>
@@ -482,9 +479,8 @@
           </table>
         </div>
       </div>
-<div class='page-break'></div>
     <% else %>
-      <h3 class="panel-title">No Foreclosure Assistance Information</h3>
+      <h3 class="panel-title"> * No Foreclosure Assistance Information * </h3>
     <% end %>
     
   <% if @client.homebuying %>
@@ -556,9 +552,8 @@
         </table>
       </div>
     </div>
-  <div class='page-break'></div>
     <% else %>
-      <h3 class="panel-title">No Homebuying Counseling Information</h3>
+      <h3 class="panel-title"> * No Homebuying Counseling Information * </h3>
     <% end %>
     
   <% if @client.rental %>
@@ -594,7 +589,7 @@
                 <td>Pet(s)? </td>
                 <td class="text-right"><strong><%= @client.rental.pet_owner ? "Yes" : "No" %></strong></td>
             </tr><tr>
-                <td>How did you hear about the property? </td>
+                <td>How did client hear about the property? </td>
                 <td class="text-right"><strong><%= @client.rental.hear_of_property %></strong></td>
             </tr><tr>
             </tr><tr>
@@ -630,5 +625,5 @@
       </div>  
     </div>
     <% else %>
-        <h3 class="panel-title">No Rental Assistance Information</h3>
+        <h3 class="panel-title"> * No Rental Assistance Information * </h3>
     <% end %>
