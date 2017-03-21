@@ -47,6 +47,35 @@
     </div>
   </div>
 
+<% if @client.has_user? %>
+  <div class="col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Client Counselor</h3>
+      </div>
+      <div class="panel-body">
+        <table class="tablepdf">
+            <tr>
+              <td>Client Has Been Assigned to:</td>
+              <td class="text-right"><strong><%= @client.user.full_name %></strong></td>
+            </tr>
+            <tr>
+              <td>Counselor Email:</td>
+              <td class="text-right"><strong><%= @client.user.email %></strong></td>
+            </tr>
+            <tr>
+              <td>Counselor Phone Number:</td>
+              <td class="text-right"><strong><%= @client.user.work_phone %></strong></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <h3 class="panel-title">No Assigned Counselor</h3>
+  <% end %>
+
+
   <div class="col-md-4">
     <div class="panel panel-success">
       <div class="panel-heading">
@@ -146,9 +175,7 @@
   </div>
 </div>
 
-<div class='page-break'></div>
-
-<h1 class="clientpdf">Budget For <%= @client.full_name %></h1>
+<h3 class="panel-title">Budget For <%= @client.full_name %></h3>
     
       <div class="clientpdf">
         <div class="col-md-4">
@@ -602,8 +629,6 @@
       </table>
       </div>  
     </div>
-
-<div class='page-break'></div>
     <% else %>
         <h3 class="panel-title">No Rental Assistance Information</h3>
     <% end %>
