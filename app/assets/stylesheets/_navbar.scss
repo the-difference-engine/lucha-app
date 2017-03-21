@@ -11,17 +11,43 @@
   }
 }
 
-.navbar {
+.navbar-default .navbar-link {
+  color: lighten($brand-accent, 30%);
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+.navbar-default {
   background-color: white;
+  .navbar-nav .active a {
+    border-bottom: 4px solid lighten($brand-accent, 30%);
+  }
 }
 
 .topbar {
+
   position: relative;
   min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: 0px;
-  border: 1px solid transparent;
-  background-color: white;
+  border-bottom: 4px solid lighten($brand-primary, 30%);
+  background-color: $brand-primary;
 
+  .navbar-header a {
+    color: white;
+  }
+  span.navbar-text {
+    color: lighten($brand-primary, 30%);
+    a{
+      padding-left: 5px;
+    }
+    .user-name {
+      color:white;
+    }
+  }
   // Prevent floats from breaking the navbar
   @include clearfix;
 
