@@ -6,8 +6,8 @@
     </div>
     <div class="navbar-right" id="bs-example-navbar-collapse-2">
       <% if user_signed_in? %>
-        <span class="navbar-text">Signed in as <%= link_to current_user.first_name, user_path(id: current_user.id), :class => "client-name" %>
-        <%= link_to "Sign out", "/users/sign_out", method: :delete, :class => "btn btn-sm btn-default" %></span>
+        <span class="navbar-text">Signed in as <%= link_to current_user.first_name, user_path(id: current_user.id), :class => "user-name" %>
+        <%= link_to "Sign out", "/users/sign_out", method: :delete, :class => "navbar-link signout-color" %></span>
       <% else %>
         <span class="navbar-text">Signed in as <%= link_to current_client.first_name, client_path(id: current_client.id), :class => "user-name" %>
         <%= link_to "Sign out", "/clients/sign_out", {class: "navbar-link signout-color", method: :delete} %></span>
