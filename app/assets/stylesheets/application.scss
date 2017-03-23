@@ -10,14 +10,23 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require landingpages
  *= require jquery-ui
  *= require_self
- *= require agency
  */
+
 
 @import "external";
 
+.panel-success {
+  border-radius: 0px;
+  border-color: lightblue;
+}
+.panel-success > .panel-heading {
+  color: white;
+  background-color: $brand-primary;
+  border-color: lightblue;
+  border-radius: 0px;
+}
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -42,10 +51,45 @@ body {
   margin-right: 0;
 }
 
+.status-table{
+  .incomplete-step {
+    background-color: $gray-lighter;
+    color: $gray-light;
+    &:disabled {
+    }
+  }
+  .completed-step {
+    td {
+      color: black;
+    }
+    .btn-primary {
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+    .glyphicon {
+      color: $brand-accent;
+      font-size: 20px;
+    }
+  }
+  .active-step {
+    font-size: 1.75rem;
+    color: $brand-primary;
+
+  }
+
+}
+
 .devise {
   margin: auto;
   max-width: 500px;
   padding-top: 30px;
+}
+.devise
+.sign-in-footer {
+  padding-bottom: 30px;
 }
 
  h2 {
@@ -56,6 +100,12 @@ body {
   font-weight: 300;
 
  }
+
+.btn {
+  width: 100%;
+  border-radius: 0px;
+  margin-top: 10px;
+}
 
 .btn-default-lg {
     color: #333;

@@ -1,162 +1,132 @@
-<section id="about">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-12 text-center">
-                  <h3 class="section-subheading1 text-muted">Profile Status</h3>
-                  <h2 class="section-heading1"><%= @client.full_name %></h2>
-              </div>
-          <% if @client.incomplete_profile? %>
-            <br>
-            <h6>Your Profile is missing some required information<br>Please edit your profile by clicking here:<a href="/clients/<%= current_client.id %>/edit" class="btn btn-link btn-sm"><span class="network-name">Edit Profile</span></a></h6>
-            <br>
-            <br>
-          <% else %>
-            <br>
-          <% end %>
-          </div>
-              <% if @client.has_user? %>
-          <div class="row">
-              <div class="col-lg-12">
-                  <ul class="timeline">
-                      <li>
-                          <div class="timeline-image">
-                              <%= image_tag "1.jpg", class: "img-circle img-responsive" %>
-                          </div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h4>On Your Way</h4>
-                                  <h4 class="subheading">Your Counselor</h4>
-                              </div>
-                              <div class="timeline-body">
-                                  <p class="text-muted">Your Counselor Is: <%= @client.user_fullname %>! This is the first step. Your counselor will contact you to inform you of your next steps. <i>If you have any questions, please shoot your counselor an email at: <a href="mailto:<%= @client.user_email %>?Subject=Counseling%20Session" target="_top"><%= @client.user_email %></a></i> </p>
-                              </div>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="timeline-image">
-                              <%= image_tag "3.jpg", class: "img-circle img-responsive" %>
-                          </div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h4>Budget</h4>
-                              <% if @client.budget.edited? %>    
-                                  <h4 class="subheading">Edit Your Budget</h4>
-                              </div>
-                              <div class="timeline-body">
-                                  <p class="text-muted">The more up to date budget information entered, the better we can assist you. To edit or add to your budget click here: <a href="<%= budget_path(current_client.budget.id) %>" class="btn btn-link btn-sm"><span class="network-name">Edit Budget</span></a></p>
-                              </div>
-                              <% else %>
-                                  <h4 class="subheading">Enter Your Budget Info</h4>
-                              </div>
-                              <div class="timeline-body">
-                                  <p class="text-muted">Please enter your budget information as best you can. The more info you provide about your income, debt, and assets - the better your counselor can assist you. You can return to your budget to edit or add to it later. <a href="<%= budget_path(current_client.budget.id) %>" class="btn btn-link btn-sm"><span class="network-name">Your Budget</span></a></p>
-                              </div>
-                              <% end %>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="timeline-image">
-                              <%= image_tag "7.jpg", class: "img-circle img-responsive" %>
-                          </div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h4>Rental</h4>
-                                  <% if current_client.rental.blank? %>
-                                          <h4 class="subheading">Apply For Rental</h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                          <p class="text-muted">Please fill out the application and one of our property managers will contact you shortly.<a href="<%= rental_intake_path(current_client.id) %>" class="btn btn-link btn-sm"><span class="network-name">Apply</span></a></p>
-                                      </div>
-                                  <% else %>
-                                      <h4 class="subheading">Your Rental Application</h4>
-                                  </div>
-                                  <div class="timeline-body">
-                                      <p class="text-muted">We have recieved your rental application. One of our property managers will get back to you soon. View or Update your rental application here:
-                                      <a href="<%= rental_path(current_client.rental.id) %>" class="btn btn-link btn-sm"><span class="network-name">Rental App</span></a></p>
-                                  </div>
-                                  <% end %>
-                                  
-                          </div>
-                      </li>
-                      <li>
-                          <div class="timeline-image">
-                              <%= image_tag "6.jpg", class: "img-circle img-responsive" %>
-                          </div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h4>Homebuying</h4>
-                                  <% if current_client.homebuying.blank? %>
-                                          <h4 class="subheading">Counseling</h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                          <p class="text-muted">Considering purchasing a home? Just fill out this info and we can set you up with one of our homebuying counselors to guide you through the homebuying process.<a href="<%= homebuying_intake_path(current_client.id) %>" class="btn btn-link btn-sm"><span class="network-name">Apply Here</span></a></p>
-                                      </div>
-                                  <% else %>
-                                      <h4 class="subheading">Counseling</h4>
-                                  </div>
-                                  <div class="timeline-body">
-                                      <p class="text-muted">Approved for assistance? Working with a realtor? View or update your homebuying application here
-                                      <a href="<%= homebuying_path(current_client.homebuying.id) %>" class="btn btn-link btn-sm"><span class="network-name">Your Application</span></a></p>
-                                  </div>
-                                  <% end %>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="timeline-image">
-                              <%= image_tag "5.jpg", class: "img-circle img-responsive" %>
-                          </div>
-                          <div class="timeline-panel">
-                              <div class="timeline-heading">
-                                  <h4>Foreclosures</h4>
-                                  <% if current_client.foreclosure.blank? %>
-                                          <h4 class="subheading">Facing Forclosure?</h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                          <p class="text-muted">You've taken the first step. Once this application is submitted, you will be contacted by one of LUCHA's counselors for further guidance.<a href="/foreclosures/new" class="btn btn-link btn-sm"><span class="network-name">Foreclosures</span></a></p>
-                                      </div>
-                                  <% else %>
-                                      <h4 class="subheading">Your Foreclosure Case:</h4>
-                                  </div>
-                                  <div class="timeline-body">
-                                      <p class="text-muted">Received a court summons? Working with a Lawyer? View or Update your foreclosure case here:
-                                      <a href="<%= foreclosure_path(current_client.foreclosure.id) %>" class="btn btn-link btn-sm"><span class="network-name">Your Case</span></a></p>
-                                  </div>
-                                  <% end %>
-                                  
-                          </div>
-                      </li>
-                      <li>
-                          <div class="timeline-image">
+<div class="client-status">  
+  <h1>
+    Application Status for: <strong class="text-primary"><%= @client.full_name %></strong><br />
+    <small>
+      Thank you for your interest in LUCHA's services. See the steps below to complete your application.
+    </small>
+  </h1>
 
-                              <h4><br>LUCHA</h4>
-                          </div>
-                      </li>
-                  </ul>
-              </div>
+  <table class="table status-table">
+  
+    <!-- STEP ONE: CLIENT PROFILE -->
+    <tr class=<%=@step_one%>>
+      <td>
+        Step 1
+      </td>
+      <td>
+        <% if @step_one != "completed-step" %>
+          <div> 
+            Please complete your profile.
           </div>
+        <% else %>
+          <div>
+            Thank you for completing your profile, you can view and edit it anytime.
+          </div>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "View Profile", "/clients/#{@client.id}/edit", :class => "btn btn-primary" %>
+      </td>
+      <td>
+        <% if @step_one != "completed-step" %>
+          <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% end %>
+      </td>
+    </tr>
+    
+    <!-- STEP TWO: BUDGET -->
+      <tr class=<%=@step_two%>>
+        <td>
+            Step 2
+        </td>
+        <td>
+          <% if @step_two != "completed-step" %>
+            <div>Please provide relevant financial information so that LUCHA may better assist you. You may update it anytime. </div>
           <% else %>
-              <div class="row">
-                  <div class="col-lg-12">
-                      <ul class="timeline">
-                          <li>
-                              <div class="timeline-image">
-                                  <%= image_tag "1.jpg", class: "img-circle img-responsive" %>
-                              </div>
-                              <div class="timeline-panel">
-                                  <div class="timeline-heading">
-                                      <h4 class="subheading">Thank you for applying for housing counseling services.</h4>
-                                  </div>
-                                  <div class="timeline-body">
-                                      <p class="text-muted">A LUCHA representative will review your information and contact you within two business days to set-up an appointment and inform you of your next steps. 
-      We look forward to working with you in addressing your housing needs.</p>
-                                      <h4>- LUCHA Housing Counseling and Advocacy Department</h4>
-                                      <p><i>If you have any questions, please shoot our intake specialist an email at: <a href="mailto:intake@lucha.org?Subject=Counseling%20Session" target="_top">Intake@lucha.org</a></i></p>
-                                  </div>
-                              </div>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+            <div>Thank you for providing your financial information. You can view and edit it at any time.</div>
           <% end %>
-      </div>
-  </section>
+        </td>
+        <td>
+          <%= link_to "View Budget", "/budgets/#{@client.id}", :class => "btn btn-primary #{ @step_two == 'incomplete-step' ? 'disabled' : ''}" %>
+        </td>
+        <td>
+          <% if @step_two != "completed-step" %>
+            <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <% end %>
+        </td>
+      </tr>
+    
+    <!-- STEP THREE: APPLICATION -->    
+      <tr class=<%=@step_three%>>
+        <td>
+          Step 3
+        </td>
+          <% if @step_three != "completed-step" %>
+        <td>
+          Click the button(s) for the application(s) you are submitting.
+        </td>
+        <td>
+          <%= link_to "Foreclosure", "/foreclosures/new", :class => "btn btn-primary #{ @step_three == 'incomplete-step' ? 'disabled' : ''}" %>
+          <%= link_to "Rental", "/rentals/new", :class => "btn btn-primary #{ @step_three == 'incomplete-step' ? 'disabled' : ''}" %>
+          <%= link_to "Homebuying", "/homebuyings/new", :class => "btn btn-primary #{ @step_three == 'incomplete-step' ? 'disabled' : ''}" %>
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+        </td>
+          <% else %>
+        <td>
+          <div>Thank you for submitting your application(s).</div>
+        </td>
+        <td>
+          <% @client.client_applications.each do |application| %>
+            <%= link_to "#{application.class.to_s}", "/#{application.class.to_s.downcase}s/#{application.id}", :class => "btn btn-primary" %>
+          <% end %>
+          <% @client.blank_applications.each do |application| %>
+            <%= link_to "#{application}", "/#{application}s/new", :class => "btn btn-secondary" %>
+          <% end %>
+
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </td>
+       <% end %>
+      </tr>
+
+    <!-- STEP FOUR: CLIENT ASSIGNMENT -->  
+    <tr class=<%=@step_four%>> 
+      <td>
+        Step 4
+      </td>
+      <% if !@client.has_user? %>
+        <td>
+            A LUCHA representative will review your information and contact you within
+            <br>
+            two business days to set-up an appointment and inform you of your next steps.<br>
+            We look forward to working with you. 
+        </td>
+        <td>
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+        </td>
+      <% else %>
+        <td>
+          You have been assigned to <br>
+          <%= @client.user.first_name.capitalize %> <%= @client.user.last_name.capitalize %> <br>
+          Email: <%= @client.user.email %> <br>
+          Phone Number: <%= @client.user.work_phone %>
+        </td>
+        <td>
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+  <hr>
+</div>

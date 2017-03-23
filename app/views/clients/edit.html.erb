@@ -1,7 +1,7 @@
 <h1>
-  Update Client Profile Information<br />
+  <%= I18n.t "clients_edit.edit_profile"  %><br />
   <small>
-    Update the information below and click the "Update" button to save.
+    <%= I18n.t "clients_edit.update_information"  %>
   </small>
 </h1>
 <hr>
@@ -9,7 +9,7 @@
   <div class="col-md-4">
     <div class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title">Contact Information</h3>
+        <h3 class="panel-title"><%= I18n.t "clients_edit.contact_information"  %></h3>
       </div>
       <div class="panel-body">
 
@@ -41,6 +41,11 @@
             </div>
 
             <div class="form-group">
+              <label> <%= I18n.t "clients_edit.email" %> </label>
+              <%= form.text_field :email, :class => "form-control" %>
+            </div>
+
+            <div class="form-group">
               <label> <%= I18n.t "clients_edit.work_phone" %> </label>
               <%= form.text_field :work_phone, :class => "form-control" %>
             </div>
@@ -69,11 +74,10 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>
-                    <%= "Ward: "%>
-                  </label>
+                  <label> <%= I18n.t "clients_edit.ward"  %> </label>
                   <%= form.text_field :ward, :class => "form-control" %>
-                  <a href="https://webapps1.cityofchicago.org/ezbuy/geoWardLookup.do" target='_blank'><i>Search for your ward</i></a>
+                  <a href="https://webapps1.cityofchicago.org/ezbuy/geoWardLookup.do" target='_blank'>
+                  <i><%= I18n.t "clients_edit.search_for_ward"  %></i></a>
                 </div>
               </div>
 
@@ -91,7 +95,7 @@
       <div class="col-md-4">
         <div class="panel panel-danger">
           <div class="panel-heading">
-            <h3 class="panel-title">Demographics</h3>
+            <h3 class="panel-title"><%= I18n.t "clients_edit.demographics"  %></h3>
           </div>
           <div class="panel-body">
 
@@ -143,7 +147,7 @@
       <div class="col-md-4">
         <div class="panel panel-danger">
           <div class="panel-heading">
-            <h3 class="panel-title">Household Information</h3>
+            <h3 class="panel-title"><%= I18n.t "clients_edit.household_information"  %></h3>
           </div>
           <div class="panel-body">
 
@@ -175,7 +179,7 @@
             
             <div>
             <hr>
-              <h5 class="text-primary lead"><em>Check all that apply: </em></h5>
+              <h5 class="text-primary lead"><em><%= I18n.t "clients_edit.check_all_that_apply" %></em></h5>
               <div class="form-group">
                 <%= hidden_field_tag 'client[head_of_household]', false %>
                 <%= check_box_tag 'client[head_of_household]', true, @client.head_of_household %>

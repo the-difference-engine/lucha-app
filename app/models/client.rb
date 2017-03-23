@@ -31,6 +31,8 @@ class Client < ActiveRecord::Base
 
   before_create :make_budget
 
+  serialize :ssn, EncryptedCoder.new
+
   def self.unassigned_client
     where(user_id: nil)
     #.where.not(sex: nil, race: nil, ssn: nil, preferred_contact_method: nil, preferred_language: nil, marital_status: nil, dob: nil, num_in_household: nil, num_of_dependants: nil, education_level: nil, estimated_household_income: nil) 
@@ -46,6 +48,10 @@ class Client < ActiveRecord::Base
     "#{first_name.titleize} #{last_name.titleize}"
   end
 
+  def full_name_pdf
+    "#{first_name}#{last_name}"
+  end
+
   def has_user?
     !!user
   end
@@ -56,6 +62,14 @@ class Client < ActiveRecord::Base
 
   def user_fullname
     "#{user.first_name.titleize} #{user.last_name.titleize}"
+  end
+
+  def encoded_ssn
+    if ssn != nil
+      "***-**-****"
+    else
+      "Not Submitted"
+    end
   end
 
   def user_email
@@ -81,7 +95,7 @@ class Client < ActiveRecord::Base
   end
 
   def client_applications
-    program_types = [foreclosure, homebuying, rental, senior_repair, law_project]
+    program_types = [foreclosure, homebuying, rental]
     client_enrolled_programs = []
     program_types.each do |program|
       if !program.blank?
@@ -91,6 +105,16 @@ class Client < ActiveRecord::Base
     client_enrolled_programs
   end
 
+  def blank_applications
+    applications = [foreclosure, homebuying, rental]
+    blank_applications = []
+    applications.each do |application|
+      if application.blank?
+        blank_applications << application.to_s
+      end
+    end
+    blank_applications
+  end
 
   def client_types
     type = []
@@ -105,6 +129,7 @@ class Client < ActiveRecord::Base
                     id 
                     account_created 
                     name 
+                    encoded_ssn
                     email 
                     contact_method 
                     submmitted_application 
@@ -137,6 +162,7 @@ class Client < ActiveRecord::Base
             client.id,
             client.created_at,
             client.full_name,
+            client.encoded_ssn,
             client.email,
             client.preferred_contact_method,
             client.client_types.join(", "),

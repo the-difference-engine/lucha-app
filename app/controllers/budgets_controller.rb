@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-  before_action :authenticate_client!
+  before_action :authenticate!
   respond_to :html, :json
 
   def index
@@ -7,6 +7,7 @@ class BudgetsController < ApplicationController
 
   def show
     gon.id = params[:id]
+    @client = Client.find(params[:id])
   end
 
   def create
@@ -15,13 +16,13 @@ class BudgetsController < ApplicationController
 
   def update
     @budget = Budget.find(params[:id])
-    
+
     if @budget.update(budget_params)
       @budget.update(
-        gross_monthly_income: @budget.gross_monthly_income, 
+        gross_monthly_income: @budget.gross_monthly_income,
         total_monthly_debt: @budget.total_monthly_debt,
         debt_divided_by_income: @budget.debt_income_ratio)
-
+      flash[:success] = ["Budget updated."]
       render json: { success: "Your budget has been updated." }.to_json
     else
       render json: { error: @budget.errors }, status: 422

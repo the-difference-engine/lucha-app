@@ -1,19 +1,19 @@
 
-<h1>Your Clients</h1>
+<h1><%= I18n.t "employee_show.your_clients" %></h1>
 <hr>
 
-<div class="form-group pull-left">
-    <input type="text" class="search form-control" placeholder="Filter...">
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder="Search on this page">
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results">
   <thead>
     <th>#</th>
-    <th>Name</th>
-    <th>Home Phone</th>
-    <th>Submitted Applications</th>
-    <th>Unassign?</th>
-    <th>Client Info</th>
+    <th><%= I18n.t "employee_show.name" %></th>
+    <th><%= I18n.t "employee_show.home_phone" %></th>
+    <th><%= I18n.t "employee_show.submitted_applications" %></th>
+    <th><%= I18n.t "employee_show.unassign" %></th>
+    <th><%= I18n.t "employee_show.client_info" %></th>
     <tr class="warning no-result">
         <td colspan="6"><i class="fa fa-warning"></i> No results </td>
     </tr>
@@ -23,8 +23,8 @@
     <tbody>
       <tr>
         <td><%= client.id %></td>
-        <td><%= client.full_name.titleize %></td>
-        <td><%= client.home_phone %></td> 
+        <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
+        <td><%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td> 
         <td><%= client.client_types.to_sentence %></td>
         <td>
           <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>

@@ -1,17 +1,17 @@
-<h1>All Registered Clients</h1>
+<h1><%= I18n.t "employee_registered_clients.all_registered_clients" %></h1>
 <hr>
-<div class="form-group pull-left">
-    <input type="text" class="search form-control" placeholder="Filter...">
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder="Search on this page">
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results">
   <thead>
     <th>#</th>
-    <th>Name</th>
-    <th>Home Phone</th>
-    <th>Submitted Applications</th>
-    <th>Assigned Employee</th>
-    <th>Client Info</th>
+    <th><%= I18n.t "employee_registered_clients.name" %></th>
+    <th><%= I18n.t "employee_registered_clients.home_phone" %></th>
+    <th><%= I18n.t "employee_registered_clients.submitted_applications" %></th>
+    <th><%= I18n.t "employee_registered_clients.assigned_employee" %></th>
+    <th><%= I18n.t "employee_registered_clients.client_info" %></th>
     <tr class="warning no-result">
         <td colspan="6"><i class="fa fa-warning"></i> No results </td>
     </tr>
@@ -21,13 +21,13 @@
   <tbody>
     <tr>
       <td><%= client.id %></td>
-      <td><%= client.full_name.titleize %></td>
-      <td><%= client.home_phone %></td>
+      <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
+      <td><%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td>
       <td><%= client.client_types.to_sentence %></td>
       <td>
         <% if client.user_id %>
           <%= client.user.full_name %>
-        <% elsif client.sex %> 
+        <% elsif !client.incomplete_profile? && current_user.admin %> 
           <div class="row">
             <%= form_tag("/clients/#{client.id}/assign", method: :patch) do %>
               <div class = "col-md-8 field">
@@ -39,6 +39,8 @@
               </div>
             <% end %>
           </div>
+        <% elsif !client.incomplete_profile? && !current_user.admin %>
+          <p class="text-warning">Awaiting assignment</p>
         <% else %>
           <p class="text-danger">Profile not complete.</p>
         <% end %>

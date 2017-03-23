@@ -4,7 +4,7 @@
 <div class="panel panel-success">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Foreclosure Information submitted by 
+      Homebuying Information submitted by 
       <strong class="text-warning"><%= @homebuying.client.full_name %></strong> on
       <strong class="text-warning"><%= @homebuying.pretty_time %></strong>
     </h3>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
           <td>Realtor's phone number</td>
-          <td class="text-right"><strong><%= @homebuying.realtor_phone %></strong></td>
+          <td class="text-right"><strong><%= number_to_phone(@homebuying.realtor_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
         </tr>
         <tr>
           <td>What is the address of the property you are looking to purchase?</td>
@@ -54,7 +54,7 @@
         </tr>
         <tr>
           <td>loan officer's phone number</td>
-          <td class="text-right"><strong><%= @homebuying.loan_officer_phone %></strong></td>
+          <td class="text-right"><strong><%= number_to_phone(@homebuying.loan_officer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
         </tr>
         <tr>
           <td>What kind of payment assistance program will you be using?</td>

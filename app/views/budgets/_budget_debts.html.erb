@@ -1,73 +1,103 @@
-<table class="table table-hover">
-	<tr>
-		<th colspan="2" text-align: center ><h3><%= I18n.t "budget_debts.title" %></h3></th>
-	
-	<tr>
-		<td><%= I18n.t "budget_debts.principal" %></td>
-		<td>$<input type="text" ng-model="budget.principal_and_interest"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.prop_taxes" %></td>
-		<td>$<input type="text" ng-model="budget.prop_tax"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.asso_fees" %></td>
-		<td>$<input type="text" ng-model="budget.assoc_fees"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.jr_mort" %></td>
-		<td>$<input type="text" ng-model="budget.junior_mortgage"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.min_month_cred_payment" %></td>
-		<td>$<input type="text" ng-model="budget.min_credit_card_payment"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.stud_loan" %></td>
-		<td>$<input type="text" ng-model="budget.student_loan"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.electic" %></td>
-		<td>$<input type="text" ng-model="budget.electricity"</td>
-	</tr>
-	<tr>
- 		<td>Gas</td>
-		<td>$<input type="text" ng-model="budget.gas"</td>
- 	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.H20" %></td>
-		<td>$<input type="text" ng-model="budget.water"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.tele" %></td>
-		<td>$<input type="text" ng-model="budget.phone"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.other_util" %></td>
-		<td>$<input type="text" ng-model="budget.other_utilities"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.food" %></td>
-		<td>$<input type="text" ng-model="budget.food"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.gas_car" %></td>
-		<td>$<input type="text" ng-model="budget.gas_car_maintenance"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.child" %></td>
-		<td>$<input type="text" ng-model="budget.child_care"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.medical" %></td>
-		<td>$<input type="text" ng-model="budget.medical_expenses"</td>
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.rent" %> 
-		<td>$<input type="text" ng-model="budget.rent"</td></td>	
-	</tr>
-	<tr>
-		<td><%= I18n.t "budget_debts.rent_insurance" %></td>
-		<td>$<input type="text" ng-model="budget.rental_insurance"</td>
-	</tr>
-</table>
+<div class="form-group">
+	<label><%= I18n.t "budget_debts.principal" %></label>
+	<input class="form-control" type="text" ng-model="budget.principal_and_interest">
+</div>
+<div class="row" style="margin-bottom: 0px;">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.prop_taxes" %></label>
+			<input class="form-control" type="text" ng-model="budget.prop_tax">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.asso_fee" %></label>
+			<input class="form-control" type="text" ng-model="budget.assoc_fees">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.jr_mort" %></label>
+			<input class="form-control" type="text" ng-model="budget.junior_mortgage">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.min_month_cred_payment" %></label>
+			<input class="form-control" type="text" ng-model="budget.min_credit_card_payment">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.stud_loan" %></label>
+			<input class="form-control" type="text" ng-model="budget.student_loan">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.electic" %></label>
+			<input class="form-control" type="text" ng-model="budget.electricity">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.gas" %></label>
+			<input class="form-control" type="text" ng-model="budget.gas">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.H20" %></label>
+			<input class="form-control" type="text" ng-model="budget.water">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.tele" %></label>
+			<input class="form-control" type="text" ng-model="budget.phone">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.other_util" %></label>
+			<input class="form-control" type="text" ng-model="budget.other_utilities">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.food" %></label>
+			<input class="form-control" type="text" ng-model="budget.food">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.gas_car" %></label>
+			<input class="form-control" type="text" ng-model="budget.gas_car_maintenance">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.child" %></label>
+			<input class="form-control" type="text" ng-model="budget.child_care">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.medical" %></label>
+			<input class="form-control" type="text" ng-model="budget.medical_expenses">
+		</div>
+	</div>
+	<p><%= I18n.t "budget_debts.if_renter" %></p>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.rent" %></label>
+			<input class="form-control" type="text" ng-model="budget.rent">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.rent_insurance" %></label>
+			<input class="form-control" type="text" ng-model="budget.rental_insurance">
+		</div>
+	</div>
+</div>

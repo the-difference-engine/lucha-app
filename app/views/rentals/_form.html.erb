@@ -1,0 +1,82 @@
+
+<div class="form-group">
+  <%= label_tag :studio %>
+  <%= select_tag(:studio, options_for_select([["No", false], ["Yes", true]], @rental.studio ), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :two_bed %>
+  <%= select_tag(:two_bed, options_for_select([["No", false], ["Yes", true]], @rental.two_bed ), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :three_bed %>
+  <%= select_tag(:three_bed, options_for_select([["No", false], ["Yes", true]], @rental.three_bed ), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :wheelchair_accessible %>
+  <%= select_tag(:wheelchair_accessible, options_for_select([["No", false], ["Yes", true]], @rental.wheelchair_accessible ), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :car_owner %>
+  <%= select_tag(:car_owner, options_for_select([["No", false], ["Yes", true]], @rental.car_owner ), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :pet_owner %>
+  <%= select_tag(:pet_owner, options_for_select([["No", false], ["Yes", true]], @rental.pet_owner ), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :hear_of_property %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :hear_of_property, @rental.hear_of_property, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :reason_for_move %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :reason_for_move, @rental.reason_for_move, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :housing_situation %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :housing_situation, @rental.housing_situation, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :employer_name %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :employer_name, @rental.employer_name, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :employer_address %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :employer_address, @rental.employer_address, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :employer_city %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :employer_city, @rental.employer_city, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :employer_state %>
+  <%= select_tag(:employer_state, options_for_select(us_states, "IL"), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :employer_phone %>
+  <%= text_field_tag :employer_phone, @rental.employer_phone, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :agree_to_fee %>
+  <%= select_tag(:agree_to_fee, options_for_select([["No", false], ["Yes", true]], @rental.agree_to_fee ), :class => "form-control") %>
+</div>
+

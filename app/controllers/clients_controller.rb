@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   include FormInputsHelper
+
   before_action :authenticate!, :only => [:index, :show, :update, :edit,]
   before_action :verify_user!, :only => [:destroy,]
 
@@ -40,6 +41,19 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        html = render_to_string(:action => :show, :template => "clients/pdfshow.html.erb", :layout => "pdf.html.erb") 
+        pdf = WickedPdf.new.pdf_from_string(html) 
+
+        send_data(pdf, 
+          :filename => "#{@client.full_name_pdf}.pdf", 
+          :disposition => 'attachment')
+      end
+    end
+      
   end
 
   def new
@@ -89,7 +103,7 @@ class ClientsController < ApplicationController
       volunteer_interest: params[:client][:volunteer_interest],
       user_id: params[:client][:user_id]})
       flash[:success] = [ "Profile Updated." ]
-      redirect_to client_path(@client)
+      redirect_to client_status_path(@client)
     else
       flash.now[:warning] = @client.errors.full_messages
       render :edit
@@ -102,6 +116,24 @@ class ClientsController < ApplicationController
     @foreclosure = @client.foreclosure
     @homebuying = @client.homebuying
     @rental = @client.rental
+
+    #GET CURRENT STATUS STEP - MOVE TO MODEL?
+    @step_one = @client.incomplete_profile? ? "active-step" : "completed-step"
+    @step_two = "incomplete-step"
+    @step_three = "incomplete-step"
+    @step_four = "incomplete-step"
+
+    if @step_one == "completed-step"
+      @step_two = @client.budget.debt_income_ratio > 0 ? "completed-step" : "active-step"
+    end
+
+    if @step_two == "completed-step"
+      @step_three = @client.client_applications.length > 0 ? "completed-step" : "active-step"
+    end 
+
+    if @step_three == "completed-step"
+      @step_four = @client.user_id ? "completed-step" : "active-step"
+    end
   end
 
   def destroy
@@ -122,7 +154,8 @@ class ClientsController < ApplicationController
   def assign
     client = Client.find(params[:id])
     user_id = params[:client][:user_id]
-    if user_id && client.update(user_id: user_id)
+    client.user_id = user_id
+    if user_id && client.save
       flash[:success] = [ 'Client assigned successfully!' ]
     else
       flash[:danger] = [ 'Something has gone wrong.']

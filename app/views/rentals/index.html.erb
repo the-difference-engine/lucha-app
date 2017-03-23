@@ -1,15 +1,20 @@
-<h1>Rental Clients</h1>
-
+<h1>Rental Clients
+<br>
+<small> 
+  This is a list of all the rental applicants
+</small></h1>
+<hr>
 <div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
+    <input type="text" class="search form-control" placeholder="Search on this page">
 </div>
-<span class="counter pull-right"></span>
-<table class="table table-hover table-bordered results">
+
+<span class="counter pull-left"></span>
+<table class="table table-hover results">
   <thead>
-     <th >ID</th>
-     <th class="col-md-5 col-xs-5">Name</th>
-     <th class="col-md-3 col-xs-3">Home Phone</th>
-     <th class="col-md-3 col-xs-3">Address</th>
+     <th>ID</th>
+     <th>Name</th>
+     <th>Home Phone</th>
+     <th>Address</th>
      <th >View</th> 
    </tr>    
    <tr class="warning no-result">
@@ -21,10 +26,10 @@
    <tr>
      <td><%= rental.client.id %></td>
      <td><%= link_to(rental.client.full_name.titleize, client_path(rental.client.id)) %></td>
-     <td><%= rental.client.home_phone %></td>
+     <td><%= number_to_phone(rental.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td>
      <td><%= rental.client.address %>, <%= rental.client.city %>, <%= rental.client.state %></td>
      <td>
-       <%= link_to "View", rental_path(rental.id), class: "btn btn-default" %>
+       <%= link_to "View", rental_path(rental.id), :class => "btn btn-sm btn-primary"%>
      </td>
    </tr>
  </tbody>

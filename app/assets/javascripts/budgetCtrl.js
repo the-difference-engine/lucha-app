@@ -10,12 +10,12 @@
       $http.get('/api/budgets/' + activeId + '.json').then(function(response) {
         $scope.budget = response.data;
         $scope.updateSum();
-      }); 
+      });
     }
 
     function income(){
       return _.pick($scope.budget, [
-        'gross_wages', 
+        'gross_wages',
         'self_employment_income',
         'overtime',
         'unemployment',
@@ -28,7 +28,7 @@
 
     function debt(){
       return _.pick($scope.budget, [
-        'principal_and_interest', 
+        'principal_and_interest',
         'prop_tax',
         'assoc_fees',
         'junior_mortgage',
@@ -48,7 +48,7 @@
     }
 
     $scope.updateSum = function() {
-      $scope.grossMontlyIncome = sum(income());
+      $scope.grossMonthlyIncome = sum(income());
       $scope.totalMonthlyDebt = sum(debt());
     }
 
@@ -60,13 +60,14 @@
         }
       }
       return sum;
-    }   
+    }
 
     $scope.submitData = function(data) {
       var monthlyIncome = data;
       $http.patch('/budgets/' + activeId, monthlyIncome).success(function(response){
         $scope.response = response.success;
-        flashAlert('success');
+        // flashAlert('success');
+        window.location.replace("/clients/"+activeId+"/status");
       }).error(function(response) {
         $scope.response = response.error;
         flashAlert('danger');
