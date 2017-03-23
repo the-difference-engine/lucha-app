@@ -104,7 +104,6 @@ body {
 .btn {
   width: 100%;
   border-radius: 0px;
-  margin-top: 10px;
 }
 
 .btn-default-lg {
@@ -142,5 +141,16 @@ body {
   .btn {
     width: 20%;
     margin-top: 0;
+
+.client-status {
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+.user-index {
+  .row {
+    margin-bottom: 0;
+
   }
 }
