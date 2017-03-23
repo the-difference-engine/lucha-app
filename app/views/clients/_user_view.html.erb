@@ -9,7 +9,7 @@
               <div class="col-md-4" style="margin-top:2px;">
                 <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => @client.user.full_name}, :class => "form-control input-sm") %>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 user-assign">
                 <%= hidden_field_tag :client_id, @client.id %>
                 <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
               </div>
