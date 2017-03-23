@@ -104,7 +104,6 @@ body {
 .btn {
   width: 100%;
   border-radius: 0px;
-  margin-top: 10px;
 }
 
 .btn-default-lg {
@@ -136,4 +135,16 @@ body {
 .counter{
   padding:8px;
   color:#ccc;
+}
+
+.client-status {
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+.user-index {
+  .row {
+    margin-bottom: 0;
+  }
 }
