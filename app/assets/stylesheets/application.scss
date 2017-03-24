@@ -28,6 +28,20 @@
   border-radius: 0px;
 }
 
+.panel-primary {
+
+}
+
+.btn.btn-success.btn-sm {
+  margin: 1% 0px;  
+}
+.col-md-8 {
+
+  input.btn.btn-sm.btn-success {
+    width: 50%;
+  }
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -104,6 +118,10 @@ body {
 .btn {
   width: 100%;
   border-radius: 0px;
+}
+
+.btn-danger, .btn-warning {
+  margin: 5px 0px;
 }
 
 .btn-default-lg {
