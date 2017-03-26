@@ -189,7 +189,13 @@
               <div class="form-group">
                 <%= hidden_field_tag 'client[disability]', false %>
                 <%= check_box_tag 'client[disability]', true, @client.disability %>
-                <label><%= I18n.t "clients_edit.disability"  %></label>
+                <label><%= I18n.t "clients_edit.disability_in_household"  %></label>
+              </div>
+
+              <div class="form-group">
+                <%= hidden_field_tag 'client[disability_in_household]', false %>
+                <%= check_box_tag 'client[disability_in_household]', true, @client.disability_in_household %>
+                <label><%= I18n.t "clients_edit.disability_in_household"  %></label>
               </div>
 
               <div class="form-group">
