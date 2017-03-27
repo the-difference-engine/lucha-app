@@ -69,7 +69,16 @@
         // flashAlert('success');
         window.location.replace("/clients/"+activeId+"/status");
       }).error(function(response) {
-        $scope.response = response.error;
+        var errors = response.error;
+        $scope.response = '';
+        for (var error in errors){
+          var key = error.replace(/[_-]/g, " ");
+          $scope.response += key.charAt(0).toUpperCase() + key.slice(1);
+          $scope.response += ' ';
+          $scope.response += errors[error].join(', ');
+          $scope.response += ';';
+        }
+
         flashAlert('danger');
       })
     }
@@ -78,13 +87,13 @@
       $("#budget-alert")
           .addClass('alert-' + flashType)
           .show();
-      setTimeout(function() {
-        $("#budget-alert")
-          .slideUp(500, function() {
-            $scope.closeAlert();
-          })
-          .removeClass('alert-' + flashType);
-      }, 4000);
+      // setTimeout(function() {
+      //   $("#budget-alert")
+      //     .slideUp(500, function() {
+      //       $scope.closeAlert();
+      //     })
+      //     .removeClass('alert-' + flashType);
+      // }, 4000);
 
     }
 
