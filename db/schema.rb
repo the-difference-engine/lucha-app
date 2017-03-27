@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326235917) do
+ActiveRecord::Schema.define(version: 20170327164449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170326235917) do
     t.boolean  "assign"
     t.boolean  "disability_in_household",      default: false
     t.boolean  "over_sixty_two",               default: false
+    t.string   "other_language"
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree

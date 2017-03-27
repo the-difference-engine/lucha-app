@@ -160,7 +160,8 @@ module FormInputsHelper
 	def language_options
 		[
 			['English', 'English'], 
-			['Spanish', 'Spanish']
+			['Spanish', 'Spanish'],
+			['Other', 'Other']
 		]
 	end
 

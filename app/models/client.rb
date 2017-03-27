@@ -139,6 +139,7 @@ class Client < ActiveRecord::Base
                     work_phone 
                     cell_phone 
                     preferred_language
+                    other_language
                     marital_status
                     date_of_birth
                     head_of_household 
@@ -174,6 +175,7 @@ class Client < ActiveRecord::Base
             client.work_phone,
             client.cell_phone,
             client.preferred_language,
+            client.other_language,
             client.marital_status,
             client.dob,
             client.head_of_household,

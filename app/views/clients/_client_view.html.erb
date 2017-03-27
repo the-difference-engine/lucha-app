@@ -35,6 +35,10 @@ r<h1>
               <td class="text-right"><strong><%= @client.pref_lang %></strong></td>
             </tr>
             <tr>
+              <td><%= I18n.t "clients_show.other_language"  %></td>
+              <td class="text-right"><strong><%= @client.other_language %></strong></td>
+            </tr>
+            <tr>
               <td><%= I18n.t "clients_show.email"  %></td>
               <td class="text-right"><strong><%= @client.email %></strong></td>
             </tr>

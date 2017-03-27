@@ -24,6 +24,7 @@ class Client::RegistrationsController < Devise::RegistrationsController
           :ssn,
           :preferred_contact_method,
           :preferred_language,
+          :other_language,
           :dob,
           :head_of_household,
           :num_in_household,
