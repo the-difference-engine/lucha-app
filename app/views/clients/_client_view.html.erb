@@ -1,4 +1,4 @@
-r<h1>
+<h1>
   <%= I18n.t "clients_show.hello"  %> <%= @client.full_name %>! <br />
   <small>
     <%= I18n.t "clients_show.below"  %>
@@ -32,7 +32,7 @@ r<h1>
             </tr>
             <tr>
               <td><%= I18n.t "clients_show.pref_lang"  %></td>
-              <td class="text-right"><strong><%= @client.pref_lang %></strong></td>
+              <td class="text-right"><strong><%= @client.preferred_language %></strong></td>
             </tr>
             <tr>
               <td><%= I18n.t "clients_show.other_language"  %></td>
