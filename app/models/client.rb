@@ -139,6 +139,7 @@ class Client < ActiveRecord::Base
                     work_phone 
                     cell_phone 
                     preferred_language
+                    other_language
                     marital_status
                     date_of_birth
                     head_of_household 
@@ -146,6 +147,8 @@ class Client < ActiveRecord::Base
                     num_of_dependants
                     education_level
                     disability
+                    disability_in_household
+                    over_sixty_two
                     union_member
                     military_service_member
                     volunteer_interest
@@ -172,6 +175,7 @@ class Client < ActiveRecord::Base
             client.work_phone,
             client.cell_phone,
             client.preferred_language,
+            client.other_language,
             client.marital_status,
             client.dob,
             client.head_of_household,
@@ -179,6 +183,8 @@ class Client < ActiveRecord::Base
             client.num_of_dependants,
             client.education_level,
             client.disability,
+            client.disability_in_household,
+            client.over_sixty_two,
             client.union_member,
             client.military_service_member,
             client.volunteer_interest,

@@ -31,6 +31,18 @@ r<h1>
               <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true)%></strong></td>
             </tr>
             <tr>
+              <td><%= I18n.t "clients_show.pref_lang"  %></td>
+              <td class="text-right"><strong><%= @client.pref_lang %></strong></td>
+            </tr>
+            <tr>
+              <td><%= I18n.t "clients_show.other_language"  %></td>
+              <td class="text-right"><strong><%= @client.other_language %></strong></td>
+            </tr>
+            <tr>
+              <td><%= I18n.t "clients_show.email"  %></td>
+              <td class="text-right"><strong><%= @client.email %></strong></td>
+            </tr>
+            <tr>
               <td><%= I18n.t "clients_show.address"  %></td>
               <td class="text-right">
                 <strong>
@@ -133,6 +145,14 @@ r<h1>
           <tr>
             <td><%= I18n.t "clients_show.disability"  %></td>
             <td class="text-right"><strong><%= @client.disability ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td><%= I18n.t "clients_show.disability_in_household"  %></td>
+            <td class="text-right"><strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td><%= I18n.t "clients_show.over_sixty_two"  %></td>
+            <td class="text-right"><strong><%= @client.over_sixty_two ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
             <td><%= I18n.t "clients_show.military"  %></td>

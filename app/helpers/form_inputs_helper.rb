@@ -143,7 +143,8 @@ module FormInputsHelper
 	def gender_options
 		[
 			['Male', 'Male'],
-			['Female', 'Female']
+			['Female', 'Female'],
+			['Other', 'Other']
 		]
 	end
 
@@ -159,16 +160,19 @@ module FormInputsHelper
 	def language_options
 		[
 			['English', 'English'], 
-			['Spanish', 'Spanish']
+			['Spanish', 'Spanish'],
+			['Other', 'Other']
 		]
 	end
 
 	def marital_status_options
 		[
 			['Married', 'Married'], 
-			['Divorced', 'Divorced'], 
+			['Divorced', 'Divorced'],
+			['Separated', 'Separated'], 
 			['Single', 'Single'], 
 			['Widowed', 'Widowed']
+
 		]
 	end
 end
