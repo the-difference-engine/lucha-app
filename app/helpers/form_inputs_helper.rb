@@ -167,9 +167,11 @@ module FormInputsHelper
 	def marital_status_options
 		[
 			['Married', 'Married'], 
-			['Divorced', 'Divorced'], 
+			['Divorced', 'Divorced'],
+			['Separated', 'Separated'], 
 			['Single', 'Single'], 
 			['Widowed', 'Widowed']
+
 		]
 	end
 end
