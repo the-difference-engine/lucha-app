@@ -78,6 +78,10 @@
               <td class="text-right"><strong><%= @client.email %></strong></td>
             </tr>
             <tr>
+              <td><%= I18n.t "employee_view.pref_lang" %></td>
+              <td class="text-right"><strong><%= @client.pref_lang %></strong></td>
+            </tr>
+            <tr>
               <td><%= I18n.t "employee_view.address" %></td>
               <td class="text-right">
                 <strong>
@@ -180,6 +184,10 @@
           <tr>
             <td><%= I18n.t "employee_view.disability_in_household" %></td>
             <td class="text-right"><strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td><%= I18n.t "employee_view.over_sixty_two" %></td>
+            <td class="text-right"><strong><%= @client.over_sixty_two ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
             <td><%= I18n.t "employee_view.military_service_member" %></td>

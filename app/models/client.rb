@@ -147,6 +147,7 @@ class Client < ActiveRecord::Base
                     education_level
                     disability
                     disability_in_household
+                    over_sixty_two
                     union_member
                     military_service_member
                     volunteer_interest
@@ -181,6 +182,7 @@ class Client < ActiveRecord::Base
             client.education_level,
             client.disability,
             client.disability_in_household,
+            client.over_sixty_two,
             client.union_member,
             client.military_service_member,
             client.volunteer_interest,

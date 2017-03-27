@@ -143,7 +143,8 @@ module FormInputsHelper
 	def gender_options
 		[
 			['Male', 'Male'],
-			['Female', 'Female']
+			['Female', 'Female'],
+			['Other', 'Other']
 		]
 	end
 

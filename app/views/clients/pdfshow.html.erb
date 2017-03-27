@@ -27,6 +27,14 @@
               <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
             </tr>
             <tr>
+              <td>Preferred Language: <br></td> 
+              <td class="text-right"><strong> <%= @client.pref_lang %></strong></td>
+            </tr>
+            <tr>
+              <td>Email: <br></td> 
+              <td class="text-right"><strong> <%= @client.email %></strong></td>
+            </tr>
+            <tr>
               <td>Address:</td>
               <td class="text-right">
                 <strong>
@@ -157,6 +165,10 @@
           <tr>
             <td>Disability in Household: <br>
             <strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td>Over sixty-two: <br>
+            <strong><%= @client.over_sixty_two ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
             <td>Military Service Member:<br>

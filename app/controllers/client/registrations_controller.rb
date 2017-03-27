@@ -31,6 +31,7 @@ class Client::RegistrationsController < Devise::RegistrationsController
           :education_level,
           :disability,
           :disability_in_household,
+          :over_sixty_two,
           :union_member,
           :military_service_member,
           :volunteer_interest,
