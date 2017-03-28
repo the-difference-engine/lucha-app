@@ -41,9 +41,9 @@ class UsersController < Devise::RegistrationsController
       email: params[:user][:email],
       password: params[:user][:password],
       password_confirmation: params[:user][:password_confirmation],
-      home_phone: params[:user][:home_phone],
-      work_phone: params[:user][:work_phone],
-      cell_phone: params[:user][:cell_phone]
+      home_phone: params[:user][:home_phone].gsub!(/\D/, ''),
+      work_phone: params[:user][:work_phone].gsub!(/\D/, ''),
+      cell_phone: params[:user][:cell_phone].gsub!(/\D/, '')
       })
     if @user.save
       sign_in(@user, scope: :user)
@@ -66,9 +66,9 @@ class UsersController < Devise::RegistrationsController
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      home_phone: params[:home_phone],
-      work_phone: params[:work_phone],
-      cell_phone: params[:cell_phone]
+      home_phone: params[:home_phone],#.gsub!(/\D/, ''),
+      work_phone: params[:work_phone],#.gsub!(/\D/, ''),
+      cell_phone: params[:cell_phone],#.gsub!(/\D/, '')
         })
 
     flash[:success] = "Your info is updated."
