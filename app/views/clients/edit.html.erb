@@ -20,18 +20,18 @@
             </div>
 
             <div class="form-group">
-              <label> <%= I18n.t "clients_edit.last_name" %> </label> 
+              <label> <%= I18n.t "clients_edit.last_name" %> </label>
               <%= form.text_field :last_name, :class => "form-control" %>
             </div>
 
-            <div class="row">
+            <div class="row phone-number--row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.home_phone" %> </label>
                   <%= form.text_field :home_phone, :class => "form-control" %>
                 </div>
               </div>
-              
+
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.cell" %> </label>
@@ -61,15 +61,15 @@
               <label> <%= I18n.t "clients_edit.address" %> </label>
               <%= form.text_field :address, :class => "form-control" %>
             </div>
-            
-            <div class="row">
+
+            <div class="row city-state--row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.city" %> </label>
                   <%= form.text_field :city, :class => "form-control" %>
                 </div>
               </div>
-      
+
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.state"  %> </label>
@@ -78,7 +78,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row client-location--row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.ward"  %> </label>
@@ -119,7 +119,7 @@
             <div class="form-group">
               <label>
                 <%= I18n.t "clients_edit.ss"  %>
-                <span class="text-danger"> * </span>  
+                <span class="text-danger"> * </span>
               </label>
               <%= form.password_field(:ssn, value: @client.ssn, :class => "form-control") %>
             </div>
@@ -154,11 +154,13 @@
           <div class="panel-body">
 
             <div class="form-group">
-              <label>
-                <%= I18n.t "clients_edit.house_occu"  %>
-                <span class="text-danger"> * </span>
-              </label>
-              <%= form.number_field :num_in_household, {in: 1..15, class: "form-control"} %>
+              <div class="row">
+                <label>
+                  <%= I18n.t "clients_edit.house_occu"  %>
+                  <span class="text-danger"> * </span>
+                </label>
+                <%= form.number_field :num_in_household, {in: 1..15, class: "form-control"} %>
+              </div>
             </div>
 
             <div class="form-group">
@@ -178,7 +180,7 @@
               <label> <%= I18n.t "clients_edit.est_house_income"  %> </label>
               <%= form.select :estimated_household_income, options_for_select(income_range, @client.estimated_household_income),{},{:class => "form-control"} %>
             </div>
-            
+
             <div>
             <hr>
               <h5 class="text-primary lead"><em><%= I18n.t "clients_edit.check_all_that_apply" %></em></h5>

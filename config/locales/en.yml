@@ -20,7 +20,7 @@ en:
       # demographics: "LUCHA Demographics:"
       # demographics_statement: "A few notes on the diversity of our clients:
       # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
-  
+
   # Client section, employee section below
   client_sign_up:
       welcome: "Welcome"
@@ -126,12 +126,12 @@ en:
 
   clients_show:
       hello: "Hello "
-      below: "Below is the info we have on file for you. Make adjustments by clicking on the edit profile button at the bottom of this page."  
+      below: "Below is the info we have on file for you. Make adjustments by clicking on the edit profile button at the bottom of this page."
       contact_information: "Contact Information"
       first_name: "First Name:"
       last_name: "Last Name:"
       client_name: "Client Name:"
-      home_phone: "Home Phone Number:"
+      home_phone: "Home Phone:"
       cell: "Cell Phone:"
       work_phone: "Work Phone:"
       address: "Address:"
@@ -169,7 +169,7 @@ en:
       contact_information: "Contact Information"
       first_name: "First Name:"
       last_name: "Last Name:"
-      home_phone: "Home Phone Number:"
+      home_phone: "Home Phone:"
       cell: "Cell Phone:"
       email: "Email:"
       work_phone: "Work Phone:"
@@ -309,7 +309,7 @@ en:
       action: "Action"
 
 
-      
+
   activerecord:
     attributes:
       client:
