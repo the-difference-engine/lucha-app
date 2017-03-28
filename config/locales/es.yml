@@ -46,6 +46,7 @@ es:
         sign_up: "SIGN UP"
         already_have_account: "¿Ya tienes una cuenta?"
         log_in: "Inicio de sesión"
+        agreement: "Declaración de Política y Divulgación"
 
     client_log_in:
         employee_log_in: "Employee Log In"
