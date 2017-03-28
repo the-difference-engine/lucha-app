@@ -6,9 +6,10 @@
 <span class="counter pull-left"></span>
 <table class="table table-hover results user-index">
   <thead>
-    <th>#</th>
     <th><%= I18n.t "employee_registered_clients.name" %></th>
+    <th><%= I18n.t "employee_registered_clients.email" %></th>
     <th><%= I18n.t "employee_registered_clients.home_phone" %></th>
+    <th class="sm-col"><%= I18n.t "employee_registered_clients.preferred_language" %></th>
     <th><%= I18n.t "employee_registered_clients.submitted_applications" %></th>
     <th><%= I18n.t "employee_registered_clients.assigned_employee" %></th>
     <th><%= I18n.t "employee_registered_clients.client_info" %></th>
@@ -20,10 +21,16 @@
 <% @clients.each do |client| %>
   <tbody>
     <tr>
-      <td><%= client.id %></td>
       <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
-      <td><%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td>
-      <td><%= client.client_types.to_sentence %></td>
+      <td><%= client.email %></td>
+      <td class="md-col">
+        <p>Home: <%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+        <p>Work: <%= number_to_phone(client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+        <p>Cell: <%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+          
+      </td>
+      <td><%= client.preferred_language %></td>
+      <td class="sm-col"><%= client.client_types.to_sentence %></td>
       <td>
         <% if client.user_id %>
           <%= client.user.full_name %>
