@@ -19,13 +19,19 @@
 
 // table adjustments
 
+* {
+  border-radius: 0px;
+}
 .row.phone-number--row,
 .row.client-location--row,
 .row.city-state--row {
   margin-bottom: 0px;
 }
 
-
+.panel.panel-primary,
+.panel.panel-primary.panel-heading {
+  border-radius: 0px;
+}
 .panel-success {
   border-radius: 0px;
   border-color: lightblue;
