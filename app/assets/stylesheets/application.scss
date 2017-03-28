@@ -28,9 +28,12 @@
   margin-bottom: 0px;
 }
 
-.panel.panel-primary,
-.panel.panel-primary.panel-heading {
+.panel.panel-primary{
   border-radius: 0px;
+}
+.panel-heading {
+  border-radius: 0px;
+  
 }
 .panel-success {
   border-radius: 0px;
