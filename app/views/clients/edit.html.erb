@@ -53,6 +53,10 @@
               <%= form.text_field :other_language, :class => "form-control" %>
             </div>
             <div class="form-group">
+              <label> <%= I18n.t "clients_edit.pref_contact"  %> </label>
+              <%= form.select(:preferred_contact_method, options_for_select(contact_method_options, @client.preferred_contact_method),{},{:class => "form-control"}) %>
+            </div>
+            <div class="form-group">
               <label> <%= I18n.t "clients_edit.work_phone" %> </label>
               <%= form.text_field :work_phone, :class => "form-control" %>
             </div>
@@ -124,10 +128,6 @@
               <%= form.password_field(:ssn, value: @client.ssn, :class => "form-control") %>
             </div>
 
-            <div class="form-group">
-              <label> <%= I18n.t "clients_edit.pref_contact"  %> </label>
-              <%= form.select(:preferred_contact_method, options_for_select(contact_method_options, @client.preferred_contact_method),{},{:class => "form-control"}) %>
-            </div>
             <div class="form-group">
               <label> <%= I18n.t "clients_edit.marital_stat"  %> </label>
               <%= form.select(:marital_status, options_for_select(marital_status_options, @client.marital_status),{},{:class => "form-control"}) %>
