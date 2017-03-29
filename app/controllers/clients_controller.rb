@@ -74,12 +74,13 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
+
     if @client.update({
       first_name: params[:client][:first_name],
       last_name: params[:client][:last_name],
-      home_phone: params[:client][:home_phone],
-      cell_phone: params[:client][:cell_phone],
-      work_phone: params[:client][:work_phone],
+      home_phone: params[:client][:home_phone].gsub!(/\D/, ''),
+      cell_phone: params[:client][:cell_phone].gsub!(/\D/, ''),
+      work_phone: params[:client][:work_phone].gsub!(/\D/, ''),
       address: params[:client][:address],
       state: params[:client][:state],
       city: params[:client][:city],
@@ -87,7 +88,7 @@ class ClientsController < ApplicationController
       ward: params[:client][:ward],
       sex: params[:client][:sex],
       race: params[:client][:race],
-      ssn: params[:client][:ssn],
+      ssn: params[:client][:ssn].gsub!(/\D/, ''),
       preferred_contact_method: params[:client][:preferred_contact_method],
       preferred_language: params[:client][:preferred_language],
       other_language: params[:client][:other_language],

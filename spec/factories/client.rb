@@ -4,8 +4,8 @@ FactoryGirl.define do
   end
 
   factory :client do
-    first_name "Peter"
-    last_name "Pan"
+    first_name "Test"
+    last_name "Name"
     user
     sequence(:email){ |n| "peterpan#{n}@example.com"}
     password "12345678"
@@ -13,7 +13,10 @@ FactoryGirl.define do
     authorization_and_waiver true
     privacy_policy_authorization true
     ssn "123121234"
-    preferred_contact_method "312-555-1212"
+    home_phone "4351234567"
+    cell_phone "3125551212"
+    work_phone "3125551214"
+    preferred_contact_method "3125551214"
     preferred_language "English"
     marital_status "Single"
     dob 19940301

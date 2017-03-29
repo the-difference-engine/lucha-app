@@ -49,6 +49,11 @@ class RentalsController < ApplicationController
     end
 
     if @rental.update(rental_params.merge(client_id: @rental.client_id))
+      # @rental.landlord_phone,#.gsub!(/\D/, '')
+      # @rental.pre_landlord_phone,#.gsub!(/\D/, '')
+      # @rental.loan_officer_phone,#.gsub!(/\D/, '')
+      # @rental.per_ref_phone,#.gsub!(/\D/, '')
+      # @rental.save
       flash[:success] = "Rental application submitted."
       redirect_to "/rentals/#{@rental.id}"
     else

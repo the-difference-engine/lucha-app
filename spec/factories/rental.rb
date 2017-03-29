@@ -14,13 +14,13 @@ FactoryGirl.define do
     reasons_for_application "1"
     landlord_name "John"
     landlord_address "123 Main St."
-    landlord_phone "312-223-4321"
+    landlord_phone "3122234321"
     occupancy_at_apartment "2"
     monthly_rent 123.45
     fuel_electric 123.45
     pre_landlord_name "John"
     pre_landlord_address "123 Main St."
-    pre_landlord_phone "312-223-4321"
+    pre_landlord_phone "3122234321"
     pre_rent 123.45
     pre_fuel_electric 123.45
     reason_for_move "cat"
@@ -29,7 +29,7 @@ FactoryGirl.define do
     employer_address "1"
     employer_city "1"
     employer_state "1"
-    employer_phone "773-555-5555"
+    employer_phone "7735555555"
     position "1"
     length_employed 10
     personal_reference_name "1"
