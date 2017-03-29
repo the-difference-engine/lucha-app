@@ -46,6 +46,7 @@ en:
       sign_up: "SIGN UP"
       already_have_account: "Already have an account?"
       log_in: "LOGIN"
+      agreement: "Policy and Disclosure Statement"
 
   client_log_in:
       employee_log_in: "Employee Log In"

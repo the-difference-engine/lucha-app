@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   root to: 'landing_pages#index'
 
+  get '/TOAen' => 'landing_pages#TOA_en'
+  get '/TOAes' => 'landing_pages#TOA_es'
+
   namespace :api do
     get '/budgets/:id' => 'budgets#show'
   end
