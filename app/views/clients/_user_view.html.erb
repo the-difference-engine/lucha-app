@@ -7,9 +7,9 @@
           <div class="row" style="padding-top:10px;margin-bottom:0;">
             <%= form_tag("/clients/#{@client.id}/assign", method: :patch) do %>
               <div class="col-md-4" style="margin-top:2px;">
-                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => @client.user.full_name}, :class => "form-control input-sm") %>
+                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => @client.user.full_name}, :class => "form-control input-sm user-assign") %>
               </div>
-              <div class="col-md-8 user-assign">
+              <div class="col-md-8">
                 <%= hidden_field_tag :client_id, @client.id %>
                 <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
               </div>
@@ -19,11 +19,11 @@
           <div class="row" style="padding-top:10px;margin-bottom:0;">
             <%= form_tag("/clients/#{@client.id}/assign", method: :patch) do %>
               <div class="col-md-4" style="margin-top:2px;">
-                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}, :class => "form-control input-sm") %>
+                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}, :class => "form-control input-sm user-assign") %>
               </div>
               <div class="col-md-8">
                 <%= hidden_field_tag :client_id, @client.id %>
-                <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
+                <%= submit_tag "Assign", :class => "btn btn-sm btn-success user-assign" %>
               </div>
             <% end %>
               </div>
@@ -79,7 +79,7 @@
             </tr>
             <tr>
               <td><%= I18n.t "employee_view.pref_lang" %></td>
-              <td class="text-right"><strong><%= @client.pref_lang %></strong></td>
+              <td class="text-right"><strong><%= @client.preferred_language %></strong></td>
             </tr>
             <tr>
               <td><%= I18n.t "employee_view.other_language" %></td>
