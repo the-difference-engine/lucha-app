@@ -86,6 +86,10 @@
               <td class="text-right"><strong><%= @client.other_language %></strong></td>
             </tr>
             <tr>
+              <td><%= I18n.t "employee_view.pref_contact"  %></td>
+              <td class="text-right"><strong><%= @client.preferred_contact_method %></strong></td>
+            </tr>
+            <tr>
               <td><%= I18n.t "employee_view.address" %></td>
               <td class="text-right">
                 <strong>
