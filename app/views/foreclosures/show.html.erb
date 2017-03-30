@@ -72,9 +72,9 @@
 <hr>
 <div>
   <div>
-    <%= link_to "Edit Application", "/foreclosures/#{@foreclosure.id}/edit", :class => "btn btn-warning" %>
+    <%= link_to I18n.t("foreclosure.edit_application"), "/foreclosures/#{@foreclosure.id}/edit", :class => "btn btn-warning" %>
   </div>
   <div>
-    <%= link_to "Delete Application", "/foreclosures/#{@foreclosure.id}", method: :delete, data: { confirm: "Are you sure you want to delete this foreclosure application?"}, :class => "btn btn-danger" %>
+    <%= link_to I18n.t("foreclosure.delete_application"), "/foreclosures/#{@foreclosure.id}", method: :delete, data: { confirm: "Are you sure you want to delete this foreclosure application?"}, :class => "btn btn-danger" %>
   </div>
 </div>
