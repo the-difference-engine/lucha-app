@@ -239,6 +239,8 @@ en:
       working_with_agency: "Are you working with an Agency?"
       reason_for_default: "Reason for default:"
       submit: "Submit"
+      edit_application: "Edit Application"
+      delete_application: "Delete Application"
 
   #employee section, client section above
   #no need for employee log in, same fields/page as client log in
@@ -317,18 +319,18 @@ en:
 
 
 
-  activerecord:
-    attributes:
-      client:
-        ssn: "Social security number"
-        dob: "Date of birth"
-        num_in_household: "Number in household"
-        num_of_dependants: "Number of dependants"
-    errors:
-      models:
-        client:
-          attributes:
-            ssn:
-            dob:
-            num_of_dependants:
-            num_in_household:
+  # activerecord:
+    # attributes:
+      # client:
+        # ssn: "Social security number"
+        # dob: "Date of birth"
+        # num_in_household: "Number in household"
+        # num_of_dependants: "Number of dependants"
+    # errors:
+    #   models:
+    #     client:
+    #       attributes:
+    #         ssn:
+    #         dob:
+    #         num_of_dependants:
+    #         num_in_household:
