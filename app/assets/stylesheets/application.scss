@@ -46,13 +46,15 @@
   border-radius: 0px;
 }
 
-.btn.btn-success.btn-sm {
-  margin: 1% 0px;
+.submitted-applications {
+  .btn.btn-success.btn-sm {
+    margin: 1px 0;
+  }
 }
-.col-md-8 {
 
+.col-md-8 {
   input.btn.btn-sm.btn-success {
-    width: 50%;
+    width: 25%;
   }
 }
 
@@ -171,7 +173,6 @@ body {
 
 .user-assign {
   .btn {
-    width: 20%;
     margin-top: 0;
   }
   .col-md-4 {
@@ -186,13 +187,7 @@ body {
 }
 
 .user-index {
-  .row {
-    margin-bottom: 0;
-  }
-}
-
-.user-index {
-  .sm-col{
+  .sm-col {
     width: 50px;
   }
   .md-col {
@@ -201,4 +196,19 @@ body {
   p {
     margin-bottom: 0;
   }
+  .row {
+    margin-bottom: 0;
+  }
+  input {
+    margin: 0;
+  }
+  .col-md-5 {
+    .btn {
+      max-width: 75px;
+    }
+  }
+}
+
+.checkbox-label {
+  padding-left:7px;;
 }

@@ -3,6 +3,7 @@ class ClientsController < ApplicationController
 
   before_action :authenticate!, :only => [:index, :show, :update, :edit,]
   before_action :verify_user!, :only => [:destroy,]
+  before_action :set_locale
 
   def index
     @users = User.all

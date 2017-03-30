@@ -37,17 +37,17 @@
         <% elsif !client.incomplete_profile? && current_user.admin %> 
           <div class="row">
             <%= form_tag("/clients/#{client.id}/assign", method: :patch) do %>
-              <div class = "col-md-8 field">
+              <div class = "col-md-7 field">
                 <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}, :class => "form-control input-sm") %>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-5">
                 <%= hidden_field_tag :client_id, client.id %>
-                <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
+                <%= submit_tag "Assign", :class => "btn btn-sm btn-success"%>
               </div>
             <% end %>
           </div>
         <% elsif !client.incomplete_profile? && !current_user.admin %>
-          <p class="text-warning">Awaiting assignment</p>
+          <p class="text-primary">Awaiting assignment</p>
         <% else %>
           <p class="text-danger">Profile not complete.</p>
         <% end %>

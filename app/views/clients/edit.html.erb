@@ -185,45 +185,59 @@
             <hr>
               <h5 class="text-primary lead"><em><%= I18n.t "clients_edit.check_all_that_apply" %></em></h5>
               <div class="form-group">
-                <%= hidden_field_tag 'client[head_of_household]', false %>
-                <%= check_box_tag 'client[head_of_household]', true, @client.head_of_household %>
-                <label><%= I18n.t "clients_edit.head_of_house" %></label>
+                <label>
+                  <%= hidden_field_tag 'client[head_of_household]', false %>
+                  <%= check_box_tag 'client[head_of_household]', true, @client.head_of_household %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.head_of_house" %></span>
+                </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[disability]', false %>
-                <%= check_box_tag 'client[disability]', true, @client.disability %>
-                <label><%= I18n.t "clients_edit.disability"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[disability]', false %>
+                  <%= check_box_tag 'client[disability]', true, @client.disability %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.disability"  %></span>
+                </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[disability_in_household]', false %>
-                <%= check_box_tag 'client[disability_in_household]', true, @client.disability_in_household %>
-                <label><%= I18n.t "clients_edit.disability_in_household"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[disability_in_household]', false %>
+                  <%= check_box_tag 'client[disability_in_household]', true, @client.disability_in_household %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.disability_in_household"  %></span>
+                </label>
               </div>
 
               <div class="form-group">
+              <label>
                 <%= hidden_field_tag 'client[over_sixty_two]', false %>
                 <%= check_box_tag 'client[over_sixty_two]', true, @client.over_sixty_two %>
-                <label><%= I18n.t "clients_edit.over_sixty_two"  %></label>
+                <span class="checkbox-label"><%= I18n.t "clients_edit.over_sixty_two"  %></span>
+              </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[union_member]', false %>
-                <%= check_box_tag 'client[union_member]', true, @client.union_member %>
-                <label><%= I18n.t "clients_edit.union"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[union_member]', false %>
+                  <%= check_box_tag 'client[union_member]', true, @client.union_member %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.union"  %></span>  
+                </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[military_service_member]', false %>
-                <%= check_box_tag 'client[military_service_member]', true, @client.military_service_member %>
-                <label><%= I18n.t "clients_edit.military"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[military_service_member]', false %>
+                  <%= check_box_tag 'client[military_service_member]', true, @client.military_service_member %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.military"  %></span> 
+                </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[volunteer_interest]', false %>
-                <%= check_box_tag 'client[volunteer_interest]', true, @client.volunteer_interest %>
-                <label><%= I18n.t "clients_edit.volunteer"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[volunteer_interest]', false %>
+                  <%= check_box_tag 'client[volunteer_interest]', true, @client.volunteer_interest %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.volunteer"  %></span>
+                </label>
               </div>
             </div>
           </div>
