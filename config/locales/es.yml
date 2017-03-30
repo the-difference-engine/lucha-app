@@ -239,6 +239,8 @@ es:
         working_with_agency: "¿Está trabajando con otra organización con re-speto a su hipoteca?"
         reason_for_default: "Reason for default:"
         submit: "Submit"
+        edit_application: "Actualizar"
+        delete_application: "Deletecisio"
     
     #employee section, client section above
     #no need for employee log in, same fields/page as client log in
@@ -314,4 +316,8 @@ es:
         time: "Time"
         action: "Action"
 
+    helpers:
+        submit:
+            client:
+                update: "Actualizar"
     
