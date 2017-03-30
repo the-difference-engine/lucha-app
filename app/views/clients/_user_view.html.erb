@@ -35,7 +35,7 @@
     </h1>
   </div>
   <div class="col-md-4">
-    <div class="text-right">
+    <div class="text-right submitted-applications">
       <% if @client.client_applications.length > 0 %>
         <h5>Submitted Applications</h5>
         <% @client.client_applications.each do |application| %>
@@ -226,7 +226,7 @@
             <%= text_area_tag :description, nil, :class => "form-control" %>
           </div>
           <div class="form-group">
-            <%= submit_tag "Submit Note", :class=>"btn btn-sm btn-primary" %>
+            <%= submit_tag "Submit Note", :class=>"btn btn-sm btn-success" %>
           </div>
         <% end %>
 
