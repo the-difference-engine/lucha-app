@@ -3,6 +3,14 @@ module FormInputsHelper
 
 # Helper for Client update and create forms
 
+	
+	def employee_address
+		[
+			["3541 W. North Ave. #1, Chicago, IL 60647"],
+			["Other LUCHA Address"]
+		]
+	end
+
 	def education
 		[
 			["No High School Diploma", "No High School Diploma"],

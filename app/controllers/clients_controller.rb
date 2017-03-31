@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   include FormInputsHelper
 
-  before_action :authenticate!, :only => [:index, :show, :update, :edit,]
+  before_action :authenticate!, :only => [:index, :show, :update, :edit, :status]
   before_action :verify_user!, :only => [:destroy,]
   before_action :set_locale
 
@@ -137,7 +137,7 @@ class ClientsController < ApplicationController
     end 
 
     if @step_three == "completed-step"
-      @step_four = @client.user_id ? "completed-step" : "active-step"
+      @step_four = "active-step"
     end
   end
 

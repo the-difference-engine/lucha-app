@@ -4,7 +4,7 @@ class HomebuyingsController < ApplicationController
 
 
   def index
-    @homebuyings = Homebuying.all
+    @homebuyings = Homebuying.all.order('created_at desc')
 
 
     respond_to do |format|

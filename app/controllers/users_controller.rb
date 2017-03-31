@@ -4,7 +4,7 @@ class UsersController < Devise::RegistrationsController
 
 
   def index
-    @clients = Client.all
+    @clients = Client.all.order('created_at desc')
     # @client = 
 
     respond_to do |format|
@@ -19,7 +19,7 @@ class UsersController < Devise::RegistrationsController
     @user = User.find(current_user.id)
     ## this didn't work for me. I had to change this. current_user was nil
     # @clients = Client.where(user_id: current_user.id)
-    @clients = Client.where(user_id: @user.id)
+    @clients = Client.where(user_id: @user.id).order('created_at desc')
 
     respond_to do |format|
       format.json
@@ -41,10 +41,12 @@ class UsersController < Devise::RegistrationsController
       email: params[:user][:email],
       password: params[:user][:password],
       password_confirmation: params[:user][:password_confirmation],
-      home_phone: params[:user][:home_phone].gsub!(/\D/, ''),
-      work_phone: params[:user][:work_phone].gsub!(/\D/, ''),
-      cell_phone: params[:user][:cell_phone].gsub!(/\D/, '')
+      home_phone: params[:user][:home_phone],
+      work_phone: params[:user][:work_phone],
+      cell_phone: params[:user][:cell_phone],
+      address: params[:address]
       })
+    @user.sanitize_phone
     if @user.save
       sign_in(@user, scope: :user)
       flash[:success] = "The account has been created"
@@ -69,6 +71,7 @@ class UsersController < Devise::RegistrationsController
       home_phone: params[:home_phone],#.gsub!(/\D/, ''),
       work_phone: params[:work_phone],#.gsub!(/\D/, ''),
       cell_phone: params[:cell_phone],#.gsub!(/\D/, '')
+      address: params[:address]
         })
 
     flash[:success] = "Your info is updated."
