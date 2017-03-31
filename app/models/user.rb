@@ -35,33 +35,45 @@ class User < ActiveRecord::Base
     "#{first_name.titleize} #{last_name.titleize}"
   end
 
-  def client_list
-    clients = []
-    foreclosures.each do |foreclosure|
-      if foreclosure.client.id
-      clients << foreclosure.client
-      end
+  def sanitize_phone
+    if home_phone
+      home_phone.gsub!(/\D/, '')
     end
-
-    homebuyings.each do |homebuying|
-      clients << homebuying.client
+    if work_phone
+      work_phone.gsub!(/\D/, '')
     end
-
-    homebuyings.each do |homebuying|
-      clients << foreclosure.client
-    end
-
-    foreclosures.each do |foreclosure|
-      clients << foreclosure.client
-    end
-
-    foreclosures.each do |foreclosure|
-      clients << foreclosure.client
-    end
-
-    foreclosures.each do |foreclosure|
-      clients << foreclosure.client
+    if cell_phone
+      cell_phone.gsub!(/\D/, '')
     end
   end
+
+  # def client_list
+  #   clients = []
+  #   foreclosures.each do |foreclosure|
+  #     if foreclosure.client.id
+  #     clients << foreclosure.client
+  #     end
+  #   end
+
+  #   homebuyings.each do |homebuying|
+  #     clients << homebuying.client
+  #   end
+
+  #   homebuyings.each do |homebuying|
+  #     clients << foreclosure.client
+  #   end
+
+  #   foreclosures.each do |foreclosure|
+  #     clients << foreclosure.client
+  #   end
+
+  #   foreclosures.each do |foreclosure|
+  #     clients << foreclosure.client
+  #   end
+
+  #   foreclosures.each do |foreclosure|
+  #     clients << foreclosure.client
+  #   end
+  # end
 
 end

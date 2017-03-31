@@ -7,7 +7,7 @@ class RentalsController < ApplicationController
   end
 
   def index
-    @rentals = Rental.all
+    @rentals = Rental.all.order('created_at desc')
 
     respond_to do |format|
       format.html

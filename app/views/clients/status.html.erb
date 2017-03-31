@@ -115,15 +115,16 @@
         </td>
       <% else %>
         <td>
-          You have been assigned to <br>
+          <b>You have been assigned to:</b> <br>
           <%= @client.user.first_name.capitalize %> <%= @client.user.last_name.capitalize %> <br>
-          Email: <%= @client.user.email %> <br>
-          Phone Number: <%= @client.user.work_phone %>
+          <%= @client.user.email %> <br>
+          <%= number_to_phone(@client.user.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %><br>
+          <%= @client.user.address %>
         </td>
         <td>
         </td>
         <td>
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <span style="color:red;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         </td>
       <% end %>
     </tr>

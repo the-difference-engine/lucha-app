@@ -250,6 +250,8 @@ es:
         last_name: "Apellido"
         home_phone: "Número de Teléfono de Casa"
         cell_phone: "Teléfono móvil"
+        work_phone: "Work Phone"
+        address: "Address"
         login_information: "The following information will be your login information. Make sure to keep this safe with you."
         email: "Correo Electrónico"
         password: "Contraseña"
