@@ -337,6 +337,12 @@ es:
         address: "Dirección"
         date_submitted: "Fecha de Envío"
         view: "Ver"
+        search_on_this_page: "Buscar en esta página"
+        home: "Home: "
+        work: "Work: "
+        cell: "Cell: "
+        download: "Descargar:"
+
 
     helpers:
         submit:

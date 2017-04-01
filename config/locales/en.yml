@@ -337,6 +337,11 @@ en:
       address: "Address"
       date_submitted: "Date Submitted"
       view: "View"
+      search_on_this_page: "Search on this page"
+      home: "Home: "
+      work: "Work: "
+      cell: "Cell: "
+      download: "Download:"
 
   # activerecord:
     # attributes:

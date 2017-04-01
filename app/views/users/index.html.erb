@@ -26,8 +26,7 @@
       <td class="md-col">
         <p><%= I18n.t "employee_registered_clients.home" %> <%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
         <p><%= I18n.t "employee_registered_clients.work" %><%= number_to_phone(client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
-        <p><%= I18n.t "employee_registered_clients.cell" %><%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
-          
+        <p><%= I18n.t "employee_registered_clients.cell" %><%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>          
       </td>
       <td><%= client.preferred_language %></td>
       <td class="sm-col"><%= client.client_types.to_sentence %></td>

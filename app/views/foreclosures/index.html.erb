@@ -1,21 +1,20 @@
-<h1>Foreclosure Clients 
-<br><small> This is a list of all the forclosure applicants</small>
+<h1><%= I18n.t "employee_foreclosure_index.foreclosure_clients" %> 
+<br><small> <%= I18n.t "employee_foreclosure_index.list_of_all_foreclosure_clients" %></small>
 </h1>
 <hr>
 
 <div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="Search on this page">
+    <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_foreclosure_index.search_on_this_page" %>>
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results">
  <thead>
    <tr>
-     <th>ID</th>
-     <th>Name</th>
-     <th>Home Phone</th>
-     <th>Address</th>
-     <th>Date Submitted</th>
-     <th>View</th>
+     <th><%= I18n.t "employee_foreclosure_index.name" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.phone" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.address" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.date_submitted" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.view" %></th>
    </tr>
   <tr class="warning no-result">
     <td colspan="6">
@@ -26,7 +25,6 @@
 <% @foreclosures.each do |foreclosure| %>
  <tbody>
    <tr>
-     <td><%= foreclosure.client.id %></td>
      <td>
        <%= link_to(foreclosure.client.full_name.titleize, client_path(foreclosure.client.id)) %>
      </td>
@@ -36,7 +34,7 @@
        <%= foreclosure.pretty_time %> 
      </td>
      <td>
-       <%= link_to "View", foreclosure_path(foreclosure.id), :class => "btn btn-sm btn-primary" %>
+       <%= link_to I18n.t("employee_foreclosure_index.view"), foreclosure_path(foreclosure.id), :class => "btn btn-sm btn-primary" %>
      </td>
    </tr>
  </tbody>
@@ -45,7 +43,7 @@
 
 <hr>
 <p>
-  Download:
+  <%= I18n.t "employee_foreclosure_index.download" %>
   <%= link_to "CSV", foreclosures_path(format: "csv") %> |
   <%= link_to "Excel", foreclosures_path(format: "xls") %>
   </div>
