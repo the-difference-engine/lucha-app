@@ -342,7 +342,23 @@ es:
         work: "Work: "
         cell: "Cell: "
         download: "Descargar:"
+        no_results: "No results"
 
+    employee_homebuying_index:
+        homebuying_clients: "Homebuying Clients"
+        list_of_all_homebuying_clients: "This is a list of all homebuying applicants."
+        name: "Nombre"
+        phone: "Phone"
+        address: "Dirección"
+        contact_for_appointment: "Contact for Appointment"
+        realtors_name: "Realtor's Name"
+        date_created: "Date Created"
+        view: "Ver"
+        search_on_this_page: "Buscar en esta página"
+        download: "Descargar:"
+        contact_no: "No hay"
+        contact_yes: "Si"
+        no_results: "No hay resultados"
 
     helpers:
         submit:

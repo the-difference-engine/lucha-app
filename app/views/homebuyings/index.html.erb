@@ -1,38 +1,34 @@
-<h1>Homebuying Clients
+<h1><%= I18n.t "employee_homebuying_index.homebuying_clients" %>
   <br>
   <small> 
-    This is a list of all the homebuying applicants
+    <%= I18n.t "employee_homebuying_index.homebuying_clients" %>
   </small>
 </h1>
 <hr>
 <div class="form-group pull-right">
-  <input type="text" class="search form-control" placeholder="Search on this page">
+  <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_homebuying_index.search_on_this_page" %>>
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Home Phone</th>
-      <th>Address</th>
-      <th>Contact for Appointment</th>
-      <th>Realtor's Name</th>
-      <th>Date Created</th>
-      <th>View</th> 
+      <th><%= I18n.t "employee_homebuying_index.name" %></th>
+      <th><%= I18n.t "employee_homebuying_index.phone" %></th>
+      <th><%= I18n.t "employee_homebuying_index.address" %></th>
+      <th><%= I18n.t "employee_homebuying_index.contact_for_appointment" %></th>
+      <th><%= I18n.t "employee_homebuying_index.realtors_name" %></th>
+      <th><%= I18n.t "employee_homebuying_index.date_created" %></th>
+      <th><%= I18n.t "employee_homebuying_index.view" %></th> 
     </tr>    
   <tr class="warning no-result">
     <td colspan="8">
-      <i class="fa fa-warning"></i> No results
+      <i class="fa fa-warning"></i> <%= I18n.t "employee_homebuying_index.no_results" %>
     </td>
   </tr>
   </thead>
 <% @homebuyings.each do |homebuying| %>
  <tbody>
    <tr>
-     <td>
-       <%= homebuying.client.id %>
-     </td>
      <td>
        <%= link_to(homebuying.client.full_name.titleize, client_path(homebuying.client.id)) %>
      </td>
@@ -44,9 +40,9 @@
      </td>
      <td>
         <% if homebuying.contact_for_appointment== false %>
-          <%= "No" %>
+          <%= I18n.t "employee_homebuying_index.contact_no" %>
         <% else %>
-          <%= "Yes" %>
+          <%= I18n.t "employee_homebuying_index.contact_yes" %>
         <% end %>
      </td>
      <td>
@@ -56,7 +52,7 @@
        <%= homebuying.pretty_time %>
      </td>
      <td>
-       <%= link_to "View", homebuying_path(homebuying.id), :class => "btn btn-sm btn-primary" %>
+       <%= link_to I18n.t("employee_homebuying_index.view"), homebuying_path(homebuying.id), :class => "btn btn-sm btn-primary" %>
      </td>
    </tr>
  </tbody>
@@ -64,7 +60,7 @@
 </table>
 <hr>
 <p>
-  Download:
+  <%= I18n.t "employee_homebuying_index.download" %>
   <%= link_to "CSV", homebuyings_path(format: "csv") %> |
   <%= link_to "Excel", homebuyings_path(format: "xls") %>
   </div>
