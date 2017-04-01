@@ -359,12 +359,19 @@ en:
       contact_no: "No"
       contact_yes: "Yes"
       no_results: "No results"
-      no_results: "No hay resultados"
+      search_on_this_page: "Search on this page"
+
+  employee_rentals_index:
+      rental_clients: "Rental Clients"
+      list_of_all_rental_clients: "This is a list of all rental applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      view: "View"
+      search_on_this_page: "Search on this page"
+      no_results: "No results"
+      download: "Download:"
       
-
-
-
-
   # activerecord:
     # attributes:
       # client:

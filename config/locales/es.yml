@@ -359,6 +359,18 @@ es:
         contact_no: "No hay"
         contact_yes: "Si"
         no_results: "No hay resultados"
+        search_on_this_page: "Buscar en esta página"
+
+    employee_rentals_index:
+        rental_clients: "Rental Clients"
+        list_of_all_rental_clients: "This is a list of all rental applicants."
+        name: "Nombre"
+        phone: "Phone"
+        address: "Dirección"
+        view: "Ver"
+        search_on_this_page: "Buscar en esta página"
+        no_results: "No hay resultados"
+        download: "Descargar:"
 
     helpers:
         submit:
