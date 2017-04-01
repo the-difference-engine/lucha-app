@@ -164,6 +164,7 @@ en:
       military: "Are you a current or former military service member?"
       volunteer: "Would you like to volunteer?"
       edit_profile: "Edit Profile"
+      download_pdf: "Download PDF"
 
   clients_edit:
       edit_profile: "Edit Your Profile Information"
@@ -279,11 +280,20 @@ en:
       submitted_applications: "Submitted Applications"
       assigned_employee: "Assigned Employee"
       client_info: "Client Info"
+      home: "Home: "
+      work: "Work: "
+      cell: "Cell: "
+      no_results: "No results"
+      search_on_this_page: "Search on this page"
+      awaiting_assignment: "Awaiting assignment."
+      profile_not_complete: "Profile not complete."
+      assign: "Assign"
+      view: "View"
+      download: "Download:"
+      select_a_counselor: "Select a Counselor"
 
   employee_view:
       client_profile_for: "Client profile for: "
-      awaiting_assignment: "Awaiting assignment."
-      profile_not_complete: "Profile not complete."
       contact_information: "Contact Information"
       client_name: "Client Name:"
       home_phone: "Home Phone:"
@@ -319,7 +329,14 @@ en:
       time: "Time"
       action: "Action"
 
-
+  employee_foreclosure_index:
+      foreclosure_clients: "Foreclosure Clients"
+      list_of_all_foreclosure_clients: "This is a list of all foreclosure applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      date_submitted: "Date Submitted"
+      view: "View"
 
   # activerecord:
     # attributes:
