@@ -270,6 +270,9 @@ en:
       submitted_applications: "Submitted Applications"
       unassign: "Unassign?"
       client_info: "Client Info"
+      search_on_this_page: "Search on this page"
+      view: "View"
+      download: "Download"
 
   employee_registered_clients:
       all_registered_clients: "All Registered Clients"
@@ -328,6 +331,15 @@ en:
       note: "Note"
       time: "Time"
       action: "Action"
+      assign: "Assign"
+      select_a_counselor: "Select a Counselor"
+      awaiting_assignment: "Awaiting assignment."
+      profile_not_complete: "Profile not complete."
+      budget: "Budget"
+      edit: "Edit"
+      delete: "Delete"
+      submitted_applications: "Submitted Applications"
+      over_sixty_two: "Is anyone in your household over the age of 62?"
 
   employee_foreclosure_index:
       foreclosure_clients: "Foreclosure Clients"

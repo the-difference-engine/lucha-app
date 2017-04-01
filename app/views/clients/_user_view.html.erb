@@ -11,7 +11,7 @@
               </div>
               <div class="col-md-8">
                 <%= hidden_field_tag :client_id, @client.id %>
-                <%= submit_tag "Assign", :class => "btn btn-sm btn-success" %>
+                <%= submit_tag I18n.t("employee_view.assign"), :class => "btn btn-sm btn-success" %>
               </div>
             <% end %>
               </div>
@@ -19,30 +19,30 @@
           <div class="row" style="padding-top:10px;margin-bottom:0;">
             <%= form_tag("/clients/#{@client.id}/assign", method: :patch) do %>
               <div class="col-md-4" style="margin-top:2px;">
-                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}, :class => "form-control input-sm user-assign") %>
+                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => I18n.t("employee_view.select_a_counselor")}, :class => "form-control input-sm user-assign") %>
               </div>
               <div class="col-md-8">
                 <%= hidden_field_tag :client_id, @client.id %>
-                <%= submit_tag "Assign", :class => "btn btn-sm btn-success user-assign" %>
+                <%= submit_tag I18n.t("employee_view.assign"), :class => "btn btn-sm btn-success user-assign" %>
               </div>
             <% end %>
               </div>
          <%elsif !@client.incomplete_profile? && current_user.admin == false %>
-          <small class="text-warning">awaiting assignment</small>     
+          <small class="text-warning"><%= I18n.t "employee_view.awaiting_assignment" %></small>     
         <%else%>
-          <small class="text-danger">Profile not complete.</small>
+          <small class="text-danger"><%= I18n.t "employee_view.profile_not_complete" %></small>
         <% end %>
     </h1>
   </div>
   <div class="col-md-4">
     <div class="text-right submitted-applications">
       <% if @client.client_applications.length > 0 %>
-        <h5>Submitted Applications</h5>
+        <h5><%= I18n.t "employee_view.submitted_applications" %></h5>
         <% @client.client_applications.each do |application| %>
           <%= link_to "#{application.class.to_s}", "/#{application.class.to_s.downcase}s/#{application.id}", :class => "btn btn-success btn-sm" %>
         <% end %>
       <% end %>
-<%= link_to "Budget", "/budgets/#{@client.budget.id}", :class => "btn btn-success btn-sm" %>
+<%= link_to I18n.t("employee_view.budget"), "/budgets/#{@client.budget.id}", :class => "btn btn-success btn-sm" %>
 
     </div>
 </div>
@@ -190,7 +190,7 @@
             <td class="text-right"><strong><%= @client.estimated_household_income %></strong></td>
           </tr>
           <tr>
-            <td><%= I18n.t "employee_view.disability_in_household" %></td>
+            <td><%= I18n.t "employee_view.disability" %></td>
             <td class="text-right"><strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
@@ -226,7 +226,7 @@
             <%= text_area_tag :description, nil, :class => "form-control" %>
           </div>
           <div class="form-group">
-            <%= submit_tag "Submit Note", :class=>"btn btn-sm btn-success" %>
+            <%= submit_tag I18n.t("employee_view.submit_note"), :class=>"btn btn-sm btn-success" %>
           </div>
         <% end %>
 
@@ -241,10 +241,10 @@
             <td><%= note.description %></td>
             <td><%= note.pretty_time %></td>
             <td>
-              <%= link_to "edit", notes_edit_path(note.id), :class=>"btn btn-sm btn-warning" %>
+              <%= link_to I18n.t("employee_view.edit"), notes_edit_path(note.id), :class=>"btn btn-sm btn-warning" %>
             </td>
             <td>
-              <%= button_to "delete", client_path(:id => note.id), :method => :delete, :class=>"btn btn-sm btn-danger" %>
+              <%= button_to I18n.t("employee_view.delete"), client_path(:id => note.id), :method => :delete, :class=>"btn btn-sm btn-danger" %>
             </td>
           </tr>
           <% end %>

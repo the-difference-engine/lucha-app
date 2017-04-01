@@ -3,26 +3,24 @@
 <hr>
 
 <div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="Search on this page">
+    <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_show.search_on_this_page" %>>
 </div>
 <span class="counter pull-left"></span>
 <table class="table table-hover results user-index">
   <thead>
-    <th>#</th>
     <th><%= I18n.t "employee_show.name" %></th>
     <th><%= I18n.t "employee_show.home_phone" %></th>
     <th><%= I18n.t "employee_show.submitted_applications" %></th>
     <th><%= I18n.t "employee_show.unassign" %></th>
     <th><%= I18n.t "employee_show.client_info" %></th>
     <tr class="warning no-result">
-        <td colspan="6"><i class="fa fa-warning"></i> No results </td>
+        <td colspan="6"><i class="fa fa-warning"></i> <%= I18n.t "employee_show.no_results" %> </td>
     </tr>
   </thead>
 
   <% @clients.each do |client| %>
     <tbody>
       <tr>
-        <td><%= client.id %></td>
         <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
         <td><%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td> 
         <td><%= client.client_types.to_sentence %></td>
@@ -30,7 +28,7 @@
           <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>
         </td>
         <td>
-          <%= link_to "View", "/clients/#{client.id}", :class => "btn btn-xs btn-primary" %>
+          <%= link_to I18n.t("employee_show.view"), "/clients/#{client.id}", :class => "btn btn-xs btn-primary" %>
         </td>
       </tr>
     </tbody>
@@ -38,7 +36,7 @@
 </table>
 <hr>
 <p>
-  Download:
+  <%= I18n.t "employee_show.download" %>
   <%= link_to "CSV", user_path(id: @user.id, format: "csv") %> |
   <%= link_to "Excel", user_path(id: @user.id, format: "xls") %>
   </div>
