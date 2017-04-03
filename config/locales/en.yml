@@ -164,6 +164,7 @@ en:
       military: "Are you a current or former military service member?"
       volunteer: "Would you like to volunteer?"
       edit_profile: "Edit Profile"
+      download_pdf: "Download PDF"
 
   clients_edit:
       edit_profile: "Edit Your Profile Information"
@@ -269,6 +270,9 @@ en:
       submitted_applications: "Submitted Applications"
       unassign: "Unassign?"
       client_info: "Client Info"
+      search_on_this_page: "Search on this page"
+      view: "View"
+      download: "Download"
 
   employee_registered_clients:
       all_registered_clients: "All Registered Clients"
@@ -279,11 +283,20 @@ en:
       submitted_applications: "Submitted Applications"
       assigned_employee: "Assigned Employee"
       client_info: "Client Info"
+      home: "Home: "
+      work: "Work: "
+      cell: "Cell: "
+      no_results: "No results"
+      search_on_this_page: "Search on this page"
+      awaiting_assignment: "Awaiting assignment."
+      profile_not_complete: "Profile not complete."
+      assign: "Assign"
+      view: "View"
+      download: "Download:"
+      select_a_counselor: "Select a Counselor"
 
   employee_view:
       client_profile_for: "Client profile for: "
-      awaiting_assignment: "Awaiting assignment."
-      profile_not_complete: "Profile not complete."
       contact_information: "Contact Information"
       client_name: "Client Name:"
       home_phone: "Home Phone:"
@@ -318,9 +331,59 @@ en:
       note: "Note"
       time: "Time"
       action: "Action"
+      assign: "Assign"
+      select_a_counselor: "Select a Counselor"
+      awaiting_assignment: "Awaiting assignment."
+      profile_not_complete: "Profile not complete."
+      budget: "Budget"
+      edit: "Edit"
+      delete: "Delete"
+      submitted_applications: "Submitted Applications"
+      over_sixty_two: "Is anyone in your household over the age of 62?"
 
+  employee_foreclosure_index:
+      foreclosure_clients: "Foreclosure Clients"
+      list_of_all_foreclosure_clients: "This is a list of all foreclosure applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      date_submitted: "Date Submitted"
+      view: "View"
+      search_on_this_page: "Search on this page"
+      home: "Home: "
+      work: "Work: "
+      cell: "Cell: "
+      download: "Download:"
+      no_results: "No results"
 
+  employee_homebuying_index:
+      homebuying_clients: "Homebuying Clients"
+      list_of_all_homebuying_clients: "This is a list of all homebuying applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      contact_for_appointment: "Contact for Appointment"
+      realtors_name: "Realtor's Name"
+      date_created: "Date Created"
+      view: "View"
+      search_on_this_page: "Search on this page"
+      download: "Download:"
+      contact_no: "No"
+      contact_yes: "Yes"
+      no_results: "No results"
+      search_on_this_page: "Search on this page"
 
+  employee_rentals_index:
+      rental_clients: "Rental Clients"
+      list_of_all_rental_clients: "This is a list of all rental applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      view: "View"
+      search_on_this_page: "Search on this page"
+      no_results: "No results"
+      download: "Download:"
+      
   # activerecord:
     # attributes:
       # client:
