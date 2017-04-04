@@ -25,7 +25,11 @@
         <% end %>
       </td>
       <td>
-        <%= link_to "View Profile", "/clients/#{@client.id}/edit", :class => "btn btn-primary" %>
+        <% if @step_one != "completed-step" %>
+          <%= link_to "Edit Profile", "/clients/#{@client.id}/edit", :class => "btn btn-primary" %>
+        <% else %>
+          <%= link_to "View Profile", "/clients/#{@client.id}", :class => "btn btn-primary" %>
+        <% end %>  
       </td>
       <td>
         <% if @step_one != "completed-step" %>
@@ -86,7 +90,7 @@
             <%= link_to "#{application.class.to_s}", "/#{application.class.to_s.downcase}s/#{application.id}", :class => "btn btn-primary" %>
           <% end %>
           <% @client.blank_applications.each do |application| %>
-            <%= link_to "#{application}", "/#{application}s/new", :class => "btn btn-secondary" %>
+            <%= link_to "#{application.capitalize}", "/#{application}s/new", :class => "btn btn-default" %>
           <% end %>
 
         </td>
