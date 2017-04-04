@@ -34,10 +34,14 @@
               <td><%= I18n.t "clients_show.pref_lang"  %></td>
               <td class="text-right"><strong><%= @client.preferred_language %></strong></td>
             </tr>
-            <tr>
-              <td><%= I18n.t "clients_show.other_language"  %></td>
-              <td class="text-right"><strong><%= @client.other_language %></strong></td>
-            </tr>
+
+            <% if @client.preferred_language == "Other" %>
+              <tr>
+                <td><%= I18n.t "clients_show.other_language"  %></td>
+                <td class="text-right"><strong><%= @client.other_language %></strong></td>
+              </tr>
+            <% end %>
+            
             <tr>
               <td><%= I18n.t "clients_show.pref_contact"  %></td>
               <td class="text-right"><strong><%= @client.preferred_contact_method %></strong></td>

@@ -46,9 +46,9 @@
             </div>
             <div class="form-group">
               <label> <%= I18n.t "clients_edit.pref_lang"  %> </label>
-              <%= form.select(:preferred_language, options_for_select(language_options, @client.preferred_language),{},{:class => "form-control"}) %>
+              <%= form.select(:preferred_language, options_for_select(language_options, @client.preferred_language),{},{:class => "form-control", :id=>"language-select"} ) %>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="other-input">
               <label> <%= I18n.t "clients_edit.other_language" %> </label>
               <%= form.text_field :other_language, :class => "form-control" %>
             </div>

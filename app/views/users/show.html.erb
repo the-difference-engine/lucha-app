@@ -9,7 +9,9 @@
 <table class="table table-hover results user-index">
   <thead>
     <th><%= I18n.t "employee_show.name" %></th>
-    <th><%= I18n.t "employee_show.home_phone" %></th>
+    <th><%= I18n.t "employee_show.email" %></th>
+    <th><%= I18n.t "employee_show.phone" %></th>
+    <th><%= I18n.t "employee_show.preferred_language" %></th>
     <th><%= I18n.t "employee_show.submitted_applications" %></th>
     <th><%= I18n.t "employee_show.unassign" %></th>
     <th><%= I18n.t "employee_show.client_info" %></th>
@@ -22,7 +24,13 @@
     <tbody>
       <tr>
         <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
-        <td><%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td> 
+        <td><%= client.email %></td>
+        <td class="md-col">
+          <p><%= I18n.t "employee_registered_clients.home" %> <%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+          <p><%= I18n.t "employee_registered_clients.work" %><%= number_to_phone(client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+          <p><%= I18n.t "employee_registered_clients.cell" %><%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>          
+        </td> 
+        <td><%= client.preferred_language %></td>
         <td><%= client.client_types.to_sentence %></td>
         <td>
           <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>

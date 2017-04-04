@@ -107,10 +107,11 @@ class Client < ActiveRecord::Base
 
   def blank_applications
     applications = [foreclosure, homebuying, rental]
+    application_names = ["foreclosure", "homebuying", "rental"]
     blank_applications = []
-    applications.each do |application|
+    applications.each_with_index do |application, index|
       if application.blank?
-        blank_applications << application.to_s
+        blank_applications << application_names[index]
       end
     end
     blank_applications
