@@ -20,7 +20,7 @@ en:
       # demographics: "LUCHA Demographics:"
       # demographics_statement: "A few notes on the diversity of our clients:
       # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
-  
+
   # Client section, employee section below
   client_sign_up:
       welcome: "Welcome"
@@ -46,6 +46,7 @@ en:
       sign_up: "SIGN UP"
       already_have_account: "Already have an account?"
       log_in: "LOGIN"
+      agreement: "Policy and Disclosure Statement"
 
   client_log_in:
       employee_log_in: "Employee Log In"
@@ -126,14 +127,15 @@ en:
 
   clients_show:
       hello: "Hello "
-      below: "Below is the info we have on file for you. Make adjustments by clicking on the edit profile button at the bottom of this page."  
+      below: "Below is the info we have on file for you. Make adjustments by clicking on the edit profile button at the bottom of this page."
       contact_information: "Contact Information"
       first_name: "First Name:"
       last_name: "Last Name:"
       client_name: "Client Name:"
-      home_phone: "Home Phone Number:"
+      home_phone: "Home Phone:"
       cell: "Cell Phone:"
       work_phone: "Work Phone:"
+      email: "Email:"
       address: "Address:"
       city: "City:"
       state: "State:"
@@ -150,15 +152,19 @@ en:
       household_information: "Household Information"
       pref_contact: "Preferred Contact Method:"
       pref_lang: "Preferred Language:"
+      other_language: "Other Language:"
       head_of_house: "Are you the head of the household?"
       house_occu: "How many people live in the household?"
       dependants: "Number of dependants?"
       est_house_income: "Estimated Household Income:"
       disability: "Do you have a disability?"
+      disability_in_household: "Does anyone in your household have a disability?"
+      over_sixty_two: "Is anyone in your household over the age of 62?"
       union: "Are you a member of a union?"
       military: "Are you a current or former military service member?"
       volunteer: "Would you like to volunteer?"
       edit_profile: "Edit Profile"
+      download_pdf: "Download PDF"
 
   clients_edit:
       edit_profile: "Edit Your Profile Information"
@@ -166,7 +172,7 @@ en:
       contact_information: "Contact Information"
       first_name: "First Name:"
       last_name: "Last Name:"
-      home_phone: "Home Phone Number:"
+      home_phone: "Home Phone:"
       cell: "Cell Phone:"
       email: "Email:"
       work_phone: "Work Phone:"
@@ -181,6 +187,7 @@ en:
       race: "Race:"
       ss: "Social Security Number:"
       pref_contact: "Preferred Contact Method:"
+      other_language: "Other Language:"
       pref_lang: "Preferred Language:"
       marital_stat: "Marital Status:"
       dob: "Date Of Birth:"
@@ -192,6 +199,8 @@ en:
       est_house_income: "Estimated Household Income:"
       check_all_that_apply: "Check all that apply:"
       disability: "Do you have a disability?"
+      disability_in_household: "Does anyone in your household have a disability?"
+      over_sixty_two: "Is anyone in your household over the age of 62?"
       union: "Are you a member of a union?"
       military: "Are you a current or former military service member?"
       volunteer: "Would you like to volunteer?"
@@ -231,6 +240,8 @@ en:
       working_with_agency: "Are you working with an Agency?"
       reason_for_default: "Reason for default:"
       submit: "Submit"
+      edit_application: "Edit Application"
+      delete_application: "Delete Application"
 
   #employee section, client section above
   #no need for employee log in, same fields/page as client log in
@@ -240,6 +251,8 @@ en:
       last_name: "Last Name"
       home_phone: "Home Phone"
       cell_phone: "Cell Phone"
+      work_phone: "Work Phone"
+      address: "Address"
       login_information: "The following information will be your login information. Make sure to keep this safe with you."
       email: "Email"
       password: "Password"
@@ -253,28 +266,50 @@ en:
   employee_show:
       your_clients: "Your Clients"
       name: "Name"
-      home_phone: "Home Phone"
+      phone: "Home Phone"
       submitted_applications: "Submitted Applications"
       unassign: "Unassign?"
       client_info: "Client Info"
+      search_on_this_page: "Search on this page"
+      view: "View"
+      download: "Download"
+      email: "Email"
+      preferred_language: "Preferred Language"
+      home: "Home: "
+      work: "Work: "
+      cell: "Cell: "
 
   employee_registered_clients:
       all_registered_clients: "All Registered Clients"
       name: "Name"
-      home_phone: "Home Phone"
+      email: "Email"
+      phone: "Phone"
+      preferred_language: "Preferred Language"
       submitted_applications: "Submitted Applications"
       assigned_employee: "Assigned Employee"
       client_info: "Client Info"
+      home: "Home: "
+      work: "Work: "
+      cell: "Cell: "
+      no_results: "No results"
+      search_on_this_page: "Search on this page"
+      awaiting_assignment: "Awaiting assignment."
+      profile_not_complete: "Profile not complete."
+      assign: "Assign"
+      view: "View"
+      download: "Download:"
+      select_a_counselor: "Select a Counselor"
 
   employee_view:
       client_profile_for: "Client profile for: "
-      awaiting_assignment: "Awaiting assignment."
-      profile_not_complete: "Profile not complete."
       contact_information: "Contact Information"
       client_name: "Client Name:"
       home_phone: "Home Phone:"
       cell_phone: "Cell Phone:"
       work_phone: "Work Phone:"
+      pref_contact: "Preferred Contact Method:"
+      other_language: "Other Language:"
+      pref_lang: "Preferred Language:"
       email: "Email"
       address: "Address:"
       ward: "Ward:"
@@ -301,21 +336,71 @@ en:
       note: "Note"
       time: "Time"
       action: "Action"
+      assign: "Assign"
+      select_a_counselor: "Select a Counselor"
+      awaiting_assignment: "Awaiting assignment."
+      profile_not_complete: "Profile not complete."
+      budget: "Budget"
+      edit: "Edit"
+      delete: "Delete"
+      submitted_applications: "Submitted Applications"
+      over_sixty_two: "Is anyone in your household over the age of 62?"
 
+  employee_foreclosure_index:
+      foreclosure_clients: "Foreclosure Clients"
+      list_of_all_foreclosure_clients: "This is a list of all foreclosure applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      date_submitted: "Date Submitted"
+      view: "View"
+      search_on_this_page: "Search on this page"
+      home: "Home: "
+      work: "Work: "
+      cell: "Cell: "
+      download: "Download:"
+      no_results: "No results"
 
+  employee_homebuying_index:
+      homebuying_clients: "Homebuying Clients"
+      list_of_all_homebuying_clients: "This is a list of all homebuying applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      contact_for_appointment: "Contact for Appointment"
+      realtors_name: "Realtor's Name"
+      date_created: "Date Created"
+      view: "View"
+      search_on_this_page: "Search on this page"
+      download: "Download:"
+      contact_no: "No"
+      contact_yes: "Yes"
+      no_results: "No results"
+      search_on_this_page: "Search on this page"
+
+  employee_rentals_index:
+      rental_clients: "Rental Clients"
+      list_of_all_rental_clients: "This is a list of all rental applicants."
+      name: "Name"
+      phone: "Phone"
+      address: "Address"
+      view: "View"
+      search_on_this_page: "Search on this page"
+      no_results: "No results"
+      download: "Download:"
       
-  activerecord:
-    attributes:
-      client:
-        ssn: "Social security number"
-        dob: "Date of birth"
-        num_in_household: "Number in household"
-        num_of_dependants: "Number of dependants"
-    errors:
-      models:
-        client:
-          attributes:
-            ssn:
-            dob:
-            num_of_dependants:
-            num_in_household:
+  # activerecord:
+    # attributes:
+      # client:
+        # ssn: "Social security number"
+        # dob: "Date of birth"
+        # num_in_household: "Number in household"
+        # num_of_dependants: "Number of dependants"
+    # errors:
+    #   models:
+    #     client:
+    #       attributes:
+    #         ssn:
+    #         dob:
+    #         num_of_dependants:
+    #         num_in_household:

@@ -7,7 +7,7 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
-    <div class="panel panel-danger">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title"><%= I18n.t "clients_edit.contact_information"  %></h3>
       </div>
@@ -20,18 +20,18 @@
             </div>
 
             <div class="form-group">
-              <label> <%= I18n.t "clients_edit.last_name" %> </label> 
+              <label> <%= I18n.t "clients_edit.last_name" %> </label>
               <%= form.text_field :last_name, :class => "form-control" %>
             </div>
 
-            <div class="row">
+            <div class="row phone-number--row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.home_phone" %> </label>
                   <%= form.text_field :home_phone, :class => "form-control" %>
                 </div>
               </div>
-              
+
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.cell" %> </label>
@@ -44,7 +44,18 @@
               <label> <%= I18n.t "clients_edit.email" %> </label>
               <%= form.text_field :email, :class => "form-control" %>
             </div>
-
+            <div class="form-group">
+              <label> <%= I18n.t "clients_edit.pref_lang"  %> </label>
+              <%= form.select(:preferred_language, options_for_select(language_options, @client.preferred_language),{},{:class => "form-control", :id=>"language-select"} ) %>
+            </div>
+            <div class="form-group" id="other-input">
+              <label> <%= I18n.t "clients_edit.other_language" %> </label>
+              <%= form.text_field :other_language, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+              <label> <%= I18n.t "clients_edit.pref_contact"  %> </label>
+              <%= form.select(:preferred_contact_method, options_for_select(contact_method_options, @client.preferred_contact_method),{},{:class => "form-control"}) %>
+            </div>
             <div class="form-group">
               <label> <%= I18n.t "clients_edit.work_phone" %> </label>
               <%= form.text_field :work_phone, :class => "form-control" %>
@@ -54,15 +65,15 @@
               <label> <%= I18n.t "clients_edit.address" %> </label>
               <%= form.text_field :address, :class => "form-control" %>
             </div>
-            
-            <div class="row">
+
+            <div class="row city-state--row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.city" %> </label>
                   <%= form.text_field :city, :class => "form-control" %>
                 </div>
               </div>
-      
+
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.state"  %> </label>
@@ -71,7 +82,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row client-location--row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label> <%= I18n.t "clients_edit.ward"  %> </label>
@@ -93,7 +104,7 @@
       </div>
 
       <div class="col-md-4">
-        <div class="panel panel-danger">
+        <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title"><%= I18n.t "clients_edit.demographics"  %></h3>
           </div>
@@ -112,18 +123,9 @@
             <div class="form-group">
               <label>
                 <%= I18n.t "clients_edit.ss"  %>
-                <span class="text-danger"> * </span>  
+                <span class="text-danger"> * </span>
               </label>
               <%= form.password_field(:ssn, value: @client.ssn, :class => "form-control") %>
-            </div>
-
-            <div class="form-group">
-              <label> <%= I18n.t "clients_edit.pref_contact"  %> </label>
-              <%= form.select(:preferred_contact_method, options_for_select(contact_method_options, @client.preferred_contact_method),{},{:class => "form-control"}) %>
-            </div>
-            <div class="form-group">
-              <label> <%= I18n.t "clients_edit.pref_lang"  %> </label>
-              <%= form.select(:preferred_language, options_for_select(language_options, @client.preferred_language),{},{:class => "form-control"}) %>
             </div>
 
             <div class="form-group">
@@ -145,18 +147,20 @@
 
     <div class="row"> -->
       <div class="col-md-4">
-        <div class="panel panel-danger">
+        <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title"><%= I18n.t "clients_edit.household_information"  %></h3>
           </div>
           <div class="panel-body">
 
             <div class="form-group">
-              <label>
-                <%= I18n.t "clients_edit.house_occu"  %>
-                <span class="text-danger"> * </span>
-              </label>
-              <%= form.number_field :num_in_household, {in: 1..15, class: "form-control"} %>
+
+                <label>
+                  <%= I18n.t "clients_edit.house_occu"  %>
+                  <span class="text-danger"> * </span>
+                </label>
+                <%= form.number_field :num_in_household, {in: 1..15, class: "form-control"} %>
+
             </div>
 
             <div class="form-group">
@@ -176,38 +180,64 @@
               <label> <%= I18n.t "clients_edit.est_house_income"  %> </label>
               <%= form.select :estimated_household_income, options_for_select(income_range, @client.estimated_household_income),{},{:class => "form-control"} %>
             </div>
-            
+
             <div>
             <hr>
               <h5 class="text-primary lead"><em><%= I18n.t "clients_edit.check_all_that_apply" %></em></h5>
               <div class="form-group">
-                <%= hidden_field_tag 'client[head_of_household]', false %>
-                <%= check_box_tag 'client[head_of_household]', true, @client.head_of_household %>
-                <label><%= I18n.t "clients_edit.head_of_house" %></label>
+                <label>
+                  <%= hidden_field_tag 'client[head_of_household]', false %>
+                  <%= check_box_tag 'client[head_of_household]', true, @client.head_of_household %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.head_of_house" %></span>
+                </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[disability]', false %>
-                <%= check_box_tag 'client[disability]', true, @client.disability %>
-                <label><%= I18n.t "clients_edit.disability"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[disability]', false %>
+                  <%= check_box_tag 'client[disability]', true, @client.disability %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.disability"  %></span>
+                </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[union_member]', false %>
-                <%= check_box_tag 'client[union_member]', true, @client.union_member %>
-                <label><%= I18n.t "clients_edit.union"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[disability_in_household]', false %>
+                  <%= check_box_tag 'client[disability_in_household]', true, @client.disability_in_household %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.disability_in_household"  %></span>
+                </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[military_service_member]', false %>
-                <%= check_box_tag 'client[military_service_member]', true, @client.military_service_member %>
-                <label><%= I18n.t "clients_edit.military"  %></label>
+              <label>
+                <%= hidden_field_tag 'client[over_sixty_two]', false %>
+                <%= check_box_tag 'client[over_sixty_two]', true, @client.over_sixty_two %>
+                <span class="checkbox-label"><%= I18n.t "clients_edit.over_sixty_two"  %></span>
+              </label>
               </div>
 
               <div class="form-group">
-                <%= hidden_field_tag 'client[volunteer_interest]', false %>
-                <%= check_box_tag 'client[volunteer_interest]', true, @client.volunteer_interest %>
-                <label><%= I18n.t "clients_edit.volunteer"  %></label>
+                <label>
+                  <%= hidden_field_tag 'client[union_member]', false %>
+                  <%= check_box_tag 'client[union_member]', true, @client.union_member %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.union"  %></span>  
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <%= hidden_field_tag 'client[military_service_member]', false %>
+                  <%= check_box_tag 'client[military_service_member]', true, @client.military_service_member %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.military"  %></span> 
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <%= hidden_field_tag 'client[volunteer_interest]', false %>
+                  <%= check_box_tag 'client[volunteer_interest]', true, @client.volunteer_interest %>
+                  <span class="checkbox-label"><%= I18n.t "clients_edit.volunteer"  %></span>
+                </label>
               </div>
             </div>
           </div>
@@ -218,7 +248,7 @@
     <hr>
 
     <div class="form-group">
-      <%= form.submit "Update", :class => "btn btn-primary" %>
+      <%= form.submit "Update", :class => "btn btn-success" %>
     </div>
     </div>
   </div>

@@ -25,7 +25,11 @@
         <% end %>
       </td>
       <td>
-        <%= link_to "View Profile", "/clients/#{@client.id}/edit", :class => "btn btn-primary" %>
+        <% if @step_one != "completed-step" %>
+          <%= link_to "Edit Profile", "/clients/#{@client.id}/edit", :class => "btn btn-primary" %>
+        <% else %>
+          <%= link_to "View Profile", "/clients/#{@client.id}", :class => "btn btn-primary" %>
+        <% end %>  
       </td>
       <td>
         <% if @step_one != "completed-step" %>
@@ -86,7 +90,7 @@
             <%= link_to "#{application.class.to_s}", "/#{application.class.to_s.downcase}s/#{application.id}", :class => "btn btn-primary" %>
           <% end %>
           <% @client.blank_applications.each do |application| %>
-            <%= link_to "#{application}", "/#{application}s/new", :class => "btn btn-secondary" %>
+            <%= link_to "#{application.capitalize}", "/#{application}s/new", :class => "btn btn-default" %>
           <% end %>
 
         </td>
@@ -115,15 +119,16 @@
         </td>
       <% else %>
         <td>
-          You have been assigned to <br>
+          <b>You have been assigned to:</b> <br>
           <%= @client.user.first_name.capitalize %> <%= @client.user.last_name.capitalize %> <br>
-          Email: <%= @client.user.email %> <br>
-          Phone Number: <%= @client.user.work_phone %>
+          <%= @client.user.email %> <br>
+          <%= number_to_phone(@client.user.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %><br>
+          <%= @client.user.address %>
         </td>
         <td>
         </td>
         <td>
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          <span style="color:red;" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         </td>
       <% end %>
     </tr>

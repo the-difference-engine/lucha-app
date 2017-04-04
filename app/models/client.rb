@@ -107,10 +107,11 @@ class Client < ActiveRecord::Base
 
   def blank_applications
     applications = [foreclosure, homebuying, rental]
+    application_names = ["foreclosure", "homebuying", "rental"]
     blank_applications = []
-    applications.each do |application|
+    applications.each_with_index do |application, index|
       if application.blank?
-        blank_applications << application.to_s
+        blank_applications << application_names[index]
       end
     end
     blank_applications
@@ -139,6 +140,7 @@ class Client < ActiveRecord::Base
                     work_phone 
                     cell_phone 
                     preferred_language
+                    other_language
                     marital_status
                     date_of_birth
                     head_of_household 
@@ -146,6 +148,8 @@ class Client < ActiveRecord::Base
                     num_of_dependants
                     education_level
                     disability
+                    disability_in_household
+                    over_sixty_two
                     union_member
                     military_service_member
                     volunteer_interest
@@ -172,6 +176,7 @@ class Client < ActiveRecord::Base
             client.work_phone,
             client.cell_phone,
             client.preferred_language,
+            client.other_language,
             client.marital_status,
             client.dob,
             client.head_of_household,
@@ -179,6 +184,8 @@ class Client < ActiveRecord::Base
             client.num_of_dependants,
             client.education_level,
             client.disability,
+            client.disability_in_household,
+            client.over_sixty_two,
             client.union_member,
             client.military_service_member,
             client.volunteer_interest,

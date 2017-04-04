@@ -3,6 +3,14 @@ module FormInputsHelper
 
 # Helper for Client update and create forms
 
+	
+	def employee_address
+		[
+			["3541 W. North Ave. #1, Chicago, IL 60647"],
+			["Other LUCHA Address"]
+		]
+	end
+
 	def education
 		[
 			["No High School Diploma", "No High School Diploma"],
@@ -143,7 +151,8 @@ module FormInputsHelper
 	def gender_options
 		[
 			['Male', 'Male'],
-			['Female', 'Female']
+			['Female', 'Female'],
+			['Other', 'Other']
 		]
 	end
 
@@ -159,16 +168,19 @@ module FormInputsHelper
 	def language_options
 		[
 			['English', 'English'], 
-			['Spanish', 'Spanish']
+			['Spanish', 'Spanish'],
+			['Other', 'Other']
 		]
 	end
 
 	def marital_status_options
 		[
 			['Married', 'Married'], 
-			['Divorced', 'Divorced'], 
+			['Divorced', 'Divorced'],
+			['Separated', 'Separated'], 
 			['Single', 'Single'], 
 			['Widowed', 'Widowed']
+
 		]
 	end
 end

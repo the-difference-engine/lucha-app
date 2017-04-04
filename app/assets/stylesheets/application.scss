@@ -17,6 +17,24 @@
 
 @import "external";
 
+// table adjustments
+
+* {
+  border-radius: 0px;
+}
+.row.phone-number--row,
+.row.client-location--row,
+.row.city-state--row {
+  margin-bottom: 0px;
+}
+
+.panel.panel-primary{
+  border-radius: 0px;
+}
+.panel-heading {
+  border-radius: 0px;
+  
+}
 .panel-success {
   border-radius: 0px;
   border-color: lightblue;
@@ -26,6 +44,18 @@
   background-color: $brand-primary;
   border-color: lightblue;
   border-radius: 0px;
+}
+
+.submitted-applications {
+  .btn.btn-success.btn-sm {
+    margin: 1px 0;
+  }
+}
+
+.col-md-8 {
+  input.btn.btn-sm.btn-success {
+    width: 25%;
+  }
 }
 
 body {
@@ -106,6 +136,10 @@ body {
   border-radius: 0px;
 }
 
+.btn-danger, .btn-warning {
+  margin: 5px 0px;
+}
+
 .btn-default-lg {
     color: #333;
     background-color: #fff;
@@ -139,8 +173,10 @@ body {
 
 .user-assign {
   .btn {
-    width: 20%;
     margin-top: 0;
+  }
+  .col-md-4 {
+    margin: 0% 0;
   }
 }
 
@@ -151,7 +187,32 @@ body {
 }
 
 .user-index {
+  .sm-col {
+    width: 50px;
+  }
+  .md-col {
+    width: 152px;
+  }
+  p {
+    margin-bottom: 0;
+  }
   .row {
     margin-bottom: 0;
   }
+  input {
+    margin: 0;
+  }
+  .col-md-5 {
+    .btn {
+      max-width: 75px;
+    }
+  }
+}
+
+.checkbox-label {
+  padding-left:7px;;
+}
+
+#other-input {
+  display: none;
 }

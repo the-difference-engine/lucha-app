@@ -34,6 +34,17 @@
         <%=f.text_field :cell_phone, :class => "form-control" %>
       </div>
 
+      <div class="form-group">
+        <%= I18n.t "employee_sign_up.work_phone" %>
+        <%=f.text_field :work_phone, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= I18n.t "employee_sign_up.address" %>
+        <span class="text-danger"> * </span>
+        <%= select_tag(:address, options_for_select(employee_address, nil), :prompt => "Please Select", :class => "form-control") %>
+      </div>
+
       <hr>
 
       <h1>

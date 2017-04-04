@@ -7,7 +7,7 @@ class ForeclosuresController < ApplicationController
 
 
   def index
-    @foreclosures = Foreclosure.all
+    @foreclosures = Foreclosure.all.order('created_at desc')
 
     respond_to do |format|
       format.html

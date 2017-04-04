@@ -1,8 +1,9 @@
 class ClientsController < ApplicationController
   include FormInputsHelper
 
-  before_action :authenticate!, :only => [:index, :show, :update, :edit,]
+  before_action :authenticate!, :only => [:index, :show, :update, :edit, :status]
   before_action :verify_user!, :only => [:destroy,]
+  before_action :set_locale
 
   def index
     @users = User.all
@@ -74,12 +75,13 @@ class ClientsController < ApplicationController
     elsif client_signed_in?
       @client = current_client
     end
+
     if @client.update({
       first_name: params[:client][:first_name],
       last_name: params[:client][:last_name],
-      home_phone: params[:client][:home_phone],
-      cell_phone: params[:client][:cell_phone],
-      work_phone: params[:client][:work_phone],
+      home_phone: params[:client][:home_phone].gsub!(/\D/, ''),
+      cell_phone: params[:client][:cell_phone].gsub!(/\D/, ''),
+      work_phone: params[:client][:work_phone].gsub!(/\D/, ''),
       address: params[:client][:address],
       state: params[:client][:state],
       city: params[:client][:city],
@@ -90,6 +92,7 @@ class ClientsController < ApplicationController
       ssn: params[:client][:ssn],
       preferred_contact_method: params[:client][:preferred_contact_method],
       preferred_language: params[:client][:preferred_language],
+      other_language: params[:client][:other_language],
       marital_status: params[:client][:marital_status],
       dob: params[:client][:dob],
       head_of_household: params[:client][:head_of_household],
@@ -98,6 +101,8 @@ class ClientsController < ApplicationController
       education_level: params[:client][:education_level],
       estimated_household_income: params[:client][:estimated_household_income],
       disability: params[:client][:disability],
+      disability_in_household: params[:client][:disability_in_household],
+      over_sixty_two: params[:client][:over_sixty_two],
       union_member: params[:client][:union_member],
       military_service_member: params[:client][:military_service_member],
       volunteer_interest: params[:client][:volunteer_interest],
@@ -132,7 +137,7 @@ class ClientsController < ApplicationController
     end 
 
     if @step_three == "completed-step"
-      @step_four = @client.user_id ? "completed-step" : "active-step"
+      @step_four = "active-step"
     end
   end
 
@@ -196,6 +201,7 @@ class ClientsController < ApplicationController
       :ssn,
       :preferred_contact_method,
       :preferred_language,
+      :other_language,
       :marital_status,
       :dob,
       :head_of_household,
@@ -204,6 +210,8 @@ class ClientsController < ApplicationController
       :education_level,
       :estimated_household_income,
       :disability,
+      :disability_in_household,
+      :over_sixty_two,
       :union_member,
       :military_service_member,
       :volunteer_interest,

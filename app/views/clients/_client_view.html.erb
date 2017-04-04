@@ -31,6 +31,26 @@
               <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true)%></strong></td>
             </tr>
             <tr>
+              <td><%= I18n.t "clients_show.pref_lang"  %></td>
+              <td class="text-right"><strong><%= @client.preferred_language %></strong></td>
+            </tr>
+
+            <% if @client.preferred_language == "Other" %>
+              <tr>
+                <td><%= I18n.t "clients_show.other_language"  %></td>
+                <td class="text-right"><strong><%= @client.other_language %></strong></td>
+              </tr>
+            <% end %>
+            
+            <tr>
+              <td><%= I18n.t "clients_show.pref_contact"  %></td>
+              <td class="text-right"><strong><%= @client.preferred_contact_method %></strong></td>
+            </tr>
+            <tr>
+              <td><%= I18n.t "clients_show.email"  %></td>
+              <td class="text-right"><strong><%= @client.email %></strong></td>
+            </tr>
+            <tr>
               <td><%= I18n.t "clients_show.address"  %></td>
               <td class="text-right">
                 <strong>
@@ -135,6 +155,14 @@
             <td class="text-right"><strong><%= @client.disability ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
+            <td><%= I18n.t "clients_show.disability_in_household"  %></td>
+            <td class="text-right"><strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td><%= I18n.t "clients_show.over_sixty_two"  %></td>
+            <td class="text-right"><strong><%= @client.over_sixty_two ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
             <td><%= I18n.t "clients_show.military"  %></td>
             <td class="text-right"><strong><%= @client.military_service_member ? "Yes" : "No" %></strong></td>
           </tr>
@@ -153,5 +181,5 @@
 </div>
 <hr>
 <div>
-  <a href="/clients/<%= current_client.id %>/edit" class="btn btn-primary"><%= I18n.t "clients_show.edit_profile"  %></a>
+  <a href="/clients/<%= current_client.id %>/edit" class="btn btn-warning"><%= I18n.t "clients_show.edit_profile"  %></a>
 </div>

@@ -5,6 +5,7 @@ class Budget < ActiveRecord::Base
 
   validates_presence_of :client
   validates_numericality_of VALIDATABLE_ATTRS
+  validates :gross_wages, presence: true, on: :update
 
 	belongs_to :client 
 
