@@ -33,11 +33,13 @@
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><a href="/users/<%= current_user.id %>">Your Clients</a></li>
-          <li><%= link_to 'Registered Clients', employee_index_path %></li>
+          <li><%= link_to 'Registered Clients', clients_path %></li>
           <li><%= link_to 'Foreclosures', foreclosures_path %></li>
           <li><%= link_to 'Home Buying', homebuyings_path %></li>
           <li><%= link_to 'Rentals', rentals_path %></li>
-
+          <% if current_user.admin %>
+            <li><%= link_to ' Registered Employees', employee_index_path %></li>
+          <% end %>
         <% elsif client_signed_in? %>
           <li><%= link_to 'Application Status', client_status_path(current_client.id) %></li>
           <li><%= link_to 'Profile', client_path(current_client.id) %></li>

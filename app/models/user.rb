@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def pretty_last_sign_in_at
+    last_sign_in_at.strftime("%A, %b %d")
+  end
+
   # def client_list
   #   clients = []
   #   foreclosures.each do |foreclosure|

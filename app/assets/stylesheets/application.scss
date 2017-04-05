@@ -216,3 +216,12 @@ body {
 #other-input {
   display: none;
 }
+
+.user-profile {
+  .row {
+    margin-bottom: 0;
+  }
+  .well {
+    overflow: hidden;
+  }
+}

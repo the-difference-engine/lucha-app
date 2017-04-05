@@ -23,14 +23,13 @@ RSpec.describe ClientsController, type: :controller do
     end
 
     it "assigns an array of @clients" do
-      @client = create(:client)
-      sign_in @client
+      @user = create(:user)
+      sign_in @user
       client1 = create(:client)
       client2 = create(:client)
       client3 = create(:client)
       get :index
       expect(assigns(:clients)).to match_array([
-        @client,
         client1,
         client2,
         client3,
