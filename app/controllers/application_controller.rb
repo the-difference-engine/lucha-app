@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def verify_admin!
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
+  end
+
   def authenticate_client!
     unless current_client
       flash[:notice] = "Unathenticated Client!"

@@ -1,4 +1,4 @@
-<h1><%= I18n.t "employee_registered_clients.all_registered_clients" %></h1>
+<h1>All Registered Employees</h1>
 <hr>
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_registered_clients.search_on_this_page" %>>
@@ -9,51 +9,25 @@
     <th><%= I18n.t "employee_registered_clients.name" %></th>
     <th><%= I18n.t "employee_registered_clients.email" %></th>
     <th><%= I18n.t "employee_registered_clients.phone" %></th>
-    <th class="sm-col"><%= I18n.t "employee_registered_clients.preferred_language" %></th>
-    <th><%= I18n.t "employee_registered_clients.submitted_applications" %></th>
-    <th><%= I18n.t "employee_registered_clients.assigned_employee" %></th>
-    <th><%= I18n.t "employee_registered_clients.client_info" %></th>
+    <th> Location </th>
+    <th>Assigned Clients</th>
+    <th>Admin</th>
     <tr class="warning no-result">
         <td colspan="6"><i class="fa fa-warning"></i> <%= I18n.t "employee_registered_clients.no_results" %> </td>
     </tr>
   </thead>
 
-<% @clients.each do |client| %>
+<% @users.each do |user| %>
   <tbody>
     <tr>
-      <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
-      <td><%= client.email %></td>
+      <td><%= link_to(user.full_name.titleize, user_path(user.id)) %></td>
+      <td><%= user.email %></td>
       <td class="md-col">
-        <p><%= I18n.t "employee_registered_clients.home" %> <%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
-        <p><%= I18n.t "employee_registered_clients.work" %><%= number_to_phone(client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
-        <p><%= I18n.t "employee_registered_clients.cell" %><%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>          
+        <%= number_to_phone(user.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %>   
       </td>
-      <td><%= client.preferred_language %></td>
-      <td class="sm-col"><%= client.client_types.to_sentence %></td>
-      <td>
-        <% if client.user_id %>
-          <%= client.user.full_name %>
-        <% elsif !client.incomplete_profile? && current_user.admin %> 
-          <div class="row">
-            <%= form_tag("/clients/#{client.id}/assign", method: :patch) do %>
-              <div class = "col-md-7 field">
-                <%= collection_select(:client, :user_id, User.all, :id, :full_name, {:prompt => I18n.t("employee_registered_clients.select_a_counselor")}, :class => "form-control input-sm") %>
-              </div>
-              <div class="col-md-5">
-                <%= hidden_field_tag :client_id, client.id %>
-                <%= submit_tag I18n.t("employee_registered_clients.assign"), :class => "btn btn-sm btn-success"%>
-              </div>
-            <% end %>
-          </div>
-        <% elsif !client.incomplete_profile? && !current_user.admin %>
-          <p class="text-primary"><%= I18n.t "employee_registered_clients.awaiting_assignment" %></p>
-        <% else %>
-          <p class="text-danger"><%= I18n.t "employee_registered_clients.profile_not_complete" %></p>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to I18n.t("employee_registered_clients.view"), "/clients/#{client.id}", :class => "btn btn-sm btn-primary" %>
-      </td>
+      <td><%= user.address %></td>
+      <td><%= user.clients.count %></td>
+      <td><%= user.admin ? "Yes" : "No" %></td>
     </tr>
   </tbody>
 <% end %>
@@ -61,7 +35,7 @@
 <hr>
 <p>
   <%= I18n.t "employee_registered_clients.download" %>
-  <%= link_to "CSV", clients_path(format: "csv") %> |
-  <%= link_to "Excel", clients_path(format: "xls") %>
+  <%= link_to "CSV", employee_index_path(format: "csv") %> |
+  <%= link_to "Excel", employee_index_path(format: "xls") %>
   </div>
 </p>

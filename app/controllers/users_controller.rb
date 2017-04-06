@@ -1,22 +1,27 @@
 class UsersController < Devise::RegistrationsController
-  before_action :verify_user!, except: [:new, :create]
+  before_action :verify_user!, except: [:new, :create, :index]
+  before_action :verify_admin!, only: [:index]
 
 
 
   def index
-    @clients = Client.all.order('created_at desc')
+    @users = User.all.order('created_at desc')
     # @client = 
 
     respond_to do |format|
       format.json
       format.html
-      format.csv { send_data @clients.to_csv, type: 'text/csv' , filename: "all_clients-#{Date.today}.csv"}
-      format.xls 
+      format.csv { send_data @users.to_csv, type: 'text/csv' , filename: "all_clients-#{Date.today}.csv"}
+      format.xls  
     end
   end
 
   def show
-    @user = User.find(current_user.id)
+    if current_user.admin
+      @user = params[:id] ? User.find(params[:id]) : User.find(current_user.id)
+    else
+      @user = User.find(current_user.id)
+    end
     ## this didn't work for me. I had to change this. current_user was nil
     # @clients = Client.where(user_id: current_user.id)
     @clients = Client.where(user_id: @user.id).order('created_at desc')
@@ -62,20 +67,19 @@ class UsersController < Devise::RegistrationsController
   end
 
   def update
-    @user = current_user
-    if @client.update({first: params[:name],
+    @user = User.find(params[:id])
+
+    if @user.update({
       first_name: params[:first_name],
       last_name: params[:last_name],
-      email: params[:email],
-      password: params[:password],
-      home_phone: params[:home_phone],#.gsub!(/\D/, ''),
-      work_phone: params[:work_phone],#.gsub!(/\D/, ''),
-      cell_phone: params[:cell_phone],#.gsub!(/\D/, '')
+      home_phone: params[:home_phone].gsub(/\D/, ''),
+      work_phone: params[:work_phone].gsub(/\D/, ''),
+      cell_phone: params[:cell_phone].gsub(/\D/, ''),
       address: params[:address]
         })
 
     flash[:success] = "Your info is updated."
-    redirect_to "/clients/#{@client.id}"
+    redirect_to "/users/#{@user.id}"
     else
       render :edit
     end
