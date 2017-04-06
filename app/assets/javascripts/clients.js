@@ -15,7 +15,6 @@ $(document).ready(function() {
 
 
 
-
 // $(function() {
 //   $('span.best_in_place[data-html-attrs]').each(function() {
 //     var attrs, el;
