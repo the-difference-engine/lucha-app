@@ -1,8 +1,6 @@
 class UsersController < Devise::RegistrationsController
   before_action :verify_user!, except: [:new, :create, :index]
-  before_action :verify_admin!, only: [:index]
-
-
+  before_action :verify_admin!, only: [:index, :toggle_admin]
 
   def index
     @users = User.all.order('created_at desc')
