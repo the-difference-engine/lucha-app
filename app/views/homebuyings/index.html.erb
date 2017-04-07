@@ -13,10 +13,10 @@
   <thead>
     <tr>
       <th><%= I18n.t "employee_homebuying_index.name" %></th>
+      <th><%= I18n.t "employee_homebuying_index.email" %></th>
       <th><%= I18n.t "employee_homebuying_index.phone" %></th>
       <th><%= I18n.t "employee_homebuying_index.address" %></th>
       <th><%= I18n.t "employee_homebuying_index.contact_for_appointment" %></th>
-      <th><%= I18n.t "employee_homebuying_index.realtors_name" %></th>
       <th><%= I18n.t "employee_homebuying_index.date_created" %></th>
       <th><%= I18n.t "employee_homebuying_index.view" %></th> 
     </tr>    
@@ -33,6 +33,9 @@
        <%= link_to(homebuying.client.full_name.titleize, client_path(homebuying.client.id)) %>
      </td>
      <td>
+     <%= homebuying.client.email %>
+     </td>
+     <td>
        <%= number_to_phone(homebuying.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %>
      </td>
      <td>
@@ -44,9 +47,6 @@
         <% else %>
           <%= I18n.t "employee_homebuying_index.contact_yes" %>
         <% end %>
-     </td>
-     <td>
-       <%= homebuying.realtor_name %>
      </td>
      <td>
        <%= homebuying.pretty_time %>
