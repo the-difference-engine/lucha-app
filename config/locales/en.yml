@@ -209,8 +209,8 @@ en:
   homebuying:
       loan_type: "Loan type"
       lender: "Lender"
-      contact_for_appointment: "Contact for appointment"
-      real_estate_contract: "Real estate contract"
+      contact_for_appointment: "Would you like to be contacted for an appointment?"
+      real_estate_contract: "Have you signed a real estate contract?"
       realtor_name: "Realtor name"
       realtor_phone: "Realtor phone"
       property_address: "Property address"
@@ -221,10 +221,13 @@ en:
       loan_officer_phone: "Loan officer phone"
       payment_assistance_program: "Payment assistance program"
       approximate_closing_date: "Approximate closing date"
+      edit_application: "Edit Application"
+      delete_application: "Delete Application"
 
   foreclosure:
       foreclosure: "foreclosure: "
       title: "Foreclosure Application:"
+      submitted_by: "Foreclosure Information submitted by "
       description: "You've taken the first step. Once this application is submitted, you will be contacted by one of LUCHA's counselors for further guidance."
       currently_foreclosed: "Are you currently going through foreclosure?"
       originating_lender: "Originating Lender:"
@@ -242,6 +245,24 @@ en:
       submit: "Submit"
       edit_application: "Edit Application"
       delete_application: "Delete Application"
+
+  rental:
+      number_of_bedrooms: "Number of bedrooms"
+      interested_in_a_studio: "Interested in a studio?"
+      interested_in_a_one_bedroom: "Interested in a one bedroom?"
+      interested_in_a_two_bedroom: "Interested in a two bedroom?"
+      interested_in_a_three_bedroom: "Interested in a three bedroom?"
+      wheelchair_accessible: "Do you need a wheelchair accessible unit? "
+      car_owner: "Do you own a car? "
+      pet_owner: "Do you own a pet? "
+      hear_of_property: "How did you hear about the property? "
+      reason_for_move: "What is your reason for applying to LUCHA? "
+      housing_situation: "What is your current housing situation? "
+      employer_name: "Current employer's name: "
+      employer_address: "Current employer's address: "
+      edit_application: "Edit Application"
+      delete_application: "Delete Application"
+
 
   #employee section, client section above
   #no need for employee log in, same fields/page as client log in
