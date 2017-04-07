@@ -85,6 +85,16 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
+  def toggle_admin
+    @user = User.find(params[:id])
+    @user.admin = !@user.admin
+    if @user.save
+      render json: "success"
+    else
+      render json: "error"
+    end
+  end
+
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
