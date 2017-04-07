@@ -210,7 +210,7 @@ es:
         loan_type: "Tipo de préstamo"
         lender: "¿Cuál es el nombre de su Prestamista?"
         contact_for_appointment: "Póngase en contacto con para una cita"
-        real_estate_contract: "Real estate contract"
+        real_estate_contract: "Have you signed a real estate contract?"
         realtor_name: "Agente de Bienes Raíces"
         realtor_phone: "Teléfono para el realtor"
         property_address: "¿Cuál es la dirección de la propiedad?"
@@ -221,17 +221,20 @@ es:
         loan_officer_phone: "Teléfono del oficial de préstamo"
         payment_assistance_program: "Programa de asistencia de pago"
         approximate_closing_date: "Fecha aproximada de Cierre"
+        edit_application: "Actualizar"
+        delete_application: "Eliminar la Aplicación"
 
     foreclosure: 
         foreclosure: "Ejecución de una hipoteca"
         title:  "Solicitud de ejecución de una hipoteca"
+        submitted_by: "Foreclosure Information submitted by "
         description: "Usted ha dado el primer paso. Una vez que se ha presentado esta solicitud, usted será contactado por uno de los consejeros de Lucha como una guía adicional."
         currently_foreclosed: "Actualmente adjudicados"
         originating_lender: "Prestamista originario"
         original_loan_number: "Número de préstamo originario"
         servicer: "Administrador"
         servicer_loan_number: "Número de préstamo servicio"
-        monthly_mortgage_payment: "el pago mensual de la hipoteca"
+        monthly_mortgage_payment: "El pago mensual de la hipoteca"
         loan_term: "Plazo del préstamo"
         origination_date: "Fecha de formalización"
         been_to_court: "¿Ha asistido a la corte?" 
@@ -242,6 +245,24 @@ es:
         submit: "Enviar"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
+
+    rental:
+        number_of_bedrooms: "Number of bedrooms"
+        interested_in_a_studio: "Interested in a studio?"
+        interested_in_a_one_bedroom: "Interested in a uno bedroom?"
+        interested_in_a_two_bedroom: "Interested in a dos bedroom?"
+        interested_in_a_three_bedroom: "Interested in a three bedroom?"
+        wheelchair_accessible: "Do you need a wheelchair accessible unit? "
+        car_owner: "Do you own a car? "
+        pet_owner: "Do you own a pet? "
+        hear_of_property: "How did you hear about the property? "
+        reason_for_move: "What is your reason for applying to LUCHA? "
+        housing_situation: "What is your current housing situation? "
+        employer_name: "Current employer's name: "
+        edit_application: "Actualizar"
+        pet_owner: "Do you own a pet? "
+        delete_application: "Eliminar la Aplicación"
+
     
     #employee section, client section above
     #no need for employee log in, same fields/page as client log in
