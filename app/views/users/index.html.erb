@@ -11,7 +11,7 @@
     <th><%= I18n.t "employee_registered_clients.phone" %></th>
     <th> Location </th>
     <th>Assigned Clients</th>
-    <th>Admin</th>
+    <th>Admin?</th>
     <tr class="warning no-result">
         <td colspan="6"><i class="fa fa-warning"></i> <%= I18n.t "employee_registered_clients.no_results" %> </td>
     </tr>
@@ -26,8 +26,14 @@
         <%= number_to_phone(user.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %>   
       </td>
       <td><%= user.address %></td>
-      <td><%= user.clients.count %></td>
-      <td><%= user.admin ? "Yes" : "No" %></td>
+      <td><span class="badge"><%= user.clients.count %></span></td>
+      <td>
+        <div class="admin-toggle">
+          <label>
+            <input class="admin-checkbox" type="checkbox" id=<%=user.id%> data-toggle="toggle" <%= user.admin ? "checked" : "" %> >
+          </label>
+        </div>
+      </td>
     </tr>
   </tbody>
 <% end %>
@@ -39,3 +45,10 @@
   <%= link_to "Excel", employee_index_path(format: "xls") %>
   </div>
 </p>
+<script>
+$(document).ready(function(){
+  $('.toggle-on').text('Yes');
+  $('.toggle-off').text('No');
+
+})
+</script>

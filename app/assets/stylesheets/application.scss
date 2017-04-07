@@ -225,3 +225,14 @@ body {
     overflow: hidden;
   }
 }
+.admin-toggle{
+  .btn {
+    width: auto;
+  }
+}
+.btn-true {
+    background-color: $brand-danger;
+}
+.btn-false {
+    background-color: green;
+}
