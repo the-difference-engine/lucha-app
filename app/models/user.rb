@@ -1,6 +1,7 @@
 
 
 class User < ActiveRecord::Base
+  include Prettytime
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -45,10 +46,6 @@ class User < ActiveRecord::Base
     if cell_phone
       cell_phone.gsub!(/\D/, '')
     end
-  end
-
-  def pretty_last_sign_in_at
-    last_sign_in_at.strftime("%A, %b %d")
   end
 
   # def client_list

@@ -11,10 +11,9 @@
 #
 
 class Note < ActiveRecord::Base
+  include Prettytime
+
   belongs_to :user
   belongs_to :client
 
-  def pretty_time
-    created_at.strftime("%A, %b %d")
-  end
 end
