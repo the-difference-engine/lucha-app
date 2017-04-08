@@ -414,8 +414,18 @@ es:
         no_results: "No hay resultados"
         download: "Descargar:"
 
-    helpers:
-        submit:
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+    devise:
+        sessions:
             client:
-                update: "Actualizar"
+                signed_in: Iniciaste sesión correctamente.'
+                signed_out: 'Cerraste sesión correctamente.'
+                already_signed_out: "Signed out successfully."
+        confirmations:
+            client:
+                confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
+                send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+                send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+
+
     
