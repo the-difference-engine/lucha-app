@@ -21,6 +21,23 @@ en:
       # demographics_statement: "A few notes on the diversity of our clients:
       # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
 
+  password_forgot:
+      forgot_your_password: "Forgot your Password?"
+      email: "Email"
+      log_in: "Log in"
+      sign_up: "Sign up"
+      send_me_reset_password_instructions: "Send me reset password instructions"
+
+
+  password_change:
+      change_your_password: "Change your Password"
+      new_password: "New password"
+      eight_characters_minimum: "(8 characters minimum)"
+      confirm_new_password: "Confirm new password"
+      change_my_password: "Change my password"
+
+
+
   # Client section, employee section below
   client_sign_up:
       welcome: "Welcome"
