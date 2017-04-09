@@ -20,6 +20,19 @@ es:
         # demographics: "LUCHA Demographics:"
         # demographics_statement: "A few notes on the diversity of our clients: 
         # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+
+    password_forgot:
+        forgot_your_password: "Olvidaste tu contraseña?"
+        email: "Correo Electrónico"
+        log_in: "Inicio de sesión"
+        send_me_reset_password_instructions: "Send me reset password instructions"
+
+    password_change:
+        change_your_password: "Cambia tu Contraseña"
+        new_password: "Nueva Contraseña"
+        eight_characters_minimum: "(Mínimo de 8 caracteres)"
+        confirm_new_password: "Confirmar nueva contraseña"
+        change_my_password: "Cambiar mi Contraseña"        
     
     # Client section, employee section below
     client_sign_up:
