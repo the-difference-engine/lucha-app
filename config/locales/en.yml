@@ -5,21 +5,9 @@ en:
       sign_up: "sign up"
       sign_in: "sign in"
 
-      #old splash page, all removed
-      # mission: "LUCHA's Mission:"
-      # mission_statement: "LUCHA (the Spanish word for “Fight ”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services."
       user_sign_in: "Employee Login"
-      # lucha_vision: "LUCHA's Vision"
-      # lucha_vision_lead: "We aspire to build empowered, thriving communities and further access to equitable and fair housing."
-      # connect: "Connect with us:"
-      # home: "Home"
-      # about: "About"
-      # services: "Services"
-      # contact: "Contact"
-      copy_right: "Copyright \u00A9 Lucha 2016. All Rights Reserved"
-      # demographics: "LUCHA Demographics:"
-      # demographics_statement: "A few notes on the diversity of our clients:
-      # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+
+      copy_right: "Copyright \u00A9 Lucha 2017. All Rights Reserved"
 
   password_forgot:
       forgot_your_password: "Forgot your Password?"
@@ -28,15 +16,12 @@ en:
       sign_up: "Sign up"
       send_me_reset_password_instructions: "Send me reset password instructions"
 
-
   password_change:
       change_your_password: "Change your Password"
       new_password: "New password"
       eight_characters_minimum: "(8 characters minimum)"
       confirm_new_password: "Confirm new password"
       change_my_password: "Change my password"
-
-
 
   # Client section, employee section below
   client_sign_up:
@@ -72,6 +57,28 @@ en:
       password: "Password"
       remember_me: "Remember me"
       log_in: "LOGIN"
+
+  client_status:
+      application_status_for: "Application Status for: "
+      thank_you: "Thank you for your interest in LUCHA's services. See the steps below to complete your application."
+      step_one: "Step 1"
+      step_two: "Step 2"
+      step_three: "Step 3"
+      step_four: "Step 4"
+      profile_step: "Please complete your profile."
+      budget_step: "Please provide relevant financial information so that LUCHA may better assist you. You may update it anytime."
+      application_step: "Click the button(s) for the application(s) you are submitting."
+      final_step: "A LUCHA representative will review your information and contact you within two business days to set-up an appointment and inform you of your next steps. We look forward to working with you."
+      completed_profile_step: "Thank you for completing your profile, you can view and edit it anytime."
+      completed_budget_step: "Thank you for providing your financial information. You can view and edit it at any time."
+      completed_application: "Thank you for submitting your application(s)."
+      completed: "You have been assigned to: "
+      edit_profile: "Edit Profile"
+      view_profile: "View Profile"
+      view_budget: "View Budget"
+      foreclosure: "Foreclosure"
+      homebuying: "Homebuying"
+      rental: "Rental"
 
   budget_show:
       title: "Budget For: "
@@ -430,19 +437,20 @@ en:
       search_on_this_page: "Search on this page"
       no_results: "No results"
       download: "Download:"
+
       
-  # activerecord:
-    # attributes:
-      # client:
-        # ssn: "Social security number"
-        # dob: "Date of birth"
-        # num_in_household: "Number in household"
-        # num_of_dependants: "Number of dependants"
-    # errors:
-    #   models:
-    #     client:
-    #       attributes:
-    #         ssn:
-    #         dob:
-    #         num_of_dependants:
-    #         num_in_household:
+  devise:
+      sessions:
+            client:
+                  signed_in: "Signed in"
+                  signed_out: "Signed out"
+                  already_signed_out: "Signed out successfully."
+                  log_in: "Log in"
+                  forgot_your_password: "Forgot your password"
+                  sign_up: "Sign up"
+
+      confirmations:
+            client:
+                  confirmed: "Confirmed"
+                  send_instructions: "Send instructions"
+                  send_paranoid_instructions: "If your email exists in the system, you will receive instructions to confirm your account in your email in a few minutes."

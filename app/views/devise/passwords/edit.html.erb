@@ -11,14 +11,14 @@
         <div class="input">
           <%= f.label I18n.t("password_change.new_password") %><br />
           <%= I18n.t "password_change.eight_characters_minimum" %><br />          
-          <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "off", :class => "form-control" %>
         </div>
       </div>
 
       <div class="form-group field">
         <div class="input">
           <%= f.label I18n.t("password_change.confirm_new_password") %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
         </div>
       </div>
 

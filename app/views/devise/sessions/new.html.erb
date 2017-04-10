@@ -46,7 +46,7 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.submit "Log in", :class => 'btn btn-primary' %>
+        <%= f.submit I18n.t("client_log_in.log_in"), :class => 'btn btn-primary' %>
       </div>
     <% end %>
 
@@ -58,9 +58,9 @@
 
       <div class="pull-right">
         <% if request.fullpath == '/users/sign_in' %>
-          <%= link_to "Client Log In", "/clients/sign_in", :class => "btn btn-sm btn-default" %>
+          <%= link_to I18n.t("client_log_in.client_log_in"), "/clients/sign_in", :class => "btn btn-sm btn-default" %>
         <% else %>
-          <%= link_to "Employee Log In", "/users/sign_in", :class => "btn btn-sm btn-default" %>
+          <%= link_to I18n.t("client_log_in.employee_log_in"), "/users/sign_in", :class => "btn btn-sm btn-default" %>
         <% end %>
       </div>
     </div>
