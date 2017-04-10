@@ -9,8 +9,9 @@
 
       <div class="form-group field">
         <div class="input">
-        <%= I18n.t "password_forgot.email" %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= I18n.t "password_forgot.email" %>
+        <span class="text-danger"> * </span>
+        <%= f.email_field :email, autofocus: true, :class => "form-control" %>
         </div>
       </div>
 

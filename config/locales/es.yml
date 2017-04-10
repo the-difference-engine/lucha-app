@@ -2,29 +2,18 @@ es:
     splash: 
         title: "Asociación Unida de Viviendas Hispánicas "
         sub_title: "LUCHA Portal Cliente"
-        sign_up: "Apuntarse"
+        sign_up: "Regístrese"
         sign_in: "Entrar"
 
-        #old splash page, all removed
-        # mission: "Misión de Lucha:"
-        # mission_statement: "La misión de LUCHA es proporcionar vivienda digna y asequible, servicios de vivienda y educación para los hispanos de bajos y moderados ingresos, y demás residentes." 
         user_sign_in: "Aceso de Empleados"
-        # lucha_vision: "Visión de Lucha "
-        # lucha_vision_lead: "Esto se hace mediante la capacitación de los residentes a través de la educación, la participación, promoción del desarrollo de viviendas asequibles y la adquisición de viviendas; proveyendo liderazgo y abogando por recursos."
-        # connect: "Únete con Nosotros:"
-        # home: "Inicio"
-        # about: "Sobre"
-        # services: "Servicios"
-        # contact: "Contactar"
-        copy_right: "Registro Civil &copy; Lucha 2016. Reservados todos los derechos"
-        # demographics: "LUCHA Demographics:"
-        # demographics_statement: "A few notes on the diversity of our clients: 
-        # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+
+        copy_right: "Registro Civil &copy; Lucha 2017. Reservados todos los derechos"
 
     password_forgot:
         forgot_your_password: "Olvidaste tu contraseña?"
         email: "Correo Electrónico"
         log_in: "Inicio de sesión"
+        sign_up: "Regístrese"
         send_me_reset_password_instructions: "Send me reset password instructions"
 
     password_change:
@@ -69,6 +58,28 @@ es:
         remember_me: "Recuérdame"
         log_in: "Iniciar Sesión"
 
+    client_status:
+        application_status_for: "Application Status for: "
+        thank_you: "Thank you for your interest in LUCHA's services. See the steps below to complete your application."
+        step_one: "Paso 1"
+        step_two: "Paso 2"
+        step_three: "Paso 3"
+        step_four: "Paso 4"
+        profile_step: "Please complete your profile."
+        budget_step: "Please provide relevant financial information so that LUCHA may better assist you. You may update it anytime."
+        application_step: "Click the button(s) for the application(s) you are submitting."
+        final_step: "A LUCHA representative will review your information and contact you within two business days to set-up an appointment and inform you of your next steps. We look forward to working with you."
+        completed_profile_step: "Thank you for completing your profile, you can view and edit it anytime."
+        completed_budget_step: "Thank you for providing your financial information. You can view and edit it at any time."
+        completed_application: "Thank you for submitting your application(s)."
+        completed: "You have been assigned to: "
+        edit_profile: "Editar Perfil"
+        view_profile: "Ver Perfil"
+        view_budget: "Ver Presupuesto"
+        foreclosure: "Foreclosure"
+        homebuying: "Homebuying"
+        rental: "Rental"
+        
     budget_show:
         title: "Su presupuesto mensual: "
         description: "Fill this out as best you can. If there are any changes you would like to make simply click on the appropriate field. You can make changes at any time. You must provide information for at least one field in each section to continue with your application."
@@ -431,9 +442,13 @@ es:
     devise:
         sessions:
             client:
-                signed_in: Iniciaste sesión correctamente.'
+                signed_in: 'Iniciaste sesión correctamente.'
                 signed_out: 'Cerraste sesión correctamente.'
                 already_signed_out: "Signed out successfully."
+                log_in: "Inicio de sesión"
+                forgot_your_password: "Olvidaste tu contraseña?"
+                sign_up: "Regístrese"
+
         confirmations:
             client:
                 confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
