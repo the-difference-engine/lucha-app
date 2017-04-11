@@ -9,6 +9,24 @@ en:
 
       copy_right: "Copyright \u00A9 Lucha 2017. All Rights Reserved"
 
+  navbar:
+      signed_in_as: "Signed in as "
+      sign_out: "Sign out"
+      your_clients: "Your Clients"
+      registered_clients: "Registered Clients"
+      foreclosures: "Foreclosures"
+      homebuyings: "Homebuyings"
+      rentals: "Rentals"
+      registered_employees: "Registered Employees "
+      application_status: "Application Status"
+      profile: "Profile"
+      budget: "Budget"
+      your_foreclosure_application: "Your Foreclosure Application"
+      your_homebuying_application: "Your Homebuying Application"
+      your_rental_application: "Your Rental Application"
+      client_registration: "Client Registration"
+      user_registration: "Employee Registration"
+
   password_forgot:
       forgot_your_password: "Forgot your Password?"
       email: "Email"
@@ -39,6 +57,7 @@ en:
       zip_code: "Zip code"
       authorize_lucha: "I authorize LUCHA and it's staff to use my information for the purposes of counseling."
       privacy_and_disclosure: "I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set."
+      view_policy: "View Privacy and Disclosure Policy"
       login_information: "The following informatin will be your login information. Make sure to keep this safe with you."
       email: "Email"
       password: "Password"

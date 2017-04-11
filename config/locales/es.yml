@@ -9,6 +9,24 @@ es:
 
         copy_right: "Registro Civil &copy; Lucha 2017. Reservados todos los derechos"
 
+    navbar:
+        signed_in_as: "Registrado como "
+        sign_out: "Desconectar"
+        your_clients: "Sus Clientes"
+        registered_clients: "Clientes Registrados"
+        foreclosures: "Ejecuciones Hipotecarias"
+        homebuyings: "Compra de vivienda"
+        rentals: "Alquileres"
+        registered_employees: "Empleados Registrados "
+        application_status: "Estado de la Aplicación"
+        profile: "Perfil"
+        budget: "Presupuesto"
+        your_foreclosure_application: "Su Solicitud de Ejecución Hipotecaria"
+        your_homebuying_application: "Su Solicitud de Compra de Vivienda"
+        your_rental_application: "Su Solicitud de Alquiler"
+        client_registration: "Registro del Cliente"
+        user_registration: "Registro de Empleados"
+
     password_forgot:
         forgot_your_password: "Olvidaste tu contraseña?"
         email: "Correo Electrónico"
@@ -39,7 +57,8 @@ es:
         zip_code: "Codigo postal"
         authorize_lucha: "I authorize LUCHA and it's staff to use my information for the purposes of counseling."
         privacy_and_disclosure: "I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set."
-        login_information: "The following informatin will be your login information. Make sure to keep this safe with you."
+        view_policy: "View Privacy and Disclosure Policy"
+        login_information: "The following information will be your login information. Make sure to keep this safe with you."
         email: "Correo Electrónico"
         password: "Contraseña"
         eight_characters_minimum: "(Mínimo de 8 caracteres)"
