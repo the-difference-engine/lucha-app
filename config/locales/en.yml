@@ -290,7 +290,7 @@ en:
       delete_application: "Delete Application"
 
   rental:
-      number_of_bedrooms: "Number of bedrooms"
+      bedrooms: "Number of bedrooms"
       interested_in_a_studio: "Interested in a studio?"
       interested_in_a_one_bedroom: "Interested in a one bedroom?"
       interested_in_a_two_bedroom: "Interested in a two bedroom?"

@@ -2,9 +2,6 @@ class Rental < ActiveRecord::Base
   validates_uniqueness_of :client_id
 	validates_presence_of :client
 
-  validates :studio, :inclusion => {:in => [true, false]}
-  validates :two_bed, :inclusion => {:in => [true, false]}
-  validates :three_bed, :inclusion => {:in => [true, false]}
   validates :wheelchair_accessible, :inclusion => {:in => [true, false]}
   validates :car_owner, :inclusion => {:in => [true, false]}
   validates :pet_owner, :inclusion => {:in => [true, false]}

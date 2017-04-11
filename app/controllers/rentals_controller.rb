@@ -79,6 +79,7 @@ class RentalsController < ApplicationController
     params.permit(
     :evictions,
     :waitlist_num,
+    :bedrooms,
     :studio,
     :two_bed,
     :three_bed,

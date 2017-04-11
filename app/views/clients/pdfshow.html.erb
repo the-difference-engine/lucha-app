@@ -595,15 +595,10 @@
         <table class="tablepdf">
           <tbody>
             <tr>
-              <td>Interested in a studio? </td>
-              <td class="text-right"><strong><%= @client.rental.studio ? "Yes" : "No" %></strong></td>
-            </tr><tr>
-              <td>Interested in a 2 bedroom? </td>
-              <td class="text-right"><strong><%= @client.rental.two_bed ? "Yes" : "No" %></strong></td>
-            </tr><tr>
-              <td>Interested in a 3 bedroom? </td>
-              <td class="text-right"><strong><%= @client.rental.three_bed ? "Yes" : "No" %></strong></td>
-            </tr><tr>
+              <td>Number of bedrooms </td>
+              <td class="text-right"><strong><%= @client.rental.bedrooms ? "Yes" : "No" %></strong></td>
+            </tr>
+            <tr>
               <td>Needs wheelchair accessible unit? </td>
               <td class="text-right"><strong><%= @client.rental.wheelchair_accessible ? "Yes" : "No" %></strong></td>
             </tr><tr>

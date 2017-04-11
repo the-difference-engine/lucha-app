@@ -1,6 +1,6 @@
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.currently_foreclosed" %>
-  <%= select_tag(:currently_foreclosed, options_for_select(foreclosure_status, @foreclosure.currently_foreclosed), :class => "form-control") %>
+  <%= select_tag(:currently_foreclosed, options_for_select(foreclosure_status, @foreclosure.currently_foreclosed), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
@@ -46,7 +46,7 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.been_to_court"  %>
-  <%= select_tag(:been_to_court, options_for_select([["No", false], ["Yes", true]], @foreclosure.been_to_court), :class => "form-control") %>
+  <%= select_tag(:been_to_court, options_for_select([["No", false], ["Yes", true]], @foreclosure.been_to_court), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
@@ -56,12 +56,12 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.working_with_lawyer" %>
-  <%= select_tag(:working_with_lawyer, options_for_select([["No", false],["Yes", true]], @foreclosure.working_with_lawyer), :class => "form-control") %>
+  <%= select_tag(:working_with_lawyer, options_for_select([["No", false],["Yes", true]], @foreclosure.working_with_lawyer), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "foreclosure.working_with_agency"  %>
-  <%= select_tag(:working_w_agency, options_for_select([["No", false],["Yes", true]], @foreclosure.working_w_agency), :class => "form-control") %>
+  <%= select_tag(:working_w_agency, options_for_select([["No", false],["Yes", true]], @foreclosure.working_w_agency), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
