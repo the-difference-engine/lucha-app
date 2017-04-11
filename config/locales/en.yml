@@ -1,9 +1,9 @@
 en:
   splash:
       title: "Latin United Community Housing Association"
-      sub_title: "LUCHA Client Portal"
-      sign_up: "sign up"
-      sign_in: "sign in"
+      sub_title: "LUCHA Client Portal / Portal de Clientes"
+      sign_up: "sign up / regístrate"
+      sign_in: "sign in / registrarse"
 
       user_sign_in: "Employee Login"
 
@@ -305,7 +305,6 @@ en:
       employer_address: "Current employer's address: "
       edit_application: "Edit Application"
       delete_application: "Delete Application"
-
 
   #employee section, client section above
   #no need for employee log in, same fields/page as client log in
