@@ -1,15 +1,15 @@
-<h1>Update your foreclosure case:</h1>
+<h1><%= I18n.t "foreclosure.update_your_foreclosure"  %></h1>
 <hr>
 <div class="panel panel-success">
   <div class="panel-heading">
-    <h3 class="panel-title">Foreclosure Information</h3>
+    <h3 class="panel-title"><%= I18n.t "foreclosure.information"  %></h3>
   </div>
   <div class="panel-body">
     <%= form_tag "/foreclosures/#{@foreclosure.id}", method: :patch do %>
       <%= render "form" %>
     <hr>
     <div class="form-group">
-      <%= submit_tag "Edit", :class => 'btn btn-large btn-primary' %>
+      <%= submit_tag I18n.t("foreclosure.update"), :class => 'btn btn-large btn-primary' %>
     </div>
     <% end %>
   </div>

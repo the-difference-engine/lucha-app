@@ -250,6 +250,9 @@ es:
         update: "Actualizar" 
 
     homebuying: 
+        application: "Solicitud de compra de vivienda"
+        counseling_application: "Solicitud de Consejería de Compra de Vivienda"
+        submitted_by: "Información de compra de vivienda enviada por"
         loan_type: "Tipo de préstamo"
         lender: "¿Cuál es el nombre de su Prestamista?"
         contact_for_appointment: "Póngase en contacto con para una cita"
@@ -268,6 +271,8 @@ es:
         delete_application: "Eliminar la Aplicación"
 
     foreclosure: 
+        update_your_foreclosure: "Actualice su caso de ejecución hipotecaria:"
+        information:  "Información de ejecución hipotecaria"
         foreclosure: "Ejecución de una hipoteca"
         title:  "Solicitud de ejecución de una hipoteca"
         submitted_by: "Información de ejecución hipotecaria presentada por "
@@ -288,8 +293,12 @@ es:
         submit: "Enviar"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
+        update: "Actualizar"
 
     rental:
+        application: "Aplicacion Rental"
+        rental_information: "Información de alquiler"
+        submitted_by: "Información de alquiler presentada por"
         number_of_bedrooms: "Numero de habitaciones"
         interested_in_a_studio: "¿Interesado en un estudio?"
         interested_in_a_one_bedroom: "¿Interesado en una habitación de uno?"
