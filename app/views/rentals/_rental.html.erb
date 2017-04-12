@@ -1,16 +1,8 @@
 <table class="table table-hover">	
 	<tbody>
 		<tr>
-			<td><%= I18n.t "rental.interested_in_a_studio" %></td>
-			<td class="text-right"><strong><%= @rental.studio ? "Yes" : "No" %></strong></td>
-		</tr>
-		<tr>
-			<td><%= I18n.t "rental.interested_in_a_two_bedroom" %></td>
-			<td class="text-right"><strong><%= @rental.two_bed ? "Yes" : "No" %></strong></td>
-		</tr>
-		<tr>
-			<td><%= I18n.t "rental.interested_in_a_three_bedroom" %></td>
-			<td class="text-right"><strong><%= @rental.three_bed ? "Yes" : "No" %></strong></td>
+			<td><%= I18n.t "rental.bedrooms" %></td>
+			<td class="text-right"><strong><%= @rental.bedrooms %></strong></td>
 		</tr>
 		<tr>
 			<td><%= I18n.t "rental.wheelchair_accessible" %></td>
