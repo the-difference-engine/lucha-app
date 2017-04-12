@@ -288,9 +288,12 @@ es:
         submit: "Enviar"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
+        update_your_foreclosure_case: "Actualice su caso de ejecución hipotecaria:"
+        foreclosure_information: "Información de ejecución hipotecaria"
+        update: "Actualizar"
 
     rental:
-        number_of_bedrooms: "Numero de habitaciones"
+        bedrooms: "Numero de habitaciones"
         interested_in_a_studio: "¿Interesado en un estudio?"
         interested_in_a_one_bedroom: "¿Interesado en una habitación de uno?"
         interested_in_a_two_bedroom: "Interesado en un dos dormitorios?"

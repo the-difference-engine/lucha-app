@@ -288,9 +288,12 @@ en:
       submit: "Submit"
       edit_application: "Edit Application"
       delete_application: "Delete Application"
+      update_your_foreclosure_case: "Update your foreclosure case:"
+      foreclosure_information: "Foreclosure Information"
+      update: "Update"
 
   rental:
-      number_of_bedrooms: "Number of bedrooms"
+      bedrooms: "Number of bedrooms"
       interested_in_a_studio: "Interested in a studio?"
       interested_in_a_one_bedroom: "Interested in a one bedroom?"
       interested_in_a_two_bedroom: "Interested in a two bedroom?"
