@@ -4,10 +4,9 @@ en:
       sub_title: "LUCHA Client Portal / Portal de Clientes"
       sign_up: "sign up / regístrate"
       sign_in: "sign in / registrarse"
-
-      user_sign_in: "Employee Login"
-
-      copy_right: "Copyright \u00A9 Lucha 2017. All Rights Reserved"
+      sign_out: "sign out / desconectar"
+      view_my_profile: "view my profile / Mira mi perfil"
+      view_your_clients: "view your clients / Ver a sus clientes"
 
   navbar:
       signed_in_as: "Signed in as "
@@ -250,6 +249,10 @@ en:
       update: "Update!"
 
   homebuying:
+      counseling_application: "Homebuying Counseling Application"
+      information_submitted_by: "Homebuying Information submitted by "
+      application: "Homebuying Application"
+      information: "Homebuying Information"
       loan_type: "Loan type"
       lender: "Lender"
       contact_for_appointment: "Would you like to be contacted for an appointment?"
@@ -266,6 +269,7 @@ en:
       approximate_closing_date: "Approximate closing date"
       edit_application: "Edit Application"
       delete_application: "Delete Application"
+      update: "Update"
 
   foreclosure:
       foreclosure: "foreclosure: "
@@ -293,6 +297,8 @@ en:
       update: "Update"
 
   rental:
+      application: "Rental Application"
+      information: "Rental information submitted by "
       bedrooms: "Number of bedrooms"
       interested_in_a_studio: "Interested in a studio?"
       interested_in_a_one_bedroom: "Interested in a one bedroom?"
@@ -308,6 +314,7 @@ en:
       employer_address: "Current employer's address: "
       edit_application: "Edit Application"
       delete_application: "Delete Application"
+      update: "Update"
 
   #employee section, client section above
   #no need for employee log in, same fields/page as client log in
