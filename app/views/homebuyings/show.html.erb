@@ -1,10 +1,10 @@
-<h1>Homebuying Counseling Application</h1>
+<h1><%= I18n.t "homebuying.counseling_application" %></h1>
 
 <hr>
 <div class="panel panel-success">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Homebuying Information submitted by 
+      <%= I18n.t "homebuying.submitted_by" %> 
       <strong class="text-warning"><%= @homebuying.client.full_name %></strong> on
       <strong class="text-warning"><%= @homebuying.pretty_time %></strong>
     </h3>
