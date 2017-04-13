@@ -272,6 +272,8 @@ es:
         update: "Actualizar"
 
     foreclosure: 
+        update_your_foreclosure: "Actualice su caso de ejecución hipotecaria:"
+        information:  "Información de ejecución hipotecaria"
         foreclosure: "Ejecución de una hipoteca"
         title:  "Solicitud de ejecución de una hipoteca"
         submitted_by: "Información de ejecución hipotecaria presentada por "
@@ -292,8 +294,6 @@ es:
         submit: "Enviar"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
-        update_your_foreclosure_case: "Actualice su caso de ejecución hipotecaria:"
-        foreclosure_information: "Información de ejecución hipotecaria"
         update: "Actualizar"
 
     rental:
