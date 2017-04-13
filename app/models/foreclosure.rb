@@ -9,6 +9,7 @@ class Foreclosure < ActiveRecord::Base
   validates :working_with_lawyer, :inclusion => {:in => [true, false]}
   validates :working_w_agency, :inclusion => {:in => [true, false]}
   validates_date :origination_date, :on_or_before => lambda { Date.current }
+  validates :monthly_mortgage_payment, numericality: {less_than_or_equal_to: 999999}
 
   validates_presence_of :court_case_number, :if => :been_to_court?
 
