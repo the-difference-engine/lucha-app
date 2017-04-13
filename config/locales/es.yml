@@ -4,10 +4,9 @@ es:
         sub_title: "LUCHA Portal Cliente"
         sign_up: "Regístrese"
         sign_in: "Entrar"
-
-        user_sign_in: "Aceso de Empleados"
-
-        copy_right: "Registro Civil &copy; Lucha 2017. Reservados todos los derechos"
+        sign_out: "sign out / desconectar"
+        view_my_profile: "view my profile / Mira mi perfil"
+        view_your_clients: "view your clients / Ver a sus clientes"
 
     navbar:
         signed_in_as: "Registrado como "
@@ -250,9 +249,10 @@ es:
         update: "Actualizar" 
 
     homebuying: 
-        application: "Solicitud de compra de vivienda"
         counseling_application: "Solicitud de Consejería de Compra de Vivienda"
-        submitted_by: "Información de compra de vivienda enviada por"
+        information_submitted_by: "Información de compra de vivienda enviada por"
+        application: "Solicitud de compra de vivienda"
+        information: "Información de compra de vivienda"
         loan_type: "Tipo de préstamo"
         lender: "¿Cuál es el nombre de su Prestamista?"
         contact_for_appointment: "Póngase en contacto con para una cita"
@@ -269,6 +269,7 @@ es:
         approximate_closing_date: "Fecha aproximada de Cierre"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
+        update: "Actualizar"
 
     foreclosure: 
         update_your_foreclosure: "Actualice su caso de ejecución hipotecaria:"
@@ -297,9 +298,8 @@ es:
 
     rental:
         application: "Aplicacion Rental"
-        rental_information: "Información de alquiler"
-        submitted_by: "Información de alquiler presentada por"
-        number_of_bedrooms: "Numero de habitaciones"
+        information: "Información de alquiler presentada por"
+        bedrooms: "Numero de habitaciones"
         interested_in_a_studio: "¿Interesado en un estudio?"
         interested_in_a_one_bedroom: "¿Interesado en una habitación de uno?"
         interested_in_a_two_bedroom: "Interesado en un dos dormitorios?"
@@ -314,6 +314,7 @@ es:
         employer_address: "Dirección actual del empleador:"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
+        update: "Actualizar"
     
     #employee section, client section above
     #no need for employee log in, same fields/page as client log in
