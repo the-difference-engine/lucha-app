@@ -14,7 +14,6 @@
     <th><%= I18n.t "employee_show.preferred_language" %></th>
     <th><%= I18n.t "employee_show.submitted_applications" %></th>
     <th><%= I18n.t "employee_show.unassign" %></th>
-    <th><%= I18n.t "employee_show.client_info" %></th>
     <tr class="warning no-result">
         <td colspan="6"><i class="fa fa-warning"></i> <%= I18n.t "employee_show.no_results" %> </td>
     </tr>
@@ -35,9 +34,6 @@
         <td><%= client.client_types.to_sentence %></td>
         <td>
           <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>
-        </td>
-        <td>
-          <%= link_to I18n.t("employee_show.view"), "/clients/#{client.id}", :class => "btn btn-xs btn-primary" %>
         </td>
       </tr>
     </tbody>

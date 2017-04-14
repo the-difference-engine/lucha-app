@@ -34,7 +34,7 @@
           <li><a href="/users/<%= current_user.id %>"><%= I18n.t "navbar.your_clients" %></a></li>
           <li><%= link_to I18n.t("navbar.registered_clients"), clients_path %></li>
           <li><%= link_to I18n.t("navbar.foreclosures"), foreclosures_path %></li>
-          <li><%= link_to I18n.t("navbar.homebuying"), homebuyings_path %></li>
+          <li><%= link_to I18n.t("navbar.homebuyings"), homebuyings_path %></li>
           <li><%= link_to I18n.t("navbar.rentals"), rentals_path %></li>
           <% if current_user.admin %>
             <li><%= link_to I18n.t("navbar.registered_employees"), employee_index_path %></li>
