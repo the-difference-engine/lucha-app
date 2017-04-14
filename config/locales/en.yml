@@ -189,7 +189,7 @@ en:
       education_level: "Education Level:"
       marital_stat: "Marital Status:"
       dob: "Date Of Birth:"
-      ss: "Social Security Number:"
+      ss: "SSN/ITIN:"
       not_submitted: "Not Submitted"
       household_information: "Household Information"
       pref_contact: "Preferred Contact Method:"
@@ -227,7 +227,7 @@ en:
       demographics: "Demographics"
       gender: "Gender:"
       race: "Race:"
-      ss: "Social Security Number:"
+      ss: "SSN/ITIN:"
       pref_contact: "Preferred Contact Method:"
       other_language: "Other Language:"
       pref_lang: "Preferred Language:"
@@ -392,7 +392,7 @@ en:
       education_level: "Education Level:"
       marital_status: "Marital Status"
       date_of_birth: "Date of Birth:"
-      ssn: "SSN:"
+      ssn: "SSN/ITIN:"
       not_submitted: "Not Submitted"
       household_information: "Household Information"
       head_of_household: "Head of Household:"
@@ -482,3 +482,13 @@ en:
                   confirmed: "Confirmed"
                   send_instructions: "Send instructions"
                   send_paranoid_instructions: "If your email exists in the system, you will receive instructions to confirm your account in your email in a few minutes."
+  activerecord:
+      attributes:
+            client:
+                  num_in_household: "Number in Household"
+      errors:
+            models:
+                  client:
+                        attributes:
+                              ssn:
+                                    bad_ssn: "is the wrong length (should be 9 numbers)"

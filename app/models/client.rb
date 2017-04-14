@@ -7,6 +7,7 @@ class Client < ActiveRecord::Base
   validates :privacy_policy_authorization, inclusion: [true, false]
   validates :authorization_and_waiver, inclusion: [true, false]
   validates_uniqueness_of :email
+  validates :ssn, length: {is: 9, message: :bad_ssn}
   # validates_uniqueness_of :ssn
   # validates_numericality_of :num_in_household
   # validates_numericality_of :num_of_dependants

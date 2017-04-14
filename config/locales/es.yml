@@ -189,7 +189,7 @@ es:
         education_level: "Nível de educación:"
         marital_stat: "Estado civil:"
         dob: "Fecha de nacimiento:"
-        ss: " Número de seguridad social:"
+        ss: "SSN/ITIN:"
         not_submitted: "No Presentadas"
         household_information: "Información Sobre el Hogar"
         pref_contact: "Método de Contacto Preferido:"
@@ -227,7 +227,7 @@ es:
         demographics: "Demografía"
         gender: "Géneco:"
         race: "Raza:"
-        ss: "Número de Seguridad Social:"
+        ss: "SSN/ITIN:"
         pref_contact: "Método de Contacto Preferido"
         pref_lang: "Idioma preferido"
         other_language: "Otro Idioma:"
@@ -392,7 +392,7 @@ es:
         education_level: "Nivel de Educación::"
         marital_status: "Estatus Marital:"
         date_of_birth: "Fecha de Nacimiento:"
-        ssn: "Número de Seguro Social:"
+        ssn: "SSN/ITIN:"
         not_submitted: "No Presentadas"
         household_information: "Información Sobre el Hogar"
         head_of_household: "Jefe de Hogar:"
@@ -482,6 +482,17 @@ es:
                 confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
                 send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
                 send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+
+    activerecord:
+        attributes:
+            client:
+                num_in_household: "Number in Household"
+        errors:
+            models:
+                  client:
+                        attributes:
+                              ssn:
+                                    bad_ssn: "is the wrong length (should be 9 numbers)"
 
 
     

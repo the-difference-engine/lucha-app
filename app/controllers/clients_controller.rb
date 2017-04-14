@@ -89,7 +89,7 @@ class ClientsController < ApplicationController
       ward: params[:client][:ward],
       sex: params[:client][:sex],
       race: params[:client][:race],
-      ssn: params[:client][:ssn],
+      ssn: params[:client][:ssn].gsub(/\D/, ''),
       preferred_contact_method: params[:client][:preferred_contact_method],
       preferred_language: params[:client][:preferred_language],
       other_language: params[:client][:other_language],
