@@ -9,10 +9,9 @@
     <th><%= I18n.t "employee_registered_clients.name" %></th>
     <th><%= I18n.t "employee_registered_clients.email" %></th>
     <th><%= I18n.t "employee_registered_clients.phone" %></th>
-    <th class="sm-col"><%= I18n.t "employee_registered_clients.preferred_language" %></th>
+    <th><%= I18n.t "employee_registered_clients.preferred_language" %></th>
     <th><%= I18n.t "employee_registered_clients.submitted_applications" %></th>
     <th><%= I18n.t "employee_registered_clients.assigned_employee" %></th>
-    <th><%= I18n.t "employee_registered_clients.client_info" %></th>
     <tr class="warning no-result">
         <td colspan="6"><i class="fa fa-warning"></i> <%= I18n.t "employee_registered_clients.no_results" %> </td>
     </tr>
@@ -23,13 +22,19 @@
     <tr>
       <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
       <td><%= client.email %></td>
-      <td class="md-col">
-        <p><%= I18n.t "employee_registered_clients.home" %> <%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
-        <p><%= I18n.t "employee_registered_clients.work" %><%= number_to_phone(client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
-        <p><%= I18n.t "employee_registered_clients.cell" %><%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>          
+      <td>
+        <% if client.home_phone && client.home_phone != "" %>
+          <p><%= I18n.t "employee_registered_clients.home" %> <%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+        <% end %>
+        <% if client.work_phone && client.work_phone != "" %>
+          <p><%= I18n.t "employee_registered_clients.work" %><%= number_to_phone(client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+        <% end %>
+        <% if client.cell_phone && client.cell_phone != ""%>
+          <p><%= I18n.t "employee_registered_clients.cell" %><%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+        <% end %>        
       </td>
       <td><%= client.preferred_language %></td>
-      <td class="sm-col"><%= client.client_types.to_sentence %></td>
+      <td><%= client.client_types.to_sentence %></td>
       <td>
         <% if client.user_id %>
           <%= client.user.full_name %>
@@ -50,9 +55,6 @@
         <% else %>
           <p class="text-danger"><%= I18n.t "employee_registered_clients.profile_not_complete" %></p>
         <% end %>
-      </td>
-      <td>
-        <%= link_to I18n.t("employee_registered_clients.view"), "/clients/#{client.id}", :class => "btn btn-sm btn-primary" %>
       </td>
     </tr>
   </tbody>
