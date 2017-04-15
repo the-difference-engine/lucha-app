@@ -300,10 +300,6 @@ es:
         application: "Aplicacion Rental"
         information: "Información de alquiler presentada por"
         bedrooms: "Numero de habitaciones"
-        interested_in_a_studio: "¿Interesado en un estudio?"
-        interested_in_a_one_bedroom: "¿Interesado en una habitación de uno?"
-        interested_in_a_two_bedroom: "Interesado en un dos dormitorios?"
-        interested_in_a_three_bedroom: "Interesado en un dormitorio de tres?"
         wheelchair_accessible: "¿Necesita una unidad accesible para sillas de ruedas?"
         car_owner: "Tienes un automóvil? "
         pet_owner: "¿Es dueño de una mascota?"
@@ -312,6 +308,10 @@ es:
         housing_situation: "¿Cuál es su situación actual de vivienda? "
         employer_name: "Nombre actual del empleador: "
         employer_address: "Dirección actual del empleador:"
+        employer_city: "Ciudad del empleador"
+        employer_state: "Estado empleador"
+        employer_phone: "Teléfono del empleador"
+        agree_to_fee: "Aceptar pagar"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
         update: "Actualizar"
@@ -486,13 +486,44 @@ es:
     activerecord:
         attributes:
             client:
-                num_in_household: "Number in Household"
+                num_in_household: "Número de personas en su hogar"
+                num_of_dependants: "Número de dependientes"
+                ssn: "SSN/ITIN"
+                dob: "La fecha de nacimiento"
+            foreclosure:
+                originating_lender: "Prestamista originario "
+                original_loan_number: "Número de préstamo originario"
+                servicer: "Administrador"
+                servicer_loan_number: "Número de préstamo servicio"
+                monthly_mortgage_payment: "El pago mensual de la hipoteca"
+                loan_term: "Plazo del préstamo"
+                origination_date: "Fecha de formalización"
+            budget:
+                gross_wages: "Salario bruto"
+            homebuying:
+                lender: "Cuál es el nombre de su prestamista"
+                realtor_name: "Agente de bienes raíces"
+                property_address: "Dirección"
+                property_city: "Ciudad"
+                loan_officer_name: "Nombre por oficial de crédito"
+                loan_officer_email: "Email por oficial de crédito:"
+                loan_officer_phone: "Teléfono del oficial de préstamo"
+            rental:
+                hear_of_property: "¿Cómo se enteró de la propiedad?"
+                reason_for_move: "¿Cuál es su razón para aplicar a LUCHA?"
+                housing_situation: "¿Cuál es su situación actual de vivienda?"
+                employer_name: "Nombre actual del empleador"
+                employer_address: "Dirección actual del empleador"
+                employer_city: "Ciudad del empleador"
+                car_owner: "Tienes un automóvil?"
+                pet_owner: "¿Es dueño de una mascota?"
+
         errors:
             models:
                   client:
                         attributes:
                               ssn:
-                                    bad_ssn: "is the wrong length (should be 9 numbers)"
+                                    bad_ssn: "es la longitud incorrecta (debe ser 9 números)"
 
 
     

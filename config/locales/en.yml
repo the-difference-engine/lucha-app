@@ -300,10 +300,6 @@ en:
       application: "Rental Application"
       information: "Rental information submitted by "
       bedrooms: "Number of bedrooms"
-      interested_in_a_studio: "Interested in a studio?"
-      interested_in_a_one_bedroom: "Interested in a one bedroom?"
-      interested_in_a_two_bedroom: "Interested in a two bedroom?"
-      interested_in_a_three_bedroom: "Interested in a three bedroom?"
       wheelchair_accessible: "Do you need a wheelchair accessible unit? "
       car_owner: "Do you own a car? "
       pet_owner: "Do you own a pet? "
@@ -312,6 +308,10 @@ en:
       housing_situation: "What is your current housing situation? "
       employer_name: "Current employer's name: "
       employer_address: "Current employer's address: "
+      employer_city: "Employer city"
+      employer_state: "Employer state"
+      employer_phone: "Employer phone"
+      agree_to_fee: "Do you agree to a fee of $25 for a background check?"
       edit_application: "Edit Application"
       delete_application: "Delete Application"
       update: "Update"
@@ -482,10 +482,42 @@ en:
                   confirmed: "Confirmed"
                   send_instructions: "Send instructions"
                   send_paranoid_instructions: "If your email exists in the system, you will receive instructions to confirm your account in your email in a few minutes."
+  
   activerecord:
       attributes:
             client:
-                  num_in_household: "Number in Household"
+                  num_in_household: "Number in household"
+                  num_of_dependants: "Number of dependents "
+                  ssn: "SSN/ITIN"
+                  dob: "Date of birth "
+            foreclosure:
+                  originating_lender: "Originating lender "
+                  original_loan_number: "Original loan number"
+                  servicer: "Servicer"
+                  servicer_loan_number: "Service loan number"
+                  monthly_mortgage_payment: "Monthly mortgage payment"
+                  loan_term: "Loan term"
+                  origination_date: "Origination date"
+            budget:
+                  gross_wages: "Gross wages"
+            homebuying: 
+                  lender: "Lender"
+                  realtor_name: "Realtor name"
+                  property_address: "Property address"
+                  property_city: "Property city"
+                  loan_officer_name: "Loan officer name"
+                  loan_officer_email: "Loan officer email"
+                  loan_officer_phone: "Loan officer phone"
+            rental:
+                  hear_of_property: "Hear of property"
+                  reason_for_move: "Reason for move"
+                  housing_situation: "Housing situation"
+                  employer_name: "Employer name"
+                  employer_address: "Employer address"
+                  employer_city: "Employer city"
+                  car_owner: "Car owner"
+                  pet_owner: "Pet owner"
+      
       errors:
             models:
                   client:
