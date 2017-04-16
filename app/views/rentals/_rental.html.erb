@@ -35,31 +35,31 @@
 		<tr>
 		</tr>
 		<tr>
-			<td>Current employer's name: </td>
+			<td><%= I18n.t "rental.employer_name" %></td>
 			<td class="text-right"><strong><%= @rental.employer_name %></strong></td>
 		</tr>
 		<tr>
 		</tr>
 		<tr>
-			<td>Current employer's address: </td>
+			<td><%= I18n.t "rental.employer_address" %></td>
 			<td class="text-right"><strong><%= @rental.employer_address %></strong></td>
 		</tr>
 		<tr>
 		</tr>
 		<tr>
-			<td>Current employer's city: </td>
+			<td><%= I18n.t "rental.employer_city" %></td>
 			<td class="text-right"><strong><%= @rental.employer_city %></strong></td>
 		</tr>
 		<tr>
-			<td>Current employer's state: </td>
+			<td><%= I18n.t "rental.employer_state" %></td>
 			<td class="text-right"><strong><%= @rental.employer_state %></strong></td>
 		</tr>
 		<tr>
-			<td>Current employer's phone: </td>
+			<td><%= I18n.t "rental.employer_phone" %></td>
 			<td class="text-right"><strong><%= number_to_phone(@rental.employer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
 		</tr>
 		<tr>
-			<td>Do you agree to a fee of $25 for a background check?</td>
+			<td><%= I18n.t "rental.agree_to_fee" %></td>
 			<td class="text-right"><strong><%= @rental.agree_to_fee ? "Yes" : "No" %></strong></td>
 	</tbody>
 </table>
