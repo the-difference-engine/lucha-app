@@ -351,6 +351,20 @@ en:
       home: "Home: "
       work: "Work: "
       cell: "Cell: "
+      no_assigned_clients: "No currently assigned clients"
+      information_for: "Employee Information for "
+      details: "Employee Details"
+      email: "Email"
+      first_name: "First Name:"
+      last_name: "Last Name:"
+      work_phone: "Work Phone:"
+      cell_phone: "Cell Phone:"
+      home_phone: "Home Phone:"
+      position: "Position:"
+      location: "Location:"
+      last_sign_in: "Last Sign In:"
+      edit_information: "Edit Employee Information"
+      clients_assigned_to: "Clients assigned to "
 
   employee_registered_clients:
       all_registered_clients: "All Registered Clients"
@@ -482,6 +496,9 @@ en:
                   confirmed: "Confirmed"
                   send_instructions: "Send instructions"
                   send_paranoid_instructions: "If your email exists in the system, you will receive instructions to confirm your account in your email in a few minutes."
+      registrations: 
+            new:
+                  email: "Email"
   
   activerecord:
       attributes:
@@ -490,6 +507,7 @@ en:
                   num_of_dependants: "Number of dependents "
                   ssn: "SSN/ITIN"
                   dob: "Date of birth "
+
             foreclosure:
                   originating_lender: "Originating lender "
                   original_loan_number: "Original loan number"
