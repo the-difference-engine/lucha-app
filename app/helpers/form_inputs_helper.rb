@@ -11,17 +11,31 @@ def employee_address
 end
 
 def education
-	[
-		['No High School Diploma', 'No High School Diploma'],
-		['High School Diploma', 'High School Diploma'],
-		['GED', 'GED'],
-		['Vocational Certificate', 'Vocational Certificate'],
-		['Some College/Never Completed', 'Some College/Never Completed'],
-		['Associates Degree', 'Associates Degree'],
-		["Bachelor's Degree", "Bachelor's Degree"],
-		["Master's Degree", "Master's Degree"],
-		['Doctoral Degree', 'Doctoral Degree']
-	]
+	if I18n.locale != I18n.default_locale
+		[
+			['Sin Diploma de Escuela Secundaria', 'No High School Diploma'],
+			['Diploma de Escuela Secundaria', 'High School Diploma'],
+			['GED', 'GED'],
+			['Certificado Vocacional', 'Vocational Certificate'],
+			['Algún Colegio / Nunca Terminado', 'Some College/Never Completed'],
+			['Grado Asociado', 'Associates Degree'],
+			["Licenciatura", "Bachelor's Degree"],
+			["Maestría", "Master's Degree"],
+			['Doctorado', 'Doctoral Degree']
+		]
+	else
+		[
+			['No High School Diploma', 'No High School Diploma'],
+			['High School Diploma', 'High School Diploma'],
+			['GED', 'GED'],
+			['Vocational Certificate', 'Vocational Certificate'],
+			['Some College/Never Completed', 'Some College/Never Completed'],
+			['Associates Degree', 'Associates Degree'],
+			["Bachelor's Degree", "Bachelor's Degree"],
+			["Master's Degree", "Master's Degree"],
+			['Doctoral Degree', 'Doctoral Degree']
+		]
+	end
 end
 
 def pref_language
@@ -33,20 +47,31 @@ def pref_language
 end
 
 def pref_contact
-	[
-		['Home Phone', 'Home Phone'],
-		['Cell Phone', 'Cell Phone'],
-		['Email', 'Email']
-	]
+	if I18n.locale != I18n.default_locale
+	  [["Número de Teléfono de Casa", "Home Phone"], [ "Teléfono Móvil", "Cell Phone"], ["Correo Electrónico", "Email"]]
+	else
+	  [["Home Phone", "Home Phone"], ["Cell Phone", "Cell Phone"], ["Email", "Email"]]
+	end
 end
 
 def marital_status
-	[
-		['Married', 'married'],
-		['Separated', 'separated'],
-		['Divorced', 'divorced'],
-		['Single', 'single']
-	]
+	if I18n.locale != I18n.default_locale
+		[
+			['Casado', 'Married'],
+			['Apartado', 'Separated'],
+			['Divorciado', 'Divorced'],
+			['Soltero', 'Single'],
+			['Viudo', 'Widowed']
+		]
+	else
+		[
+			['Married', 'Married'],
+			['Separated', 'Separated'],
+			['Divorced', 'Divorced'],
+			['Single', 'Single'],
+			['Widowed', 'Widowed']
+		]
+	end
 end
 
 def income_range
@@ -73,12 +98,21 @@ def income_range
 end
 
 def racial_options
-	[
-		['White', 'White'],
-		['Hispanic/Latino', 'Hispanic/Latino'],
-		['African-American', 'African-American'],
-		['Asian', 'Asian']
-	]
+	if I18n.locale != I18n.default_locale 
+		[
+			['Blanco', 'White'],
+			['Hispano / Latino', 'Hispanic/Latino'],
+			['Afroamericano', 'African-American'],
+			['Asiático', 'Asian']
+		]
+	else
+		[
+			['White', 'White'],
+			['Hispanic/Latino', 'Hispanic/Latino'],
+			['African-American', 'African-American'],
+			['Asian', 'Asian']
+		]
+	end
 end
 
 def num_in_house
@@ -98,106 +132,170 @@ end
 # Helper for Foreclosure update and create forms
 
 def foreclosure_status
-	[
-		['I am not yet behind on my mortgage but close to it', 'I am not yet behind on my mortgage but close to it'],
-		['Have not yet gone through the process, but am behind on payment', 'Have not yet gone through the process, but am behind on payment'],
-		['I am over three months behind', 'I am over three months behind'],
-		['I am over three months behind and have received a court summons', 'I am over three months behind and have received a court summons']
-	]	
+	if I18n.locale != I18n.default_locale
+		[
+			['Todavía no estoy atrasado en mi hipoteca pero cerca de ella', 'I am not yet behind on my mortgage but close to it'],
+			['Todavía no he pasado por el proceso, pero estoy atrasado en el pago', 'Have not yet gone through the process, but am behind on payment'],
+			['Estoy más de tres meses atras', 'I am over three months behind'],
+			['Estoy más de tres meses atrasado y he recibido una citación judicial', 'I am over three months behind and have received a court summons']
+		]
+	else
+		[
+			['I am not yet behind on my mortgage but close to it', 'I am not yet behind on my mortgage but close to it'],
+			['Have not yet gone through the process, but am behind on payment', 'Have not yet gone through the process, but am behind on payment'],
+			['I am over three months behind', 'I am over three months behind'],
+			['I am over three months behind and have received a court summons', 'I am over three months behind and have received a court summons']
+		]
+	end	
 end
 
 
-def cause_for_default
-	# Helper for reason_for_default attribute in Foreclosure model
-	[
-		['Reduction in Income', 'Reduction in Income'],
-		['Divorce/Separation', 'Divorce/Separation'],
-		['Loss of Income', 'Loss of Income'],
-		['Medical Issues', 'Medical Issues'],
-		['Business Venture Failed', 'Business Venture Failed'],
-		['Increase in Loan Payment', 'Increase in Loan Payment'],
-		['Poor Budgeting', 'Poor Budgeting'],
-		['Increase in Expenses', 'Increase in Expenses'],
-		['Death of Family Member', 'Death of Family Member'],
-		['Other', 'Other']
-	]	
-end
+# def cause_for_default
+# This isn't currently being used
+# 	# Helper for reason_for_default attribute in Foreclosure model
+# 	[
+# 		['Reduction in Income', 'Reduction in Income'],
+# 		['Divorce/Separation', 'Divorce/Separation'],
+# 		['Loss of Income', 'Loss of Income'],
+# 		['Medical Issues', 'Medical Issues'],
+# 		['Business Venture Failed', 'Business Venture Failed'],
+# 		['Increase in Loan Payment', 'Increase in Loan Payment'],
+# 		['Poor Budgeting', 'Poor Budgeting'],
+# 		['Increase in Expenses', 'Increase in Expenses'],
+# 		['Death of Family Member', 'Death of Family Member'],
+# 		['Other', 'Other']
+# 	]	
+# end
 
 # Helper for Homebuying update and create forms
+# This isn't currently being used
 
-def learned_from
-	[
-		['A Friend', 'A Friend'],
-		['Referred by my loan officer', 'Referred by my loan officer'],
-		['Referred by my realtor', 'Referred by my realtor'],
-		['Saw an ad in Hoy', 'Saw an ad in Hoy'],
-		['Facebook', 'Facebook'],
-		['Email blast', 'Email blast']
-	]		
-end
+# def learned_from
+# 	[
+# 		['A Friend', 'A Friend'],
+# 		['Referred by my loan officer', 'Referred by my loan officer'],
+# 		['Referred by my realtor', 'Referred by my realtor'],
+# 		['Saw an ad in Hoy', 'Saw an ad in Hoy'],
+# 		['Facebook', 'Facebook'],
+# 		['Email blast', 'Email blast']
+# 	]		
+# end
 
+# Homebuying app
 def loan_type
-	[
-		['Fixed', 'Fixed'],
-		['Adjustable', 'Adjustable'],
-		['FHA', 'FHA'],
-		['Interest Only', 'Interest Only'],
-		['Conventional', 'Conventional'],
-		['VA', 'VA'],
-		['ARM', 'ARM'],
-		['Hybrid ARM', 'Hybrid ARM']
-	]
+	if I18n.locale != I18n.default_locale
+		[
+			['Fijo', 'Fixed'],
+			['Ajustable', 'Adjustable'],
+			['FHA', 'FHA'],
+			['Único Interés', 'Interest Only'],
+			['Convencional', 'Conventional'],
+			['VA', 'VA'],
+			['ARM', 'ARM'],
+			['Híbrido ARM', 'Hybrid ARM']
+		]
+	else
+		[
+			['Fixed', 'Fixed'],
+			['Adjustable', 'Adjustable'],
+			['FHA', 'FHA'],
+			['Interest Only', 'Interest Only'],
+			['Conventional', 'Conventional'],
+			['VA', 'VA'],
+			['ARM', 'ARM'],
+			['Hybrid ARM', 'Hybrid ARM']
+		]
+	end
 end
 
 def down_payment_assistance_program
-	[
-		['DDP', 'DDP'],
-		['IHDA', 'IHDA'],
-		['CCLT', 'CCLT'],
-		['Home Steps', 'Home Steps'],
-		['New Homes for Chicago', 'New Homes for Chicago'],
-		['Inclusive Community', 'Inclusive Community'],
-		['Chicago NSP', 'Chicago NSP'],
-		['City Lots for City Living', 'City Lots for City Living'],
-		['Other', 'Other']
-	]
+	if I18n.locale != I18n.default_locale
+		[
+			['DDP', 'DDP'],
+			['IHDA', 'IHDA'],
+			['CCLT', 'CCLT'],
+			['Inicio Pasos', 'Home Steps'],
+			['Casas Nuevas para Chicago', 'New Homes for Chicago'],
+			['Comunidad Inclusiva', 'Inclusive Community'],
+			['Chicago NSP', 'Chicago NSP'],
+			['City Lots para City Living', 'City Lots for City Living'],
+			['Otro', 'Other']
+		]
+	else
+		[
+			['DDP', 'DDP'],
+			['IHDA', 'IHDA'],
+			['CCLT', 'CCLT'],
+			['Home Steps', 'Home Steps'],
+			['New Homes for Chicago', 'New Homes for Chicago'],
+			['Inclusive Community', 'Inclusive Community'],
+			['Chicago NSP', 'Chicago NSP'],
+			['City Lots for City Living', 'City Lots for City Living'],
+			['Other', 'Other']
+		]
+	end
 end
 
 def gender_options
-	[
-		['Male', 'Male'],
-		['Female', 'Female'],
-		['Other', 'Other']
-	]
+	if I18n.locale != I18n.default_locale
+		[
+			['Masculino', 'Male'],
+			['Hembra', 'Female'],
+			['Otro', 'Other']
+		]
+	else
+		[
+			['Male', 'Male'],
+			['Female', 'Female'],
+			['Other', 'Other']
+		]
+	end
 end
 
 def contact_method_options
-	[
-		['Email', 'Email'],
-		['Cell Phone', 'Cell Phone'],
-		['Home Phone', 'Home Phone'],
-		['Work Phone', 'Work Phone']
-	]
+	if I18n.locale != I18n.default_locale
+		 [["Número de Teléfono de Casa", "Home Phone"], [ "Teléfono Móvil", "Cell Phone"], ["Teléfono del Trabajo", "Work Phone"], ["Correo Electrónico", "Email"]]
+	else
+		 [["Home Phone", "Home Phone"], ["Cell Phone", "Cell Phone"], ["Work Phone", "Work Phone"], ["Email", "Email"]]
+	end
 end
 
 def marital_status_options
-	[
-		['Married', 'Married'],
-		['Divorced', 'Divorced'],
-		['Separated', 'Separated'],
-		['Single', 'Single'],
-		['Widowed', 'Widowed']
-
-	]
+	if I18n.locale != I18n.default_locale
+		[
+			['Casado', 'Married'],
+			['Apartado', 'Separated'],
+			['Divorciado', 'Divorced'],
+			['Soltero', 'Single'],
+			['Viudo', 'Widowed']
+		]
+	else
+		[
+			['Married', 'Married'],
+			['Separated', 'Separated'],
+			['Divorced', 'Divorced'],
+			['Single', 'Single'],
+			['Widowed', 'Widowed']
+		]
+	end
 end
 
 def bedrooms
-	[
-		['Studio', 'Studio'],
-		['1', '1'],
-		['2', '2'],
-		['3', '3']
-	]
+	if I18n.locale != I18n.default_locale
+		[
+			['Estudio', 'Studio'],
+			['1', '1'],
+			['2', '2'],
+			['3', '3']
+		]
+	else
+		[
+			['Studio', 'Studio'],
+			['1', '1'],
+			['2', '2'],
+			['3', '3']
+		]
+	end
 end
 
 end
