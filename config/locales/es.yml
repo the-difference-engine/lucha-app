@@ -351,6 +351,20 @@ es:
         home: "Casa: "
         work: "Trabajo: "
         cell: "Teléfonos: "
+        no_assigned_clients: "No hay clientes asignados actualmente"
+        information_for: "Información del Empleado para"
+        details: "Detalles sobre Empleados"
+        email: "Correo Electrónico:"
+        first_name: "Nombre:"
+        last_name: "Apellido:"
+        work_phone: "Teléfono del Trabajo:"
+        cell_phone: "Teléfono Móvil:"
+        home_phone: "Número de Teléfono de Casa:"
+        position: "Posición"
+        location: "Ubicación"
+        last_sign_in: "Última Conexión:"
+        edit_information: "Editar Informacion"
+        clients_assigned_to: "Clientes asignados a "
 
     employee_registered_clients:
         all_registered_clients: "Todos los Clientes Registrados"
@@ -476,12 +490,15 @@ es:
                 log_in: "Inicio de sesión"
                 forgot_your_password: "Olvidaste tu contraseña?"
                 sign_up: "Regístrese"
-
+                email: "Correo Electrónico"
         confirmations:
             client:
                 confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
                 send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
                 send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+        registrations: 
+              new:
+                    email: "Correo Electrónico"
 
     activerecord:
         attributes:
@@ -490,6 +507,7 @@ es:
                 num_of_dependants: "Número de dependientes"
                 ssn: "SSN/ITIN"
                 dob: "La fecha de nacimiento"
+
             foreclosure:
                 originating_lender: "Prestamista originario "
                 original_loan_number: "Número de préstamo originario"
