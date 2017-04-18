@@ -25,12 +25,11 @@ def education
 end
 
 def pref_language
-	[
-		['English', 'English'], 
-		['Spanish', 'Spanish'], 
-		['Polish', 'Polish'],
-		['Other', 'Other']
-	]
+  if I18n.locale != I18n.default_locale
+    [%w[Inglés English], %w[Español Spanish], %w[Polaco Polish], %w[Otro Other]]
+  else
+    [%w[English English], %w[Spanish Spanish], %w[Polish Polish], %w[Other Other]]
+  end
 end
 
 def pref_contact
