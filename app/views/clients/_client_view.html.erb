@@ -31,6 +31,10 @@
               <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true)%></strong></td>
             </tr>
             <tr>
+              <td><%= I18n.t "clients_show.email"  %></td>
+              <td class="text-right"><strong><%= @client.email %></strong></td>
+            </tr>
+            <tr>
               <td><%= I18n.t "clients_show.pref_lang"  %></td>
               <td class="text-right"><strong><%= @client.preferred_language %></strong></td>
             </tr>
@@ -45,11 +49,7 @@
             <tr>
               <td><%= I18n.t "clients_show.pref_contact"  %></td>
               <td class="text-right"><strong><%= @client.preferred_contact_method %></strong></td>
-            </tr>
-            <tr>
-              <td><%= I18n.t "clients_show.email"  %></td>
-              <td class="text-right"><strong><%= @client.email %></strong></td>
-            </tr>
+            </tr>            
             <tr>
               <td><%= I18n.t "clients_show.address"  %></td>
               <td class="text-right">
@@ -79,13 +79,13 @@
       <div class="panel-body">
         <table class="table table-hover">
             <tr>
-              <td><%= I18n.t "clients_show.race"  %></td>
-              <td class="text-right"><strong><%= @client.race %></strong></td>
-            </tr>
-            <tr>
               <td><%= I18n.t "clients_show.gender"  %></td>
               <td class="text-right"><strong><%= @client.sex %></strong></td>
             </tr>
+            <tr>
+              <td><%= I18n.t "clients_show.race"  %></td>
+              <td class="text-right"><strong><%= @client.race %></strong></td>
+            </tr>            
             <tr>
               <td><%= I18n.t "clients_show.education_level"  %></td>
               <td class="text-right"><strong><%= @client.education_level %></strong></td>
@@ -131,14 +131,6 @@
       <div class="panel-body">
         <table class="table table-hover">
           <tr>
-            <td><%= I18n.t "clients_show.head_of_house"  %></td>
-            <td class="text-right">
-              <strong>
-                <%= @client.head_of_household ? "Yes" : "No" %>
-              </strong>
-            </td>
-          </tr>
-          <tr>
             <td><%= I18n.t "clients_show.house_occu"  %></td>
             <td class="text-right"><strong><%= @client.num_in_household %></strong></td>
           </tr>
@@ -149,6 +141,14 @@
           <tr>
             <td><%= I18n.t "clients_show.est_house_income"  %></td>
             <td class="text-right"><strong><%= @client.estimated_household_income %></strong></td>
+          </tr>
+          <tr>
+            <td><%= I18n.t "clients_show.head_of_house"  %></td>
+            <td class="text-right">
+              <strong>
+                <%= @client.head_of_household ? "Yes" : "No" %>
+              </strong>
+            </td>
           </tr>
           <tr>
             <td><%= I18n.t "clients_show.disability"  %></td>
@@ -163,16 +163,16 @@
             <td class="text-right"><strong><%= @client.over_sixty_two ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
+            <td><%= I18n.t "clients_show.union"  %></td>
+            <td class="text-right"><strong><%= @client.union_member ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
             <td><%= I18n.t "clients_show.military"  %></td>
             <td class="text-right"><strong><%= @client.military_service_member ? "Yes" : "No" %></strong></td>
-          </tr>
+          </tr>         
           <tr>
             <td><%= I18n.t "clients_show.volunteer"  %></td>
             <td class="text-right"><strong><%= @client.volunteer_interest ? "Yes" : "No" %></strong></td>
-          </tr>
-          <tr>
-            <td><%= I18n.t "clients_show.union"  %></td>
-            <td class="text-right"><strong><%= @client.union_member ? "Yes" : "No" %></strong></td>
           </tr>
         </table>
       </div>

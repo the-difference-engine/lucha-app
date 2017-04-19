@@ -73,5 +73,6 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.approximate_closing_date" %>
+  <span class="text-danger"> * </span>
   <%= date_field_tag :approx_closing_date, @homebuying.approx_closing_date, :class => "form-control" %>
 </div>

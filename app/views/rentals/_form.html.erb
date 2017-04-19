@@ -5,16 +5,19 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "rental.wheelchair_accessible" %>
+  <span class="text-danger"> * </span>
   <%= select_tag(:wheelchair_accessible, options_for_select([["No", false], ["Yes", true]], @rental.wheelchair_accessible ), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "rental.car_owner" %>
+  <span class="text-danger"> * </span>
   <%= select_tag(:car_owner, options_for_select([["No", false], ["Yes", true]], @rental.car_owner ), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "rental.pet_owner" %>
+  <span class="text-danger"> * </span>
   <%= select_tag(:pet_owner, options_for_select([["No", false], ["Yes", true]], @rental.pet_owner ), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
@@ -61,6 +64,7 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "rental.employer_phone" %>
+  <span class="text-danger"> * </span>
   <%= text_field_tag :employer_phone, @rental.employer_phone, :class => "form-control" %>
 </div>
 
