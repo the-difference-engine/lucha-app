@@ -28,7 +28,7 @@ class UsersController < Devise::RegistrationsController
       format.json
       format.html
       format.csv { send_data @clients.to_csv, type: 'text/csv', filename: "#{@user.full_name}'s clients-#{Date.today}.csv" }
-      format.xls { send_data @clients.to_csv, filename: "#{@user.full_name}'s clients-#{Date.today}.xls"}
+      format.xls { send_data @clients.to_csv(col_sep: "\t"), filename: "#{@user.full_name}'s clients-#{Date.today}.xls"}
     end
   end
 

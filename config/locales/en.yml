@@ -33,12 +33,12 @@ en:
       sign_up: "Sign up"
       send_me_reset_password_instructions: "Send me reset password instructions"
 
-  password_change:
-      change_your_password: "Change your Password"
-      new_password: "New password"
-      eight_characters_minimum: "(8 characters minimum)"
-      confirm_new_password: "Confirm new password"
-      change_my_password: "Change my password"
+  # password_change:
+  #     change_your_password: "Change your Password"
+  #     new_password: "New password"
+  #     eight_characters_minimum: "(8 characters minimum)"
+  #     confirm_new_password: "Confirm new password"
+  #     change_my_password: "Change my password"
 
   # Client section, employee section below
   client_sign_up:
@@ -112,6 +112,7 @@ en:
       gross_monthly: "Gross Monthly Income:"
       total_monthly: "Total Monthly Debt:"
       debt_to_income: "Debt to Income Ratio:"
+      not_applicable: "Not Applicable"
 
   budget_income:
       title: "Monthly Income"
@@ -480,7 +481,19 @@ en:
       no_results: "No results"
       download: "Download:"
 
-      
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+  reset_password_instructions:
+      hello: "Hello "
+      requested_change: "Someone has requested a link to change your password. You can do this through the link below."
+      please_ignore: "If you didn't request this, please ignore this email."
+      wont_change: "Your password won't change until you access the link above and create a new one."
+      change_password: "Change my password"
+
+  password_change:
+      hello: "Hello "
+      contact: "We're contacting you to notify you that your password has been changed."
+     
   devise:
       sessions:
             client:
@@ -507,6 +520,12 @@ en:
                   num_of_dependants: "Number of dependents "
                   ssn: "SSN/ITIN"
                   dob: "Date of birth "
+                  first_name: "First name"
+                  last_name: "Last name"
+                  email: "Email"
+                  authorization_and_waiver: "Authorization and waiver"
+                  privacy_policy_authorization: "Privacy policy authorization"
+                  password: "Password"
 
             foreclosure:
                   originating_lender: "Originating lender "

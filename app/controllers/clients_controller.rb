@@ -14,7 +14,7 @@ class ClientsController < ApplicationController
       format.json
       format.html
       format.csv { send_data @clients.to_csv, type: 'text/csv', filename: "all_clients-#{Date.today}.csv"}
-      format.xls { send_data @clients.to_csv, filename: "all_clients-#{Date.today}.xls"}
+      format.xls { send_data @clients.to_csv(col_sep: "\t"), filename: "all_clients-#{Date.today}.xls"}
     end
 
   end

@@ -33,12 +33,12 @@ es:
         sign_up: "Regístrese"
         send_me_reset_password_instructions: "Envíeme las instrucciones de contraseña de restablecimiento"
 
-    password_change:
-        change_your_password: "Cambia tu Contraseña"
-        new_password: "Nueva Contraseña"
-        eight_characters_minimum: "(Mínimo de 8 caracteres)"
-        confirm_new_password: "Confirmar nueva contraseña"
-        change_my_password: "Cambiar mi Contraseña"        
+    # password_change:
+    #     change_your_password: "Cambia tu Contraseña"
+    #     new_password: "Nueva Contraseña"
+    #     eight_characters_minimum: "(Mínimo de 8 caracteres)"
+    #     confirm_new_password: "Confirmar nueva contraseña"
+    #     change_my_password: "Cambiar mi Contraseña"        
     
     # Client section, employee section below
     client_sign_up:
@@ -112,6 +112,7 @@ es:
         gross_monthly: "El ingreso bruto mensual:"
         total_monthly: "La deuda total mensual:"
         debt_to_income: "La proporción de deuda a ingreso:"
+        not_applicable: "No Aplica"
 
     budget_income:
         title: "Ingreso mensual."
@@ -481,6 +482,18 @@ es:
         download: "Descargar:"
 
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+    
+    reset_password_instructions:
+          hello: "Hola "
+          requested_change: "Alguien ha solicitado un enlace para cambiar su contraseña. Puede hacerlo a través del siguiente enlace."
+          please_ignore: "Si no lo solicitó, ignore este correo electrónico."
+          wont_change: "Su contraseña no cambiará hasta que acceda al enlace anterior y cree uno nuevo."
+          change_password: "Cambiar mi contraseña"
+
+    password_change:
+          hello: "Hola "
+          contact: "Nos comunicamos con usted para notificarle que su contraseña ha sido cambiada."
+
     devise:
         sessions:
             client:
@@ -507,6 +520,12 @@ es:
                 num_of_dependants: "Número de dependientes"
                 ssn: "SSN/ITIN"
                 dob: "La fecha de nacimiento"
+                first_name: "Nombre de pila"
+                last_name: "Apellido"
+                email: "Correo Electrónico"
+                authorization_and_waiver: "Autorización y renuncia"
+                privacy_policy_authorization: "Autorización de política de privacidad"
+                password: "Contraseña"
 
             foreclosure:
                 originating_lender: "Prestamista originario "
