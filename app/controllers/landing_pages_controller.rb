@@ -7,12 +7,4 @@ class LandingPagesController < ApplicationController
   	render :index, layout: false
   end
 
-  def TOA_en
-    render :TOA_en, layout: false
-  end
-
-  def TOA_es
-    render :TOA_es, layout: false
-  end
-
 end

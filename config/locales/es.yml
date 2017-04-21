@@ -2,29 +2,48 @@ es:
     splash: 
         title: "Asociación Unida de Viviendas Hispánicas "
         sub_title: "LUCHA Portal Cliente"
-        sign_up: "Apuntarse"
+        sign_up: "Regístrese"
         sign_in: "Entrar"
+        sign_out: "sign out / desconectar"
+        view_my_profile: "view my profile / Mira mi perfil"
+        view_your_clients: "view your clients / Ver a sus clientes"
 
-        #old splash page, all removed
-        # mission: "Misión de Lucha:"
-        # mission_statement: "La misión de LUCHA es proporcionar vivienda digna y asequible, servicios de vivienda y educación para los hispanos de bajos y moderados ingresos, y demás residentes." 
-        user_sign_in: "Aceso de Empleados"
-        # lucha_vision: "Visión de Lucha "
-        # lucha_vision_lead: "Esto se hace mediante la capacitación de los residentes a través de la educación, la participación, promoción del desarrollo de viviendas asequibles y la adquisición de viviendas; proveyendo liderazgo y abogando por recursos."
-        # connect: "Únete con Nosotros:"
-        # home: "Inicio"
-        # about: "Sobre"
-        # services: "Servicios"
-        # contact: "Contactar"
-        copy_right: "Registro Civil &copy; Lucha 2016. Reservados todos los derechos"
-        # demographics: "LUCHA Demographics:"
-        # demographics_statement: "A few notes on the diversity of our clients: 
-        # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+    navbar:
+        signed_in_as: "Registrado como "
+        sign_out: "Desconectar"
+        your_clients: "Sus Clientes"
+        registered_clients: "Clientes Registrados"
+        foreclosures: "Ejecuciones Hipotecarias"
+        homebuyings: "Compra de vivienda"
+        rentals: "Alquileres"
+        registered_employees: "Empleados Registrados "
+        application_status: "Estado de la Aplicación"
+        profile: "Perfil"
+        budget: "Presupuesto"
+        your_foreclosure_application: "Su Solicitud de Ejecución Hipotecaria"
+        your_homebuying_application: "Su Solicitud de Compra de Vivienda"
+        your_rental_application: "Su Solicitud de Alquiler"
+        client_registration: "Registro del Cliente"
+        user_registration: "Registro de Empleados"
+
+    password_forgot:
+        forgot_your_password: "Olvidaste tu contraseña?"
+        email: "Correo Electrónico"
+        log_in: "Inicio de sesión"
+        sign_up: "Regístrese"
+        send_me_reset_password_instructions: "Envíeme las instrucciones de contraseña de restablecimiento"
+
+    # password_change:
+    #     change_your_password: "Cambia tu Contraseña"
+    #     new_password: "Nueva Contraseña"
+    #     eight_characters_minimum: "(Mínimo de 8 caracteres)"
+    #     confirm_new_password: "Confirmar nueva contraseña"
+    #     change_my_password: "Cambiar mi Contraseña"        
     
     # Client section, employee section below
     client_sign_up:
         welcome: "Bienvenido"
-        please_fill_in: "PLEASE FILL IN THE FOLLOWING TO CREATE A CLIENT PROFILE."
+        please_fill_in: "Por favor complete lo siguiente para crear un perfil de cliente."
         first_name: "Nombre"
         last_name: "Apellido"
         home_phone: "Número de teléfono de casa"
@@ -35,9 +54,10 @@ es:
         ward: "Distrito"
         search_for_ward: "Buscar tu ward"
         zip_code: "Codigo postal"
-        authorize_lucha: "I authorize LUCHA and it's staff to use my information for the purposes of counseling."
-        privacy_and_disclosure: "I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set."
-        login_information: "The following informatin will be your login information. Make sure to keep this safe with you."
+        authorize_lucha: "Autorizo ​​a LUCHA y su personal a usar mi información para propósitos de consejería."
+        privacy_and_disclosure: "He leído la política de Privacidad y Divulgación de LUCHA y estoy de acuerdo con los términos y condiciones establecidos."
+        view_policy: "Ver Política de Confidencialidad y Divulgación"
+        login_information: "La siguiente información será su información de inicio de sesión. Asegúrese de mantener esto seguro con usted."
         email: "Correo Electrónico"
         password: "Contraseña"
         eight_characters_minimum: "(Mínimo de 8 caracteres)"
@@ -56,9 +76,31 @@ es:
         remember_me: "Recuérdame"
         log_in: "Iniciar Sesión"
 
+    client_status:
+        application_status_for: "Estado de la Solicitud para: "
+        thank_you: "Gracias por su interés en los servicios de LUCHA. Consulte los pasos siguientes para completar su solicitud."
+        step_one: "Paso 1"
+        step_two: "Paso 2"
+        step_three: "Paso 3"
+        step_four: "Paso 4"
+        profile_step: "Por favor complete su perfil."
+        budget_step: "Proporcione información financiera relevante para que LUCHA pueda ayudarle mejor. Puede actualizarlo en cualquier momento."
+        application_step: "Haga clic en el botón de la aplicación que está enviando."
+        final_step: "Un representante de LUCHA revisará su información y lo contactará dentro de dos días hábiles para establecer una cita e informarle de los próximos pasos. Esperamos con interés trabajar con usted."
+        completed_profile_step: "Gracias por completar tu perfil, puedes verlo y editarlo en cualquier momento."
+        completed_budget_step: "Gracias por proporcionar su información financiera. Puede verlo y editarlo en cualquier momento."
+        completed_application: "Gracias por enviar su solicitud."
+        completed: "Usted ha sido asignado a: "
+        edit_profile: "Editar Perfil"
+        view_profile: "Ver Perfil"
+        view_budget: "Ver Presupuesto"
+        foreclosure: "Juicio hipotecario"
+        homebuying: "Compra de vivienda"
+        rental: "Alquiler"
+        
     budget_show:
         title: "Su presupuesto mensual: "
-        description: "Fill this out as best you can. If there are any changes you would like to make simply click on the appropriate field. You can make changes at any time. You must provide information for at least one field in each section to continue with your application."
+        description: "Rellene esto lo mejor que pueda. Si hay algún cambio que le gustaría hacer simplemente haga clic en el campo apropiado. Puede realizar cambios en cualquier momento. Debe proporcionar información para que al menos un campo en cada sección continúe con su aplicación."
         debts: "Deudas"
         debts_description: "Por favor, tenga en cuenta, se trata de deudas mensuales. Se le discutiendo la deuda acumulada con su consejero pronto. Si usted tiene una factura (es decir. De agua) que viene cada dos meses, por favor promedia a ir a un mes." 
         income: "Ingreso"
@@ -70,6 +112,7 @@ es:
         gross_monthly: "El ingreso bruto mensual:"
         total_monthly: "La deuda total mensual:"
         debt_to_income: "La proporción de deuda a ingreso:"
+        not_applicable: "No Aplica"
 
     budget_income:
         title: "Ingreso mensual."
@@ -104,7 +147,7 @@ es:
         gas_car: "El gas y el mantenimiento del coche"
         child: "Cuidado de los niños"
         medical: "Gastos médicos"
-        if_renter: "If you are a renter, fill out the fields below:"
+        if_renter: "Si es un inquilino, llene los siguientes campos:"
         rent: "Seguro de alquiler"
         rent_insurance: "Seguro de alquiler"
         update: "Actualizar"
@@ -127,7 +170,7 @@ es:
 
     clients_show:
         hello: "Hola "
-        below: "BELOW IS THE INFO WE HAVE ON FILE FOR YOU. YOU CAN EDIT THIS FORM BY CLICKING ON THE EDIT PROFILE BUTTON AT THE BOTTOM OF THIS PAGE."
+        below: "A continuación se muestra la información que tenemos en el archivo para usted. Puede editar este formulario haciendo clic en el botón de edición de perfil en la parte inferior de esta página. "
         contact_information: "Información del Prestatario"
         first_name: "Nombre:"
         last_name:  "Apellido:"
@@ -147,7 +190,7 @@ es:
         education_level: "Nível de educación:"
         marital_stat: "Estado civil:"
         dob: "Fecha de nacimiento:"
-        ss: " Número de seguridad social:"
+        ss: "SSN/ITIN:"
         not_submitted: "No Presentadas"
         household_information: "Información Sobre el Hogar"
         pref_contact: "Método de Contacto Preferido:"
@@ -158,7 +201,7 @@ es:
         dependants: "Número de dependientes?"        
         est_house_income: "Ingresos estimados del hogar:"
         disability: "¿Ud. tiene algún discapacidad?"
-        disability_in_household: "Does anyone in your household have a disability?"
+        disability_in_household: "¿Alguien en su hogar tiene una discapacidad?"
         over_sixty_two: "Is anyone in your household over the age of 62?"
         union: "¿Es usted un miembro de un sindicato?"
         military: "¿Es usted un miembro del servicio militar actual o anterior?"
@@ -168,7 +211,7 @@ es:
 
     clients_edit:
         edit_profile: "Editar tu Perfil"
-        update_information: "Update the information below and click the Update button to save."
+        update_information: "Actualice la información a continuación y haga clic en el botón Actualizar para guardar."
         contact_information: "Información del Prestatario"
         first_name: "Nombre:"
         last_name:  "Apellido:"
@@ -185,7 +228,7 @@ es:
         demographics: "Demografía"
         gender: "Géneco:"
         race: "Raza:"
-        ss: "Número de Seguridad Social:"
+        ss: "SSN/ITIN:"
         pref_contact: "Método de Contacto Preferido"
         pref_lang: "Idioma preferido"
         other_language: "Otro Idioma:"
@@ -200,17 +243,21 @@ es:
         check_all_that_apply: "Marque todos los que correspondan:"
         disability: "¿Ud. tiene algún discapacidad?"
         union: "¿Es usted un miembro de un sindicato?"
-        disability_in_household: "Does anyone in your household have a disability?"
-        over_sixty_two: "Is anyone in your household over the age of 62?"
+        disability_in_household: "¿Alguien en su hogar tiene una discapacidad?"
+        over_sixty_two: "¿Hay alguien en su hogar mayor de 62 años?"
         military: "¿Es usted un miembro del servicio militar actual o anterior?"
         volunteer: "¿Le gustaría ser voluntario?"
         update: "Actualizar" 
 
     homebuying: 
+        counseling_application: "Solicitud de Consejería de Compra de Vivienda"
+        information_submitted_by: "Información de compra de vivienda enviada por"
+        application: "Solicitud de compra de vivienda"
+        information: "Información de compra de vivienda"
         loan_type: "Tipo de préstamo"
         lender: "¿Cuál es el nombre de su Prestamista?"
         contact_for_appointment: "Póngase en contacto con para una cita"
-        real_estate_contract: "Real estate contract"
+        real_estate_contract: "¿Ha firmado un contrato de bienes raíces?"
         realtor_name: "Agente de Bienes Raíces"
         realtor_phone: "Teléfono para el realtor"
         property_address: "¿Cuál es la dirección de la propiedad?"
@@ -221,39 +268,66 @@ es:
         loan_officer_phone: "Teléfono del oficial de préstamo"
         payment_assistance_program: "Programa de asistencia de pago"
         approximate_closing_date: "Fecha aproximada de Cierre"
+        edit_application: "Actualizar"
+        delete_application: "Eliminar la Aplicación"
+        update: "Actualizar"
 
     foreclosure: 
+        update_your_foreclosure: "Actualice su caso de ejecución hipotecaria:"
+        information:  "Información de ejecución hipotecaria"
         foreclosure: "Ejecución de una hipoteca"
         title:  "Solicitud de ejecución de una hipoteca"
+        submitted_by: "Información de ejecución hipotecaria presentada por "
         description: "Usted ha dado el primer paso. Una vez que se ha presentado esta solicitud, usted será contactado por uno de los consejeros de Lucha como una guía adicional."
         currently_foreclosed: "Actualmente adjudicados"
         originating_lender: "Prestamista originario"
         original_loan_number: "Número de préstamo originario"
         servicer: "Administrador"
         servicer_loan_number: "Número de préstamo servicio"
-        monthly_mortgage_payment: "el pago mensual de la hipoteca"
+        monthly_mortgage_payment: "El pago mensual de la hipoteca"
         loan_term: "Plazo del préstamo"
         origination_date: "Fecha de formalización"
         been_to_court: "¿Ha asistido a la corte?" 
         court_case_number: "Número de caso judicial"
         working_with_lawyer: "¿Está trabajando con un abogado en este caso?"
         working_with_agency: "¿Está trabajando con otra organización con re-speto a su hipoteca?"
-        reason_for_default: "Reason for default:"
+        reason_for_default: "Motivo del incumplimiento:"
         submit: "Enviar"
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
+        update: "Actualizar"
+
+    rental:
+        application: "Aplicacion Rental"
+        information: "Información de alquiler presentada por"
+        bedrooms: "Numero de habitaciones"
+        wheelchair_accessible: "¿Necesita una unidad accesible para sillas de ruedas?"
+        car_owner: "Tienes un automóvil? "
+        pet_owner: "¿Es dueño de una mascota?"
+        hear_of_property: "¿Cómo se enteró de la propiedad? "
+        reason_for_move: "¿Cuál es su razón para aplicar a LUCHA? "
+        housing_situation: "¿Cuál es su situación actual de vivienda? "
+        employer_name: "Nombre actual del empleador: "
+        employer_address: "Dirección actual del empleador:"
+        employer_city: "Ciudad del empleador"
+        employer_state: "Estado empleador"
+        employer_phone: "Teléfono del empleador"
+        agree_to_fee: "Aceptar pagar"
+        edit_application: "Actualizar"
+        delete_application: "Eliminar la Aplicación"
+        update: "Actualizar"
     
     #employee section, client section above
     #no need for employee log in, same fields/page as client log in
     employee_sign_up:
-        please_fill_in: "Please fill in the following to create an employee account."
+        please_fill_in: "Por favor, complete lo siguiente para crear una cuenta de empleado."
         first_name: "Nombre"
         last_name: "Apellido"
         home_phone: "Número de Teléfono de Casa"
         cell_phone: "Teléfono móvil"
         work_phone: "Teléfono del trabajo"
         address: "Dirección"
-        login_information: "The following information will be your login information. Make sure to keep this safe with you."
+        login_information: "La siguiente información será su información de inicio de sesión. Asegúrese de mantener esto seguro con usted."
         email: "Correo Electrónico"
         password: "Contraseña"
         eight_characters_minimum: "(Mínimo de 8 caracteres)"
@@ -278,6 +352,20 @@ es:
         home: "Casa: "
         work: "Trabajo: "
         cell: "Teléfonos: "
+        no_assigned_clients: "No hay clientes asignados actualmente"
+        information_for: "Información del Empleado para"
+        details: "Detalles sobre Empleados"
+        email: "Correo Electrónico:"
+        first_name: "Nombre:"
+        last_name: "Apellido:"
+        work_phone: "Teléfono del Trabajo:"
+        cell_phone: "Teléfono Móvil:"
+        home_phone: "Número de Teléfono de Casa:"
+        position: "Posición"
+        location: "Ubicación"
+        last_sign_in: "Última Conexión:"
+        edit_information: "Editar Informacion"
+        clients_assigned_to: "Clientes asignados a "
 
     employee_registered_clients:
         all_registered_clients: "Todos los Clientes Registrados"
@@ -319,7 +407,7 @@ es:
         education_level: "Nivel de Educación::"
         marital_status: "Estatus Marital:"
         date_of_birth: "Fecha de Nacimiento:"
-        ssn: "Número de Seguro Social:"
+        ssn: "SSN/ITIN:"
         not_submitted: "No Presentadas"
         household_information: "Información Sobre el Hogar"
         head_of_household: "Jefe de Hogar:"
@@ -344,15 +432,16 @@ es:
         edit: "Editar"
         delete: "Eliminar"
         submitted_applications: "Presentado Solicitudes"
-        over_sixty_two: "Is anyone in your household over the age of 62?"
+        over_sixty_two: "¿Hay alguien en su hogar mayor de 62 años?"
 
     employee_foreclosure_index:
-        foreclosure_clients: "Foreclosure Clients"
-        list_of_all_foreclosure_clients: "This is a list of all foreclosure applicants."
+        foreclosure_clients: "Clientes de ejecución hipotecaria"
+        list_of_all_foreclosure_clients: "Esta es una lista de todos los solicitantes de ejecución hipotecaria."
         name: "Nombre"
+        email: "Correo Electrónico"
         phone: "Teléfono"
         address: "Dirección"
-        date_submitted: "Fecha de Envío"
+        date_created: "Fecha de Envío"
         view: "Ver"
         search_on_this_page: "Buscar en esta página"
         home: "Casa: "
@@ -362,9 +451,10 @@ es:
         no_results: "No hay resultados"
 
     employee_homebuying_index:
-        homebuying_clients: "Homebuying Clients"
-        list_of_all_homebuying_clients: "This is a list of all homebuying applicants."
+        homebuying_clients: "Clientes de compra en el hogar"
+        list_of_all_homebuying_clients: "Esta es una lista de todos los solicitantes de compra de vivienda."
         name: "Nombre"
+        email: "Correo Electrónico"
         phone: "Teléfono"
         address: "Dirección"
         contact_for_appointment: "Contacto para concertar una cita"
@@ -379,18 +469,98 @@ es:
         search_on_this_page: "Buscar en esta página"
 
     employee_rentals_index:
-        rental_clients: "Rental Clients"
-        list_of_all_rental_clients: "This is a list of all rental applicants."
+        rental_clients: "Alquiler de Clientes"
+        list_of_all_rental_clients: "Esta es una lista de todos los solicitantes de alquiler."
         name: "Nombre"
+        email: "Correo Electrónico"
         phone: "Teléfono"
         address: "Dirección"
+        date_created: "Fecha de Creación"
         view: "Ver"
         search_on_this_page: "Buscar en esta página"
         no_results: "No hay resultados"
         download: "Descargar:"
 
-    helpers:
-        submit:
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+    
+    reset_password_instructions:
+          hello: "Hola "
+          requested_change: "Alguien ha solicitado un enlace para cambiar su contraseña. Puede hacerlo a través del siguiente enlace."
+          please_ignore: "Si no lo solicitó, ignore este correo electrónico."
+          wont_change: "Su contraseña no cambiará hasta que acceda al enlace anterior y cree uno nuevo."
+          change_password: "Cambiar mi contraseña"
+
+    password_change:
+          hello: "Hola "
+          contact: "Nos comunicamos con usted para notificarle que su contraseña ha sido cambiada."
+
+    devise:
+        sessions:
             client:
-                update: "Actualizar"
+                signed_in: 'Iniciaste sesión correctamente.'
+                signed_out: 'Cerraste sesión correctamente.'
+                already_signed_out: "Se ha cerrado correctamente."
+                log_in: "Inicio de sesión"
+                forgot_your_password: "Olvidaste tu contraseña?"
+                sign_up: "Regístrese"
+                email: "Correo Electrónico"
+        confirmations:
+            client:
+                confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
+                send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+                send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+        registrations: 
+              new:
+                    email: "Correo Electrónico"
+
+    activerecord:
+        attributes:
+            client:
+                num_in_household: "Número de personas en su hogar"
+                num_of_dependants: "Número de dependientes"
+                ssn: "SSN/ITIN"
+                dob: "La fecha de nacimiento"
+                first_name: "Nombre de pila"
+                last_name: "Apellido"
+                email: "Correo Electrónico"
+                authorization_and_waiver: "Autorización y renuncia"
+                privacy_policy_authorization: "Autorización de política de privacidad"
+                password: "Contraseña"
+
+            foreclosure:
+                originating_lender: "Prestamista originario "
+                original_loan_number: "Número de préstamo originario"
+                servicer: "Administrador"
+                servicer_loan_number: "Número de préstamo servicio"
+                monthly_mortgage_payment: "El pago mensual de la hipoteca"
+                loan_term: "Plazo del préstamo"
+                origination_date: "Fecha de formalización"
+            budget:
+                gross_wages: "Salario bruto"
+            homebuying:
+                lender: "Cuál es el nombre de su prestamista"
+                realtor_name: "Agente de bienes raíces"
+                property_address: "Dirección"
+                property_city: "Ciudad"
+                loan_officer_name: "Nombre por oficial de crédito"
+                loan_officer_email: "Email por oficial de crédito:"
+                loan_officer_phone: "Teléfono del oficial de préstamo"
+            rental:
+                hear_of_property: "¿Cómo se enteró de la propiedad?"
+                reason_for_move: "¿Cuál es su razón para aplicar a LUCHA?"
+                housing_situation: "¿Cuál es su situación actual de vivienda?"
+                employer_name: "Nombre actual del empleador"
+                employer_address: "Dirección actual del empleador"
+                employer_city: "Ciudad del empleador"
+                car_owner: "Tienes un automóvil?"
+                pet_owner: "¿Es dueño de una mascota?"
+
+        errors:
+            models:
+                  client:
+                        attributes:
+                              ssn:
+                                    bad_ssn: "es la longitud incorrecta (debe ser 9 números)"
+
+
     

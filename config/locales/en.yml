@@ -1,25 +1,44 @@
 en:
   splash:
       title: "Latin United Community Housing Association"
-      sub_title: "LUCHA Client Portal"
-      sign_up: "sign up"
-      sign_in: "sign in"
+      sub_title: "LUCHA Client Portal / Portal de Clientes"
+      sign_up: "sign up / regístrate"
+      sign_in: "sign in / registrarse"
+      sign_out: "sign out / desconectar"
+      view_my_profile: "view my profile / Mira mi perfil"
+      view_your_clients: "view your clients / Ver a sus clientes"
 
-      #old splash page, all removed
-      # mission: "LUCHA's Mission:"
-      # mission_statement: "LUCHA (the Spanish word for “Fight ”) advances housing as a human right by empowering communities- particularly the Latino and Spanish-speaking populations- through advocacy, education, affordable housing development and comprehensive housing services."
-      user_sign_in: "Employee Login"
-      # lucha_vision: "LUCHA's Vision"
-      # lucha_vision_lead: "We aspire to build empowered, thriving communities and further access to equitable and fair housing."
-      # connect: "Connect with us:"
-      # home: "Home"
-      # about: "About"
-      # services: "Services"
-      # contact: "Contact"
-      copy_right: "Copyright \u00A9 Lucha 2016. All Rights Reserved"
-      # demographics: "LUCHA Demographics:"
-      # demographics_statement: "A few notes on the diversity of our clients:
-      # The majority (over 60%) of households LUCHA serves are Hispanic. 100% of the households are located in urban areas.  Less than half are Limited English Proficient."
+  navbar:
+      signed_in_as: "Signed in as "
+      sign_out: "Sign out"
+      your_clients: "Your Clients"
+      registered_clients: "Registered Clients"
+      foreclosures: "Foreclosures"
+      homebuyings: "Homebuyings"
+      rentals: "Rentals"
+      registered_employees: "Registered Employees "
+      application_status: "Application Status"
+      profile: "Profile"
+      budget: "Budget"
+      your_foreclosure_application: "Your Foreclosure Application"
+      your_homebuying_application: "Your Homebuying Application"
+      your_rental_application: "Your Rental Application"
+      client_registration: "Client Registration"
+      user_registration: "Employee Registration"
+
+  password_forgot:
+      forgot_your_password: "Forgot your Password?"
+      email: "Email"
+      log_in: "Log in"
+      sign_up: "Sign up"
+      send_me_reset_password_instructions: "Send me reset password instructions"
+
+  # password_change:
+  #     change_your_password: "Change your Password"
+  #     new_password: "New password"
+  #     eight_characters_minimum: "(8 characters minimum)"
+  #     confirm_new_password: "Confirm new password"
+  #     change_my_password: "Change my password"
 
   # Client section, employee section below
   client_sign_up:
@@ -37,6 +56,7 @@ en:
       zip_code: "Zip code"
       authorize_lucha: "I authorize LUCHA and it's staff to use my information for the purposes of counseling."
       privacy_and_disclosure: "I have read LUCHA's Privacy and Disclosure policy and agree to the terms and conditions set."
+      view_policy: "View Privacy and Disclosure Policy"
       login_information: "The following informatin will be your login information. Make sure to keep this safe with you."
       email: "Email"
       password: "Password"
@@ -56,6 +76,28 @@ en:
       remember_me: "Remember me"
       log_in: "LOGIN"
 
+  client_status:
+      application_status_for: "Application Status for: "
+      thank_you: "Thank you for your interest in LUCHA's services. See the steps below to complete your application."
+      step_one: "Step 1"
+      step_two: "Step 2"
+      step_three: "Step 3"
+      step_four: "Step 4"
+      profile_step: "Please complete your profile."
+      budget_step: "Please provide relevant financial information so that LUCHA may better assist you. You may update it anytime."
+      application_step: "Click the button(s) for the application(s) you are submitting."
+      final_step: "A LUCHA representative will review your information and contact you within two business days to set-up an appointment and inform you of your next steps. We look forward to working with you."
+      completed_profile_step: "Thank you for completing your profile, you can view and edit it anytime."
+      completed_budget_step: "Thank you for providing your financial information. You can view and edit it at any time."
+      completed_application: "Thank you for submitting your application(s)."
+      completed: "You have been assigned to: "
+      edit_profile: "Edit Profile"
+      view_profile: "View Profile"
+      view_budget: "View Budget"
+      foreclosure: "Foreclosure"
+      homebuying: "Homebuying"
+      rental: "Rental"
+
   budget_show:
       title: "Budget For: "
       description: "Fill this out as best you can. If there are any changes you would like to make simply click on the appropriate field. You can make changes at any time. You must provide information for at least one field in each section to continue with your application."
@@ -70,6 +112,7 @@ en:
       gross_monthly: "Gross Monthly Income:"
       total_monthly: "Total Monthly Debt:"
       debt_to_income: "Debt to Income Ratio:"
+      not_applicable: "Not Applicable"
 
   budget_income:
       title: "Monthly Income"
@@ -147,7 +190,7 @@ en:
       education_level: "Education Level:"
       marital_stat: "Marital Status:"
       dob: "Date Of Birth:"
-      ss: "Social Security Number:"
+      ss: "SSN/ITIN:"
       not_submitted: "Not Submitted"
       household_information: "Household Information"
       pref_contact: "Preferred Contact Method:"
@@ -185,7 +228,7 @@ en:
       demographics: "Demographics"
       gender: "Gender:"
       race: "Race:"
-      ss: "Social Security Number:"
+      ss: "SSN/ITIN:"
       pref_contact: "Preferred Contact Method:"
       other_language: "Other Language:"
       pref_lang: "Preferred Language:"
@@ -207,10 +250,14 @@ en:
       update: "Update!"
 
   homebuying:
+      counseling_application: "Homebuying Counseling Application"
+      information_submitted_by: "Homebuying Information submitted by "
+      application: "Homebuying Application"
+      information: "Homebuying Information"
       loan_type: "Loan type"
       lender: "Lender"
-      contact_for_appointment: "Contact for appointment"
-      real_estate_contract: "Real estate contract"
+      contact_for_appointment: "Would you like to be contacted for an appointment?"
+      real_estate_contract: "Have you signed a real estate contract?"
       realtor_name: "Realtor name"
       realtor_phone: "Realtor phone"
       property_address: "Property address"
@@ -221,10 +268,16 @@ en:
       loan_officer_phone: "Loan officer phone"
       payment_assistance_program: "Payment assistance program"
       approximate_closing_date: "Approximate closing date"
+      edit_application: "Edit Application"
+      delete_application: "Delete Application"
+      update: "Update"
 
   foreclosure:
+      update_your_foreclosure: "Update your foreclosure case:"
+      information: "Foreclosure Information"
       foreclosure: "foreclosure: "
       title: "Foreclosure Application:"
+      submitted_by: "Foreclosure Information submitted by "
       description: "You've taken the first step. Once this application is submitted, you will be contacted by one of LUCHA's counselors for further guidance."
       currently_foreclosed: "Are you currently going through foreclosure?"
       originating_lender: "Originating Lender:"
@@ -242,6 +295,27 @@ en:
       submit: "Submit"
       edit_application: "Edit Application"
       delete_application: "Delete Application"
+      update: "Update"
+
+  rental:
+      application: "Rental Application"
+      information: "Rental information submitted by "
+      bedrooms: "Number of bedrooms"
+      wheelchair_accessible: "Do you need a wheelchair accessible unit? "
+      car_owner: "Do you own a car? "
+      pet_owner: "Do you own a pet? "
+      hear_of_property: "How did you hear about the property? "
+      reason_for_move: "What is your reason for applying to LUCHA? "
+      housing_situation: "What is your current housing situation? "
+      employer_name: "Current employer's name: "
+      employer_address: "Current employer's address: "
+      employer_city: "Employer city"
+      employer_state: "Employer state"
+      employer_phone: "Employer phone"
+      agree_to_fee: "Do you agree to a fee of $25 for a background check?"
+      edit_application: "Edit Application"
+      delete_application: "Delete Application"
+      update: "Update"
 
   #employee section, client section above
   #no need for employee log in, same fields/page as client log in
@@ -266,7 +340,7 @@ en:
   employee_show:
       your_clients: "Your Clients"
       name: "Name"
-      phone: "Home Phone"
+      phone: "Phone"
       submitted_applications: "Submitted Applications"
       unassign: "Unassign?"
       client_info: "Client Info"
@@ -278,6 +352,20 @@ en:
       home: "Home: "
       work: "Work: "
       cell: "Cell: "
+      no_assigned_clients: "No currently assigned clients"
+      information_for: "Employee Information for "
+      details: "Employee Details"
+      email: "Email"
+      first_name: "First Name:"
+      last_name: "Last Name:"
+      work_phone: "Work Phone:"
+      cell_phone: "Cell Phone:"
+      home_phone: "Home Phone:"
+      position: "Position:"
+      location: "Location:"
+      last_sign_in: "Last Sign In:"
+      edit_information: "Edit Employee Information"
+      clients_assigned_to: "Clients assigned to "
 
   employee_registered_clients:
       all_registered_clients: "All Registered Clients"
@@ -319,7 +407,7 @@ en:
       education_level: "Education Level:"
       marital_status: "Marital Status"
       date_of_birth: "Date of Birth:"
-      ssn: "SSN:"
+      ssn: "SSN/ITIN:"
       not_submitted: "Not Submitted"
       household_information: "Household Information"
       head_of_household: "Head of Household:"
@@ -350,9 +438,10 @@ en:
       foreclosure_clients: "Foreclosure Clients"
       list_of_all_foreclosure_clients: "This is a list of all foreclosure applicants."
       name: "Name"
+      email: "Email"
       phone: "Phone"
       address: "Address"
-      date_submitted: "Date Submitted"
+      date_created: "Date Created"
       view: "View"
       search_on_this_page: "Search on this page"
       home: "Home: "
@@ -365,6 +454,7 @@ en:
       homebuying_clients: "Homebuying Clients"
       list_of_all_homebuying_clients: "This is a list of all homebuying applicants."
       name: "Name"
+      email: "Email"
       phone: "Phone"
       address: "Address"
       contact_for_appointment: "Contact for Appointment"
@@ -382,25 +472,92 @@ en:
       rental_clients: "Rental Clients"
       list_of_all_rental_clients: "This is a list of all rental applicants."
       name: "Name"
+      email: "Email"
       phone: "Phone"
       address: "Address"
+      date_created: "Date Created"
       view: "View"
       search_on_this_page: "Search on this page"
       no_results: "No results"
       download: "Download:"
+
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+  reset_password_instructions:
+      hello: "Hello "
+      requested_change: "Someone has requested a link to change your password. You can do this through the link below."
+      please_ignore: "If you didn't request this, please ignore this email."
+      wont_change: "Your password won't change until you access the link above and create a new one."
+      change_password: "Change my password"
+
+  password_change:
+      hello: "Hello "
+      contact: "We're contacting you to notify you that your password has been changed."
+     
+  devise:
+      sessions:
+            client:
+                  signed_in: "Signed in"
+                  signed_out: "Signed out"
+                  already_signed_out: "Signed out successfully."
+                  log_in: "Log in"
+                  forgot_your_password: "Forgot your password"
+                  sign_up: "Sign up"
+
+      confirmations:
+            client:
+                  confirmed: "Confirmed"
+                  send_instructions: "Send instructions"
+                  send_paranoid_instructions: "If your email exists in the system, you will receive instructions to confirm your account in your email in a few minutes."
+      registrations: 
+            new:
+                  email: "Email"
+  
+  activerecord:
+      attributes:
+            client:
+                  num_in_household: "Number in household"
+                  num_of_dependants: "Number of dependents "
+                  ssn: "SSN/ITIN"
+                  dob: "Date of birth "
+                  first_name: "First name"
+                  last_name: "Last name"
+                  email: "Email"
+                  authorization_and_waiver: "Authorization and waiver"
+                  privacy_policy_authorization: "Privacy policy authorization"
+                  password: "Password"
+
+            foreclosure:
+                  originating_lender: "Originating lender "
+                  original_loan_number: "Original loan number"
+                  servicer: "Servicer"
+                  servicer_loan_number: "Service loan number"
+                  monthly_mortgage_payment: "Monthly mortgage payment"
+                  loan_term: "Loan term"
+                  origination_date: "Origination date"
+            budget:
+                  gross_wages: "Gross wages"
+            homebuying: 
+                  lender: "Lender"
+                  realtor_name: "Realtor name"
+                  property_address: "Property address"
+                  property_city: "Property city"
+                  loan_officer_name: "Loan officer name"
+                  loan_officer_email: "Loan officer email"
+                  loan_officer_phone: "Loan officer phone"
+            rental:
+                  hear_of_property: "Hear of property"
+                  reason_for_move: "Reason for move"
+                  housing_situation: "Housing situation"
+                  employer_name: "Employer name"
+                  employer_address: "Employer address"
+                  employer_city: "Employer city"
+                  car_owner: "Car owner"
+                  pet_owner: "Pet owner"
       
-  # activerecord:
-    # attributes:
-      # client:
-        # ssn: "Social security number"
-        # dob: "Date of birth"
-        # num_in_household: "Number in household"
-        # num_of_dependants: "Number of dependants"
-    # errors:
-    #   models:
-    #     client:
-    #       attributes:
-    #         ssn:
-    #         dob:
-    #         num_of_dependants:
-    #         num_in_household:
+      errors:
+            models:
+                  client:
+                        attributes:
+                              ssn:
+                                    bad_ssn: "is the wrong length (should be 9 numbers)"

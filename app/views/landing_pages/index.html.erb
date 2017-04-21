@@ -1,60 +1,52 @@
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Latin United Community Housing LUCHA">
 
-    <title><%= I18n.t ".splash.sub_title" %></title>
-
-    <!-- Bootstrap Core CSS -->
+  <!-- Bootstrap Core CSS -->
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-    <!-- Custom Fonts -->
-
-
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <!-- Custom Fonts -->
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 
-    <!-- Header -->
-    <a name="about"></a>
+  <!-- Header -->
     <div class="intro-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                   <%= render "layouts/alerts" %>
                     <div class="intro-message">
-                        <h1><%= I18n.t ".splash.title" %></h1>
-                        <h3><%= I18n.t ".splash.sub_title" %></h3>
+                        <h1><%= I18n.t "splash.title" %></h1>
+                        <h3><%= I18n.t "splash.sub_title" %></h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                           <% if current_client %>
-                              <li><a href="/clients/<%= current_client.id %>/status" class="btn btn-default btn-lg"><span class="network-name">View my profile</span></a></li>
-                              <li><a href="/clients/sign_out" data-method="delete" class="btn btn-default btn-lg"><span class="network-name">Sign Out</span></a></li>
+                              <li><a href="/clients/<%= current_client.id %>/status" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t "splash.view_my_profile" %></span></a></li>
+                              <li><a href="/clients/sign_out" data-method="delete" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t "splash.sign_out" %></span></a></li>
                           <% elsif current_user %>
-                              <li><a href="/users" class="btn btn-default btn-lg"><span class="network-name">View your clients</span></a></li>
-                              <li><a href="/users/sign_out" data-method="delete"  class="btn btn-default btn-lg"><span class="network-name">Sign out</span></a></li>
+                              <li><a href="/users/<%= current_user.id %>" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t "splash.view_your_clients" %></span></a></li>
+                              <li><a href="/users/sign_out" data-method="delete"  class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t "splash.sign_out" %></span></a></li>
                           <% else %>
-                              <li><a href="/register" class="btn btn-default btn-lg"> <span class="network-name"><%= I18n.t ".splash.sign_up" %></span></a></li>
-                              <li><a href="/login" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t ".splash.sign_in" %></span></a></li>
+                              <li><a href="/register" class="btn btn-default btn-lg"> <span class="network-name"><%= I18n.t "splash.sign_up" %></span></a></li>
+                              <li><a href="/login" class="btn btn-default btn-lg"><span class="network-name"><%= I18n.t "splash.sign_in" %></span></a></li>
                           <% end %>
                         </ul>
-                        <div class="absolute">
-                    
+                         <!-- <div class="absolute">
                             <div class="center-footer">
-                                <p class="footer"><%= I18n.t "splash.copy_right" %></p>  
-                                
+                                <p class="footer"><%= I18n.t "splash.copy_right" %></p>   
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
     </div>
 </body>

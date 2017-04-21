@@ -1,5 +1,6 @@
 class Client::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
+  before_action :set_locale
 
 	protected
 

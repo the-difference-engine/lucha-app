@@ -1,20 +1,20 @@
 class ClientsController < ApplicationController
   include FormInputsHelper
 
-  before_action :authenticate!, :only => [:index, :show, :update, :edit, :status]
-  before_action :verify_user!, :only => [:destroy,]
+  before_action :authenticate!, :only => [:show, :update, :edit, :status]
+  before_action :verify_user!, :only => [:index, :destroy,]
   before_action :set_locale
 
   def index
     @users = User.all
-    @clients = Client.all
+    @clients = Client.all.order('created_at desc')
     @foreclosures = Foreclosure.all
 
     respond_to do |format|
       format.json
       format.html
       format.csv { send_data @clients.to_csv, type: 'text/csv', filename: "all_clients-#{Date.today}.csv"}
-      format.xls { send_data @clients.to_csv, filename: "all_clients-#{Date.today}.xls"}
+      format.xls { send_data @clients.to_csv(col_sep: "\t"), filename: "all_clients-#{Date.today}.xls"}
     end
 
   end
@@ -89,7 +89,7 @@ class ClientsController < ApplicationController
       ward: params[:client][:ward],
       sex: params[:client][:sex],
       race: params[:client][:race],
-      ssn: params[:client][:ssn],
+      ssn: params[:client][:ssn].gsub(/\D/, ''),
       preferred_contact_method: params[:client][:preferred_contact_method],
       preferred_language: params[:client][:preferred_language],
       other_language: params[:client][:other_language],
@@ -165,7 +165,7 @@ class ClientsController < ApplicationController
     else
       flash[:danger] = [ 'Something has gone wrong.']
     end
-    redirect_to "/users"
+    redirect_to "/clients"
   end
 
   def unassign

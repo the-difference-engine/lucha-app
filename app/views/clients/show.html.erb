@@ -7,4 +7,5 @@
 <% end %>
 
 <br>
-<%= link_to('Download PDF', client_path(format: :pdf)) %>
+
+<%= link_to(I18n.t("clients_show.download_pdf"), client_path(format: :pdf)) %>

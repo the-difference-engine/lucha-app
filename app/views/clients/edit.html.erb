@@ -41,12 +41,17 @@
             </div>
 
             <div class="form-group">
+              <label> <%= I18n.t "clients_edit.work_phone" %> </label>
+              <%= form.text_field :work_phone, :class => "form-control" %>
+            </div>
+
+            <div class="form-group">
               <label> <%= I18n.t "clients_edit.email" %> </label>
               <%= form.text_field :email, :class => "form-control" %>
             </div>
             <div class="form-group">
               <label> <%= I18n.t "clients_edit.pref_lang"  %> </label>
-              <%= form.select(:preferred_language, options_for_select(language_options, @client.preferred_language),{},{:class => "form-control", :id=>"language-select"} ) %>
+              <%= form.select(:preferred_language, options_for_select(pref_language, @client.preferred_language),{},{:class => "form-control", :id=>"language-select"} ) %>
             </div>
             <div class="form-group" id="other-input">
               <label> <%= I18n.t "clients_edit.other_language" %> </label>
@@ -56,10 +61,7 @@
               <label> <%= I18n.t "clients_edit.pref_contact"  %> </label>
               <%= form.select(:preferred_contact_method, options_for_select(contact_method_options, @client.preferred_contact_method),{},{:class => "form-control"}) %>
             </div>
-            <div class="form-group">
-              <label> <%= I18n.t "clients_edit.work_phone" %> </label>
-              <%= form.text_field :work_phone, :class => "form-control" %>
-            </div>
+            
 
             <div class="form-group">
               <label> <%= I18n.t "clients_edit.address" %> </label>
@@ -121,11 +123,8 @@
             </div>
 
             <div class="form-group">
-              <label>
-                <%= I18n.t "clients_edit.ss"  %>
-                <span class="text-danger"> * </span>
-              </label>
-              <%= form.password_field(:ssn, value: @client.ssn, :class => "form-control") %>
+              <label> <%= I18n.t "clients_edit.education_level"  %> </label>
+              <%= form.select :education_level, options_for_select(education, @client.education_level),{},{:class => "form-control"} %>
             </div>
 
             <div class="form-group">
@@ -140,6 +139,14 @@
               </label>
               <%= form.date_field :dob, :class => "form-control" %>
             </div>
+
+            <div class="form-group">
+              <label>
+                <%= I18n.t "clients_edit.ss"  %>
+                <span class="text-danger"> * </span>
+              </label>
+              <%= form.password_field(:ssn, value: @client.ssn, :class => "form-control") %>
+            </div>            
           </div>
         </div>
       </div>
@@ -169,11 +176,6 @@
                 <span class="text-danger"> * </span>
               </label>
               <%= form.number_field :num_of_dependants, {in: 0..10, class: "form-control"} %>
-            </div>
-
-            <div class="form-group">
-              <label> <%= I18n.t "clients_edit.education_level"  %> </label>
-              <%= form.select :education_level, options_for_select(education, @client.education_level),{},{:class => "form-control"} %>
             </div>
 
             <div class="form-group">
@@ -248,7 +250,7 @@
     <hr>
 
     <div class="form-group">
-      <%= form.submit "Update", :class => "btn btn-success" %>
+      <%= form.submit I18n.t("clients_edit.update"), :class => "btn btn-success" %>
     </div>
     </div>
   </div>

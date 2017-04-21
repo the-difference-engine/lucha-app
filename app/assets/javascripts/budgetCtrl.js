@@ -83,7 +83,8 @@
       })
     }
 
-    function flashAlert(flashType){
+    function flashAlert(flashType){ 
+      $("html, body").animate({scrollTop:0}, "fast");
       $("#budget-alert")
           .addClass('alert-' + flashType)
           .show();

@@ -11,8 +11,9 @@ class Client < ActiveRecord::Base
   # validates_numericality_of :num_in_household
   # validates_numericality_of :num_of_dependants
 
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates :sex, :race, :ssn, :preferred_contact_method, :preferred_language, :marital_status, :dob, :education_level, :estimated_household_income, :num_in_household, :num_of_dependants, presence: true, on: :update
+  validates :ssn, length: { is: 9, message: :bad_ssn }, on: :update
 
   # validates_associated :budget
 
@@ -125,7 +126,7 @@ class Client < ActiveRecord::Base
     type
   end
 
-  def self.to_csv
+  def self.to_csv(options = {})
     attributes = %w{
                     id 
                     account_created 
@@ -159,7 +160,7 @@ class Client < ActiveRecord::Base
                     employee_assigned
                   }
 
-      CSV.generate do |csv|
+      CSV.generate(options) do |csv|
         csv << attributes
         all.each do |client|
           csv.add_row([

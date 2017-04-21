@@ -6,14 +6,15 @@
 <div class="form-group pull-right">
     <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_foreclosure_index.search_on_this_page" %>>
 </div>
-<span class="counter pull-left"></span>
+<span class="counter pull-right"></span>
 <table class="table table-hover results">
  <thead>
    <tr>
      <th><%= I18n.t "employee_foreclosure_index.name" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.email" %></th>
      <th><%= I18n.t "employee_foreclosure_index.phone" %></th>
      <th><%= I18n.t "employee_foreclosure_index.address" %></th>
-     <th><%= I18n.t "employee_foreclosure_index.date_submitted" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.date_created" %></th>
      <th><%= I18n.t "employee_foreclosure_index.view" %></th>
    </tr>
   <tr class="warning no-result">
@@ -27,6 +28,9 @@
    <tr>
      <td>
        <%= link_to(foreclosure.client.full_name.titleize, client_path(foreclosure.client.id)) %>
+     </td>
+     <td>
+     <%= foreclosure.client.email %>
      </td>
      <td><%= number_to_phone(foreclosure.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td>
      <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td> 

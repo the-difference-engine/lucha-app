@@ -1,54 +1,65 @@
 <table class="table table-hover">	
 	<tbody>
 		<tr>
-			<td>Interested in a studio? </td>
-			<td class="text-right"><strong><%= @rental.studio ? "Yes" : "No" %></strong></td>
-		</tr><tr>
-			<td>Interested in a 2 bedroom? </td>
-			<td class="text-right"><strong><%= @rental.two_bed ? "Yes" : "No" %></strong></td>
-		</tr><tr>
-			<td>Interested in a 3 bedroom? </td>
-			<td class="text-right"><strong><%= @rental.three_bed ? "Yes" : "No" %></strong></td>
-		</tr><tr>
-			<td>Do you need a wheelchair accessible unit? </td>
+			<td><%= I18n.t "rental.bedrooms" %></td>
+			<td class="text-right"><strong><%= @rental.bedrooms %></strong></td>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.wheelchair_accessible" %></td>
 			<td class="text-right"><strong><%= @rental.wheelchair_accessible ? "Yes" : "No" %></strong></td>
-		</tr><tr>
-				<td>Do you own a car? </td>
-				<td class="text-right"><strong><%= @rental.car_owner ? "Yes" : "No" %></strong></td>
-		</tr><tr>
-				<td>Do you own a pet? </td>
-				<td class="text-right"><strong><%= @rental.pet_owner ? "Yes" : "No" %></strong></td>
-		</tr><tr>
-				<td>How did you hear about the property? </td>
-				<td class="text-right"><strong><%= @rental.hear_of_property %></strong></td>
-		</tr><tr>
-		</tr><tr>
-				<td>What is your reason for applying to LUCHA? </td>
-				<td class="text-right"><strong><%= @rental.reason_for_move %></strong></td>
-		</tr><tr>
-		</tr><tr>
-				<td>What is your current housing situation? </td>
-				<td class="text-right"><strong><%= @rental.housing_situation %></strong></td>
-		</tr><tr>
-				</tr><tr>
-				<td>Current employer's name: </td>
-				<td class="text-right"><strong><%= @rental.employer_name %></strong></td>
-		</tr><tr>
-		</tr><tr>
-				<td>Current employer's address: </td>
-				<td class="text-right"><strong><%= @rental.employer_address %></strong></td>
-		</tr><tr>
-		</tr><tr>
-				<td>Current employer's city: </td>
-				<td class="text-right"><strong><%= @rental.employer_city %></strong></td>
-		</tr><tr>
-				<td>Current employer's state: </td>
-				<td class="text-right"><strong><%= @rental.employer_state %></strong></td>
-		</tr><tr>
-				<td>Current employer's phone: </td>
-				<td class="text-right"><strong><%= number_to_phone(@rental.employer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
-		</tr><tr>
-				<td>Do you agree to a fee of $25 for a background check?</td>
-				<td class="text-right"><strong><%= @rental.agree_to_fee ? "Yes" : "No" %></strong></td>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.car_owner" %></td>
+			<td class="text-right"><strong><%= @rental.car_owner ? "Yes" : "No" %></strong></td>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.pet_owner" %></td>
+			<td class="text-right"><strong><%= @rental.pet_owner ? "Yes" : "No" %></strong></td>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.hear_of_property" %></td>
+			<td class="text-right"><strong><%= @rental.hear_of_property %></strong></td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.reason_for_move" %></td>
+			<td class="text-right"><strong><%= @rental.reason_for_move %></strong></td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.housing_situation" %></td>
+			<td class="text-right"><strong><%= @rental.housing_situation %></strong></td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.employer_name" %></td>
+			<td class="text-right"><strong><%= @rental.employer_name %></strong></td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.employer_address" %></td>
+			<td class="text-right"><strong><%= @rental.employer_address %></strong></td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.employer_city" %></td>
+			<td class="text-right"><strong><%= @rental.employer_city %></strong></td>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.employer_state" %></td>
+			<td class="text-right"><strong><%= @rental.employer_state %></strong></td>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.employer_phone" %></td>
+			<td class="text-right"><strong><%= number_to_phone(@rental.employer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+		</tr>
+		<tr>
+			<td><%= I18n.t "rental.agree_to_fee" %></td>
+			<td class="text-right"><strong><%= @rental.agree_to_fee ? "Yes" : "No" %></strong></td>
 	</tbody>
 </table>

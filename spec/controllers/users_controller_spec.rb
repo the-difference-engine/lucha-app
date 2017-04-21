@@ -7,13 +7,15 @@ RSpec.describe UsersController, type: :controller do
     before :each do
       @this_user = create(:user)
       sign_in @this_user
+      @this_user.admin = true
+      @this_user.save
     end
     context 'signed in as a user' do
-      it "populates an array of unassigned clients" do
-        client1 = create(:client, user_id: nil)
-        client2 = create(:client, user_id: nil)
+      it "populates an array of users" do
+        user1 = create(:user)
+        user2 = create(:user)
         get :index
-        expect(assigns(:clients)).to match_array([client1, client2])
+        expect(assigns(:users)).to match_array([@this_user, user1, user2])
       end
     end
 
