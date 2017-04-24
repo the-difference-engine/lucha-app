@@ -1,6 +1,6 @@
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.loan_type" %>
-  <%= select_tag(:loan_type, options_for_select(loan_type, @homebuying.loan_type), :class => "form-control") %>
+  <%= select_tag(:loan_type, options_for_select(loan_type, @homebuying.loan_type), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
@@ -11,12 +11,12 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.contact_for_appointment" %><br/>
-  <%= select_tag(:contact_for_appointment, options_for_select([["No", false],["Yes", true]], @homebuying.contact_for_appointment), :class => "form-control") %>
+  <%= select_tag(:contact_for_appointment, options_for_select([["No", false],["Yes", true]], @homebuying.contact_for_appointment), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.real_estate_contract" %>
-  <%= select_tag(:real_estate_contract, options_for_select([["No", false],["Yes", true]], @homebuying.real_estate_contract), :class => "form-control") %>
+  <%= select_tag(:real_estate_contract, options_for_select([["No", false],["Yes", true]], @homebuying.real_estate_contract), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
@@ -68,7 +68,7 @@
 
 <div class="form-group">
   <%= label_tag I18n.t "homebuying.payment_assistance_program" %>
-  <%= select_tag(:payment_assistance_program, options_for_select(down_payment_assistance_program, @homebuying.payment_assistance_program), :class => "form-control") %>
+  <%= select_tag(:payment_assistance_program, options_for_select(down_payment_assistance_program, @homebuying.payment_assistance_program), :class => "form-control", :prompt => "Please Select") %>
 </div>
 
 <div class="form-group">
