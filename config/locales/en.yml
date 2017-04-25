@@ -415,6 +415,7 @@ en:
       number_of_dependents: "Number of Dependents:"
       estimated_household_income: "Estimated Household Income:"
       disability: "Disability:"
+      disability_in_household: "Does anyone in your household have a disability?"
       military_service_member: "Military Service Member:"
       volunteer: "Volunteer:"
       union_member: "Union Member:"
