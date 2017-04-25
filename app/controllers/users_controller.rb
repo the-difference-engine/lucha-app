@@ -47,6 +47,7 @@ class UsersController < Devise::RegistrationsController
       home_phone: params[:user][:home_phone],
       work_phone: params[:user][:work_phone],
       cell_phone: params[:user][:cell_phone],
+      position: params[:position],
       address: params[:address]
       })
     @user.sanitize_phone
