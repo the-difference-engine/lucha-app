@@ -194,7 +194,19 @@
             <td class="text-right"><strong><%= @client.estimated_household_income %></strong></td>
           </tr>
           <tr>
+            <td><%= I18n.t "employee_view.head_of_household"  %></td>
+            <td class="text-right">
+              <strong>
+                <%= @client.head_of_household ? "Yes" : "No" %>
+              </strong>
+            </td>
+          </tr>
+          <tr>
             <td><%= I18n.t "employee_view.disability" %></td>
+            <td class="text-right"><strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td><%= I18n.t "employee_view.disability_in_household"  %></td>
             <td class="text-right"><strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
           </tr>
           <tr>
