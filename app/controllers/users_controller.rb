@@ -73,6 +73,7 @@ class UsersController < Devise::RegistrationsController
       home_phone: params[:home_phone].gsub(/\D/, ''),
       work_phone: params[:work_phone].gsub(/\D/, ''),
       cell_phone: params[:cell_phone].gsub(/\D/, ''),
+      position: params[:position],
       address: params[:address]
         })
 

@@ -326,6 +326,7 @@ es:
         home_phone: "Número de Teléfono de Casa"
         cell_phone: "Teléfono móvil"
         work_phone: "Teléfono del trabajo"
+        position: "Posición"
         address: "Dirección"
         login_information: "La siguiente información será su información de inicio de sesión. Asegúrese de mantener esto seguro con usted."
         email: "Correo Electrónico"
