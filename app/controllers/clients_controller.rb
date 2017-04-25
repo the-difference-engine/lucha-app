@@ -79,9 +79,9 @@ class ClientsController < ApplicationController
     if @client.update({
       first_name: params[:client][:first_name],
       last_name: params[:client][:last_name],
-      home_phone: params[:client][:home_phone].gsub!(/\D/, ''),
-      cell_phone: params[:client][:cell_phone].gsub!(/\D/, ''),
-      work_phone: params[:client][:work_phone].gsub!(/\D/, ''),
+      home_phone: params[:client][:home_phone].gsub(/\D/, ''),
+      cell_phone: params[:client][:cell_phone].gsub(/\D/, ''),
+      work_phone: params[:client][:work_phone].gsub(/\D/, ''),
       address: params[:client][:address],
       state: params[:client][:state],
       city: params[:client][:city],

@@ -6,7 +6,7 @@ class Rental < ActiveRecord::Base
   validates :car_owner, :inclusion => {:in => [true, false]}
   validates :pet_owner, :inclusion => {:in => [true, false]}
   validates :agree_to_fee, :inclusion => {:in => [true, false]}
-  validates :employer_phone, length: {minimum: 10}
+  validates :employer_phone, length: {minimum: 10}, :allow_blank => true
 
   validates :hear_of_property, :reason_for_move, :housing_situation, :employer_name, :employer_address, :employer_city, presence: true
 
