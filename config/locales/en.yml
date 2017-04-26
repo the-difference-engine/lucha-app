@@ -43,7 +43,7 @@ en:
   # Client section, employee section below
   client_sign_up:
       welcome: "Welcome"
-      please_fill_in: "PLEASE FILL IN THE FOLLOWING TO CREATE A CLIENT PROFILE."
+      please_fill_in: "Please fill in the following to create a client profile."
       first_name: "First Name"
       last_name: "Last Name"
       home_phone: "Home Phone"
