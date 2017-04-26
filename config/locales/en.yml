@@ -326,6 +326,7 @@ en:
       home_phone: "Home Phone"
       cell_phone: "Cell Phone"
       work_phone: "Work Phone"
+      position: "Position"
       address: "Address"
       login_information: "The following information will be your login information. Make sure to keep this safe with you."
       email: "Email"
