@@ -1,5 +1,7 @@
 
 class Foreclosure < ActiveRecord::Base
+  include Prettytime
+
   validates_uniqueness_of :client_id
   validates_presence_of :client
 
@@ -24,7 +26,4 @@ class Foreclosure < ActiveRecord::Base
     end
   end
 
-  def pretty_time
-    created_at.strftime("%A, %b %d")
-  end
 end

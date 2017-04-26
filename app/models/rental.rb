@@ -1,4 +1,6 @@
 class Rental < ActiveRecord::Base
+  include Prettytime
+
   validates_uniqueness_of :client_id
 	validates_presence_of :client
 
@@ -18,9 +20,5 @@ class Rental < ActiveRecord::Base
         csv << rental.attributes.values_at(*column_names)
       end
     end
-  end
-
-  def pretty_time
-    created_at.strftime("%A, %b %d")
   end
 end
