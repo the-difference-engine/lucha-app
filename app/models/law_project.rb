@@ -29,4 +29,19 @@ class LawProject < ActiveRecord::Base
 	has_many :program_employees, as: :programable
 	belongs_to :client
 
+	# serialize :violation_type, EncryptedCoder.new
+	# serialize :client_id, EncryptedCoder.new
+	# serialize :current_evicted, EncryptedCoder.new
+	# serialize :community_group, EncryptedCoder.new
+	# serialize :tech_assistance, EncryptedCoder.new
+	# serialize :frclsr_prevention, EncryptedCoder.new
+	# serialize :low_income_family, EncryptedCoder.new
+	# serialize :displacement, EncryptedCoder.new
+	# serialize :substandard_housing, EncryptedCoder.new
+	# serialize :disabilities, EncryptedCoder.new
+	# serialize :lucha_tenant, EncryptedCoder.new
+	# serialize :law_project_chargable, EncryptedCoder.new
+	# serialize :other, EncryptedCoder.new
+	# serialize :census_tract, EncryptedCoder.new
+
 end

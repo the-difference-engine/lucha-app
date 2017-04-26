@@ -33,6 +33,27 @@ class Client < ActiveRecord::Base
   before_create :make_budget
 
   serialize :ssn, EncryptedCoder.new
+  serialize :first_name, EncryptedCoder.new
+  serialize :last_name, EncryptedCoder.new
+  # serialize :client_types, EncryptedCoder.new
+  # serialize :email, EncryptedCoder.new
+  serialize :home_phone, EncryptedCoder.new
+  serialize :cell_phone, EncryptedCoder.new
+  serialize :work_phone, EncryptedCoder.new
+  # serialize :preferred_contact_method, EncryptedCoder.new
+  # serialize :preferred_language, EncryptedCoder.new
+  # serialize :marital_status, EncryptedCoder.new
+  # serialize :dob, EncryptedCoder.new
+  # serialize :head_of_household, EncryptedCoder.new
+  # serialize :num_in_household, EncryptedCoder.new
+  # serialize :num_of_dependants, EncryptedCoder.new
+  # serialize :education_level, EncryptedCoder.new
+  # serialize :disability, EncryptedCoder.new
+  # serialize :union_member, EncryptedCoder.new
+  # serialize :military_service_member, EncryptedCoder.new
+  # serialize :volunteer_interest, EncryptedCoder.new
+  # serialize :estimated_household_income, EncryptedCoder.new
+
 
   def self.unassigned_client
     where(user_id: nil)
