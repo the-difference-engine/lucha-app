@@ -58,11 +58,11 @@
         </tr>
         <tr>
           <td><%= I18n.t "homebuying.loan_officer_phone" %></td>
-          <td class="text-right"><strong><%= @homebuying.payment_assistance_program %></strong></td>
+          <td class="text-right"><strong><%= @homebuying.loan_officer_phone %></strong></td>
         </tr>
         <tr>
           <td><%= I18n.t "homebuying.payment_assistance_program" %></td>
-          <td class="text-right"><strong><%= number_to_phone(@homebuying.loan_officer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+          <td class="text-right"><strong><%= number_to_phone(@homebuying.payment_assistance_program, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
         </tr>
         <tr>
           <td><%= I18n.t "homebuying.approximate_closing_date" %></td>
