@@ -106,9 +106,6 @@ es:
         income: "Ingreso"
         total:  "Sus totales"
         assets: "Bienes"
-        monthly_debt: "El total de su deuda mensual y los ingresos"
-        assets_title: "Ahora nos dicen sobre sus bienes"
-        assets_description: "Esta es la riqueza que ha acumulado a lo largo de su vida"
         gross_monthly: "El ingreso bruto mensual:"
         total_monthly: "La deuda total mensual:"
         debt_to_income: "La proporción de deuda a ingreso:"
@@ -425,7 +422,7 @@ es:
         submit_note: "Enviar Nota"
         note: "Nota"
         time: "Tiempo"
-        action: "Action"
+        action: "Acción"
         assign: "Asignar"
         select_a_counselor: "Seleccione un Asesor"
         awaiting_assignment: "Esperando asignación."
@@ -438,7 +435,6 @@ es:
 
     employee_foreclosure_index:
         foreclosure_clients: "Clientes de ejecución hipotecaria"
-        list_of_all_foreclosure_clients: "Esta es una lista de todos los solicitantes de ejecución hipotecaria."
         name: "Nombre"
         email: "Correo Electrónico"
         phone: "Teléfono"
@@ -454,7 +450,6 @@ es:
 
     employee_homebuying_index:
         homebuying_clients: "Clientes de compra en el hogar"
-        list_of_all_homebuying_clients: "Esta es una lista de todos los solicitantes de compra de vivienda."
         name: "Nombre"
         email: "Correo Electrónico"
         phone: "Teléfono"
@@ -472,7 +467,6 @@ es:
 
     employee_rentals_index:
         rental_clients: "Alquiler de Clientes"
-        list_of_all_rental_clients: "Esta es una lista de todos los solicitantes de alquiler."
         name: "Nombre"
         email: "Correo Electrónico"
         phone: "Teléfono"
@@ -562,7 +556,4 @@ es:
                   client:
                         attributes:
                               ssn:
-                                    bad_ssn: "es la longitud incorrecta (debe ser 9 números)"
-
-
-    
+                                    bad_ssn: "es la longitud incorrecta (debe ser 9 números)"    
