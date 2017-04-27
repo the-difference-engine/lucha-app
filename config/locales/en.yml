@@ -285,7 +285,7 @@ en:
       servicer: "Servicer"
       servicer_loan_number: "Servicer Loan Number"
       monthly_mortgage_payment: "Monthly Mortgage Payment"
-      loan_term: "Loan Term"
+      loan_term: "Loan Term in Years"
       origination_date: "Origination Date"
       been_to_court: "Have you been to Court?"
       court_case_number: "Court Case Number"
@@ -535,7 +535,7 @@ en:
                   servicer: "Servicer"
                   servicer_loan_number: "Service loan number"
                   monthly_mortgage_payment: "Monthly mortgage payment"
-                  loan_term: "Loan term"
+                  loan_term: "Loan term in years"
                   origination_date: "Origination date"
             budget:
                   gross_wages: "Gross wages"

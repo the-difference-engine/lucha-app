@@ -285,7 +285,7 @@ es:
         servicer: "Administrador"
         servicer_loan_number: "Número de préstamo servicio"
         monthly_mortgage_payment: "El pago mensual de la hipoteca"
-        loan_term: "Plazo del préstamo"
+        loan_term: "Plazo del Préstamo en Años"
         origination_date: "Fecha de formalización"
         been_to_court: "¿Ha asistido a la corte?" 
         court_case_number: "Número de caso judicial"
@@ -535,7 +535,7 @@ es:
                 servicer: "Administrador"
                 servicer_loan_number: "Número de préstamo servicio"
                 monthly_mortgage_payment: "El pago mensual de la hipoteca"
-                loan_term: "Plazo del préstamo"
+                loan_term: "Plazo del Préstamo en Años"
                 origination_date: "Fecha de formalización"
             budget:
                 gross_wages: "Salario bruto"
