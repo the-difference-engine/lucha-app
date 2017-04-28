@@ -33,13 +33,6 @@ en:
       sign_up: "Sign up"
       send_me_reset_password_instructions: "Send me reset password instructions"
 
-  # password_change:
-  #     change_your_password: "Change your Password"
-  #     new_password: "New password"
-  #     eight_characters_minimum: "(8 characters minimum)"
-  #     confirm_new_password: "Confirm new password"
-  #     change_my_password: "Change my password"
-
   # Client section, employee section below
   client_sign_up:
       welcome: "Welcome"
@@ -499,6 +492,15 @@ en:
                   log_in: "Log in"
                   forgot_your_password: "Forgot your password"
                   sign_up: "Sign up"
+                  email: "Email"
+      passwords:
+            edit:
+                  change_your_password: "Change your password"
+                  new_password: "New password"
+                  eight_characters_minimum: "(8 character minimum)"
+                  confirm_new_password: "Confirm new password"
+                  change_my_password: "Change my password"
+
 
       confirmations:
             client:

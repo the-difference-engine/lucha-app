@@ -31,14 +31,7 @@ es:
         email: "Correo Electrónico"
         log_in: "Inicio de sesión"
         sign_up: "Regístrese"
-        send_me_reset_password_instructions: "Envíeme las instrucciones de contraseña de restablecimiento"
-
-    # password_change:
-    #     change_your_password: "Cambia tu Contraseña"
-    #     new_password: "Nueva Contraseña"
-    #     eight_characters_minimum: "(Mínimo de 8 caracteres)"
-    #     confirm_new_password: "Confirmar nueva contraseña"
-    #     change_my_password: "Cambiar mi Contraseña"        
+        send_me_reset_password_instructions: "Envíeme las instrucciones de contraseña de restablecimiento" 
     
     # Client section, employee section below
     client_sign_up:
@@ -500,6 +493,14 @@ es:
                 forgot_your_password: "Olvidaste tu contraseña?"
                 sign_up: "Regístrese"
                 email: "Correo Electrónico"
+        passwords:
+              edit:
+                    change_your_password: "Cambia su Contraseña"
+                    new_password: "Nueva Contraseña"
+                    eight_characters_minimum: "(Mínimo de 8 caracteres)"
+                    confirm_new_password: "Confirmar nueva contraseña"
+                    change_my_password: "Cambiar mi Contraseña"
+
         confirmations:
             client:
                 confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
