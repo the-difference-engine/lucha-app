@@ -8,5 +8,6 @@ FactoryGirl.define do
     home_phone "2933453457"
     work_phone "4322346756"
     cell_phone "8764563454"
+    address "1152 N Christiana Ave, Chicago, IL 60651"
   end
 end
