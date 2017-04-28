@@ -81,6 +81,7 @@ class UsersController < Devise::RegistrationsController
     flash[:success] = "Your info is updated."
     redirect_to "/users/#{@user.id}"
     else
+      flash[:danger] = @user.errors.full_messages
       render :edit
     end
   end
