@@ -98,6 +98,12 @@
 
     }
 
+    document.onkeydown = function() {
+      if (window.event.keyCode == '13') {
+        $scope.submitData();
+      }
+    }
+
     $scope.closeAlert = function() {
       $("#budget-alert").hide();
     }
