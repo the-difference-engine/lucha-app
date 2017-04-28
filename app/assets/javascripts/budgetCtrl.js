@@ -100,7 +100,7 @@
 
     document.onkeydown = function() {
       if (window.event.keyCode == '13') {
-        $scope.submitData();
+        $scope.submitData($scope.budget);
       }
     }
 
