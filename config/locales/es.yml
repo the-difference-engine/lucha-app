@@ -550,6 +550,10 @@ es:
                 employer_city: "Ciudad del empleador"
                 car_owner: "Tienes un automóvil?"
                 pet_owner: "¿Es dueño de una mascota?"
+            user:
+                first_name: "Nombre"
+                last_name: "Apellido"
+                address: "Dirección"
 
         errors:
             models:
