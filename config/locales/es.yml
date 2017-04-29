@@ -286,6 +286,7 @@ es:
         edit_application: "Actualizar"
         delete_application: "Eliminar la Aplicación"
         update: "Actualizar"
+        please_select: "FOO"
 
     rental:
         application: "Aplicacion Rental"
