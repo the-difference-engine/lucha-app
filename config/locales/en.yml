@@ -501,7 +501,6 @@ en:
                   confirm_new_password: "Confirm new password"
                   change_my_password: "Change my password"
 
-
       confirmations:
             client:
                   confirmed: "Confirmed"
@@ -552,6 +551,10 @@ en:
                   employer_city: "Employer city "
                   car_owner: "Car owner "
                   pet_owner: "Pet owner "
+            user:
+                first_name: "First Name"
+                last_name: "Last Name"
+                address: "Address"
       
       errors:
             models:

@@ -44,7 +44,7 @@ es:
         address: "Dirección"
         city: "Ciudad"
         state: "Estado"
-        ward: "Distrito"
+        ward: "Municipio"
         search_for_ward: "Buscar tu ward"
         zip_code: "Codigo postal"
         authorize_lucha: "Autorizo ​​a LUCHA y su personal a usar mi información para propósitos de consejería."
@@ -254,7 +254,7 @@ es:
         property_city: "Ciudad"
         property_state: "Estado"
         loan_officer_name: "Nombre por oficial de crédito"
-        loan_officer_email: "Email por oficial de crédito:"
+        loan_officer_email: "Correo electrónico por oficial de crédito:"
         loan_officer_phone: "Teléfono del oficial de préstamo"
         payment_assistance_program: "Programa de asistencia de pago"
         approximate_closing_date: "Fecha aproximada de Cierre"
@@ -391,11 +391,11 @@ es:
         pref_lang: "Idioma Preferido:"
         email: "Correo Electronico:"
         address: "Dirección:"
-        ward: "Distrito:"
+        ward: "Municipio:"
         demographics: "Demografía"
         race: "Raza:"
         gender: "Género:"
-        education_level: "Nivel de Educación::"
+        education_level: "Nivel de Educación:"
         marital_status: "Estatus Marital:"
         date_of_birth: "Fecha de Nacimiento:"
         ssn: "SSN/ITIN:"
@@ -504,8 +504,8 @@ es:
         confirmations:
             client:
                 confirmed: 'Tu cuenta fue confirmada. Has iniciado sesión.'
-                send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
-                send_paranoid_instructions: 'Si tu email existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu email en unos minutos.'
+                send_instructions: 'Recibirás instrucciones para confirmar tu cuenta en tu correo electrónico en unos minutos.'
+                send_paranoid_instructions: 'Si tu correo electrónico existe en el sistema, recibirás instrucciones para confirmar tu cuenta en tu correo electrónico en unos minutos.'
         registrations: 
               new:
                     email: "Correo Electrónico"
@@ -540,7 +540,7 @@ es:
                 property_address: "Dirección"
                 property_city: "Ciudad"
                 loan_officer_name: "Nombre por oficial de crédito"
-                loan_officer_email: "Email por oficial de crédito:"
+                loan_officer_email: "Correo electrónico por oficial de crédito:"
                 loan_officer_phone: "Teléfono del oficial de préstamo"
             rental:
                 hear_of_property: "¿Cómo se enteró de la propiedad?"
