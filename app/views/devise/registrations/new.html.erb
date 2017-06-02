@@ -3,6 +3,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="navbar-text"><%= render "layouts/language"   %></li>
     </ul>
+    <%= image_tag("lucha_logo-03-sm.png") %>
     <h1><%= I18n.t "client_sign_up.welcome"%>
       <br />
       <small>
@@ -60,7 +61,7 @@
 
       <div class="form-group">
         <%= I18n.t "client_sign_up.ward" %>
-        <%= f.text_field :ward, :class => "form-control" %>
+        <%= f.number_field :ward, :class => "form-control" %>
         <a href="https://webapps1.cityofchicago.org/ezbuy/geoWardLookup.do" target='_blank'><i><%= I18n.t "client_sign_up.search_for_ward" %></i></a>
       </div>
 

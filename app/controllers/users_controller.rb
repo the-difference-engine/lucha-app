@@ -47,7 +47,8 @@ class UsersController < Devise::RegistrationsController
       home_phone: params[:user][:home_phone],
       work_phone: params[:user][:work_phone],
       cell_phone: params[:user][:cell_phone],
-      address: params[:address]
+      position: params[:user][:position],
+      address: params[:user][:address]
       })
     @user.sanitize_phone
     if @user.save
@@ -73,12 +74,14 @@ class UsersController < Devise::RegistrationsController
       home_phone: params[:home_phone].gsub(/\D/, ''),
       work_phone: params[:work_phone].gsub(/\D/, ''),
       cell_phone: params[:cell_phone].gsub(/\D/, ''),
+      position: params[:position],
       address: params[:address]
         })
 
     flash[:success] = "Your info is updated."
     redirect_to "/users/#{@user.id}"
     else
+      flash[:danger] = @user.errors.full_messages
       render :edit
     end
   end

@@ -15,6 +15,8 @@ class Client < ActiveRecord::Base
   validates :sex, :race, :ssn, :preferred_contact_method, :preferred_language, :marital_status, :dob, :education_level, :estimated_household_income, :num_in_household, :num_of_dependants, presence: true, on: :update
   validates :ssn, length: { is: 9, message: :bad_ssn }, on: :update
 
+  validates :work_phone, :cell_phone, :home_phone, length: {minimum: 10}, :allow_blank => true
+
   # validates_associated :budget
 
   devise :database_authenticatable, :registerable,

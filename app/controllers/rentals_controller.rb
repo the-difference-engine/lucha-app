@@ -49,11 +49,6 @@ class RentalsController < ApplicationController
     end
 
     if @rental.update(rental_params.merge(client_id: @rental.client_id))
-      # @rental.landlord_phone,#.gsub!(/\D/, '')
-      # @rental.pre_landlord_phone,#.gsub!(/\D/, '')
-      # @rental.loan_officer_phone,#.gsub!(/\D/, '')
-      # @rental.per_ref_phone,#.gsub!(/\D/, '')
-      # @rental.save
       flash[:success] = "Rental application submitted."
       redirect_to "/rentals/#{@rental.id}"
     else
@@ -75,51 +70,56 @@ class RentalsController < ApplicationController
 
   private
 
-  def rental_params
-    params.permit(
-    :evictions,
-    :waitlist_num,
-    :bedrooms,
-    :studio,
-    :two_bed,
-    :three_bed,
-    :wheelchair_accessible,
-    :car_owner,
-    :pet_owner,
-    :kind_of_pet,
-    :hear_of_property,
-    :reasons_for_application,
-    :landlord_name,
-    :landlord_address,
-    :landlord_phone,
-    :occupancy_at_apartment,
-    :monthly_rent,
-    :fuel_electric,
-    :pre_landlord_name,
-    :pre_landlord_address,
-    :pre_landlord_phone,
-    :pre_rent,
-    :pre_fuel_electric,
-    :reason_for_move,
-    :housing_situation,
-    :employer_name,
-    :employer_address,
-    :employer_city,
-    :employer_state,
-    :employer_phone,
-    :position,
-    :length_employed,
-    :personal_reference_name,
-    :per_ref_address,
-    :per_ref_street,
-    :per_ref_state,
-    :per_ref_phone,
-    :per_ref_relationship,
-    :displaced,
-    :homeless,
-    :over_fifty_percent,
-    :agree_to_fee
-    )
+  def phone_sanitizer(params_hash)
+    params_hash.each do |key, value|
+      value.gsub!(/\D/, '') if key.include? 'phone'
+    end
   end
 
+  def rental_params
+    phone_sanitizer(params.permit(
+      :evictions,
+      :waitlist_num,
+      :bedrooms,
+      :studio,
+      :two_bed,
+      :three_bed,
+      :wheelchair_accessible,
+      :car_owner,
+      :pet_owner,
+      :kind_of_pet,
+      :hear_of_property,
+      :reasons_for_application,
+      :landlord_name,
+      :landlord_address,
+      :landlord_phone,
+      :occupancy_at_apartment,
+      :monthly_rent,
+      :fuel_electric,
+      :pre_landlord_name,
+      :pre_landlord_address,
+      :pre_landlord_phone,
+      :pre_rent,
+      :pre_fuel_electric,
+      :reason_for_move,
+      :housing_situation,
+      :employer_name,
+      :employer_address,
+      :employer_city,
+      :employer_state,
+      :employer_phone,
+      :position,
+      :length_employed,
+      :personal_reference_name,
+      :per_ref_address,
+      :per_ref_street,
+      :per_ref_state,
+      :per_ref_phone,
+      :per_ref_relationship,
+      :displaced,
+      :homeless,
+      :over_fifty_percent,
+      :agree_to_fee
+    ))
+  end
 end

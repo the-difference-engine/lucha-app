@@ -3,6 +3,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="navbar-text"><%= render "layouts/language"   %></li>
     </ul>
+    <%= image_tag("lucha_logo-03-sm.png") %>
       <h1>
         Employee Sign Up <br />
         <small>          
@@ -37,6 +38,11 @@
       <div class="form-group">
         <%= I18n.t "employee_sign_up.work_phone" %>
         <%=f.text_field :work_phone, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= I18n.t "employee_sign_up.position" %>
+        <%=f.text_field :position, :class => "form-control" %>
       </div>
 
       <div class="form-group">
