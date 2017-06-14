@@ -48,7 +48,7 @@
       <div class="form-group">
         <%= I18n.t "employee_sign_up.address" %>
         <span class="text-danger"> * </span>
-        <%= select_tag(:address, options_for_select(employee_address, nil), :prompt => "Please Select", :class => "form-control") %>
+        <%= f.select(:address, options_for_select(employee_address, nil), {:prompt => "Please Select"}, {:class => "form-control"}) %>
       </div>
 
       <hr>
