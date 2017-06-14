@@ -1,47 +1,11 @@
-<% if user_signed_in? %>
-	<h1><%= @client.full_name %></h1>
-	<h3>Contact Info</h3>
-	<h4><%= @client.address.titleize %></h4>
-	<h4>Home Phone: <%= @client.home_phone %></h4>
-	<h4>Cell Phone: <%= @client.cell_phone %></h4>
+<!-- <%= render "layouts/alerts" %> -->
 
-	<h3>Demographics:</h3>
-	<h4>Race: <%= best_in_place @client, :race, :class => 'highlight_on_success' %></h4>
-	<h4>Sex: <%= best_in_place @client, :sex %></h4>
-
-	<%= form_tag case_assign_path, method: :post do %>
-		<div class = "field">
-			<%= collection_select(:program_employee, :user_id, User.all, :id, :full_name, {:prompt => 'Select a Counselor'}) %>
- 		</div>
- 		<% if !@client.foreclosure.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.foreclosure.id %>
- 			<%= hidden_field_tag :programable_type, "Foreclosures" %>
-		<% elsif !@client.homebuying.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.homebuying.id %>
- 			<%= hidden_field_tag :programable_type, "Homebuyings" %> 			
-		<% elsif !@client.rental.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.rental.id %>
- 			<%= hidden_field_tag :programable_type, "Rentals" %>
-		<% elsif !@client.senior_repair.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.senior_repair.id %>
- 			<%= hidden_field_tag :programable_type, "SeniorRepairs" %>
-		<% elsif !@client.law_project.blank? %>
- 			<%= hidden_field_tag :programable_id, @client.law_project.id %>
- 			<%= hidden_field_tag :programable_type, "LawProjects" %>
-		<% end %>
- 		<%= submit_tag "Assign" %>
-
-	<% end %>
-
-<% elsif client_signed_in? %>
-
-	<h2>Hi <%= @client.full_name %>!</h2>
-	<p>Below is the info we have on file for you. You can edit this form by clicking on the "-" or the info. All info is automatically saved. </p>
-	<div id="show-profile">
-
-	<%= render "client_demo" %>
-	<%= render "client_address" %>
-	<%= render "client_contact" %>
-	<%= render "client_household" %>
+<% if user_signed_in?  %>
+  <%= render "user_view"%>
+<% elsif current_client %>
+  <%= render "client_view" %>
 <% end %>
 
+<br>
+
+<%= link_to(I18n.t("clients_show.download_pdf"), client_path(format: :pdf)) %>

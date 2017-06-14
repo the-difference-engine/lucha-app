@@ -1,0 +1,19 @@
+<% flash.each do |name, messages| %>
+
+  <div class="alert alert-<%= name == 'alert' || name == 'notice' ? 'warning' : name %> alert-dismissible" role="alert">
+
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+   </button>
+  
+   <% if messages.class == String %>
+     <p><%= messages %></p>
+   <% else %>
+     <% messages.each do |message| %>
+       <p><%= message %><p>
+      <% end %>
+   <% end %>
+
+ </div>
+
+<% end %>

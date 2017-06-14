@@ -1,131 +1,111 @@
 class HomebuyingsController < ApplicationController
-	skip_before_action :authenticate_client!
+  before_action :authenticate!
   respond_to :html, :json
 
-	def index
-    @homebuyings = Homebuying.all	
-	end
 
-	def new
-		@homebuying = Homebuying.new	
-	end
+  def index
+    @homebuyings = Homebuying.all.order('created_at desc')
 
 
-	def create
-		if current_client
-			@id = current_client.id
-		elsif current_user
-			@id = Client.find(params[:id]).id
-		end
-		@id
-			
-	  @homebuying = Homebuying.new(
-	  	{client_id: @id,
-	  		  	lender: params[:lender], 
-	  		  	hear_of_workshop: params[:hear_of_workshop],
-	  				contact_for_appointment: params[:contact_for_appointment],
-	  				real_estate_contract: params[:real_estate_contract],
-	  				realtor_name: params[:realtor_name],
-	  				realtor_phone: params[:realtor_phone],
-	  				property_address: params[:property_address],
-	  				property_state: params[:property_state],
-	  				property_city: params[:property_city],
-	  				loan_officer_name: params[:loan_officer_name],
-	  				loan_officer_email: params[:loan_officer_email],
-	  				loan_officer_phone: params[:loan_officer_phone],
-	  				payment_assistance_program: params[:payment_assistance_program],
-	  				approx_closing_date: params[:approx_closing_date]}
-	  	)
-	  
-    
-    if @homebuying.save
-    	ProgramEmployee.create({programable_id: @homebuying.id, programable_type: "Homebuying"})
-
-	    flash[:success] = "You've completed the homebuying application"
-	    redirect_to "/clients/#{@homebuying.client_id}/status"
-    else
-      render :new
+    respond_to do |format|
+      format.html
+      format.csv { send_data @homebuyings.to_csv, filename: "homebuyings-#{Date.today}.csv" } #untested
+      format.xls { send_data @homebuyings.to_csv(col_sep: "\t") } #untested
     end
   end
-	
 
-	def edit
-		if client_signed_in?
-			@homebuying = current_client.homebuying
-    elsif user_signed_in?
-      @forelosure = Homebuying.find(params[:id])
-    end
-    @homebuying	
+  def new
+    @homebuying = Homebuying.new
   end
 
-	def update
-
-    if current_client
-      @homebuying = current_client.homebuying
-    elsif current_user
-      @homebuying = Homebuying.find(params[:id])
+  def create
+    @id = current_client.id if current_client
+    @id = current_user.id if current_user
+    @homebuying = Homebuying.new({
+      client_id: @id,
+      lender: params[:lender],
+      loan_type: params[:loan_type],
+      contact_for_appointment: params[:contact_for_appointment],
+      real_estate_contract: params[:real_estate_contract],
+      realtor_name: params[:realtor_name],
+      realtor_phone: params[:realtor_phone],
+      property_address: params[:property_address],
+      property_state: params[:property_state],
+      property_city: params[:property_city],
+      loan_officer_name: params[:loan_officer_name],
+      loan_officer_email: params[:loan_officer_email],
+      loan_officer_phone: params[:loan_officer_phone],
+      payment_assistance_program: params[:payment_assistance_program],
+      approx_closing_date: params[:approx_closing_date],
+      })
+      if @homebuying.save
+        flash[:success] = "Successfully Completed Hombuying Application"
+        redirect_to "/homebuyings/#{@homebuying.id}"
+      else
+        flash.now[:warning] = @homebuying.errors.full_messages
+        render :new
+      end
     end
 
-    @homebuying.update_attributes(homebuying_params)
-    respond_with @homebuying
+    def show
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
+    end
 
-		# @client = current_client
-		# @homebuying = Homebuying.where(client_id: homebuying.client.id)
-		# if @homebuying.update(
-	 #    	lender: params[:lender], 
-	 #    	hear_of_workshop: params[:hear_of_workshop],
-		# 		contact_for_appointment: params[:contact_for_appointment],
-		# 		real_estate_contract: params[:real_estate_contract],
-		# 		realtor_name: params[:realtor_name],
-		# 		realtor_phone: params[:realtor_phone],
-		# 		property_address: params[:property_address],
-		# 		property_state: params[:property_state],
-		# 		property_city: params[:property_city],
-		# 		loan_officer_name: params[:loan_officer_name],
-		# 		loan_officer_email: params[:loan_officer_email],
-		# 		loan_officer_phone: params[:loan_officer_phone],
-		# 		payment_assistance_program: params[:payment_assistance_program],
-		# 		approx_closing_date: params[:approx_closing_date]
-  #       )
-		# 	flash[:success] = "homebuying application submitted."
-		# 	redirect_to '/clients/#{@homebuying.client_id}'
-		# else
-		# 	render :edit
-		# end
-	end
+    def edit
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
+    end
 
-	def show
-		@homebuying = Homebuying.find(params[:id])
-	end
+    def update
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
+      if @homebuying.update(homebuying_params)
+        flash[:success] = "Homebuying Application Updated"
+        redirect_to "/homebuyings/#{@homebuying.id}"
+      else
+        flash.now[:warning] = @homebuying.errors.full_messages
+        render :edit
+      end
+    end
 
-	def destroy
-		
-		@homebuying = Homebuying.find(params[:id])
-		@homebuying.destroy
-		flash[:danger] = "Homebuying application deleted."
-		redirect_to "/clients/#{params[:id]}/status"
-	end
+    def destroy
+      @homebuying = Homebuying.find(params[:id]) if current_user
+      @homebuying = current_client.homebuying if current_client
+      
+      if @homebuying.destroy
+        flash[:success] = "Homebuying Application Deleted."
+        redirect_to "/clients/#{current_client.id}"
+      else
+        flash.now[:warning] = @homebuying.errors.full_messages
+        render :show
+      end
+    end
 
-	private
+  private
+
+  def phone_sanitizer(params_hash)
+    params_hash.each do |key, value|
+      value.gsub!(/\D/, '') if key.include? 'phone'
+    end
+  end
 
   def homebuying_params
-    params.require(:homebuying).permit(
+    phone_sanitizer(params.permit(
       :lender,
-			:hear_of_workshop,
-			:contact_for_appointment,
-			:real_estate_contract,
-			:realtor_name,
-			:realtor_phone,
-			:property_address,
-			:property_state,
-			:property_city,
-			:loan_officer_name,
-			:loan_officer_email,
-			:loan_officer_phone,
-			:payment_assistance_program,
-			:approx_closing_date
-			)
+      :hear_of_workshop,
+      :contact_for_appointment,
+      :real_estate_contract,
+      :realtor_name,
+      :realtor_phone,
+      :property_address,
+      :property_state,
+      :property_city,
+      :loan_officer_name,
+      :loan_officer_email,
+      :loan_officer_phone,
+      :payment_assistance_program,
+      :approx_closing_date
+    ))
   end
-
-
 end

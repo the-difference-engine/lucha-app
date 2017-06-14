@@ -1,1 +1,42 @@
-index.html.erb
+<h1><%= I18n.t "employee_rentals_index.rental_clients" %></h1>
+<hr>
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_rentals_index.search_on_this_page" %>>
+</div>
+
+<span class="counter pull-right"></span>
+<table class="table table-hover results">
+  <thead>
+     <th><%= I18n.t "employee_rentals_index.name" %></th>
+     <th><%= I18n.t "employee_rentals_index.email" %></th>
+     <th><%= I18n.t "employee_rentals_index.phone" %></th>
+     <th><%= I18n.t "employee_rentals_index.address" %></th>
+     <th><%= I18n.t "employee_rentals_index.date_created" %></th>
+     <th><%= I18n.t "employee_rentals_index.view" %></th> 
+   </tr>    
+   <tr class="warning no-result">
+      <td colspan="4"><i class="fa fa-warning"></i> <%= I18n.t "employee_rentals_index.no_results" %></td>
+    </tr>
+  </thead>
+<% @rentals.each do |rental| %>
+ <tbody>
+   <tr>
+     <td><%= link_to(rental.client.full_name.titleize, client_path(rental.client.id)) %></td>
+     <td><%= rental.client.email %></td>
+     <td><%= number_to_phone(rental.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td>
+     <td><%= rental.client.address %>, <%= rental.client.city %>, <%= rental.client.state %></td>
+     <td><%= rental.pretty_time %></td>
+     <td>
+       <%= link_to I18n.t("employee_rentals_index.view"), rental_path(rental.id), :class => "btn btn-sm btn-primary"%>
+     </td>
+   </tr>
+ </tbody>
+<% end %>
+</table>
+
+<p>
+  <%= I18n.t "employee_rentals_index.download" %>
+  <%= link_to "CSV", rentals_path(format: "csv") %> |
+  <%= link_to "Excel", rentals_path(format: "xls") %>
+  </div>
+</p>

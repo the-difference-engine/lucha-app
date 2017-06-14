@@ -1,11 +1,17 @@
 $(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
+  if ($("#language-select").val() == "Other"){
+    $("#other-input").show();
+  } 
 
-$('.best_in_place').bind("ajax:success", function () {$(this).closest('tr').effect('highlight'); });
+  $("#language-select").change(function() {
+    if ($("#language-select").val() == "Other") {
+      $("#other-input").fadeIn('fast');
+    } else {
+      $("#other-input").fadeOut('fast');
+    }
+  })
 
 });
-
 
 
 

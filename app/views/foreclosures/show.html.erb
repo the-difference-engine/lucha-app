@@ -1,6 +1,78 @@
-
-<h2>Foreclosure</h2>
-<p>See any information that's incorrect below? Simply click the data and change it out.</p>
-<%= render "foreclosure" %>
-
-<%= link_to "Delete this application.", "/foreclosures/#{@foreclosure.id}", method: :delete, data:{confirm: "Are you sure you want to delete this foreclosure application?"} %>
+<h1><%= I18n.t "foreclosure.title" %> </h1>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= I18n.t "foreclosure.submitted_by" %>
+      <strong class="text-warning"><%= @foreclosure.client.full_name %></strong> on
+      <strong class="text-warning"><%= @foreclosure.pretty_time %></strong>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+    	<tbody>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.currently_foreclosed" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.currently_foreclosed %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.originating_lender" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.originating_lender %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.original_loan_number" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.original_loan_number %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.servicer" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.servicer %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.servicer_loan_number" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.servicer_loan_number %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.monthly_mortgage_payment" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.monthly_mortgage_payment %></strong></td>
+    		</tr>
+        <tr>
+          <td><%= I18n.t "foreclosure.loan_term" %></td>
+          <td class="text-right"><strong><%= @foreclosure.loan_term %> years</strong></td>
+        </tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.origination_date" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.origination_date %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.been_to_court" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.been_to_court ? "Yes" : "No" %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.court_case_number" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.court_case_number %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.working_with_lawyer" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.working_with_lawyer ? "Yes" : "No" %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.working_with_agency" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.working_w_agency ? "Yes" : "No" %></strong></td>
+    		</tr>
+    		<tr>
+    			<td><%= I18n.t "foreclosure.reason_for_default" %></td>
+    			<td class="text-right"><strong><%= @foreclosure.reason_for_default %></strong></td>
+    		</tr>
+    	</tbody>
+    </table>
+  </div>
+</div>
+<hr>
+<div>
+  <div>
+    <%= link_to I18n.t("foreclosure.edit_application"), "/foreclosures/#{@foreclosure.id}/edit", :class => "btn btn-warning" %>
+  </div>
+  <div>
+    <%= link_to I18n.t("foreclosure.delete_application"), "/foreclosures/#{@foreclosure.id}", method: :delete, data: { confirm: "Are you sure you want to delete this foreclosure application?"}, :class => "btn btn-danger" %>
+  </div>
+</div>

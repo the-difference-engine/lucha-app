@@ -1,78 +1,105 @@
-<table class="table table-hover">
-	<tr>
-		<th colspan="2" text-align: center ><h3>Monthly Debt Payments</h3></th>
-	</tr>
-	<% counter = 18 %>
-	<tr>
-		<td>Principal and Interest:</td>
-		<td><%= best_in_place @budget, :principal_and_interest, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Property Taxes:</td>
-		<td><%= best_in_place @budget, :prop_tax, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Association Fees:</td>
-		<td><%= best_in_place @budget, :assoc_fees, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Junior Mortgage:</td>
-		<td><%= best_in_place @budget, :junior_mortgage, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Minimum Monthly Credit Card Payments</td>
-		<td><%= best_in_place @budget, :min_credit_card_payment, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Student Loan</td>
-		<td><%= best_in_place @budget, :student_loan, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Gas</td>
-		<td><%= best_in_place @budget, :gas, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Electricity</td>
-		<td><%= best_in_place @budget, :electricity, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Water</td>
-		<td><%= best_in_place @budget, :water, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Phone</td>
-		<td><%= best_in_place @budget, :phone, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Other Utilities</td>
-		<td><%= best_in_place @budget, :other_utilities, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Food/Groceries</td>
-		<td><%= best_in_place @budget, :food, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Gas and car maintenance</td>
-		<td><%= best_in_place @budget, :gas_car_maintenance, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Child Care</td>
-		<td><%= best_in_place @budget, :child_care, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>Medical Expenses</td>
-		<td><%= best_in_place @budget, :medical_expenses, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-
-	<tr>
-	<th colspan="2">Only if you are a renter, please fill out the below</th>
-	</tr>
-	<tr>
-		<td>placehold</td>
-		<td><%= best_in_place @budget, :rent, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-	<tr>
-		<td>placehold</td>
-		<td><%= best_in_place @budget, :rental_insurance, :display_with => :number_to_currency, tabindex: "#{counter+=1}" %></td>
-	</tr>
-</table>
+<div class="form-group">
+	<label><%= I18n.t "budget_debts.principal" %></label>
+	<input class="form-control" type="number" ng-model="budget.principal_and_interest">
+</div>
+<div class="row" style="margin-bottom: 0px;">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.prop_taxes" %></label>
+			<input class="form-control" type="number" ng-model="budget.prop_tax">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.asso_fee" %></label>
+			<input class="form-control" type="number" ng-model="budget.assoc_fees">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.jr_mort" %></label>
+			<input class="form-control" type="number" ng-model="budget.junior_mortgage">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.min_month_cred_payment" %></label>
+			<input class="form-control" type="number" ng-model="budget.min_credit_card_payment">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.stud_loan" %></label>
+			<input class="form-control" type="number" ng-model="budget.student_loan">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.electic" %></label>
+			<input class="form-control" type="number" ng-model="budget.electricity">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.gas" %></label>
+			<input class="form-control" type="number" ng-model="budget.gas">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.H20" %></label>
+			<input class="form-control" type="number" ng-model="budget.water">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.tele" %></label>
+			<input class="form-control" type="number" ng-model="budget.phone">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.other_util" %></label>
+			<input class="form-control" type="number" ng-model="budget.other_utilities">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.food" %></label>
+			<input class="form-control" type="number" ng-model="budget.food">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.gas_car" %></label>
+			<input class="form-control" type="number" ng-model="budget.gas_car_maintenance">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.child" %></label>
+			<input class="form-control" type="number" ng-model="budget.child_care">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.medical" %></label>
+			<input class="form-control" type="number" ng-model="budget.medical_expenses">
+		</div>
+	</div>
+	<div class="col-md-12">
+		<p><%= I18n.t "budget_debts.if_renter" %></p>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.rent" %></label>
+			<input class="form-control" type="number" ng-model="budget.rent">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label><%= I18n.t "budget_debts.rent_insurance" %></label>
+			<input class="form-control" type="number" ng-model="budget.rental_insurance">
+		</div>
+	</div>
+</div>

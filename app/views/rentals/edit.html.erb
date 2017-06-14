@@ -1,0 +1,16 @@
+<h1><%= I18n.t "rental.application" %></h1>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= I18n.t "rental.information" %></h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag "/rentals/#{@rental.id}", role: "form", method: :patch do %>
+      <%= render "form" %>
+      <hr>
+      <div class="form-group">
+        <%= submit_tag I18n.t("rental.update"), :class => 'btn btn-large btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

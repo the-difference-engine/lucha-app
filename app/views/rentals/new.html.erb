@@ -1,87 +1,23 @@
-<h2>Rentals</h2>
-<p>Please fill out the info below and one of our property managers will get back to you soon.</p>
 
 
-<%= form_tag '/rentals/create', method: :post do %>
-
-
-	<div class="form-group">
-		<%= label_tag :studio %><br />
-		<%= select_tag(:studio, options_for_select([["No", false], ["Yes", true]], @rental.studio )) %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :two_bed %><br />
-		<%= select_tag(:two_bed, options_for_select([["No", false], ["Yes", true]], @rental.two_bed )) %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :three_bed %><br />
-		<%= select_tag(:three_bed, options_for_select([["No", false], ["Yes", true]], @rental.three_bed )) %>
-
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :wheelchair_accessible %><br />
-		<%= select_tag(:wheelchair_accessible, options_for_select([["No", false], ["Yes", true]], @rental.wheelchair_accessible )) %>
-
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :car_owner %><br />
-		<%= select_tag(:car_owner, options_for_select([["No", false], ["Yes", true]], @rental.car_owner )) %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :pet_owner %><br />
-		<%= select_tag(:pet_owner, options_for_select([["No", false], ["Yes", true]], @rental.pet_owner )) %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :hear_of_property %><br />
-		<%= text_field_tag :hear_or_property, @rental.hear_of_property %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :reason_for_move %><br />
-		<%= text_field_tag :reason_for_move, @rental.reason_for_move %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :housing_situation %><br />
-		<%= text_field_tag :housing_situation, @rental.housing_situation %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :employer_name %><br />
-		<%= text_field_tag :employer_name, @rental.employer_name %>
-	</div>
-
-	<div class="form-group">
-		<%= label_tag :employer_address %><br />
-		<%= text_field_tag :employer_address, @rental.employer_address %>
-	</div>
-
-	<div class="form-group">
-	<%= label_tag :employer_city %><br />
-	<%= text_field_tag :employwer_city, @rental.employer_city %>
-	</div>
-
-	<div class="form-group">
-	<%= label_tag :employer_state %><br />
-	<%= select_tag(:employer_state, options_for_select(us_states, "IL")) %>
-
-	</div>
-
-	<div class="form-group">
-	<%= label_tag :employer_phone %><br />
-	<%= text_field_tag :employer_phone, @rental.employer_phone %>
-	</div>
-
-	<div class="form-group">
-	<%= label_tag :agree_to_fee %><br />
-	<%= select_tag(:agree_to_fee, options_for_select([["No", false], ["Yes", true]], @rental.agree_to_fee )) %>
-	</div>
-
-	<%= submit_tag "Go!" %>
-<% end %>
+<h1>Rental Application:
+<br>
+  <small>
+    Please fill out the info below and one of our property managers will get back to you soon.
+  </small>
+</h1>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Renter Information</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag rental_create_path, role: "form", method: :post do %>
+      <%= render "form" %>
+      <hr>
+      <div class="form-group">
+        <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
+      </div>  
+    <% end %>
+  </div>
+</div>

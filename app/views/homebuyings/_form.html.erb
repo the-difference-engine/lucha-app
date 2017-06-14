@@ -1,0 +1,78 @@
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.loan_type" %>
+  <%= select_tag(:loan_type, options_for_select(loan_type, @homebuying.loan_type), :class => "form-control", :prompt => "Please Select") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.lender" %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :lender, @homebuying.lender, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.contact_for_appointment" %><br/>
+  <%= select_tag(:contact_for_appointment, options_for_select([["No", false],["Yes", true]], @homebuying.contact_for_appointment), :class => "form-control", :prompt => "Please Select") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.real_estate_contract" %>
+  <%= select_tag(:real_estate_contract, options_for_select([["No", false],["Yes", true]], @homebuying.real_estate_contract), :class => "form-control", :prompt => "Please Select") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.realtor_name" %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :realtor_name, @homebuying.realtor_name, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.realtor_phone" %>
+  <%= telephone_field_tag :realtor_phone, @homebuying.realtor_phone, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.property_address" %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :property_address, @homebuying.property_address, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.property_city" %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :property_city, @homebuying.property_city, :class => "form-control" %>
+</div>
+
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.property_state" %>
+  <%= select_tag(:property_state, options_for_select(us_states, "IL"), :class => "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.loan_officer_name" %>
+  <span class="text-danger"> * </span>
+  <%= text_field_tag :loan_officer_name, @homebuying.loan_officer_name, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.loan_officer_email" %>
+  <span class="text-danger"> * </span>
+  <%= email_field_tag :loan_officer_email, @homebuying.loan_officer_email, :class => "form-control"  %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.loan_officer_phone" %>
+  <span class="text-danger"> * </span>
+  <%= telephone_field_tag :loan_officer_phone, @homebuying.loan_officer_phone, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.payment_assistance_program" %>
+  <%= select_tag(:payment_assistance_program, options_for_select(down_payment_assistance_program, @homebuying.payment_assistance_program), :class => "form-control", :prompt => "Please Select") %>
+</div>
+
+<div class="form-group">
+  <%= label_tag I18n.t "homebuying.approximate_closing_date" %>
+  <span class="text-danger"> * </span>
+  <%= date_field_tag :approx_closing_date, @homebuying.approx_closing_date, :class => "form-control" %>
+</div>

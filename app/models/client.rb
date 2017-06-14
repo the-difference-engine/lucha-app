@@ -1,3 +1,5 @@
+
+
 class Client < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -9,20 +11,19 @@ class Client < ActiveRecord::Base
   # validates_numericality_of :num_in_household
   # validates_numericality_of :num_of_dependants
 
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  
-  # validates_associated :budget
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates :sex, :race, :ssn, :preferred_contact_method, :preferred_language, :marital_status, :dob, :education_level, :estimated_household_income, :num_in_household, :num_of_dependants, presence: true, on: :update
+  validates :ssn, length: { is: 9, message: :bad_ssn }, on: :update
 
-# ____
-  # validates :email, confirmation: true
-  # <%= text_field :person, :email %>
-  # <%= text_field :person, :email_confirmation %>
-  # Need to add a confirmation view in the html
-# ____
+  validates :work_phone, :cell_phone, :home_phone, length: {minimum: 10}, :allow_blank => true
+
+  # validates_associated :budget
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   belongs_to :user
+  has_many :notes
 
   has_one :foreclosure, dependent: :destroy
   has_one :homebuying, dependent: :destroy
@@ -33,14 +34,60 @@ class Client < ActiveRecord::Base
 
   before_create :make_budget
 
+  serialize :ssn, EncryptedCoder.new
+  serialize :first_name, EncryptedCoder.new
+  serialize :last_name, EncryptedCoder.new
+  # serialize :email, EncryptedCoder.new
+  serialize :address, EncryptedCoder.new
+  serialize :home_phone, EncryptedCoder.new
+  serialize :cell_phone, EncryptedCoder.new
+  serialize :work_phone, EncryptedCoder.new
+  serialize :preferred_language, EncryptedCoder.new
+  serialize :marital_status, EncryptedCoder.new
+  serialize :education_level, EncryptedCoder.new
+  serialize :estimated_household_income, EncryptedCoder.new
+
+  def self.unassigned_client
+    where(user_id: nil)
+    #.where.not(sex: nil, race: nil, ssn: nil, preferred_contact_method: nil, preferred_language: nil, marital_status: nil, dob: nil, num_in_household: nil, num_of_dependants: nil, education_level: nil, estimated_household_income: nil) 
+  end
+
+  #checks if client has completed profile
+  #if dob is nil, due to other validations :on update - signifies complete profile
+  def incomplete_profile?
+    dob == nil
+  end
+
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
   end
 
-  def column_count
-    attributes.length - 4
-    # Can only be called on an instance
-    # Subtracting 4 from the number of attributes as those are created when the client makes an account
+  def full_name_pdf
+    "#{first_name}#{last_name}"
+  end
+
+  def has_user?
+    !!user
+  end
+
+  def full_address
+    "#{address}, #{city} #{state} #{zip_code}"
+  end
+
+  def user_fullname
+    "#{user.first_name.titleize} #{user.last_name.titleize}"
+  end
+
+  def encoded_ssn
+    if ssn != nil
+      "***-**-****"
+    else
+      "Not Submitted"
+    end
+  end
+
+  def user_email
+    "#{user.email}"
   end
 
   def filled_columns
@@ -57,12 +104,12 @@ class Client < ActiveRecord::Base
   end
 
   def total_application_progress
-    
-    
+
+
   end
 
   def client_applications
-    program_types = [foreclosure, homebuying, rental, senior_repair, law_project]
+    program_types = [foreclosure, homebuying, rental]
     client_enrolled_programs = []
     program_types.each do |program|
       if !program.blank?
@@ -72,6 +119,17 @@ class Client < ActiveRecord::Base
     client_enrolled_programs
   end
 
+  def blank_applications
+    applications = [foreclosure, homebuying, rental]
+    application_names = ["foreclosure", "homebuying", "rental"]
+    blank_applications = []
+    applications.each_with_index do |application, index|
+      if application.blank?
+        blank_applications << application_names[index]
+      end
+    end
+    blank_applications
+  end
 
   def client_types
     type = []
@@ -82,22 +140,82 @@ class Client < ActiveRecord::Base
   end
 
   def self.to_csv(options = {})
-    # Eventually, I need a way to make this class dynamic, as a way for me to be able to check what kinds of applications there are. I can use the model method I created called Client_applications, but there has to be some way for the csv method to know. It will be easy enough being able to print out all of the methods there are, but then I have ugly empty columns in my CSV file.
-    CSV.generate(options) do |csv|
-      csv << column_names + Foreclosure.column_names
-      all.each do |client|
-      values = client.attributes.values
-        if client.foreclosures[0]
-          values += client.foreclosures[0].attributes.values
+    attributes = %w{
+                    id 
+                    account_created 
+                    name 
+                    encoded_ssn
+                    email 
+                    contact_method 
+                    submmitted_application 
+                    address 
+                    ward 
+                    home_phone 
+                    work_phone 
+                    cell_phone 
+                    preferred_language
+                    other_language
+                    marital_status
+                    date_of_birth
+                    head_of_household 
+                    num_in_household
+                    num_of_dependants
+                    education_level
+                    disability
+                    disability_in_household
+                    over_sixty_two
+                    union_member
+                    military_service_member
+                    volunteer_interest
+                    estimated_household_income
+                    authorization_and_waiver
+                    privacy_policy_authorization
+                    employee_assigned
+                  }
+
+      CSV.generate(options) do |csv|
+        csv << attributes
+        all.each do |client|
+          csv.add_row([
+            client.id,
+            client.created_at,
+            client.full_name,
+            client.encoded_ssn,
+            client.email,
+            client.preferred_contact_method,
+            client.client_types.join(", "),
+            client.full_address,
+            client.ward,
+            client.home_phone,
+            client.work_phone,
+            client.cell_phone,
+            client.preferred_language,
+            client.other_language,
+            client.marital_status,
+            client.dob,
+            client.head_of_household,
+            client.num_in_household,
+            client.num_of_dependants,
+            client.education_level,
+            client.disability,
+            client.disability_in_household,
+            client.over_sixty_two,
+            client.union_member,
+            client.military_service_member,
+            client.volunteer_interest,
+            client.estimated_household_income,
+            client.authorization_and_waiver,
+            client.privacy_policy_authorization,
+            client.user_id ? client.user.full_name : "not assigned"
+            ])
         end
-      csv.add_row values
       end
-    end
   end
 
   def counselors
+
     counselor_array = []
-    applied_programs = client_applications 
+    applied_programs = client_applications
     applied_programs.each do |program|
       unless program.program_employees[0].blank?
         counselor_array << program.program_employees[0].user

@@ -1,0 +1,648 @@
+<h3 class="panel-title">
+  <%= @client.full_name %> Profile <br />
+</h1>
+<div class="clientpdf">
+  <div class="col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Contact Information</h3>
+      </div>
+      <div class="panel-body">
+        <table class="tablepdf">
+          <tbody>
+            <tr>
+              <td>Client Name: <br></td> 
+              <td class="text-right"><strong> <%= @client.full_name %></strong></td>
+            </tr>
+            <tr>
+              <td>Home Phone:   <br></td>
+              <td class="text-right">  <strong><%= number_to_phone(@client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr>
+            <tr>
+              <td>Cell Phone:</td>
+              <td><strong><%= number_to_phone(@client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr>
+            <tr>
+              <td>Work Phone:</td>
+              <td class="text-right"><strong><%= number_to_phone(@client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr>
+            <tr>
+              <td>Preferred Language: <br></td> 
+              <td class="text-right"><strong> <%= @client.preferred_language %></strong></td>
+            </tr>
+            <tr>
+              <td>Other Language: <br></td> 
+              <td class="text-right"><strong> <%= @client.other_language %></strong></td>
+            </tr>
+            <tr>
+              <td>Preferred Contact Method: <br></td> 
+              <td class="text-right"><strong> <%= @client.preferred_contact_method %></strong></td>
+            </tr>
+            <tr>
+              <td>Email: <br></td> 
+              <td class="text-right"><strong> <%= @client.email %></strong></td>
+            </tr>
+            <tr>
+              <td>Address:</td>
+              <td class="text-right">
+                <strong>
+                  <%= @client.address %>
+                  <%= @client.city %>,
+                  <%= @client.state %>
+                  <%= @client.zip_code %>
+                </strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Ward:</td>
+              <td class="text-right"><strong><%= @client.ward %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<% if @client.has_user? %>
+  <div class="col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Client Counselor</h3>
+      </div>
+      <div class="panel-body">
+        <table class="tablepdf">
+            <tr>
+              <td>Client Has Been Assigned to:</td>
+              <td class="text-right"><strong><%= @client.user.full_name %></strong></td>
+            </tr>
+            <tr>
+              <td>Counselor Email:</td>
+              <td class="text-right"><strong><%= @client.user.email %></strong></td>
+            </tr>
+            <tr>
+              <td>Counselor Phone Number:</td>
+              <td class="text-right"><strong><%= @client.user.work_phone %></strong></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <h3 class="panel-title"> * No Assigned Counselor * </h3>
+  <% end %>
+
+
+  <div class="col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Demographics</h3>
+      </div>
+      <div class="panel-body">
+        <table class="tablepdf">
+            <tr>
+              <td>Race:</td>
+              <td class="text-right"><strong><%= @client.race %></strong></td>
+            </tr>
+            <tr>
+              <td>Sex:</td>
+              <td class="text-right"><strong><%= @client.sex %></strong></td>
+            </tr>
+            <tr>
+              <td>Education Level:</td>
+              <td class="text-right"><strong><%= @client.education_level %></strong></td>
+            </tr>
+            <tr>
+              <td>Marital Status:</td>
+              <td class="text-right"><strong><%= @client.marital_status %></strong></td>
+            </tr>
+            <tr>
+              <td>Date of Birth:</td>
+              <td class="text-right">
+                <strong>
+                  <% if @client.dob %>
+                    <%= @client.dob.strftime("%m/%d/%Y") %>
+                  <% end %>
+                </strong>
+              </td>
+            </tr>
+            <tr>
+              <td>SSN:</td>
+              <td class="text-right">
+                <strong>
+                  <% if @client.ssn %>
+                    confidential
+                  <% end %>
+                </strong>
+              </td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="clientpdf">
+    <div class="col-md-4">
+      <div class="panel-heading">
+        <h3 class="panel-title">Household Information</h3>
+      </div>
+      <div class="panel-body">
+        <table class="tablepdf">
+          <tr>
+            <td>Head of Household:
+              <strong>
+                <%= @client.head_of_household ? "Yes" : "No" %>
+              </strong>
+            </td>
+          </tr>
+          <tr>
+            <td>Number in Household:<br>
+            <strong><%= @client.num_in_household %></strong></td>
+          </tr>
+          <tr>
+            <td>Number of Dependents:<br>
+           <strong><%= @client.num_of_dependants %></strong></td>
+          </tr>
+          <tr>
+            <td>Estimated Household Income:<br>
+            <strong><%= @client.estimated_household_income %></strong></td>
+          </tr>
+          <tr>
+            <td>Disability: <br>
+            <strong><%= @client.disability ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td>Disability in Household: <br>
+            <strong><%= @client.disability_in_household ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td>Over sixty-two: <br>
+            <strong><%= @client.over_sixty_two ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td>Military Service Member:<br>
+            <strong><%= @client.military_service_member ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td>Volunteer:<br>
+            <strong><%= @client.volunteer_interest ? "Yes" : "No" %></strong></td>
+          </tr>
+          <tr>
+            <td>Union Member:<br>
+            <strong><%= @client.union_member ? "Yes" : "No" %></strong></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="panel-title">Budget For <%= @client.full_name %></h3>
+    
+      <div class="clientpdf">
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Income</h3>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Gross Wages: $</label>
+                <%= @client.budget.gross_wages %>
+              </div>
+              <div class="form-group">
+                <label>Self-Employment Income: $</label>
+                <%= @client.budget.self_employment_income %>
+              </div>
+              <div class="form-group">
+                <label>Overtime: $</label>
+                <%= @client.budget.overtime %>
+              </div>
+              <div class="form-group">
+                <label>Unemployment Check: $</label>
+                <%= @client.budget.unemployment %>
+              </div>
+              <div class="form-group">
+                <label>Tips, Commission, or Bonuses: $</label>
+                <%= @client.budget.tips_commissions_bonus %>
+              </div>
+              <div class="form-group">
+                <label>Non-Taxable Social Secruity: $</label>
+                <%= @client.budget.nontaxable_social_security %>
+              </div>
+              <div class="form-group">
+                <label>Taxable Social Secruity: $</label>
+                <%= @client.budget.taxable_social_security %>
+              </div>
+              <div class="form-group">
+                <label>Income from Renters: $</label>
+                <%= @client.budget.rental_income %>
+              </div>
+              <div class="form-group">
+                <label>Other: $</label>
+                <%= @client.budget.other_income %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Debts</h3>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+  <label>Principal and Interest: $</label>
+  <%= @client.budget.principal_and_interest %>
+</div>
+<div class="clientpdf">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Property Taxes: $</label>
+      <%= @client.budget.prop_tax %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Association Fees: $</label>
+      <%= @client.budget.assoc_fees %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Junior Mortgage: $</label>
+      <%= @client.budget.junior_mortgage %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Credit Payment: $</label>
+      <%= @client.budget.min_credit_card_payment %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Student Loan: $</label>
+      <%= @client.budget.student_loan %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Electricity: $</label>
+      <%= @client.budget.electricity %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Gas: $</label>
+      <%= @client.budget.gas %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Water: $</label>
+      <%= @client.budget.water %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Phone: $</label>
+      <%= @client.budget.phone %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Other Utilities: $</label>
+      <%= @client.budget.other_utilities %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Food/Groceries: $</label>
+      <%= @client.budget.food %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Auto Maintenance: $</label>
+      <%= @client.budget.gas_car_maintenance %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Child Care: $</label>
+      <%= @client.budget.child_care %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Medical Expenses: $</label>
+      <%= @client.budget.medical_expenses %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Rent: $</label>
+      <%= @client.budget.rent %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Rental insurance: $</label>
+      <%= @client.budget.rental_insurance %>
+    </div>
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+      <div class="clientpdf">
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Assets</h3>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Primary Checking: $</label>
+                <%= @client.budget.primary_checking %>
+              </div>
+              <div class="form-group">
+                <label>Secondary Checking: $</label>
+                <%= @client.budget.secondary_checking %>
+              </div>
+              <div class="form-group">
+                <label>Savings/Money Market: $</label>
+                <%= @client.budget.savings_money_market %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.stocks" %> $</label>
+                <%= @client.budget.stocks_or_bonds %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.four_zero_one_k" %> $</label>
+                <%= @client.budget.four_zero_one_k %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.home_equity" %> $</label>
+                <%= @client.budget.home_equity %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.value_of_prop" %> $</label>
+                <%= @client.budget.other_property %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.car_value" %> $</label>
+                <%= @client.budget.car %>
+              </div>
+              <div class="form-group">
+                <label><%= I18n.t "budget_assets.other_assets" %> $</label>
+                <%= @client.budget.other_assets %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clientpdf">
+        <div class="col-md-12">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Totals</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label><%= I18n.t "budget_debts.gross_monthly" %></label>
+                    <td>$<%= @client.budget.gross_monthly_income %></td>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label><%= I18n.t "budget_debts.total_monthly" %></label>
+                    <td>$<%= @client.budget.total_monthly_debt %></td>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label><%= I18n.t "budget_debts.debt_to_income" %></label>
+                    <td><%= @client.budget.debt_income_ratio.round(2) %></td>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<% if @client.foreclosure %>
+
+      <div class="clientpdf">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Foreclosure Information for
+            <strong class="text-warning"><%= @client.full_name %></strong> <br> Applied for assistance on
+            <strong class="text-warning"><%= @client.foreclosure.pretty_time %></strong>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <table class="tablepdf">
+            <tbody>
+              <tr>
+                <td>Going through foreclosure?</td>
+                <td class="text-right"><strong><%= @client.foreclosure.currently_foreclosed %></strong></td>
+              </tr>
+              <tr>
+                <td>Originating lender</td>
+                <td class="text-right"><strong><%= @client.foreclosure.originating_lender %></strong></td>
+              </tr>
+              <tr>
+                <td>Loan Number</td>
+                <td class="text-right"><strong><%= @client.foreclosure.original_loan_number %></strong></td>
+              </tr>
+              <tr>
+                <td>Servicer</td>
+                <td class="text-right"><strong><%= @client.foreclosure.servicer %></strong></td>
+              </tr>
+              <tr>
+                <td>Servicer Loan Number</td>
+                <td class="text-right"><strong><%= @client.foreclosure.servicer_loan_number %></strong></td>
+              </tr>
+              <tr>
+                <td>Monthly Mortgage Payment:</td>
+                <td class="text-right"><strong><%= @client.foreclosure.monthly_mortgage_payment %></strong></td>
+              </tr>
+              <tr>
+                <td>Loan Term:</td>
+                <td class="text-right"><strong><%= @client.foreclosure.loan_term %> years</strong></td>
+              </tr>
+              <tr>
+                <td>Loan origination date:</td>
+                <td class="text-right"><strong><%= @client.foreclosure.origination_date %></strong></td>
+              </tr>
+              <tr>
+                <td>Been to court?</td>
+                <td class="text-right"><strong><%= @client.foreclosure.been_to_court ? "Yes" : "No" %></strong></td>
+              </tr>
+              <tr>
+                <td>Court Case Number</td>
+                <td class="text-right"><strong><%= @client.foreclosure.court_case_number %></strong></td>
+              </tr>
+              <tr>
+                <td>Working with a lawyer?</td>
+                <td class="text-right"><strong><%= @client.foreclosure.working_with_lawyer ? "Yes" : "No" %></strong></td>
+              </tr>
+              <tr>
+                <td>Working with another HUD approved agency?</td>
+                <td class="text-right"><strong><%= @client.foreclosure.working_w_agency ? "Yes" : "No" %></strong></td>
+              </tr>
+              <tr>
+                <td>Reason for your default?</td>
+                <td class="text-right"><strong><%= @client.foreclosure.reason_for_default %></strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% else %>
+      <h3 class="panel-title"> * No Foreclosure Assistance Information * </h3>
+    <% end %>
+    
+  <% if @client.homebuying %>
+
+    <div class="clientpdf">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Homebuying Information for  
+          <strong class="text-warning"><%= @client.full_name %></strong> on
+          <strong class="text-warning"><%= @client.homebuying.pretty_time %></strong>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <table class="tablepdf">
+          <tbody>
+            <tr>
+              <td>Lender:</td>
+              <td class="text-right"><strong><%= @client.homebuying.lender %></strong></td>
+            </tr>
+            <tr>
+              <td>Wants to be contacted for an appointment?</td>
+              <td class="text-right"><strong><%= @client.homebuying.contact_for_appointment ? "Yes" : "No" %></strong></td>
+            </tr>
+            <tr>
+              <td>Signed a real estate contract at time of application?</td>
+              <td class="text-right"><strong><%= @client.homebuying.real_estate_contract ? "Yes" : "No" %></strong></td>
+            </tr>
+            <tr>
+              <td>Realtor's name:</td>
+              <td class="text-right"><strong><%= @client.homebuying.realtor_name %></strong></td>
+            </tr>
+            <tr>
+              <td>Realtor's phone number:</td>
+              <td class="text-right"><strong><%= number_to_phone(@client.homebuying.realtor_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr>
+            <tr>
+              <td>Address of prospective property looking to purchase:</td>
+              <td class="text-right"><strong><%= @client.homebuying.property_address %></strong></td>
+            </tr>
+            <tr>
+              <td>City:</td>
+              <td class="text-right"><strong><%= @client.homebuying.property_city %></strong></td>
+            </tr>
+            <tr>
+              <td>State:</td>
+              <td class="text-right"><strong><%= @client.homebuying.property_state %></strong></td>
+            </tr>
+            <tr>
+              <td>Loan officer:</td>
+              <td class="text-right"><strong><%= @client.homebuying.loan_officer_name %></strong></td>
+            </tr>
+            <tr>
+              <td>Loan officer email:</td>
+              <td class="text-right"><strong><%= @client.homebuying.loan_officer_email %></strong></td>
+            </tr>
+            <tr>
+              <td>Loan officer phone:</td>
+              <td class="text-right"><strong><%= number_to_phone(@client.homebuying.loan_officer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr>
+            <tr>
+              <td>Payment assistance program:</td>
+              <td class="text-right"><strong><%= @client.homebuying.payment_assistance_program %></strong></td>
+            </tr>
+            <tr>
+              <td>Approximate closing date: </td>
+              <td class="text-right"><strong><%= @client.homebuying.approx_closing_date %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% else %>
+      <h3 class="panel-title"> * No Homebuying Counseling Information * </h3>
+    <% end %>
+    
+  <% if @client.rental %>
+
+    <div class="clientpdf">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+        Renter Information submitted by
+        <strong class="text-warning"><%= @client.full_name %></strong> on
+        <strong class="text-warning"><%= @client.rental.pretty_time %></strong>
+      </h3>
+      </div>
+
+      <div class="panel-body">
+        <table class="tablepdf">
+          <tbody>
+            <tr>
+              <td>Number of bedrooms </td>
+              <td class="text-right"><strong><%= @client.rental.bedrooms %></strong></td>
+            </tr>
+            <tr>
+              <td>Needs wheelchair accessible unit? </td>
+              <td class="text-right"><strong><%= @client.rental.wheelchair_accessible ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+                <td>Car? </td>
+                <td class="text-right"><strong><%= @client.rental.car_owner ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+                <td>Pet(s)? </td>
+                <td class="text-right"><strong><%= @client.rental.pet_owner ? "Yes" : "No" %></strong></td>
+            </tr><tr>
+                <td>How did client hear about the property? </td>
+                <td class="text-right"><strong><%= @client.rental.hear_of_property %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Reason given for applying to LUCHA? </td>
+                <td class="text-right"><strong><%= @client.rental.reason_for_move %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Current housing situation? </td>
+                <td class="text-right"><strong><%= @client.rental.housing_situation %></strong></td>
+            </tr><tr>
+                </tr><tr>
+                <td>Current employer's name: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_name %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Current employer's address: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_address %></strong></td>
+            </tr><tr>
+            </tr><tr>
+                <td>Current employer's city: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_city %></strong></td>
+            </tr><tr>
+                <td>Current employer's state: </td>
+                <td class="text-right"><strong><%= @client.rental.employer_state %></strong></td>
+            </tr><tr>
+                <td>Current employer's phone: </td>
+                <td class="text-right"><strong><%= number_to_phone(@client.rental.employer_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong></td>
+            </tr><tr>
+                <td>Agreed to background check fee?</td>
+                <td class="text-right"><strong><%= @client.rental.agree_to_fee ? "Yes" : "No" %></strong></td>
+          </tbody>
+      </table>
+      </div>  
+    </div>
+    <% else %>
+        <h3 class="panel-title"> * No Rental Assistance Information * </h3>
+    <% end %>

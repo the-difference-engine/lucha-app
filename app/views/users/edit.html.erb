@@ -1,0 +1,60 @@
+<h1> Employee Profile for <%=@user.full_name.titleize %> </h1>
+<hr>
+<div class="panel panel-success user-profile">
+
+<div class="panel-heading">
+  <h3 class="panel-title">Employee Information</h3>
+</div>
+
+<div class="panel-body">
+
+	<%= form_tag "/users/#{@user.id}", role: "form", method: :patch do %>
+      <div class="form-group">
+        <%= label_tag I18n.t "employee_sign_up.first_name" %>
+        <span class="text-danger"> * </span>
+        <%= text_field_tag :first_name, @user.first_name, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag I18n.t "employee_sign_up.last_name" %>
+        <span class="text-danger"> * </span>
+        <%= text_field_tag :last_name, @user.last_name, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag I18n.t "employee_sign_up.home_phone" %>
+        <%= text_field_tag :home_phone, @user.home_phone, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag I18n.t "employee_sign_up.cell_phone" %>
+        <%= text_field_tag :cell_phone, @user.cell_phone, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag I18n.t "employee_sign_up.work_phone" %>
+        <%= text_field_tag :work_phone, @user.work_phone, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag I18n.t "employee_sign_up.position" %>
+        <%= text_field_tag :position, @user.position, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag I18n.t "employee_sign_up.address" %>
+        <span class="text-danger"> * </span>
+        <%= select_tag(:address, options_for_select(employee_address, @user.address), :prompt => "Please Select", :class => "form-control") %>
+      </div>
+
+      <hr>
+
+      <div class="form-group">
+        <%= submit_tag "Update", :class => 'btn btn-warning' %>
+      </div>
+    <% end %>
+
+</div>
+  
+</div>
+

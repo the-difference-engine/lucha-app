@@ -1,132 +1,101 @@
 class ForeclosuresController < ApplicationController
-	skip_before_action :authenticate_client!
-  respond_to :html, :json
 
-	def index
-    @foreclosures = Foreclosure.all	
-   #  respond_to do |format|
-	  #   format.html
-	  #   format.csv { send_data @foreclosures.to_csv }
-	  #   format.xls  { send_data @foreclosures.to_csv(col_sep: "\t") }
-	  # end
-	end
+  before_action :authenticate!
+  before_action :verify_user!, :only => [:index]
 
-	def new
-		@foreclosure = Foreclosure.new
-	end
-
-	def search
-		@client = Client.where("first_name LIKE ? OR last_name LIKE ? OR address LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-		render :index
-	end
+  respond_to :html, :json, :csv
 
 
-	def create
-		if client_signed_in?
-			@id = current_client.id
-		elsif user_signed_in?
-			@id = Foreclosure.find(client_id: params[:id])[0].id
-		end
-	  @foreclosure = Foreclosure.new({ 
-    	client_id: @id,
-    	currently_foreclosed: params[:currently_foreclosed],
-			originating_lender: params[:originating_lender],
-			original_loan_number: params[:original_loan_number],
-			servicer: params[:servicer], 
-			servicer_loan_number: params[:servicer_loan_number],
-			monthly_mortgage_payment: params[:monthly_mortgage_payment],
-			loan_term: params[:loan_term], 
-			origination_date: params[:origination_date], 
-			been_to_court: params[:been_to_court], 
-			court_case_number: params[:court_case_number] , 
-			working_with_lawyer: params[:working_with_lawyer],
-			working_w_agency: params[:working_w_agency], 
-			agency: params[:agency]
-	    })
-	  if @foreclosure.save
-    	ProgramEmployee.create({programable_id: @foreclosure.id, programable_type: "Foreclosure"})
-	    flash[:success] = "You've completed the foreclosure application"
-	    redirect_to "/clients/#{@foreclosure.client_id}/status"
+  def index
+    @foreclosures = Foreclosure.all.order('created_at desc')
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @foreclosures.to_csv, filename: "foreclosures-#{Date.today}.csv" } #untested
+      format.xls { send_data @foreclosures.to_csv(col_sep: "\t") } #untested
+    end
+  end
+
+  def new
+    @foreclosure = Foreclosure.new
+  end
+
+  def search
+    @client = Client.where("first_name LIKE ? OR last_name LIKE ? OR address LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    render :index
+  end
+
+
+  def create
+    @id = current_client.id if current_client
+    @id = Client.find(params[:id]).id if current_user
+
+    @foreclosure = Foreclosure.new(foreclosure_params.merge(client_id: @id))
+    if @foreclosure.save
+      flash[:success] = ["You've Completed Your Foreclosure Application"]
+      redirect_to client_status_path(@current_client)
     else
-      render :create
+      flash.now[:danger] = @foreclosure.errors.full_messages
+      render :new
     end
-	end
-	
-	def show
-		@foreclosure = Foreclosure.find(params[:id])
-	end
+  end
+
+  def show
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
+    @foreclosure = current_client.foreclosure if current_client
+  end
+
+  def edit
+    @foreclosure = current_client.foreclosure if current_client
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
+  end
 
 
-	def edit
-		if client_signed_in?
-			@foreclosure = current_client.foreclosure
-    elsif user_signed_in?
-      @forelosure = Foreclosure.find(params[:id])
+  def update
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
+    @foreclosure = current_client.foreclosure if current_client
+
+    if @foreclosure.update(foreclosure_params)
+      flash[:success] = ["Foreclosure application updated."]
+      redirect_to "/foreclosures/#{@foreclosure.id}"
+    else
+      flash.now[:warning] = @foreclosure.errors.full_messages
+      render :edit
     end
-    @foreclosure
-	end
+  end
 
-	def update
-    if current_client
-      @foreclosure = Foreclosure.find_by(client_id: current_client.id)
-    elsif current_user
-      @foreclosure = Foreclosure.where(client_id: params[:id])
+  def destroy
+    @foreclosure = Foreclosure.find(params[:id]) if current_user
+    @foreclosure = current_client.foreclosure if current_client
+
+    if @foreclosure.destroy
+      flash[:success] = ["Foreclosure Application Deleted."]
+      redirect_to "/clients/#{current_client.id}"
+    else
+      flash.now[:warning] = "Error deleting application."
+      render :show
     end
+  end
 
-    @foreclosure.update_attributes(foreclosure_params)
-    respond_with @foreclosure
-
-
-		# @foreclosure = Foreclosure.where(client_id: current_client.id)[0]
-		# if @foreclosure.update({
-	 #    	currently_foreclosed: params[:currently_foreclosed],
-		# 		originating_lender: params[:originating_lender],
-		# 		original_loan_number: params[:original_loan_number],
-		# 		servicer: params[:servicer], 
-		# 		servicer_loan_number: params[:servicer_loan_number],
-		# 		monthly_mortgage_payment: params[:monthly_mortgage_payment],
-		# 		loan_term: params[:loan_term], 
-		# 		origination_date: params[:origination_date], 
-		# 		been_to_court: params[:been_to_court], 
-		# 		court_case_number: params[:court_case_number] , 
-		# 		working_with_lawyer: params[:working_with_lawyer],
-		# 		working_w_agency: params[:working_w_agency], 
-		# 		agency: params[:agency]
-  #       })
-		# 	flash[:success] = "Foreclosure application submitted."
-		# 	redirect_to '/clients/#{@foreclosure.client_id}'
-		# else
-		# 	render :edit
-		# end
-	end
-
-	def destroy
-		@foreclosure = Foreclosure.find(params[:id])
-		@foreclosure.destroy
-		flash[:danger] = "Foreclosure application deleted."
-		redirect_to "/clients/#{params[:id]}/status"
-
-	end
-
-  private
+private
 
   def foreclosure_params
-    params.require(:foreclosure).permit(
+    params.permit(
       :currently_foreclosed,
-			:originating_lender,
-			:original_loan_number,
-			:servicer,
-			:servicer_loan_number,
-			:monthly_mortgage_payment,
-			:loan_term,
-			:origination_date,
-			:been_to_court,
-			:court_case_number,
-			:working_with_lawyer,
-			:working_w_agency,
-			:agency,
-			:reason_for_default
-			)
+      :originating_lender,
+      :original_loan_number,
+      :servicer,
+      :servicer_loan_number,
+      :monthly_mortgage_payment,
+      :loan_term,
+      :origination_date,
+      :been_to_court,
+      :court_case_number,
+      :working_with_lawyer,
+      :working_w_agency,
+      :agency,
+      :reason_for_default
+      )
   end
 
 

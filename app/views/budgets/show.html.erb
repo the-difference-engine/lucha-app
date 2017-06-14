@@ -1,43 +1,64 @@
-	
-<h2>Your Monthly Budget</h2>
-<p>Fill this out as best you can. If there are any changes you would like to make, simply click on the number and make them.</p>
+<div ng-app="app">
+	<div ng-controller="budgetCtrl" ng-init="init()">
+		<div id="budget-alert">
+			<div class="alert alert-dismissible" role="alert">
+				<button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<p id="flashText">{{response}}</p>
+			</div>
+		</div>
+			<h1><%= I18n.t "budget_show.title" %><%= @client.full_name %><br>
+			<small><%= I18n.t "budget_show.description" %>
+			<%= I18n.t "budget_show.debts_description" %></small></h1>
+		<hr>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title"><%= I18n.t "budget_show.income" %></h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_income" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title"><%= I18n.t "budget_show.debts" %></h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_debts" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title"><%= I18n.t "budget_show.assets" %></h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_assets" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title"><%= I18n.t "budget_show.total" %></h3>
+						</div>
+						<div class="panel-body">
+							<%= render "budget_totals" %>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
-	
-<%= render "budget_income" %>
-
-<br><hr><br>
-
-<h3>Now tell us a bit about your assets</h3>
-<p>This is wealth that you have accumulated throughout your life.</p>
-
-<%= render "budget_assets" %>
-
-<br><hr><br>
-
-<h3>Debts</h3>
-<p>Please keep in mind, these are <strong>monthly</strong> debts. You will be discussing accumulated debt with your counselor soon. If you have a bill (ie. water) that comes every two months, please average it out to one month.</p>
-
-<%= render "budget_debts" %>
-
-<br><hr><br>
-
-
-<h3>Your totals</h3>
-<table class="table table-hover">
-	<tr>
-		<th colspan="2">Your total monthly debt and income</th>
-	</tr>
-	<tr>
-		<td>Total Monthly Debt:</td>
-		<td><%= best_in_place @budget, :total_monthly_debt, :display_with => :number_to_currency, tabindex: "35" %></td>
-	</tr>
-	<tr>
-		<td>Gross Monthly Income:</td>
-		<td><%= best_in_place @budget, :gross_monthly_income, :display_with => :number_to_currency, tabindex: "36" %></td>
-	</tr>
-	<tr>
-		<td>Debt to Income Ration:</td>
-		<td><%= best_in_place @budget, :debt_divided_by_income, :display_with => :number_to_currency, tabindex: "37" %></td>
-	</tr>
-</table>
+		<hr>
+		<button class="btn btn btn-warning" ng-click="submitData(budget)"><%= I18n.t "budget_debts.update" %></button>
+	</div>
+</div>

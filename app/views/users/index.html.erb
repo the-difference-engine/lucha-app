@@ -1,36 +1,54 @@
-<h1>Clients</h1>
-
+<h1>All Registered Employees</h1>
+<hr>
 <div class="form-group pull-right">
-    <input type="text" class="search form-control" placeholder="What you looking for?">
+    <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_registered_clients.search_on_this_page" %>>
 </div>
 <span class="counter pull-right"></span>
-<table class="table table-hover table-bordered results">
+<table class="table table-hover results user-index">
   <thead>
-     <th >ID</th>
-     <th class="col-md-5 col-xs-5">Name</th>
-     <th class="col-md-3 col-xs-3">Home Phone</th>
-     <th class="col-md-3 col-xs-3">Address</th>
-     <th class="col-md-3 col-xs-3">Client Type</th>
-     <th >View</th> 
-   </tr>    
-   <tr class="warning no-result">
-      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    <th><%= I18n.t "employee_registered_clients.name" %></th>
+    <th><%= I18n.t "employee_registered_clients.email" %></th>
+    <th><%= I18n.t "employee_registered_clients.phone" %></th>
+    <th> Location </th>
+    <th>Assigned Clients</th>
+    <th>Admin?</th>
+    <tr class="warning no-result">
+        <td colspan="6"><i class="fa fa-warning"></i> <%= I18n.t "employee_registered_clients.no_results" %> </td>
     </tr>
   </thead>
-<% @clients.each do |client| %>
- <tbody>
-   <tr>
-     <td><%= client.id %></td>
-     <td><%= client.full_name.titleize %></td>
-     <td><%= client.home_phone %></td>
-     <td><%= client.address %>, <%= client.city %>, <%= client.state %></td>
-     <td><%= client.client_types.to_sentence %></td>
-     <td>
-       <%= link_to "View", client_path(client.id), class: "btn btn-default" %>
-     </td>
-   </tr>
- </tbody>
+
+<% @users.each do |user| %>
+  <tbody>
+    <tr>
+      <td><%= link_to(user.full_name.titleize, user_path(user.id)) %></td>
+      <td><%= user.email %></td>
+      <td class="md-col">
+        <%= number_to_phone(user.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %>   
+      </td>
+      <td><%= user.address %></td>
+      <td><span class="badge"><%= user.clients.count %></span></td>
+      <td>
+        <div class="admin-toggle">
+          <label>
+            <input class="admin-checkbox" type="checkbox" id=<%=user.id%> data-toggle="toggle" <%= user.admin ? "checked" : "" %> >
+          </label>
+        </div>
+      </td>
+    </tr>
+  </tbody>
 <% end %>
 </table>
+<hr>
+<p>
+  <%= I18n.t "employee_registered_clients.download" %>
+  <%= link_to "CSV", employee_index_path(format: "csv") %> |
+  <%= link_to "Excel", employee_index_path(format: "xls") %>
+  </div>
+</p>
+<script>
+$(document).ready(function(){
+  $('.toggle-on').text('Yes');
+  $('.toggle-off').text('No');
 
-
+})
+</script>

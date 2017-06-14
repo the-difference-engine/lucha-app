@@ -1,0 +1,27 @@
+<h3>
+  <div class="col-md-4">
+    <div class="form-group">
+    	<label><%= I18n.t "budget_debts.gross_monthly" %></label><br>
+    	<td><strong class="text-success">{{ grossMonthlyIncome | currency}}</strong></td>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+    	<label><%= I18n.t "budget_debts.total_monthly" %></label><br>
+    	<td><strong class="text-danger">{{ totalMonthlyDebt | currency }}</strong></td>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+    	<label><%= I18n.t "budget_debts.debt_to_income" %></label><br>
+    	<td>
+        <span ng-if="grossMonthlyIncome && grossMonthlyIncome > 0 && totalMonthlyDebt">
+          <strong>{{ (totalMonthlyDebt / grossMonthlyIncome).toFixed(2) }}</strong>
+        </span>
+        <h5 ng-if="grossMonthlyIncome <= 0">
+          <%= I18n.t "budget_show.not_applicable" %>
+        </h5>
+      </td>
+    </div>
+  </div>
+</h3>

@@ -1,33 +1,52 @@
+<h1><%= I18n.t "employee_foreclosure_index.foreclosure_clients" %></h1>
+<hr>
 
-<table class="table table-hover">
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_foreclosure_index.search_on_this_page" %>>
+</div>
+<span class="counter pull-right"></span>
+<table class="table table-hover results">
  <thead>
    <tr>
-     <th>ID</th>
-     <th>Name</th>
-     <th>Home Phone</th>
-     <th>Address</th>
-     <th>View</th> 
+     <th><%= I18n.t "employee_foreclosure_index.name" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.email" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.phone" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.address" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.date_created" %></th>
+     <th><%= I18n.t "employee_foreclosure_index.view" %></th>
    </tr>
+  <tr class="warning no-result">
+    <td colspan="6">
+      <i class="fa fa-warning"></i> <%= I18n.t "employee_foreclosure_index.no-result" %>
+    </td>
+  </tr>
  </thead>
 <% @foreclosures.each do |foreclosure| %>
  <tbody>
    <tr>
-     <td><%= foreclosure.client.id %></td>
-     <td><%= foreclosure.client.full_name.titleize %></td>
-     <td><%= foreclosure.client.home_phone %></td>
-     <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td>
      <td>
-       <%= link_to "View", client_path(foreclosure.client.id), class: "btn btn-default" %>
+       <%= link_to(foreclosure.client.full_name.titleize, client_path(foreclosure.client.id)) %>
+     </td>
+     <td>
+     <%= foreclosure.client.email %>
+     </td>
+     <td><%= number_to_phone(foreclosure.client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></td>
+     <td><%= foreclosure.client.address %>, <%= foreclosure.client.city %></td> 
+     <td>
+       <%= foreclosure.pretty_time %> 
+     </td>
+     <td>
+       <%= link_to I18n.t("employee_foreclosure_index.view"), foreclosure_path(foreclosure.id), :class => "btn btn-sm btn-primary" %>
      </td>
    </tr>
  </tbody>
 <% end %>
 </table>
 
-
-
+<hr>
 <p>
-  Download:
+  <%= I18n.t "employee_foreclosure_index.download" %>
   <%= link_to "CSV", foreclosures_path(format: "csv") %> |
   <%= link_to "Excel", foreclosures_path(format: "xls") %>
+  </div>
 </p>

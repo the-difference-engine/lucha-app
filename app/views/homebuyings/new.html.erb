@@ -1,6 +1,21 @@
-
-<h1>Homebuying Application</h1>
-
-<%= form_tag homebuying_create_path, :class => "form-horizontal", role: "form", method: :post do %>
-		<%= render partial: "homebuying"  %>	
-<% end %>
+<h1>Homebuying Application:
+<br>
+  <small>
+    Ready to take the plunge into homebuying? Just fill out this info and we can set you up with one of our homebuying counselors to guide you through the homebuying process.
+  </small>
+</h1>
+<hr>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Foreclosure Information</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag homebuying_create_path, role: "form", method: :post do %>
+      <%= render "form" %>
+      <hr>
+      <div class="form-group">
+        <%= submit_tag "Submit", :class => 'btn btn-large btn-primary' %>
+      </div>  
+    <% end %>
+  </div>
+</div>

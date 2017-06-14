@@ -1,5 +1,4 @@
 class LandingPagesController < ApplicationController
-	before_action :authenticate_user!
 	skip_before_action :authenticate_client!
 	skip_before_action :authenticate_employee!
 

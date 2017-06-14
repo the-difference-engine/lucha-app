@@ -1,0 +1,98 @@
+@import "variables";
+@import "table";
+
+/*body {
+  margin: 0;
+  // stop text getting cut off on the right edge
+  padding: 0 3px 0 0;
+  font-size: 18px;
+  line-height: 16px;
+  color: #222;
+  text-rendering: geometricPrecision;
+}*/
+
+#clientpdf {
+  font-size: 36px;
+}
+
+#tablepdf {
+  $table-border-color: #E0E0E0;
+  font-size: 36px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+  width: 100%;
+  margin: 16 0 16*2;
+  page-break-inside: avoid;
+  break-inside: avoid;
+
+  th,
+  td {
+    text-align: left;
+    padding: 6px 4px;
+    font-size: 24px;
+  }
+
+  th {
+    vertical-align: bottom;
+    border-bottom: 1px solid darken($table-border-color, 8%);
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  td {
+    vertical-align: top;
+    border-bottom: 1px solid $table-border-color;
+    background-color: #fff;
+    font-size: 24px;
+  }
+}
+
+/*.page-break {
+  display: block;
+  clear: both;
+  page-break-after: always;
+}*/
+
+.hide-from-pdf {
+  display: none;
+}
+
+/*h1, h2, h3, h4 {
+  margin: 12*2 0 7px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-top: 0;
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+// Don't break straight after a header
+h2, h3, h4 {
+  page-break-after: avoid;
+}
+
+p {
+  margin: 0 0 16/2 0;
+  line-height: 16px;
+}
+
+header {
+  font-size: 10px;
+}*/

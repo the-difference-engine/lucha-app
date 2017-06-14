@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+.env
+.DS_Store
+Procfile
+coverage
+spec/examples.txt

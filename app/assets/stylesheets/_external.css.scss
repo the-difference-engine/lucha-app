@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "variables";
+@import "layouts";
+@import "navbar";
+@import "pdf";
+@import "landingpages";
+@import "forms";
+@import "clients";
+@import "typology";
+
+
+.pure-menu-list {
+  list-style-type: none;
+  font-size: 16px;
+}

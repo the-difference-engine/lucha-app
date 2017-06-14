@@ -1,26 +1,29 @@
+
 class Budget < ActiveRecord::Base
-  validates_uniqueness_of :client_id
+  NON_VALIDATABLE_ATTRS = ["id", "created_at", "updated_at"]
+  VALIDATABLE_ATTRS = Budget.attribute_names.reject{|attr| NON_VALIDATABLE_ATTRS.include?(attr)}
+
   validates_presence_of :client
-  
-	belongs_to :client
+  validates_numericality_of VALIDATABLE_ATTRS
+  validates :gross_wages, presence: true, on: :update
 
+	belongs_to :client 
 
-  def column_count
-    Budget.columns.size - 3
+  def debt_income_ratio
+    return 0 if total_monthly_debt.zero? || gross_monthly_income.zero?
+    total_monthly_debt / gross_monthly_income
   end
 
-	def filled_columns
-    filled_count = 0
-    attributes.each do |k, v|
-      if v != nil
-        filled_count+=1
-      end
-    end
-    filled_count - 3
-    # Subtracting 3 from the filled_count variable to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
+  def gross_monthly_income
+    [gross_wages, self_employment_income, overtime, unemployment, tips_commissions_bonus, nontaxable_social_security, taxable_social_security, rental_income, other_income].map(&:to_f).inject(:+) 
   end
 
+  def total_monthly_debt
+    [principal_and_interest, prop_tax, assoc_fees, junior_mortgage, min_credit_card_payment, student_loan, gas, electricity, water, phone, other_utilities, food, gas_car_maintenance, child_care, medical_expenses, rent, rental_insurance].map(&:to_f).inject(:+) 
+  end
 
-
+  def edited?
+    created_at < updated_at
+  end
 
 end

@@ -1,34 +1,30 @@
+
 class Foreclosure < ActiveRecord::Base
-	validates_uniqueness_of :client_id
-	validates_presence_of :client
+  validates_uniqueness_of :client_id
+  validates_presence_of :client
 
+  validates :originating_lender, :original_loan_number, :servicer, :servicer_loan_number, :monthly_mortgage_payment, :loan_term, presence: true
 
-	has_many :program_employees, as: :programable
-	belongs_to :client
+  validates :been_to_court, :inclusion => {:in => [true, false]}
+  validates :working_with_lawyer, :inclusion => {:in => [true, false]}
+  validates :working_w_agency, :inclusion => {:in => [true, false]}
+  validates_date :origination_date, :on_or_before => lambda { Date.current }
+  validates :monthly_mortgage_payment, numericality: {less_than_or_equal_to: 999999}
 
+  validates_presence_of :court_case_number, :if => :been_to_court?
 
-	def counselor?
-		if program_employees[0].user.blank?
-			"Not yet assigned."
-		else 
-			program_employees[0].user
-		end
-	end
+  belongs_to :client
 
-	def column_count
-		attributes.length - 3
-		# Subtracting 3 from the column count to account for the columns id, updated at, and created at, which were filled automatically and not by the client.
-
-	end
-
-	def filled_columns
-    filled_count = 0
-    attributes.each do |k, v|
-      if v != nil
-        filled_count+=1
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |foreclosure|
+        csv << foreclosure.attributes.values_at(*column_names)
       end
     end
-    filled_count - 3
   end
-	
+
+  def pretty_time
+    created_at.strftime("%A, %b %d")
+  end
 end

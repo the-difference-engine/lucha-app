@@ -1,0 +1,238 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery-ui
+ *= require_self
+ */
+
+
+@import "external";
+
+// table adjustments
+
+* {
+  border-radius: 0px;
+}
+.row.phone-number--row,
+.row.client-location--row,
+.row.city-state--row {
+  margin-bottom: 0px;
+}
+
+.panel.panel-primary{
+  border-radius: 0px;
+}
+.panel-heading {
+  border-radius: 0px;
+  
+}
+.panel-success {
+  border-radius: 0px;
+  border-color: lightblue;
+}
+.panel-success > .panel-heading {
+  color: white;
+  background-color: $brand-primary;
+  border-color: lightblue;
+  border-radius: 0px;
+}
+
+.submitted-applications {
+  .btn.btn-success.btn-sm {
+    margin: 1px 0;
+  }
+}
+
+.col-md-8 {
+  input.btn.btn-sm.btn-success {
+    width: 25%;
+  }
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #EFECEC;
+}
+
+.content {
+    background: #FDFDFD;
+    border-radius: 0px;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+.devise
+.form-horizontal
+.form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.status-table{
+  .incomplete-step {
+    background-color: $gray-lighter;
+    color: $gray-light;
+    &:disabled {
+    }
+  }
+  .completed-step {
+    td {
+      color: black;
+    }
+    .btn-primary {
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+    .glyphicon {
+      color: $brand-accent;
+      font-size: 20px;
+    }
+  }
+  .active-step {
+    font-size: 1.75rem;
+    color: $brand-primary;
+
+  }
+
+}
+
+.devise {
+  margin: auto;
+  max-width: 500px;
+  padding-top: 30px;
+}
+.devise
+.sign-in-footer {
+  padding-bottom: 30px;
+}
+
+ h2 {
+  font-weight: 400;
+ }
+
+ h3 {
+  font-weight: 300;
+
+ }
+
+.btn {
+  width: 100%;
+  border-radius: 0px;
+}
+
+.btn-danger, .btn-warning {
+  margin: 5px 0px;
+}
+
+.btn-default-lg {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-group-wrap {
+    text-align: center;
+}
+
+.btn-group {
+    margin:center;
+    text-align: center;
+    width: inherit;
+    display: inline-block;
+}
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px;
+  color:#ccc;
+}
+
+.user-assign {
+  .btn {
+    margin-top: 0;
+  }
+  .col-md-4 {
+    margin: 0% 0;
+  }
+}
+
+.client-status {
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+.user-index {
+  .sm-col {
+    width: 50px;
+  }
+  .md-col {
+    width: 152px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .row {
+    margin-bottom: 0;
+  }
+  input {
+    margin: 0;
+  }
+  .col-md-5 {
+    .btn {
+      max-width: 75px;
+    }
+  }
+}
+
+.checkbox-label {
+  padding-left:7px;;
+}
+
+#other-input {
+  display: none;
+}
+
+.user-profile {
+  .row {
+    margin-bottom: 0;
+  }
+  .well {
+    overflow: hidden;
+  }
+}
+.admin-toggle{
+  .btn {
+    width: auto;
+  }
+}
+.btn-true {
+    background-color: $brand-danger;
+}
+.btn-false {
+    background-color: green;
+}

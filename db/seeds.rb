@@ -57,7 +57,7 @@ Budget.create!(
 	self_employment_income: rand(100..900),
 	overtime: rand(100..900),
 	unemployment: rand(100..900),
-	tips_commisions_bonus: rand(100..900),
+	tips_commissions_bonus: rand(100..900),
 	nontaxable_social_security: rand(100..900),
 	taxable_social_security: rand(100..900),
 	rental_income: rand(100..900),

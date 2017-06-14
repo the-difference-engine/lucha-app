@@ -1,2 +1,156 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<h1> <%= I18n.t "employee_show.clients_assigned_to" %><%=@user.full_name.titleize %> </h1>
+<hr>
+
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" placeholder=<%= I18n.t "employee_show.search_on_this_page" %>>
+</div>
+<span class="counter pull-right"></span>
+<table class="table table-hover results user-index">
+  <thead>
+    <th><%= I18n.t "employee_show.name" %></th>
+    <th><%= I18n.t "employee_show.email" %></th>
+    <th><%= I18n.t "employee_show.phone" %></th>
+    <th><%= I18n.t "employee_show.preferred_language" %></th>
+    <th><%= I18n.t "employee_show.submitted_applications" %></th>
+    <th><%= I18n.t "employee_show.unassign" %></th>
+    <tr class="warning no-result">
+        <td colspan="6"><i class="fa fa-warning"></i> <%= I18n.t "employee_show.no_results" %> </td>
+    </tr>
+  </thead>
+
+
+  <% @clients.each do |client| %>
+    <tbody>
+      <tr>
+        <td><%= link_to(client.full_name.titleize, client_path(client.id)) %></td>
+        <td><%= client.email %></td>
+        <td class="md-col">
+          <% if client.home_phone && client.home_phone != "" %>
+            <p><%= I18n.t "employee_registered_clients.home" %> <%= number_to_phone(client.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+          <% end %>
+          <% if client.work_phone && client.work_phone != "" %>
+            <p><%= I18n.t "employee_registered_clients.work" %><%= number_to_phone(client.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+          <% end %>
+          <% if client.cell_phone && client.cell_phone != "" %>
+            <p><%= I18n.t "employee_registered_clients.cell" %><%= number_to_phone(client.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></p>
+          <% end %>         
+        </td> 
+        <td><%= client.preferred_language %></td>
+        <td><%= client.client_types.to_sentence %></td>
+        <td>
+          <%= button_to('Unassign', "/clients/#{client.id}/unassign", method: "patch", :class => "btn btn-xs btn-danger") %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+<% if @clients.length == 0 %>
+  <h4 class="text-center text-danger"> <%= I18n.t "employee_show.no_assigned_clients" %>  </h4>
+<% end %>
+
+<hr>
+<h1> <%= I18n.t "employee_show.information_for" %> <%=@user.full_name.titleize %> </h1>
+<hr>
+
+<div class="panel panel-success user-profile">
+
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= I18n.t "employee_show.details" %></h3>
+  </div>
+
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.email" %></span>
+          <span class="pull-right">
+            <strong><%= @user.email %></strong>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.first_name" %></span>
+          <span class="pull-right">
+            <strong><%= @user.first_name %></strong>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.last_name" %></span>
+          <span class="pull-right">
+            <strong><%= @user.last_name %></strong>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.work_phone" %></span>
+          <span class="pull-right">
+            <strong><%= number_to_phone(@user.work_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.cell_phone" %></span>
+          <span class="pull-right">
+            <strong><%= number_to_phone(@user.cell_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.home_phone" %></span>
+          <span class="pull-right">
+            <strong><%= number_to_phone(@user.home_phone, pattern: /(\d{1,4})(\d{4})(\d{4})$/, area_code: true) %></strong>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.position" %></span>
+          <span class="pull-right">
+            <strong><%= @user.position %></strong>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.location" %>
+          <span class="pull-right">
+            <strong><%= @user.address%></strong>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="well well-sm">
+          <span><%= I18n.t "employee_show.last_sign_in" %></span>
+          <span class="pull-right">
+            <strong><%= @user.pretty_last_sign_in_at %></strong>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <%= link_to I18n.t("employee_show.edit_information"), "/users/#{@user.id}/edit", :class => "btn btn-warning", method: :get %>
+
+  </div> 
+</div>
+<hr>
+<p>
+  <%= I18n.t "employee_show.download" %>
+  <%= link_to "CSV", user_path(id: @user.id, format: "csv") %> |
+  <%= link_to "Excel", user_path(id: @user.id, format: "xls") %>
+  </div>
+</p>
